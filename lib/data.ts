@@ -7,7 +7,7 @@ export const navLeft = [
 ];
 
 // Right navigation capsule — About (quiet) + Start a Project (primary CTA)
-export const navRight = [{ label: "About", href: "#about" }];
+export const navRight = [{ label: "About", href: "/about" }];
 
 export const navCta = { label: "Start a Project", href: "#contact" };
 
@@ -17,7 +17,7 @@ export const navMobile = [
   { label: "Services", href: "#services" },
   { label: "Industries", href: "#industries" },
   { label: "Case Studies", href: "#why-us" },
-  { label: "About", href: "#about" },
+  { label: "About", href: "/about" },
   { label: "Our Team", href: "#team" },
 ];
 
