@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import MaterialHeading from "@/components/MaterialHeading";
 import LiquidHeading from "@/components/LiquidHeading";
 import Hero from "@/components/Hero";
+import StarfieldBanner from "@/components/StarfieldBanner";
 import About from "@/components/About";
 import AIShowcase from "@/components/AIShowcase";
 import TechPicker from "@/components/TechPicker";
@@ -23,6 +24,7 @@ export default function Home() {
         <MaterialHeading />
         <LiquidHeading />
         <Hero />
+        <StarfieldBanner />
         <About />
         <AIShowcase />
         <TechPicker />
