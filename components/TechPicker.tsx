@@ -76,11 +76,11 @@ export default function TechPicker() {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div ref={wrapRef} className="flex justify-center">
+          <div ref={wrapRef} className="tp-stage">
             <div className="tp-circle">
               <button
                 type="button"
-                className={`tp-center-btn ${open ? "is-open" : ""}`}
+                className={`tp-center-btn tp-emoji-font ${open ? "is-open" : ""}`}
                 onClick={() => setOpen((v) => !v)}
                 aria-expanded={open}
                 aria-label="Browse technologies"
@@ -97,7 +97,7 @@ export default function TechPicker() {
                     <button
                       key={emoji}
                       type="button"
-                      className={`tp-option ${idx === activeIdx ? "is-selected" : ""}`}
+                      className={`tp-option tp-emoji-font ${idx === activeIdx ? "is-selected" : ""}`}
                       style={{
                         transform: `translate(${x}px, ${y}px) scale(${open ? 1 : 0.4})`,
                         opacity: open ? 1 : 0,
