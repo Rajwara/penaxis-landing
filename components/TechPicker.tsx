@@ -1,21 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Reveal from "./Reveal";
 
-// Circular radial <select> built on very new CSS APIs: appearance:
-// base-select, ::picker(select), CSS anchor positioning, and
-// sibling-count()/sibling-index(). As of this build these only work in
-// recent Chromium (138+) — Safari and Firefox don't support them yet.
-// Because the interactive part is a real <select>/<option> underneath,
-// browsers without support just render it as an ordinary native
-// dropdown — functional, just not the circular/animated version.
-//
-// Ported from a shared CodePen-style demo. The original's personal
-// footer (its author's social links, browser-support badge) is not
-// part of the reusable widget and isn't included here. Emoji set
-// swapped from animals to technology; colors mapped to the Penaxis
-// palette instead of the original's cyan accent.
+// Circular radial menu — rebuilt with plain React state and standard
+// CSS transforms/transitions after the experimental CSS version
+// (appearance:base-select, ::picker(), anchor positioning,
+// sibling-count()) turned out to render inconsistently even in recent
+// Chromium. This version works identically in every modern browser.
 
 const TECH_EMOJIS = [
   "💻",
@@ -32,57 +24,34 @@ const TECH_EMOJIS = [
   "🧠",
 ];
 const DEFAULT_INDEX = 0; // 💻 — a generic "technology" default
+const RADIUS = 90; // px, distance of each option from center
 
 export default function TechPicker() {
-  const selectRef = useRef<HTMLSelectElement>(null);
+  const [open, setOpen] = useState(false);
+  const [activeIdx, setActiveIdx] = useState(DEFAULT_INDEX);
+  const wrapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const s = selectRef.current;
-    if (!s) return;
-
-    const n = s.length;
-    const d = 360 / n;
-    let i = s.selectedIndex;
-    let o = s.selectedOptions[0]?.getAttribute("data-emoji") || "";
-    let r = -i * d;
-    let h = 0;
-
-    const delta = (a: number, b: number) => (((a - b + 180) % 360) + 360) % 360 - 180;
-
-    const set = (k: number = i) => {
-      const t = r + k * d;
-      h += delta(t, h);
-      s.style.setProperty("--tp-active", `"${o}"`);
-      s.style.setProperty("--tp-rotation", `${r}deg`);
-      s.style.setProperty("--tp-hover-angle", `${h}deg`);
-    };
-
-    const onMouseOver = (e: Event) => {
-      const target = e.target as HTMLElement;
-      if (target.matches?.("option")) {
-        set((target as HTMLOptionElement).index);
+    const onDocClick = (e: MouseEvent) => {
+      if (wrapRef.current && !wrapRef.current.contains(e.target as Node)) {
+        setOpen(false);
       }
     };
-    const onMouseLeave = () => set();
-    const onChange = () => {
-      const j = s.selectedIndex;
-      r -= (((j - i + n / 2) % n) + n) % n * d - (n / 2) * d;
-      i = j;
-      o = s.selectedOptions[0]?.getAttribute("data-emoji") || "";
-      set();
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
     };
-
-    s.addEventListener("mouseover", onMouseOver);
-    s.addEventListener("mouseleave", onMouseLeave);
-    s.addEventListener("change", onChange);
-    set();
-
+    document.addEventListener("click", onDocClick);
+    document.addEventListener("keydown", onKeyDown);
     return () => {
-      s.removeEventListener("mouseover", onMouseOver);
-      s.removeEventListener("mouseleave", onMouseLeave);
-      s.removeEventListener("change", onChange);
+      document.removeEventListener("click", onDocClick);
+      document.removeEventListener("keydown", onKeyDown);
     };
   }, []);
+
+  const selectOption = (idx: number) => {
+    setActiveIdx(idx);
+    setOpen(false);
+  };
 
   return (
     <section className="relative py-28 md:py-36 bg-ink text-white overflow-hidden">
@@ -100,26 +69,52 @@ export default function TechPicker() {
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="text-white/55 max-w-lg mx-auto mb-12">
-            Click the circle to spin through the technology behind Penaxis
-            builds — AI, cloud, security, data, and everything in between.
+          <p className="text-white/55 max-w-lg mx-auto mb-16">
+            Click the circle to browse the technology behind Penaxis builds —
+            AI, cloud, security, data, and everything in between.
           </p>
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div className="tech-picker-wrap flex justify-center">
-            <select ref={selectRef} tabIndex={0} aria-label="Select a technology">
-              {TECH_EMOJIS.map((emoji, idx) => (
-                <option key={emoji} data-emoji={emoji} selected={idx === DEFAULT_INDEX} />
-              ))}
-            </select>
+          <div ref={wrapRef} className="flex justify-center">
+            <div className="tp-circle">
+              <button
+                type="button"
+                className={`tp-center-btn ${open ? "is-open" : ""}`}
+                onClick={() => setOpen((v) => !v)}
+                aria-expanded={open}
+                aria-label="Browse technologies"
+              >
+                {TECH_EMOJIS[activeIdx]}
+              </button>
+
+              <div className="tp-ring" aria-hidden={!open}>
+                {TECH_EMOJIS.map((emoji, idx) => {
+                  const angle = (idx / TECH_EMOJIS.length) * 2 * Math.PI - Math.PI / 2;
+                  const x = open ? Math.cos(angle) * RADIUS : 0;
+                  const y = open ? Math.sin(angle) * RADIUS : 0;
+                  return (
+                    <button
+                      key={emoji}
+                      type="button"
+                      className={`tp-option ${idx === activeIdx ? "is-selected" : ""}`}
+                      style={{
+                        transform: `translate(${x}px, ${y}px) scale(${open ? 1 : 0.4})`,
+                        opacity: open ? 1 : 0,
+                        transitionDelay: open ? `${idx * 20}ms` : "0ms",
+                      }}
+                      onClick={() => selectOption(idx)}
+                      tabIndex={open ? 0 : -1}
+                      aria-label={`Select technology ${idx + 1}`}
+                    >
+                      {emoji}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </Reveal>
-
-        <p className="mt-10 text-xs text-white/30 eyebrow">
-          Best experienced in a recent Chromium browser — falls back to a
-          plain dropdown elsewhere.
-        </p>
       </div>
     </section>
   );

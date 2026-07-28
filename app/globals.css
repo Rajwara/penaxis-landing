@@ -999,241 +999,89 @@ button:focus-visible {
   .sv-reveal { opacity: 1; translate: 0 0; transition: none; }
 }
 
+
 /* ============================================================
-   TechPicker — circular radial <select> built on cutting-edge CSS
-   (appearance: base-select, ::picker(select), anchor positioning,
-   sibling-count()/sibling-index()). Chromium 138+ only; degrades to
-   an ordinary native <select> dropdown elsewhere since it's still a
-   real <select> underneath. Recolored to brand palette; tech emojis
-   instead of animals; original demo's personal footer branding
-   dropped entirely.
+   TechPicker — circular radial menu. Rebuilt with plain React state
+   and standard CSS transforms (no experimental appearance:base-select
+   / ::picker() / anchor positioning / sibling-count() — those turned
+   out to render inconsistently even in recent Chromium). This version
+   renders identically across every modern browser.
    ============================================================ */
 
-@property --tp-rotation {
-  syntax: "<angle>";
-  inherits: true;
-  initial-value: 0deg;
-}
-@property --tp-rotation2 {
-  syntax: "<angle>";
-  inherits: true;
-  initial-value: 0deg;
-}
-@property --tp-active {
-  syntax: "<string>";
-  inherits: true;
-  initial-value: "\1F4BB";
-}
-
-.tech-picker-wrap select,
-.tech-picker-wrap ::picker(select) {
-  appearance: base-select;
-}
-.tech-picker-wrap ::picker(select)::backdrop {
-  display: none;
-}
-
-.tech-picker-wrap select {
-  --size: 9rem;
-  --gap: 1rem;
-  --padding: 1rem;
-  --outline-w: 5.5rem;
-  --option-fs: 2.1rem;
-  --option-w: calc(var(--outline-w) - calc(var(--padding) * 2));
-  --radius: calc(var(--size) / 2 + var(--gap) + var(--outline-w) + 1rem);
-  --size-out: calc(var(--size) / 2 + var(--gap) + var(--padding));
-  --bounce: linear(0, 0.0464, 0.0915, 0.1353, 0.1779, 0.2193, 0.2595, 0.2986, 0.3364, 0.3731, 0.4087, 0.4432, 0.4765, 0.5088, 0.54, 0.5701, 0.5992, 0.6273, 0.6544, 0.6805, 0.7056, 0.7298, 0.753, 0.7753, 0.7967, 0.8172, 0.8368, 0.8556, 0.8735, 0.8906, 0.9069, 0.9224, 0.9371, 0.9511, 0.9643, 0.9768, 0.9885, 0.9996, 1.01, 1.0197, 1.0288, 1.0372, 1.0451, 1.0523, 1.059, 1.065, 1.0706, 1.0756, 1.08, 1.084, 1.0875, 1.0905, 1.0931, 1.0952, 1.0969, 1.0982, 1.0991, 1.0997, 1.0998, 1.0997, 1.0992, 1.0984, 1.0973, 1.096, 1.0943, 1.0925, 1.0904, 1.0881, 1.0856, 1.0829, 1.0801, 1.0771, 1.074, 1.0708, 1.0675, 1.0641, 1.0606, 1.0571, 1.0535, 1.05, 1.0464, 1.0429, 1.0393, 1.0359, 1.0325, 1.0291, 1.0259, 1.0228, 1.0198, 1.017, 1.0143, 1.0118, 1.0095, 1.0074, 1.0055, 1.0039, 1.0025, 1.0015, 1.0007, 1.0002, 1);
-
-  anchor-name: --tech-select;
+.tp-circle {
   position: relative;
-  aspect-ratio: 1 / 1;
+  width: 9rem;
+  height: 9rem;
+}
+
+.tp-center-btn {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
   border-radius: 9999px;
+  border: 2px solid rgba(183, 143, 218, 0.35);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 0 1rem rgba(115, 79, 160, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
-  width: var(--size);
-  height: var(--size);
-  border: 2px solid rgba(183, 143, 218, 0.35);
-  box-shadow: 0 0 1rem rgba(115, 79, 160, 0.35);
-  outline: rgba(115, 79, 160, 0.5) solid 0;
-  outline-offset: var(--gap);
-  transition: 0.2s outline 0.4s ease, scale 0.4s var(--bounce), box-shadow 0.2s ease;
+  font-size: 3rem;
   cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
 }
-
-.tech-picker-wrap select:hover {
+.tp-center-btn:hover {
   box-shadow: 0 0 1.5rem rgba(214, 242, 60, 0.4);
-  background: none;
 }
-
-.tech-picker-wrap select::picker(select) {
-  background: none;
-  border: none;
-  z-index: 20;
-  overflow: visible;
-  height: var(--size);
-  width: var(--size);
-  position-anchor: --tech-select;
-  top: anchor(center);
-  left: anchor(center);
-  opacity: 0;
-  translate: 0 -50%;
-  animation: tp-rotation 0.05s ease forwards;
-  transition: overlay 0.5s ease, display 0.5s, opacity 0.5s ease;
-  transition-behavior: allow-discrete;
-}
-
-.tech-picker-wrap select::picker-icon {
-  display: none;
-}
-
-.tech-picker-wrap select:not(:open) {
-  color: rgba(255, 255, 255, 0.12);
-  font-size: 1rem;
-  white-space: nowrap;
-  animation: 0.4s tp-scale 0.6s ease forwards;
-}
-
-.tech-picker-wrap select:before {
-  content: var(--tp-active);
-  position: absolute;
-  font-size: 3.4rem;
-}
-
-.tech-picker-wrap select:open {
-  outline-width: var(--outline-w);
-  transition: outline 0.4s var(--bounce);
+.tp-center-btn.is-open {
+  border-color: rgba(214, 242, 60, 0.5);
   background: rgba(255, 255, 255, 0.08);
-  box-shadow: none;
-}
-.tech-picker-wrap select:open option {
-  opacity: 1;
-  scale: 1;
-}
-.tech-picker-wrap select:open option {
-  @starting-style {
-    scale: 0.25;
-  }
-}
-.tech-picker-wrap select:open::picker(select) {
-  opacity: 1;
-  --tp-rotation2: calc(var(--tp-rotation) - 10deg);
-}
-.tech-picker-wrap select:open::picker(select) {
-  @starting-style {
-    opacity: 0;
-    --tp-rotation2: var(--tp-rotation);
-  }
-}
-.tech-picker-wrap select:open:before {
-  color: rgba(255, 255, 255, 0.75);
-}
-.tech-picker-wrap select:open::after {
-  content: "\25B6";
-  margin-top: 9px;
-}
-.tech-picker-wrap select:has(option:hover):after {
-  rotate: var(--tp-hover-angle, 0deg);
 }
 
-.tech-picker-wrap option {
-  --count: sibling-count();
-  --idx: sibling-index();
-  --step: calc(360deg / var(--count));
-  --angle: calc((var(--idx) - 1) * var(--step));
-
-  clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
+.tp-ring {
   position: absolute;
-  top: 50%;
-  translate: 0 -50%;
-  opacity: 0;
-  padding-inline-end: var(--padding);
-  width: var(--option-w);
-  height: calc(2 * var(--radius) * tan(180deg / var(--count)));
-  white-space: normal;
-  font-size: var(--option-fs);
-  color: rgba(255, 255, 255, 0.55);
-  padding-inline-start: var(--size-out);
-
-  rotate: var(--tp-rotation2);
-  transform-origin: 0 50%;
-  transform: rotate(var(--angle));
-  transition: 0.4s transform 0.4s ease, 0.2s opacity 0.4s ease, rotate 0.4s ease,
-    padding-inline-start 0.4s ease, scale 0.4s var(--bounce);
-  cursor: pointer;
-}
-.tech-picker-wrap option::checkmark {
-  content: none;
-}
-.tech-picker-wrap option:active {
-  background: transparent;
-}
-.tech-picker-wrap option::after {
-  content: attr(data-emoji);
-  rotate: calc(-1 * (var(--angle) + var(--tp-rotation)));
-  transition: 0.4s rotate ease, 0.25s scale ease;
-}
-.tech-picker-wrap option::before {
-  content: "";
-  position: absolute;
-  width: calc(var(--outline-w) - calc(var(--padding) * 2));
-  height: 1px;
-  background: rgba(255, 255, 255, 0.14);
-  transform-origin: left center;
-  transform: translateX(calc(-1 * var(--size-out))) rotate(calc(var(--step) / 2))
-    translateX(var(--size-out));
-  transition: margin 0.4s ease, width 0.4s ease;
+  inset: 0;
+  z-index: 1;
   pointer-events: none;
 }
-.tech-picker-wrap option:hover {
-  --indent: 1rem;
-  background: transparent;
-  padding-inline-start: calc(var(--size-out) + var(--indent));
-}
-.tech-picker-wrap option:hover:not(:checked) {
-  color: white;
-}
-.tech-picker-wrap option:hover::before {
-  margin-inline-start: calc(-1 * var(--indent));
-  transition: margin-inline-start 0.4s ease, width 0.4s ease;
-}
-.tech-picker-wrap option:hover::after {
-  scale: 1.25;
-  filter: drop-shadow(1px 1px 0px #000) drop-shadow(-1px 1px 0px #000)
-    drop-shadow(1px -1px 0px #000) drop-shadow(-1px -1px 0px #000);
-}
-.tech-picker-wrap option:focus-visible {
-  outline: none;
-  text-decoration: underline wavy #d6f23c;
-  text-underline-offset: 0.25rem;
-}
 
-.tech-picker-wrap select:after {
-  z-index: 1;
-  color: white;
-  width: 100%;
+.tp-option {
   position: absolute;
-  text-align: right;
-  padding-inline: 1rem;
-  box-sizing: border-box;
-  font-size: 1rem;
-  transition: rotate 0.2s cubic-bezier(0.1, 0.7, 0.5, 1);
+  top: 50%;
+  left: 50%;
+  width: 3rem;
+  height: 3rem;
+  margin: -1.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  pointer-events: auto;
+  opacity: 0;
+  transform: translate(0, 0) scale(0.4);
+  transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.2), opacity 0.3s ease,
+    background 0.2s ease, border-color 0.2s ease;
 }
-
-@keyframes tp-scale {
-  0% { scale: 1; }
-  50% { scale: 0.8; font-size: 0.75rem; }
-  100% { scale: 1; font-size: 1rem; color: white; }
+.tp-option:hover {
+  background: rgba(214, 242, 60, 0.14);
+  border-color: rgba(214, 242, 60, 0.5);
 }
-@keyframes tp-rotation {
-  to { --tp-rotation2: var(--tp-rotation); }
+.tp-option:focus-visible {
+  outline: 2px solid #d6f23c;
+  outline-offset: 2px;
+}
+.tp-option.is-selected {
+  border-color: rgba(214, 242, 60, 0.6);
+  background: rgba(214, 242, 60, 0.12);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tech-picker-wrap select,
-  .tech-picker-wrap option {
+  .tp-option,
+  .tp-center-btn {
     transition: none !important;
-    animation: none !important;
   }
 }
