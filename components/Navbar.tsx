@@ -1,17 +1,31 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import Image from "next/image";
 import { navLeft, navRight, navCta, navMobile } from "@/lib/data";
+
+const LOGO_FULL_LIGHT = "/images/logo/penaxis-logo-purple.png"; // light nav surface
+const LOGO_FULL_DARK = "/images/logo/penaxis-logo-white.png"; // dark nav surface
+const LOGO_MARK = "/images/logo/penaxis-mark.png"; // compact/scrolled state
 
 const DARK_SECTION_SELECTOR = "[data-nav-theme='dark']";
 const SCROLL_COLLAPSE_THRESHOLD = 140;
 const NAV_REFERENCE_Y = 46; // approx vertical centre of the floating nav
 
-function LogoMark({ className = "" }: { className?: string }) {
+function LogoMark({ size = 22 }: { size?: number }) {
   return (
-    <span className={`relative inline-flex items-center justify-center ${className}`}>
-      <span className="font-display font-bold leading-none">x</span>
-      <span className="absolute -top-[3px] left-1/2 -translate-x-1/2 w-[5px] h-[5px] rounded-full bg-ember-500" />
+    <span
+      className="relative inline-flex items-center justify-center rounded-full bg-paper shrink-0"
+      style={{ width: size + 12, height: size + 12 }}
+    >
+      <Image
+        src={LOGO_MARK}
+        alt="Penaxis"
+        width={size}
+        height={size}
+        style={{ width: size, height: "auto" }}
+        priority
+      />
     </span>
   );
 }
@@ -115,12 +129,33 @@ export default function Navbar() {
             type="button"
             onClick={scrollToTop}
             aria-label="Back to top"
-            className={`pointer-events-auto group flex items-center justify-center rounded-full border backdrop-blur-md transition-all duration-500 ease-out overflow-hidden ${capsuleSurface} ${
-              scrolled ? "w-14 h-14 px-0" : "w-auto h-14 px-6"
+            className={`pointer-events-auto relative flex items-center justify-center rounded-full border backdrop-blur-md transition-all duration-500 ease-out overflow-hidden ${capsuleSurface} ${
+              scrolled ? "w-14 h-14" : "w-[168px] h-14"
             }`}
           >
-            <span className="relative flex items-center justify-center shrink-0 w-8 h-8">
-              {scrolled && (
+            {/* Expanded: full logo lockup */}
+            <span
+              className={`absolute inset-0 flex items-center justify-center px-6 transition-opacity duration-300 ${
+                scrolled ? "opacity-0" : "opacity-100"
+              }`}
+            >
+              <Image
+                src={isDark ? LOGO_FULL_DARK : LOGO_FULL_LIGHT}
+                alt="Penaxis"
+                width={140}
+                height={40}
+                style={{ height: 24, width: "auto" }}
+                priority
+              />
+            </span>
+
+            {/* Collapsed: mark + scroll-progress ring */}
+            <span
+              className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
+                scrolled ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <span className="relative flex items-center justify-center w-9 h-9">
                 <svg
                   viewBox="0 0 44 44"
                   className="absolute inset-0 w-full h-full -rotate-90"
@@ -148,16 +183,7 @@ export default function Navbar() {
                     style={{ transition: "stroke-dashoffset 120ms linear" }}
                   />
                 </svg>
-              )}
-              <LogoMark className="text-xl relative z-10" />
-            </span>
-            <span
-              className={`overflow-hidden whitespace-nowrap transition-all duration-500 ease-out ${
-                scrolled ? "max-w-0 opacity-0 ml-0" : "max-w-[140px] opacity-100 ml-2"
-              }`}
-            >
-              <span className="font-display font-semibold text-base tracking-tight">
-                enaxis
+                <LogoMark size={20} />
               </span>
             </span>
           </button>
@@ -212,7 +238,7 @@ export default function Navbar() {
                   />
                 </svg>
               )}
-              <LogoMark className="text-lg" />
+              <LogoMark size={18} />
             </span>
           </button>
 
@@ -238,7 +264,7 @@ export default function Navbar() {
         }`}
       >
         <div className="flex items-center justify-between px-6 pt-6">
-          <LogoMark className="text-xl" />
+          <Image src={LOGO_FULL_DARK} alt="Penaxis" width={130} height={36} style={{ height: 26, width: "auto" }} />
           <button
             type="button"
             onClick={() => setMobileOpen(false)}

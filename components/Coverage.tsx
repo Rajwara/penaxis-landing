@@ -102,7 +102,7 @@ export default function Coverage() {
               <path
                 d={pathD}
                 fill="none"
-                stroke="#6339E0"
+                stroke="#734FA0"
                 strokeWidth="0.25"
                 strokeDasharray="1000"
                 className="geo-path"
