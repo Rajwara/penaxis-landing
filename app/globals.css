@@ -787,7 +787,7 @@ button:focus-visible {
 }
 
 .sv-cube {
-  --s: min(72vw, 72vh, 620px);
+  --s: min(58vw, 58vh, 420px);
   width: var(--s);
   height: var(--s);
   position: relative;
