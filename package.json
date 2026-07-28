@@ -9,23 +9,25 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource-variable/space-grotesk": "5.0.20",
+    "@fontsource/ibm-plex-mono": "5.0.15",
+    "@fontsource/inter": "5.0.18",
+    "gsap": "3.12.5",
+    "lucide-react": "^1.27.0",
     "next": "14.2.35",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "three": "0.164.1",
-    "gsap": "3.12.5",
-    "@fontsource-variable/space-grotesk": "5.0.20",
-    "@fontsource/inter": "5.0.18",
-    "@fontsource/ibm-plex-mono": "5.0.15"
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
-    "autoprefixer": "10.4.19",
-    "postcss": "8.4.38",
-    "tailwindcss": "3.4.4",
-    "typescript": "5.5.3",
     "@types/node": "20.14.9",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
-    "@types/three": "0.164.1"
+    "@types/three": "0.164.1",
+    "autoprefixer": "10.4.19",
+    "postcss": "8.4.38",
+    "tailwindcss": "3.4.4",
+    "typescript": "5.5.3"
   }
 }
