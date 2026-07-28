@@ -4,6 +4,7 @@ import LiquidHeading from "@/components/LiquidHeading";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import AIShowcase from "@/components/AIShowcase";
+import TechPicker from "@/components/TechPicker";
 import Coverage from "@/components/Coverage";
 import Services from "@/components/Services";
 import Industries from "@/components/Industries";
@@ -24,6 +25,7 @@ export default function Home() {
         <Hero />
         <About />
         <AIShowcase />
+        <TechPicker />
         <Coverage />
         <Services />
         <Industries />
