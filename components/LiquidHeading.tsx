@@ -2,29 +2,32 @@
 
 import { useEffect, useRef } from "react";
 
-// New standalone banner: same bold poster-scale headline treatment as
-// MaterialHeading, but the "material" here is a moving liquid-chrome
-// reveal instead of a displacement warp. A solid black base headline
-// sits underneath; a second identical headline is masked to a soft
-// circle that drifts on its own and follows the cursor on hover, and
-// is filled with a shifting metallic gradient rather than flat ink.
+// New standalone banner, sits right after MaterialHeading.
+// Technique: a solid black headline acts as a stencil. An original
+// abstract material video sits on top with mix-blend-mode: screen —
+// against the white page, screen-blending makes the video invisible
+// everywhere except where the text is black, so the video only ever
+// "shows through" inside the letterforms. A radial mask further
+// restricts that to a soft circle that drifts on its own and follows
+// the cursor on hover/touch, so the material only appears to "reveal"
+// wherever the pointer moves across the words.
 
 export default function LiquidHeading() {
-  const chromeRef = useRef<HTMLHeadingElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const rafRef = useRef(0);
   const state = useRef({
     x: 0.5,
     y: 0.42,
     tx: 0.5,
     ty: 0.42,
-    r: 26,
-    tr: 26,
+    r: 22,
+    tr: 22,
     hovering: false,
   });
   const t = useRef(0);
 
   useEffect(() => {
-    const el = chromeRef.current;
+    const el = videoRef.current;
     if (!el) return;
 
     const prefersReduced = window.matchMedia(
@@ -37,10 +40,10 @@ export default function LiquidHeading() {
       const s = state.current;
 
       if (!s.hovering) {
-        // Slow autonomous drift so the effect feels alive even before interaction
+        // Slow autonomous drift so the reveal feels alive before any interaction
         s.tx = 0.5 + Math.sin(t.current * 0.35) * 0.3;
         s.ty = 0.45 + Math.sin(t.current * 0.5) * 0.2 + Math.cos(t.current * 0.22) * 0.05;
-        s.tr = 24;
+        s.tr = 22;
       }
 
       s.x += (s.tx - s.x) * 0.07;
@@ -62,7 +65,7 @@ export default function LiquidHeading() {
     const s = state.current;
     s.tx = (e.clientX - rect.left) / rect.width;
     s.ty = (e.clientY - rect.top) / rect.height;
-    s.tr = 40;
+    s.tr = 38;
   };
 
   const handleTouch = (e: React.TouchEvent<HTMLDivElement>) => {
@@ -72,7 +75,7 @@ export default function LiquidHeading() {
     const s = state.current;
     s.tx = (touch.clientX - rect.left) / rect.width;
     s.ty = (touch.clientY - rect.top) / rect.height;
-    s.tr = 40;
+    s.tr = 38;
     s.hovering = true;
   };
 
@@ -90,20 +93,26 @@ export default function LiquidHeading() {
         onTouchMove={handleTouch}
         onTouchEnd={() => (state.current.hovering = false)}
       >
+        {/* Base stencil — always visible, this is the real accessible headline */}
         <h2 className="font-display font-black uppercase leading-[0.92] text-ink text-[15vw] md:text-[9.5vw] lg:text-[8.2rem] tracking-tight text-center px-6">
           Growth,
           <br />
           Engineered.
         </h2>
-        <h2
-          ref={chromeRef}
+
+        {/* Material video — screen-blended, only reads through the black glyphs,
+            and only within the moving circular mask */}
+        <video
+          ref={videoRef}
           aria-hidden="true"
-          className="liquid-chrome pointer-events-none absolute inset-0 font-display font-black uppercase leading-[0.92] text-[15vw] md:text-[9.5vw] lg:text-[8.2rem] tracking-tight text-center px-6"
-        >
-          Growth,
-          <br />
-          Engineered.
-        </h2>
+          tabIndex={-1}
+          className="video-reveal-mask pointer-events-none absolute inset-0 w-full h-full object-cover mix-blend-screen"
+          src="/videos/liquid-material.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
       </div>
     </section>
   );

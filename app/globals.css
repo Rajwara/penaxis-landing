@@ -125,55 +125,29 @@ button:focus-visible {
   border-radius: 4px;
 }
 
-/* Liquid chrome banner — overlay text masked to a moving reveal circle,
-   filled with two layered flowing gradients that simulate brushed/liquid
-   chrome (sharp light/dark bands + a slower diagonal sheen), since we
-   can't license a third-party video asset for the material itself. */
-.liquid-chrome {
-  background-image:
-    repeating-linear-gradient(
-      98deg,
-      #050505 0%,
-      #050505 4%,
-      #f7f7f7 6%,
-      #1a1a1a 9%,
-      #ffffff 12%,
-      #0a0a0a 16%,
-      #e6e6e6 19%,
-      #030303 24%
-    ),
-    linear-gradient(135deg, #020202 0%, #e8e8e8 22%, #060606 45%, #f5f5f5 68%, #010101 100%);
-  background-size: 320% 320%, 260% 260%;
-  background-position: 0% 50%, 100% 30%;
-  animation: chromeFlow 9s linear infinite;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+/* Liquid video-reveal banner — an original abstract material video sits
+   behind the black headline with mix-blend-mode: screen. Screen-blending
+   against a black-on-white page means the video is invisible everywhere
+   except where the text glyphs are black, and a radial mask restricts
+   that further to a soft circle that follows the cursor (or drifts on
+   its own when idle). */
+.video-reveal-mask {
   -webkit-mask-image: radial-gradient(
     circle at var(--mx, 50%) var(--my, 50%),
     black 0%,
     black var(--mr, 24%),
-    transparent calc(var(--mr, 24%) + 16%)
+    transparent calc(var(--mr, 24%) + 20%)
   );
   mask-image: radial-gradient(
     circle at var(--mx, 50%) var(--my, 50%),
     black 0%,
     black var(--mr, 24%),
-    transparent calc(var(--mr, 24%) + 16%)
+    transparent calc(var(--mr, 24%) + 20%)
   );
 }
 
-@keyframes chromeFlow {
-  0% { background-position: 0% 50%, 100% 30%; }
-  50% { background-position: 100% 50%, 0% 70%; }
-  100% { background-position: 0% 50%, 100% 30%; }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .liquid-chrome {
-    animation: none;
-    -webkit-mask-image: radial-gradient(circle at 50% 50%, black 0%, black 30%, transparent 50%);
-    mask-image: radial-gradient(circle at 50% 50%, black 0%, black 30%, transparent 50%);
+  .video-reveal-mask {
+    display: none;
   }
 }
