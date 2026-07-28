@@ -8,6 +8,7 @@ export default function CTA() {
   return (
     <section
       id="contact"
+      data-nav-theme="dark"
       className="relative py-28 md:py-32 bg-ink text-white overflow-hidden"
     >
       <div className="pointer-events-none absolute inset-0 -z-0">

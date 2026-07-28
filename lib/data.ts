@@ -1,8 +1,23 @@
-export const nav = [
-  { label: "About us", href: "#about" },
+// Left navigation capsule — primary destinations
+export const navLeft = [
   { label: "Services", href: "#services" },
   { label: "Industries", href: "#industries" },
-  { label: "Why Choose Us", href: "#why-us" },
+  // No dedicated case-studies page yet — placeholder destination until one exists
+  { label: "Case Studies", href: "#why-us" },
+];
+
+// Right navigation capsule — About (quiet) + Start a Project (primary CTA)
+export const navRight = [{ label: "About", href: "#about" }];
+
+export const navCta = { label: "Start a Project", href: "#contact" };
+
+// Kept for mobile full-screen menu — same destinations plus Team,
+// per the spec's note that Team/Insights/Careers stay out of primary desktop nav for now
+export const navMobile = [
+  { label: "Services", href: "#services" },
+  { label: "Industries", href: "#industries" },
+  { label: "Case Studies", href: "#why-us" },
+  { label: "About", href: "#about" },
   { label: "Our Team", href: "#team" },
 ];
 

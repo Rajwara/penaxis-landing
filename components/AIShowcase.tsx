@@ -8,7 +8,7 @@ const ParticleX = dynamic(() => import("./ParticleX"), { ssr: false });
 
 export default function AIShowcase() {
   return (
-    <section className="relative py-32 md:py-44 bg-ink overflow-hidden">
+    <section data-nav-theme="dark" className="relative py-32 md:py-44 bg-ink overflow-hidden">
       <div className="absolute inset-0">
         <ParticleX />
       </div>
