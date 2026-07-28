@@ -53,6 +53,8 @@ const ICONS = {
   ),
 };
 
+const SCENE_BG = ["intro", "s1", "s2", "s3", "s4", "outro"];
+
 const STOPS = [
   { rx: 90, ry: 0 },
   { rx: 0, ry: 0 },
@@ -167,11 +169,11 @@ export default function ServicesCube() {
 
     let tgt = 0;
     let smooth = 0;
-    let velocity = 0;
     let rafId = 0;
     let lastNow = performance.now();
     let anchorAnim = 0;
     let isAnchorScrolling = false;
+    let currentIdx = 0;
 
     const stopAnchorAnim = () => {
       if (anchorAnim) cancelAnimationFrame(anchorAnim);
@@ -194,27 +196,12 @@ export default function ServicesCube() {
     const onScroll = () => {
       tgt = maxScroll > 0 ? scrollY / maxScroll : 0;
       tgt = Math.max(0, Math.min(1, tgt));
+      if (!isAnchorScrolling) currentIdx = sectionIndexFromScroll(scrollY);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
 
-    const dynamicFriction = (v: number) => (Math.abs(v) > 200 ? 0.8 : 0.9);
-
-    const onWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      const linePx = 16;
-      const pagePx = innerHeight * 0.9;
-      const delta =
-        e.deltaMode === 1 ? e.deltaY * linePx : e.deltaMode === 2 ? e.deltaY * pagePx : e.deltaY;
-      if (Math.abs(delta) < 5) return;
+    const smoothScrollToY = (targetY: number, duration = 700) => {
       stopAnchorAnim();
-      velocity += delta;
-      velocity = Math.max(-600, Math.min(600, velocity));
-    };
-    window.addEventListener("wheel", onWheel, { passive: false });
-
-    const smoothScrollToY = (targetY: number, duration = 900) => {
-      stopAnchorAnim();
-      velocity = 0;
       isAnchorScrolling = true;
       const startY = window.scrollY;
       const diff = targetY - startY;
@@ -234,6 +221,40 @@ export default function ServicesCube() {
       };
       anchorAnim = requestAnimationFrame(tick);
     };
+
+    const jumpTo = (idx: number) => {
+      const clamped = Math.max(0, Math.min(N - 1, idx));
+      if (clamped === currentIdx && isAnchorScrolling) return;
+      currentIdx = clamped;
+      smoothScrollToY(sectionTops[clamped] ?? 0);
+    };
+
+    // One wheel gesture = move exactly one section. While the snap
+    // animation runs, further wheel events are ignored so a single
+    // trackpad swipe or mouse-wheel notch can't skip multiple sections.
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      if (isAnchorScrolling) return;
+      const linePx = 16;
+      const pagePx = innerHeight * 0.9;
+      const delta =
+        e.deltaMode === 1 ? e.deltaY * linePx : e.deltaMode === 2 ? e.deltaY * pagePx : e.deltaY;
+      if (Math.abs(delta) < 4) return;
+      jumpTo(currentIdx + (delta > 0 ? 1 : -1));
+    };
+    window.addEventListener("wheel", onWheel, { passive: false });
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (isAnchorScrolling) return;
+      if (e.key === "ArrowDown" || e.key === "PageDown") {
+        e.preventDefault();
+        jumpTo(currentIdx + 1);
+      } else if (e.key === "ArrowUp" || e.key === "PageUp") {
+        e.preventDefault();
+        jumpTo(currentIdx - 1);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
 
     const onAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
@@ -273,16 +294,7 @@ export default function ServicesCube() {
       const dt = Math.min((now - lastNow) / 1000, 0.05);
       lastNow = now;
 
-      velocity *= Math.pow(dynamicFriction(velocity), dt * 60);
-      if (Math.abs(velocity) < 0.01) velocity = 0;
-
-      if (Math.abs(velocity) > 0.2 && !isAnchorScrolling) {
-        const next = Math.max(0, Math.min(scrollY + velocity * 0.1, maxScroll));
-        window.scrollTo(0, next);
-        tgt = next / maxScroll;
-      }
-
-      smooth += (tgt - smooth) * (1 - Math.exp(-dt * 8));
+      smooth += (tgt - smooth) * (1 - Math.exp(-dt * 10));
       smooth = Math.max(0, Math.min(1, smooth));
 
       updateHUD(smooth);
@@ -296,6 +308,7 @@ export default function ServicesCube() {
       window.removeEventListener("resize", onResize);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("wheel", onWheel);
+      window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("touchstart", stopInteraction);
       window.removeEventListener("mousedown", stopInteraction);
       document.removeEventListener("click", onAnchorClick);
@@ -306,6 +319,15 @@ export default function ServicesCube() {
 
   return (
     <>
+      <div className="sv-bg" aria-hidden="true">
+        {SCENE_BG.map((key, i) => (
+          <div
+            key={key}
+            className={`sv-bg-layer sv-bg-layer--${key} ${i === activeIdx ? "is-active" : ""}`}
+          />
+        ))}
+      </div>
+
       <div className="sv-scene" aria-hidden="true">
         <div ref={cubeRef} className="sv-cube">
           {FACES.map((f) => (

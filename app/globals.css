@@ -744,6 +744,25 @@ button:focus-visible {
    with service icons, copy is our own real service descriptions.
    ============================================================ */
 
+.sv-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+.sv-bg-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+.sv-bg-layer.is-active { opacity: 1; }
+.sv-bg-layer--intro { background: linear-gradient(150deg, #f1eefb 0%, #e4dcfd 55%, #d9cdf6 100%); }
+.sv-bg-layer--s1 { background: linear-gradient(150deg, #f2eefe 0%, #e4dcfd 45%, #c9b8ec 100%); }
+.sv-bg-layer--s2 { background: linear-gradient(150deg, #fdeee2 0%, #ffd9bd 45%, #ffb37e 100%); }
+.sv-bg-layer--s3 { background: linear-gradient(150deg, #f5fadd 0%, #eaffa0 45%, #d6f23c 100%); }
+.sv-bg-layer--s4 { background: linear-gradient(150deg, #ede4fb 0%, #d3bdf0 45%, #b49fda 100%); }
+.sv-bg-layer--outro { background: linear-gradient(150deg, #ece9f5 0%, #d5cbe8 45%, #b49fda 100%); }
+
 .sv-scene {
   position: fixed;
   inset: 0;
@@ -768,7 +787,7 @@ button:focus-visible {
 }
 
 .sv-cube {
-  --s: min(62vw, 62vh, 460px);
+  --s: min(72vw, 72vh, 620px);
   width: var(--s);
   height: var(--s);
   position: relative;
