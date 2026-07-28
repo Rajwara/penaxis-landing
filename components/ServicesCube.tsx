@@ -106,6 +106,12 @@ export default function ServicesCube() {
     let lastScrollHeight = 0;
     let lastInnerHeight = 0;
 
+    const footerEl = document.querySelector("footer");
+    let footerTop = Infinity;
+    const measureFooter = () => {
+      if (footerEl) footerTop = footerEl.getBoundingClientRect().top + window.scrollY;
+    };
+
     const buildSectionTops = () => {
       sectionTops = sections.map((s) => s.getBoundingClientRect().top + window.scrollY);
     };
@@ -122,6 +128,7 @@ export default function ServicesCube() {
       // top of the viewport — i.e. right as the cube sections end, not
       // diluted by whatever comes after (footer) in the full page height.
       cubeMaxScroll = Math.max(1, sectionTops[N - 1] ?? maxScroll);
+      measureFooter();
     };
     resize();
 
@@ -158,19 +165,13 @@ export default function ServicesCube() {
       }
     };
 
-    // Hide the fixed cube/HUD overlay the moment the footer's top edge
-    // enters the viewport (i.e. the bottom of the last cube section has
-    // scrolled past the bottom of the screen), not some arbitrary delay
-    // after the section starts — otherwise there's a long window where
-    // the footer is already visible underneath a still-opaque overlay.
+    // Hide the fixed cube/HUD overlay only once the real <footer> element's
+    // top edge is about to enter the viewport — checked against the actual
+    // footer position, not an assumption about section heights.
     const updateOverlayVisibility = () => {
       const el = overlayRef.current;
       if (!el) return;
-      const lastSection = sections[N - 1];
-      const lastBottom = lastSection
-        ? (sectionTops[N - 1] ?? 0) + lastSection.offsetHeight
-        : sectionTops[N - 1] ?? 0;
-      const pastEnd = scrollY + innerHeight >= lastBottom;
+      const pastEnd = scrollY + innerHeight >= footerTop;
       el.style.opacity = pastEnd ? "0" : "1";
     };
 
@@ -432,7 +433,7 @@ export default function ServicesCube() {
         ))}
 
         {/* OUTRO */}
-        <section className="sv-section">
+        <section className="sv-section sv-outro">
           <div className="sv-card sv-center sv-reveal">
             <p className="sv-tag sv-reveal">Let's build</p>
             <h2 className="sv-reveal">
