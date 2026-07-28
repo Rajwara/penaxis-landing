@@ -50,10 +50,6 @@ export default function LiquidHeading() {
       el!.style.setProperty("--mx", `${(s.x * 100).toFixed(2)}%`);
       el!.style.setProperty("--my", `${(s.y * 100).toFixed(2)}%`);
       el!.style.setProperty("--mr", `${s.r.toFixed(1)}%`);
-      el!.style.backgroundPosition = `${(t.current * 16) % 240}% ${(
-        Math.sin(t.current * 0.4) * 24 +
-        50
-      ).toFixed(1)}%`;
 
       rafRef.current = requestAnimationFrame(tick);
     }

@@ -126,22 +126,26 @@ button:focus-visible {
 }
 
 /* Liquid chrome banner — overlay text masked to a moving reveal circle,
-   filled with a shifting metallic gradient. Base black text sits underneath. */
+   filled with two layered flowing gradients that simulate brushed/liquid
+   chrome (sharp light/dark bands + a slower diagonal sheen), since we
+   can't license a third-party video asset for the material itself. */
 .liquid-chrome {
-  background-image: linear-gradient(
-    115deg,
-    #050505 0%,
-    #f4f4f4 10%,
-    #2b2b2b 20%,
-    #ffffff 30%,
-    #0d0d0d 42%,
-    #d8d8d8 52%,
-    #111111 64%,
-    #eaeaea 75%,
-    #1a1a1a 87%,
-    #f7f7f7 100%
-  );
-  background-size: 240% 240%;
+  background-image:
+    repeating-linear-gradient(
+      98deg,
+      #050505 0%,
+      #050505 4%,
+      #f7f7f7 6%,
+      #1a1a1a 9%,
+      #ffffff 12%,
+      #0a0a0a 16%,
+      #e6e6e6 19%,
+      #030303 24%
+    ),
+    linear-gradient(135deg, #020202 0%, #e8e8e8 22%, #060606 45%, #f5f5f5 68%, #010101 100%);
+  background-size: 320% 320%, 260% 260%;
+  background-position: 0% 50%, 100% 30%;
+  animation: chromeFlow 9s linear infinite;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -149,20 +153,27 @@ button:focus-visible {
   -webkit-mask-image: radial-gradient(
     circle at var(--mx, 50%) var(--my, 50%),
     black 0%,
-    black var(--mr, 28%),
-    transparent calc(var(--mr, 28%) + 20%)
+    black var(--mr, 24%),
+    transparent calc(var(--mr, 24%) + 16%)
   );
   mask-image: radial-gradient(
     circle at var(--mx, 50%) var(--my, 50%),
     black 0%,
-    black var(--mr, 28%),
-    transparent calc(var(--mr, 28%) + 20%)
+    black var(--mr, 24%),
+    transparent calc(var(--mr, 24%) + 16%)
   );
+}
+
+@keyframes chromeFlow {
+  0% { background-position: 0% 50%, 100% 30%; }
+  50% { background-position: 100% 50%, 0% 70%; }
+  100% { background-position: 0% 50%, 100% 30%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .liquid-chrome {
-    -webkit-mask-image: radial-gradient(circle at 50% 50%, black 0%, black 34%, transparent 56%);
-    mask-image: radial-gradient(circle at 50% 50%, black 0%, black 34%, transparent 56%);
+    animation: none;
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, black 0%, black 30%, transparent 50%);
+    mask-image: radial-gradient(circle at 50% 50%, black 0%, black 30%, transparent 50%);
   }
 }
