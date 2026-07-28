@@ -124,3 +124,45 @@ button:focus-visible {
   background: #B7A2F7;
   border-radius: 4px;
 }
+
+/* Liquid chrome banner — overlay text masked to a moving reveal circle,
+   filled with a shifting metallic gradient. Base black text sits underneath. */
+.liquid-chrome {
+  background-image: linear-gradient(
+    115deg,
+    #050505 0%,
+    #f4f4f4 10%,
+    #2b2b2b 20%,
+    #ffffff 30%,
+    #0d0d0d 42%,
+    #d8d8d8 52%,
+    #111111 64%,
+    #eaeaea 75%,
+    #1a1a1a 87%,
+    #f7f7f7 100%
+  );
+  background-size: 240% 240%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-mask-image: radial-gradient(
+    circle at var(--mx, 50%) var(--my, 50%),
+    black 0%,
+    black var(--mr, 28%),
+    transparent calc(var(--mr, 28%) + 20%)
+  );
+  mask-image: radial-gradient(
+    circle at var(--mx, 50%) var(--my, 50%),
+    black 0%,
+    black var(--mr, 28%),
+    transparent calc(var(--mr, 28%) + 20%)
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .liquid-chrome {
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, black 0%, black 34%, transparent 56%);
+    mask-image: radial-gradient(circle at 50% 50%, black 0%, black 34%, transparent 56%);
+  }
+}

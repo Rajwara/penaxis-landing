@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import MaterialHeading from "@/components/MaterialHeading";
+import LiquidHeading from "@/components/LiquidHeading";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import AIShowcase from "@/components/AIShowcase";
@@ -17,6 +18,7 @@ export default function Home() {
       <Navbar />
       <main>
         <MaterialHeading />
+        <LiquidHeading />
         <Hero />
         <About />
         <AIShowcase />
