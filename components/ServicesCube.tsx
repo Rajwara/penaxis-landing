@@ -200,7 +200,9 @@ export default function ServicesCube() {
     window.addEventListener("scroll", onScroll, { passive: true });
 
     const dynamicFriction = (v: number) => (Math.abs(v) > 200 ? 0.8 : 0.9);
-    const ease = 0.1;
+    const ease = 0.18;
+    const WHEEL_GAIN = 1.7;
+    const VELOCITY_CAP = 1300;
 
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
@@ -210,8 +212,8 @@ export default function ServicesCube() {
         e.deltaMode === 1 ? e.deltaY * linePx : e.deltaMode === 2 ? e.deltaY * pagePx : e.deltaY;
       if (Math.abs(delta) < 5) return;
       stopAnchorAnim();
-      velocity += delta;
-      velocity = Math.max(-600, Math.min(600, velocity));
+      velocity += delta * WHEEL_GAIN;
+      velocity = Math.max(-VELOCITY_CAP, Math.min(VELOCITY_CAP, velocity));
     };
     window.addEventListener("wheel", onWheel, { passive: false });
 
