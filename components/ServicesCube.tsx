@@ -158,12 +158,19 @@ export default function ServicesCube() {
       }
     };
 
-    // Hide the fixed cube/HUD overlay once scrolled past the cube's own
-    // sections (i.e. into the footer) so it doesn't linger on top of it.
+    // Hide the fixed cube/HUD overlay the moment the footer's top edge
+    // enters the viewport (i.e. the bottom of the last cube section has
+    // scrolled past the bottom of the screen), not some arbitrary delay
+    // after the section starts — otherwise there's a long window where
+    // the footer is already visible underneath a still-opaque overlay.
     const updateOverlayVisibility = () => {
       const el = overlayRef.current;
       if (!el) return;
-      const pastEnd = scrollY > (sectionTops[N - 1] ?? 0) + innerHeight * 0.6;
+      const lastSection = sections[N - 1];
+      const lastBottom = lastSection
+        ? (sectionTops[N - 1] ?? 0) + lastSection.offsetHeight
+        : sectionTops[N - 1] ?? 0;
+      const pastEnd = scrollY + innerHeight >= lastBottom;
       el.style.opacity = pastEnd ? "0" : "1";
     };
 
