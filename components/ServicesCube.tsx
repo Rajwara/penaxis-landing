@@ -88,6 +88,7 @@ const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2
 export default function ServicesCube() {
   const cubeRef = useRef<HTMLDivElement>(null);
   const scrollElRef = useRef<HTMLDivElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
   const [activeIdx, setActiveIdx] = useState(0);
   const [pct, setPct] = useState(0);
   const prefersReducedRef = useRef(false);
@@ -100,7 +101,8 @@ export default function ServicesCube() {
     );
 
     let sectionTops: number[] = [];
-    let maxScroll = 1;
+    let maxScroll = 1; // full page range — used to clamp real window scrolling
+    let cubeMaxScroll = 1; // range across just the 6 cube sections — drives rotation/HUD
     let lastScrollHeight = 0;
     let lastInnerHeight = 0;
 
@@ -116,6 +118,10 @@ export default function ServicesCube() {
       lastInnerHeight = vh;
       maxScroll = Math.max(1, h - vh);
       buildSectionTops();
+      // Progress reaches 1.0 once the top of the last section reaches the
+      // top of the viewport — i.e. right as the cube sections end, not
+      // diluted by whatever comes after (footer) in the full page height.
+      cubeMaxScroll = Math.max(1, sectionTops[N - 1] ?? maxScroll);
     };
     resize();
 
@@ -152,12 +158,22 @@ export default function ServicesCube() {
       }
     };
 
+    // Hide the fixed cube/HUD overlay once scrolled past the cube's own
+    // sections (i.e. into the footer) so it doesn't linger on top of it.
+    const updateOverlayVisibility = () => {
+      const el = overlayRef.current;
+      if (!el) return;
+      const pastEnd = scrollY > (sectionTops[N - 1] ?? 0) + innerHeight * 0.6;
+      el.style.opacity = pastEnd ? "0" : "1";
+    };
+
     if (prefersReducedRef.current) {
       // Reduced motion: skip physics/rotation entirely, cube sits at first face
       setCubeTransform(0);
       const onScrollSimple = () => {
-        const s = maxScroll > 0 ? Math.max(0, Math.min(1, scrollY / maxScroll)) : 0;
+        const s = cubeMaxScroll > 0 ? Math.max(0, Math.min(1, scrollY / cubeMaxScroll)) : 0;
         updateHUD(s);
+        updateOverlayVisibility();
       };
       window.addEventListener("scroll", onScrollSimple, { passive: true });
       window.addEventListener("resize", resize);
@@ -183,7 +199,7 @@ export default function ServicesCube() {
 
     const onResize = () => {
       resize();
-      tgt = maxScroll > 0 ? scrollY / maxScroll : 0;
+      tgt = cubeMaxScroll > 0 ? Math.max(0, Math.min(1, scrollY / cubeMaxScroll)) : 0;
       smooth = tgt;
     };
     window.addEventListener("resize", onResize);
@@ -194,8 +210,9 @@ export default function ServicesCube() {
     ro.observe(document.documentElement);
 
     const onScroll = () => {
-      tgt = maxScroll > 0 ? scrollY / maxScroll : 0;
+      tgt = cubeMaxScroll > 0 ? scrollY / cubeMaxScroll : 0;
       tgt = Math.max(0, Math.min(1, tgt));
+      updateOverlayVisibility();
     };
     window.addEventListener("scroll", onScroll, { passive: true });
 
@@ -228,8 +245,9 @@ export default function ServicesCube() {
         const p = Math.min(1, (now - start) / duration);
         const y = startY + diff * easeInOutCubic(p);
         window.scrollTo(0, y);
-        tgt = y / maxScroll;
+        tgt = cubeMaxScroll > 0 ? Math.max(0, Math.min(1, y / cubeMaxScroll)) : 0;
         smooth = tgt;
+        updateOverlayVisibility();
         if (p < 1) {
           anchorAnim = requestAnimationFrame(tick);
         } else {
@@ -285,7 +303,7 @@ export default function ServicesCube() {
       if (Math.abs(velocity) > 0.2 && !isAnchorScrolling) {
         const next = Math.max(0, Math.min(scrollY + velocity * ease, maxScroll));
         window.scrollTo(0, next);
-        tgt = next / maxScroll;
+        tgt = cubeMaxScroll > 0 ? Math.max(0, Math.min(1, next / cubeMaxScroll)) : 0;
       }
 
       smooth += (tgt - smooth) * (1 - Math.exp(-dt * 8));
@@ -293,6 +311,7 @@ export default function ServicesCube() {
 
       updateHUD(smooth);
       setCubeTransform(smooth);
+      updateOverlayVisibility();
     };
     rafId = requestAnimationFrame(frame);
 
@@ -313,42 +332,44 @@ export default function ServicesCube() {
 
   return (
     <>
-      <div className="sv-bg" aria-hidden="true">
-        {SCENE_BG.map((key, i) => (
-          <div
-            key={key}
-            className={`sv-bg-layer sv-bg-layer--${key} ${i === activeIdx ? "is-active" : ""}`}
-          />
-        ))}
-      </div>
-
-      <div className="sv-scene" aria-hidden="true">
-        <div ref={cubeRef} className="sv-cube">
-          {FACES.map((f) => (
-            <div key={f.key} className={`sv-face ${f.cls}`} data-face={f.key}>
-              {f.icon}
-            </div>
+      <div ref={overlayRef} style={{ transition: "opacity 0.4s ease" }}>
+        <div className="sv-bg" aria-hidden="true">
+          {SCENE_BG.map((key, i) => (
+            <div
+              key={key}
+              className={`sv-bg-layer sv-bg-layer--${key} ${i === activeIdx ? "is-active" : ""}`}
+            />
           ))}
         </div>
-      </div>
 
-      <div className="sv-hud" aria-hidden="true">
-        <div>{String(pct).padStart(3, "0")}%</div>
-        <div className="sv-progress-bar">
-          <div className="sv-progress-fill" style={{ width: `${pct}%` }} />
+        <div className="sv-scene" aria-hidden="true">
+          <div ref={cubeRef} className="sv-cube">
+            {FACES.map((f) => (
+              <div key={f.key} className={`sv-face ${f.cls}`} data-face={f.key}>
+                {f.icon}
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="sv-scene-label">{SCENES[activeIdx]?.name}</div>
-      </div>
 
-      <div className="sv-strip" role="group" aria-label="Section indicators" aria-hidden="true">
-        {SCENES.map((_, i) => (
-          <span key={i} className={`sv-dot ${i === activeIdx ? "is-active" : ""}`} />
-        ))}
-      </div>
+        <div className="sv-hud" aria-hidden="true">
+          <div>{String(pct).padStart(3, "0")}%</div>
+          <div className="sv-progress-bar">
+            <div className="sv-progress-fill" style={{ width: `${pct}%` }} />
+          </div>
+          <div className="sv-scene-label">{SCENES[activeIdx]?.name}</div>
+        </div>
 
-      <div className="sv-caption" aria-hidden="true">
-        <div className="sv-caption-num">{String(activeIdx + 1).padStart(2, "0")}</div>
-        <div className="sv-caption-name">{SCENES[activeIdx]?.name}</div>
+        <div className="sv-strip" role="group" aria-label="Section indicators" aria-hidden="true">
+          {SCENES.map((_, i) => (
+            <span key={i} className={`sv-dot ${i === activeIdx ? "is-active" : ""}`} />
+          ))}
+        </div>
+
+        <div className="sv-caption" aria-hidden="true">
+          <div className="sv-caption-num">{String(activeIdx + 1).padStart(2, "0")}</div>
+          <div className="sv-caption-name">{SCENES[activeIdx]?.name}</div>
+        </div>
       </div>
 
       <div ref={scrollElRef} className="sv-scroll">
