@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 import { industries } from "@/lib/data";
+import StarfieldBackground from "./StarfieldBackground";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(CustomEase);
@@ -97,6 +98,7 @@ export default function IndustriesStack() {
 
   return (
     <div className="ind-container">
+      <StarfieldBackground />
       <div className="ind-eyebrow-wrap">
         <div className="eyebrow">Where we work</div>
         <h2>13 industries, one team</h2>
