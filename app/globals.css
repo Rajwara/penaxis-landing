@@ -1738,3 +1738,114 @@ button:focus-visible {
   .ct-text-span { font-size: 4vw; }
   .ct-banner { padding: 4rem 6vw 2rem; }
 }
+
+/* ============================================================
+   ServicesExpand — click-to-expand accordion of service panels
+   (generic GSAP elastic-width technique). Original demo used random
+   stock portrait photos as filler; replaced here with brand-gradient
+   panels labeled with the real 4 Penaxis services, since portraits of
+   unrelated people don't communicate anything about services offered.
+   ============================================================ */
+.se-section {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #212121 0%, #2e1f42 100%);
+  overflow: hidden;
+}
+.se-head {
+  max-width: 640px;
+  margin: 0 auto 3rem;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+.se-head h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  color: #f2eefe;
+}
+.se-head p {
+  margin-top: 0.75rem;
+  color: rgba(242, 238, 254, 0.6);
+}
+.se-group {
+  text-align: center;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5rem 1.5rem 1rem;
+  user-select: none;
+}
+.se-item {
+  position: relative;
+  width: 15vw;
+  min-width: 130px;
+  height: 60vh;
+  max-height: 460px;
+  margin: 0 0.6vw;
+  border-radius: 1.5rem;
+  display: inline-flex;
+  align-items: flex-end;
+  cursor: pointer;
+  overflow: hidden;
+  vertical-align: middle;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+.se-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.55) 0%, transparent 55%);
+}
+.se-item--01 { background: linear-gradient(160deg, #8768b7 0%, #5c3e82 100%); }
+.se-item--02 { background: linear-gradient(160deg, #ff8a4c 0%, #e05500 100%); }
+.se-item--03 { background: linear-gradient(160deg, #eaffa0 0%, #a7bd2c 100%); }
+.se-item--04 { background: linear-gradient(160deg, #b49fda 0%, #2e1f42 100%); }
+
+.se-item-label {
+  position: relative;
+  z-index: 1;
+  padding: 1.25rem 1rem;
+  white-space: normal;
+  width: 100%;
+}
+.se-item-num {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+}
+.se-item-title {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.15;
+  color: #fff;
+}
+.se-item--03 .se-item-num,
+.se-item--03 .se-item-title {
+  color: #212121;
+}
+.se-item-desc {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.85);
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease 0.15s;
+}
+.se-item--03 .se-item-desc { color: rgba(33, 33, 33, 0.85); }
+.se-item.is-expanded .se-item-desc {
+  opacity: 1;
+  max-height: none;
+}
+
+@media (max-width: 900px) {
+  .se-item { height: 50vh; }
+  .se-item-desc { display: none; }
+}

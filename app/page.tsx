@@ -10,6 +10,7 @@ import AIShowcase from "@/components/AIShowcase";
 import TechPicker from "@/components/TechPicker";
 import Coverage from "@/components/Coverage";
 import Services from "@/components/Services";
+import ServicesExpand from "@/components/ServicesExpand";
 import Industries from "@/components/Industries";
 import WhyUs from "@/components/WhyUs";
 import Team from "@/components/Team";
@@ -34,6 +35,7 @@ export default function Home() {
         <TechPicker />
         <Coverage />
         <Services />
+        <ServicesExpand />
         <Industries />
         <WhyUs />
         <Team />
