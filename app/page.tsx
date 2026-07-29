@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import NameIntro from "@/components/NameIntro";
 import HorizontalGallery from "@/components/HorizontalGallery";
-import StarfieldBanner from "@/components/StarfieldBanner";
 import About from "@/components/About";
 import AIShowcase from "@/components/AIShowcase";
 import Coverage from "@/components/Coverage";
@@ -24,7 +23,6 @@ export default function Home() {
         <ServicesShowcase />
         <Coverage />
         <IndustriesStack />
-        <StarfieldBanner />
         <About />
         <AIShowcase />
         <Services />
