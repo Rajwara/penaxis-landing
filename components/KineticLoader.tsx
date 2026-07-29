@@ -2,30 +2,24 @@
 
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
-// @ts-ignore - no bundled types for these packages
-import loadFont from "load-bmfont";
-// @ts-ignore
-import createGeometry from "three-bmfont-text";
-// @ts-ignore
-import MSDFShader from "three-bmfont-text/shaders/msdf";
-
-// three-bmfont-text's MSDF shader helper is older code that expects
-// THREE to exist as a global (pre-ES-module convention). Expose it,
-// browser-only, so that legacy helper works when called.
-if (typeof window !== "undefined") {
-  (window as any).THREE = (window as any).THREE || THREE;
-}
 
 // Ported technique: kinetic typography with Three.js, originally a
 // Codrops tutorial by Mario Carrillo (MIT licensed, github.com/
 // marioecg/codrops-kinetic-typo) — text is rendered to an offscreen
 // texture via a bitmap/MSDF font, then that texture is mapped onto a
 // 3D sphere whose fragment shader scrolls/repeats the UVs over time,
-// producing a flowing "kinetic" look. Used here as a brief loading
-// screen: same mechanism, "PENAXIS" instead of the demo's own word,
-// Penaxis brand colors instead of the original blue/black scheme, and
-// only the sphere ("Swirl") variant of the original's four geometries
-// — a full loader doesn't need all four for a few seconds of screen time.
+// producing a flowing "kinetic" look. Used here as a loading screen:
+// same mechanism, "PENAXIS" instead of the demo's own word, Penaxis
+// brand colors, and only the sphere ("Swirl") variant of the
+// original's four geometries.
+//
+// IMPORTANT: three-bmfont-text has a MODULE-LEVEL statement
+// (`var Base = THREE.BufferGeometry`) that runs the instant it's
+// imported, expecting a global `THREE` (pre-ES-module convention).
+// A static top-level import would evaluate before we can set that
+// global. So three-bmfont-text and its msdf shader are imported
+// DYNAMICALLY inside the effect, after window.THREE is assigned —
+// dynamic imports evaluate at the point they're called, not hoisted.
 
 const sphereVertex = /* glsl */ `
   varying vec2 vUv;
@@ -53,17 +47,22 @@ const sphereFragment = /* glsl */ `
   }
 `;
 
+const SHOW_DURATION_MS = 10000; // fully visible for 10s, per request
+const FADE_DURATION_MS = 500;
+
 export default function KineticLoader() {
   const mountRef = useRef<HTMLDivElement>(null);
   const [hidden, setHidden] = useState(false);
   const [fading, setFading] = useState(false);
 
   useEffect(() => {
-    // Skip entirely for reduced-motion users — just dismiss immediately
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setHidden(true);
       return;
     }
+
+    // Set the legacy global BEFORE dynamically importing three-bmfont-text
+    (window as any).THREE = (window as any).THREE || THREE;
 
     const mount = mountRef.current;
     if (!mount) return;
@@ -86,59 +85,67 @@ export default function KineticLoader() {
     let rtScene: THREE.Scene | null = null;
     let rtCamera: THREE.PerspectiveCamera | null = null;
     let disposed = false;
+    let raf = 0;
 
-    loadFont("/fonts/ArchivoBlack-Regular.fnt", (err: any, font: any) => {
-      if (err || disposed) return;
+    (async () => {
+      const [{ default: loadFont }, { default: createGeometry }, { default: MSDFShader }] =
+        await Promise.all([
+          import("load-bmfont"),
+          import("three-bmfont-text"),
+          import("three-bmfont-text/shaders/msdf"),
+        ]);
 
-      const fontGeometry = createGeometry({ font, text: "PENAXIS" });
+      loadFont("/fonts/ArchivoBlack-Regular.fnt", (err: any, font: any) => {
+        if (err || disposed) return;
 
-      new THREE.TextureLoader().load("/fonts/ArchivoBlack-Regular.png", (texture) => {
-        if (disposed) return;
+        const fontGeometry = createGeometry({ font, text: "PENAXIS" });
 
-        const fontMaterial = new THREE.RawShaderMaterial(
-          MSDFShader({
-            map: texture,
+        new THREE.TextureLoader().load("/fonts/ArchivoBlack-Regular.png", (texture) => {
+          if (disposed) return;
+
+          const fontMaterial = new THREE.RawShaderMaterial(
+            MSDFShader({
+              map: texture,
+              side: THREE.DoubleSide,
+              transparent: true,
+              negate: false,
+              color: "#f2eefe",
+            })
+          );
+
+          rt = new THREE.WebGLRenderTarget(width, height);
+          rtCamera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
+          rtCamera.position.z = 2.4;
+          rtScene = new THREE.Scene();
+          rtScene.background = new THREE.Color("#212121");
+
+          const textMesh = new THREE.Mesh(fontGeometry, fontMaterial);
+          textMesh.position.set(-0.94, -0.12, 0);
+          textMesh.rotation.set(Math.PI, 0, 0);
+          textMesh.scale.set(0.008, 0.04, 1);
+          rtScene.add(textMesh);
+
+          const geometry = new THREE.SphereGeometry(12, 64, 64);
+          material = new THREE.ShaderMaterial({
+            vertexShader: sphereVertex,
+            fragmentShader: sphereFragment,
+            uniforms: {
+              uTime: { value: 0 },
+              uTexture: { value: rt.texture },
+            },
             side: THREE.DoubleSide,
-            transparent: true,
-            negate: false,
-            color: "#f2eefe",
-          })
-        );
+          });
 
-        // Offscreen scene: just the text, rendered to a texture
-        rt = new THREE.WebGLRenderTarget(width, height);
-        rtCamera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
-        rtCamera.position.z = 2.4;
-        rtScene = new THREE.Scene();
-        rtScene.background = new THREE.Color("#212121");
-
-        const textMesh = new THREE.Mesh(fontGeometry, fontMaterial);
-        textMesh.position.set(-0.94, -0.12, 0);
-        textMesh.rotation.set(Math.PI, 0, 0);
-        textMesh.scale.set(0.008, 0.04, 1);
-        rtScene.add(textMesh);
-
-        // Visible mesh: a sphere whose shader samples the offscreen texture
-        const geometry = new THREE.SphereGeometry(12, 64, 64);
-        material = new THREE.ShaderMaterial({
-          vertexShader: sphereVertex,
-          fragmentShader: sphereFragment,
-          uniforms: {
-            uTime: { value: 0 },
-            uTexture: { value: rt.texture },
-          },
-          side: THREE.DoubleSide,
+          mesh = new THREE.Mesh(geometry, material);
+          mesh.onBeforeRender = (r) => {
+            r.setRenderTarget(rt!);
+            r.render(rtScene!, rtCamera!);
+            r.setRenderTarget(null);
+          };
+          scene.add(mesh);
         });
-
-        mesh = new THREE.Mesh(geometry, material);
-        mesh.onBeforeRender = (r) => {
-          r.setRenderTarget(rt!);
-          r.render(rtScene!, rtCamera!);
-          r.setRenderTarget(null);
-        };
-        scene.add(mesh);
       });
-    });
+    })();
 
     const handleResize = () => {
       const w = window.innerWidth;
@@ -151,7 +158,6 @@ export default function KineticLoader() {
     window.addEventListener("resize", handleResize);
 
     const clock = new THREE.Clock();
-    let raf = 0;
     function animate() {
       raf = requestAnimationFrame(animate);
       if (material) material.uniforms.uTime.value = clock.getElapsedTime();
@@ -160,9 +166,8 @@ export default function KineticLoader() {
     }
     animate();
 
-    // Dismiss the loader after a brief moment
-    const dismissTimer = setTimeout(() => setFading(true), 1800);
-    const removeTimer = setTimeout(() => setHidden(true), 2400);
+    const dismissTimer = setTimeout(() => setFading(true), SHOW_DURATION_MS);
+    const removeTimer = setTimeout(() => setHidden(true), SHOW_DURATION_MS + FADE_DURATION_MS);
 
     return () => {
       disposed = true;
