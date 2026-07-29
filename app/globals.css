@@ -1976,7 +1976,7 @@ button:focus-visible {
   will-change: transform;
 }
 .hg-pin-wrap > * {
-  padding: 0 3vw;
+  margin: 0 1.5vw;
   flex-shrink: 0;
 }
 .hg-pin-heading {
