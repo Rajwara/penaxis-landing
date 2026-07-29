@@ -2910,3 +2910,214 @@ button:focus-visible {
   .ih-tile svg { width: 22px; height: 22px; }
   .ih-mark { width: 56px; height: 56px; }
 }
+
+/* ============================================================
+   Custom 404 page — layered parallax scene (growing circles, three
+   sets of floating gradient "pieces" sliding in loops, big echoing
+   "404" numerals) behind a message + CTA. Ported mechanism from a
+   shared reference; that reference's own credited floating "about"
+   widget (a real designer's portfolio/Dribbble/LinkedIn links and
+   logo) was dropped entirely, replaced with nothing — this page uses
+   the site's own real Navbar instead of recreating a placeholder one.
+   Colors mapped to the Penaxis palette; parallax re-implemented with
+   plain mousemove (no external parallax.js dependency).
+   ============================================================ */
+:root {
+  --e404-bg1: #3a2f52;
+  --e404-bg2: #2e1f42;
+  --e404-bg3: #241a38;
+  --e404-m1: #fc6607;
+  --e404-m2: #d6f23c;
+}
+
+.e404-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--e404-bg1);
+  position: relative;
+}
+.e404-container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.e404-scene {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+.e404-one, .e404-two, .e404-three, .e404-circle, .e404-num {
+  width: 60%;
+  height: 60%;
+  position: absolute;
+  top: 20% !important;
+  left: 20% !important;
+  min-width: 400px;
+  min-height: 400px;
+}
+.e404-content {
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: e404-content 0.8s cubic-bezier(1, 0.06, 0.25, 1) backwards;
+}
+@keyframes e404-content { 0% { width: 0; } }
+
+.e404-piece {
+  width: 200px;
+  height: 80px;
+  display: flex;
+  position: absolute;
+  border-radius: 80px;
+  z-index: 1;
+  animation: e404-pieceLeft 8s cubic-bezier(1, 0.06, 0.25, 1) infinite both;
+}
+@keyframes e404-pieceLeft { 0% {} 50% { left: 80%; width: 10%; } 100% {} }
+@keyframes e404-pieceRight { 0% {} 50% { right: 80%; width: 10%; } 100% {} }
+
+.e404-text {
+  width: 60%;
+  height: 40%;
+  min-width: 340px;
+  min-height: 320px;
+  position: absolute;
+  margin: 40px 0;
+  animation: e404-text 0.6s 1.8s ease backwards;
+}
+@keyframes e404-text { 0% { opacity: 0; transform: translateY(40px); } }
+.e404-text article {
+  width: 400px;
+  max-width: 90vw;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.e404-text p {
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  letter-spacing: 0.3px;
+  margin-bottom: 2.5rem;
+  text-shadow: 4px 4px 10px var(--e404-bg3);
+}
+.e404-text .e404-btn {
+  height: 44px;
+  padding: 0 1.9rem;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 15px 20px rgba(46, 31, 66, 0.5);
+  color: var(--e404-bg1);
+  background-color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.75rem;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.e404-text .e404-btn:hover {
+  box-shadow: 0 10px 10px -10px rgba(46, 31, 66, 0.5);
+  transform: translateY(5px);
+  background: var(--e404-m1);
+  color: #fff;
+}
+
+.e404-num {
+  font-family: var(--font-display);
+  font-size: 12rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: #fff;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  animation: e404-num-in 0.6s cubic-bezier(0.3, 0.8, 1, 1.05) both;
+  animation-delay: 1.2s;
+}
+@keyframes e404-num-in {
+  0% { opacity: 0; transform: scale(10) skew(20deg, 20deg); }
+}
+.e404-num.e404-num-back {
+  color: var(--e404-bg2);
+  z-index: 1;
+  animation-delay: 1s;
+  filter: blur(10px);
+  opacity: 0.8;
+}
+
+.e404-circle { position: absolute; }
+.e404-circle::before {
+  content: "";
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background-color: rgba(46, 31, 66, 0.25);
+  border-radius: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: inset 5px 20px 40px rgba(46, 31, 66, 0.25), inset 5px 0 5px rgba(36, 26, 56, 0.3), inset 5px 5px 20px rgba(36, 26, 56, 0.25), 2px 2px 5px rgba(255, 255, 255, 0.2);
+  animation: e404-circle-in 0.8s cubic-bezier(1, 0.06, 0.25, 1) backwards;
+}
+@keyframes e404-circle-in { 0% { width: 0; height: 0; } }
+
+.e404-one .e404-content::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background-color: rgba(46, 31, 66, 0.35);
+  border-radius: 100%;
+  box-shadow: inset 5px 20px 40px rgba(46, 31, 66, 0.25), inset 5px 0 5px rgba(36, 26, 56, 0.3), inset 5px 5px 20px rgba(36, 26, 56, 0.25), 2px 2px 5px rgba(255, 255, 255, 0.2);
+  animation: e404-circle-in 0.8s 0.4s cubic-bezier(1, 0.06, 0.25, 1) backwards;
+}
+
+.e404-one .e404-piece { background: linear-gradient(90deg, #8768b7 13.7%, #b49fda 94.65%); }
+.e404-one .e404-piece:nth-child(1) { right: 15%; top: 18%; height: 30px; width: 120px; animation-delay: 0.5s; animation-name: e404-pieceRight; }
+.e404-one .e404-piece:nth-child(2) { left: 15%; top: 45%; width: 150px; height: 50px; animation-delay: 1s; animation-name: e404-pieceLeft; }
+.e404-one .e404-piece:nth-child(3) { left: 10%; top: 75%; height: 20px; width: 70px; animation-delay: 1.5s; animation-name: e404-pieceLeft; }
+
+.e404-two .e404-piece { background: linear-gradient(90deg, var(--e404-m2) 0%, var(--e404-m1) 100%); }
+.e404-two .e404-piece:nth-child(1) { left: 0%; top: 25%; height: 40px; width: 120px; animation-delay: 2s; animation-name: e404-pieceLeft; }
+.e404-two .e404-piece:nth-child(2) { right: 15%; top: 35%; width: 180px; height: 50px; animation-delay: 2.5s; animation-name: e404-pieceRight; }
+.e404-two .e404-piece:nth-child(3) { right: 10%; top: 80%; height: 20px; width: 160px; animation-delay: 3s; animation-name: e404-pieceRight; }
+
+.e404-three .e404-piece { background: var(--e404-m1); }
+.e404-three .e404-piece:nth-child(1) { left: 25%; top: 35%; height: 20px; width: 80px; animation-name: e404-pieceLeft; animation-delay: 3.5s; }
+.e404-three .e404-piece:nth-child(2) { right: 10%; top: 55%; width: 140px; height: 40px; animation-name: e404-pieceRight; animation-delay: 4s; }
+.e404-three .e404-piece:nth-child(3) { left: 40%; top: 68%; height: 20px; width: 80px; animation-name: e404-pieceLeft; animation-delay: 4.5s; }
+
+@media screen and (max-width: 799px) {
+  .e404-one, .e404-two, .e404-three, .e404-circle, .e404-num {
+    width: 90%; height: 90%; top: 5% !important; left: 5% !important;
+    min-width: 280px; min-height: 280px;
+  }
+  .e404-num { font-size: 6rem; }
+  .e404-circle::before { width: 400px; height: 400px; }
+  .e404-one .e404-content::before { width: 300px; height: 300px; }
+}
