@@ -26,7 +26,7 @@ export default function Footer() {
       <div className="relative mx-auto max-w-7xl px-6 pt-20 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
           {/* Get in touch */}
-          <Reveal as="div" delay={0}>
+          <Reveal as="div" delay={0.2} y={0} x={-40}>
             <h3 className="font-display font-semibold text-lg mb-4">Get in touch</h3>
             <p className="text-sm text-white/60 leading-relaxed mb-5">
               Tell us what you're building — we'll follow up within one
@@ -52,7 +52,7 @@ export default function Footer() {
           </Reveal>
 
           {/* Company */}
-          <Reveal as="div" delay={0.1}>
+          <Reveal as="div" delay={0.4} y={0} x={-40}>
             <h3 className="font-display font-semibold text-lg mb-4">Company</h3>
             <ul className="space-y-3 text-sm text-white/60">
               {navMobile.map((item) => (
@@ -66,7 +66,7 @@ export default function Footer() {
           </Reveal>
 
           {/* Resources */}
-          <Reveal as="div" delay={0.2}>
+          <Reveal as="div" delay={0.6} y={0} x={-40}>
             <h3 className="font-display font-semibold text-lg mb-4">Resources</h3>
             <ul className="space-y-3 text-sm text-white/60">
               {RESOURCES.map((item) => (
@@ -80,7 +80,7 @@ export default function Footer() {
           </Reveal>
 
           {/* Connect */}
-          <Reveal as="div" delay={0.3}>
+          <Reveal as="div" delay={0.8} y={0} x={-40}>
             <h3 className="font-display font-semibold text-lg mb-4">Connect</h3>
             <ul className="space-y-3 text-sm text-white/60 mb-6">
               <li>{contact.phone}</li>
