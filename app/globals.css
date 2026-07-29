@@ -2003,16 +2003,40 @@ button:focus-visible {
   min-width: 320px;
   border-radius: 1rem;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
   padding: 2rem;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.6rem;
+  overflow: hidden;
   color: #fff;
 }
 .hg-pin-panel--violet { background: linear-gradient(155deg, #8768b7 0%, #5c3e82 100%); }
 .hg-pin-panel--ember { background: linear-gradient(155deg, #ff8a4c 0%, #e05500 100%); }
 .hg-pin-panel--volt { background: linear-gradient(155deg, #eaffa0 0%, #a7bd2c 100%); color: #212121; }
+
+.hg-pin-panel-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1.15;
+}
+.hg-pin-panel-desc {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin-top: 1rem;
+  max-width: 34rem;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+.hg-card.is-expanded .hg-pin-panel-desc {
+  opacity: 0.92;
+  max-height: none;
+  transition: opacity 0.4s ease 0.4s;
+}
 
 .hg-closer {
   min-height: 100vh;

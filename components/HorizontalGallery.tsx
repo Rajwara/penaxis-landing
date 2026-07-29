@@ -96,6 +96,7 @@ export default function HorizontalGallery() {
             });
             gsap.to(card, {
               width: clicked[i] ? "46vw" : "34vw",
+              height: clicked[i] ? "92vh" : "70vh",
               duration: 2.5,
               ease: "elastic(1, .3)",
               onComplete: refreshPin,
@@ -155,9 +156,30 @@ export default function HorizontalGallery() {
               src="/images/hero/team-huddle.jpg"
               alt="The Penaxis team"
             />
-            <div className="hg-pin-panel hg-pin-panel--violet hg-card">AI-Powered MVPs</div>
-            <div className="hg-pin-panel hg-pin-panel--ember hg-card">Fractional Growth</div>
-            <div className="hg-pin-panel hg-pin-panel--volt hg-card">Web &amp; CRM Systems</div>
+            <div className="hg-pin-panel hg-pin-panel--violet hg-card">
+              <span className="hg-pin-panel-title">AI-Powered MVPs</span>
+              <p className="hg-pin-panel-desc">
+                Turning ideas into launch-ready SaaS products, AI assistants,
+                automation tools, and scalable MVPs built for real-world
+                validation and growth.
+              </p>
+            </div>
+            <div className="hg-pin-panel hg-pin-panel--ember hg-card">
+              <span className="hg-pin-panel-title">Fractional Growth</span>
+              <p className="hg-pin-panel-desc">
+                Providing dedicated sales and growth support to identify
+                prospects, generate qualified leads, build pipelines, and
+                convert opportunities into revenue.
+              </p>
+            </div>
+            <div className="hg-pin-panel hg-pin-panel--volt hg-card">
+              <span className="hg-pin-panel-title">Web &amp; CRM Systems</span>
+              <p className="hg-pin-panel-desc">
+                Building and integrating the websites, CRMs, and custom
+                software that keep a growing business running smoothly day
+                to day.
+              </p>
+            </div>
           </div>
         </div>
       </div>
