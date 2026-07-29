@@ -1925,6 +1925,43 @@ button:focus-visible {
   background: #171717;
 }
 
+.hg-intro-press {
+  margin-top: 3.5rem;
+  width: 100%;
+}
+.hg-intro-press-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(33, 33, 33, 0.35);
+  margin-bottom: 1.25rem;
+}
+.hg-intro-press-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem 3.5rem;
+}
+.hg-intro-press-row img {
+  height: 28px;
+  width: auto;
+  max-width: 130px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.55;
+  transition: opacity 0.2s, filter 0.2s;
+}
+.hg-intro-press-row img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+@media (max-width: 700px) {
+  .hg-intro-press-row { gap: 1.75rem 2rem; }
+  .hg-intro-press-row img { height: 22px; }
+}
+
 .hg-pin-outer {
   height: 100vh;
   overflow: hidden;
