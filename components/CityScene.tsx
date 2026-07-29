@@ -39,8 +39,8 @@ export default function CityScene() {
     }
     mount.appendChild(renderer.domElement);
 
-    const camera = new THREE.PerspectiveCamera(20, width / height, 1, 500);
-    camera.position.set(0, 2, 14);
+    const camera = new THREE.PerspectiveCamera(35, width / height, 1, 500);
+    camera.position.set(0, 5, 32);
 
     const scene = new THREE.Scene();
     const city = new THREE.Object3D();
@@ -50,7 +50,7 @@ export default function CityScene() {
     // Brand fog/background — deep violet instead of the original's red
     const bgColor = 0x2e1f42;
     scene.background = new THREE.Color(bgColor);
-    scene.fog = new THREE.Fog(bgColor, 10, 16);
+    scene.fog = new THREE.Fog(bgColor, 24, 48);
 
     // Buildings
     for (let i = 1; i < 100; i++) {
@@ -155,9 +155,9 @@ export default function CityScene() {
     }
 
     // Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 4);
-    const lightFront = new THREE.SpotLight(0xffffff, 20, 10);
-    const lightBack = new THREE.PointLight(0xffffff, 0.5);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
+    const lightFront = new THREE.SpotLight(0xb49fda, 12, 20);
+    const lightBack = new THREE.PointLight(0x734fa0, 0.6);
     lightFront.rotation.x = (45 * Math.PI) / 180;
     lightFront.rotation.z = (-45 * Math.PI) / 180;
     lightFront.position.set(5, 5, 5);
