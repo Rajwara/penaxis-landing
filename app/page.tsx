@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import NameIntro from "@/components/NameIntro";
 import RetroHero from "@/components/RetroHero";
 import MaterialHeading from "@/components/MaterialHeading";
 import LiquidHeading from "@/components/LiquidHeading";
@@ -22,6 +23,7 @@ export default function Home() {
     <>
       <Navbar />
       <main>
+        <NameIntro />
         <RetroHero />
         <MaterialHeading />
         <LiquidHeading />
