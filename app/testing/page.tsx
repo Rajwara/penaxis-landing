@@ -186,6 +186,30 @@ export default function TestingPage() {
 
       <div className="tst-scroll-spacer" />
 
+      <div style={{ marginTop: "3200px", position: "relative", zIndex: 3 }}>
+        <section className="pb-section">
+          <img src="/images/hero/team-huddle.jpg" alt="The Penaxis team" />
+          <div className="pb-content">
+            <h1>Your Trusted Growth &amp; Technology Partner</h1>
+            <div className="pb-cta-row">
+              <a href="/contact" className="pb-cta">
+                Start a Project
+              </a>
+              <a href="/contact" className="pb-arrow" aria-label="Start a project">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M7 17L17 7M17 7H8M17 7v9" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div className="pb-tags">
+            <div className="pb-tag">Trusted Partner</div>
+            <div className="pb-tag">AI &amp; Software</div>
+            <div className="pb-tag">Growth</div>
+          </div>
+        </section>
+      </div>
+
       <a href="/" className="tst-back">
         ← Back to Penaxis
       </a>

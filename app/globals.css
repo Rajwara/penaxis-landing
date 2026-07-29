@@ -2547,3 +2547,102 @@ button:focus-visible {
   .ind-slider { top: 27vh; }
   .ind-card { height: 300px; width: 82%; }
 }
+
+/* ============================================================
+   /testing — second section: full-bleed image hero with headline,
+   CTA, and bottom info pills. Layout inspired by a commercial site
+   template's structure (nav + hero photo + headline/CTA + tag pills);
+   that template's own brand name and its specific (likely licensed)
+   stock photo were NOT reproduced — this uses the real Penaxis team
+   photo and Penaxis copy/colors instead.
+   ============================================================ */
+.pb-section {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  background: #171717;
+}
+.pb-section img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 65% 40%;
+}
+.pb-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(23, 23, 23, 0.9) 0%, rgba(23, 23, 23, 0.55) 45%, rgba(23, 23, 23, 0.15) 75%);
+}
+.pb-content {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 3rem 6.5rem;
+  max-width: 40rem;
+}
+.pb-content h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  color: #fff;
+  line-height: 1.1;
+}
+.pb-cta-row {
+  margin-top: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.pb-cta {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: #d6f23c;
+  color: #171717;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.9rem 1.75rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.pb-cta:hover { background: #c3df2f; }
+.pb-arrow {
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  background: #d6f23c;
+  color: #171717;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.pb-tags {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+}
+.pb-tag {
+  flex: 1;
+  padding: 1.5rem 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #171717;
+}
+.pb-tag:nth-child(1) { background: #f2eefe; }
+.pb-tag:nth-child(2) { background: rgba(242, 238, 254, 0.65); }
+.pb-tag:nth-child(3) { background: rgba(242, 238, 254, 0.4); }
+
+@media (max-width: 700px) {
+  .pb-tags { flex-direction: column; }
+  .pb-content { padding: 2rem 1.5rem 2rem; }
+}
