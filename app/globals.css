@@ -2072,3 +2072,42 @@ button:focus-visible {
 @media (max-width: 700px) {
   .hg-pin-heading, .hg-pin-img, .hg-pin-panel { width: 78vw; }
 }
+
+/* ============================================================
+   Footer decorative scene — an original flat-illustration skyline
+   with a car and a cyclist sliding across, replacing the reference
+   template's own bundled/hotlinked GIF assets with freshly drawn SVG
+   shapes. Same sliding motion/timing concept (left -25% to 100%,
+   looping), different original artwork.
+   ============================================================ */
+.footer-scene {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+  opacity: 0.5;
+}
+.footer-scene svg { position: absolute; bottom: 0; }
+.footer-scene-skyline { left: 0; width: 100%; height: 100%; }
+.footer-scene-car {
+  bottom: 8px;
+  height: 46px;
+  width: auto;
+  animation: footer-drive 24s linear infinite;
+}
+.footer-scene-cyclist {
+  bottom: 6px;
+  height: 52px;
+  width: auto;
+  animation: footer-cycle 30s linear infinite;
+}
+@keyframes footer-drive {
+  0% { left: -15%; }
+  100% { left: 105%; }
+}
+@keyframes footer-cycle {
+  0% { left: -10%; }
+  100% { left: 110%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .footer-scene-car, .footer-scene-cyclist { animation: none; left: 40%; }
+}

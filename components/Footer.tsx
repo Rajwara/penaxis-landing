@@ -108,6 +108,85 @@ export default function Footer() {
         </div>
       </div>
 
+      <div className="footer-scene" aria-hidden="true">
+        <svg
+          className="footer-scene-skyline"
+          viewBox="0 0 1400 160"
+          preserveAspectRatio="xMidYMax slice"
+          fill="none"
+        >
+          {/* mountains */}
+          <path d="M1180 160L1250 70L1300 120L1340 60L1400 160H1180Z" fill="#734FA0" opacity="0.35" />
+          {/* buildings */}
+          <g fill="#B49FDA" opacity="0.3">
+            <rect x="0" y="70" width="46" height="90" />
+            <rect x="55" y="40" width="60" height="120" />
+            <rect x="125" y="90" width="40" height="70" />
+            <rect x="600" y="55" width="50" height="105" />
+            <rect x="660" y="30" width="42" height="130" />
+            <rect x="712" y="75" width="55" height="85" />
+            <rect x="930" y="60" width="46" height="100" />
+            <rect x="985" y="35" width="60" height="125" />
+            <rect x="1055" y="85" width="40" height="75" />
+          </g>
+          {/* trees near bus stop */}
+          <g fill="#5C3E82" opacity="0.4">
+            <circle cx="820" cy="95" r="26" />
+            <circle cx="850" cy="85" r="22" />
+            <rect x="815" y="100" width="8" height="40" />
+            <rect x="845" y="95" width="6" height="35" />
+          </g>
+          {/* bus stop bench */}
+          <g stroke="#D6F23C" strokeWidth="3" opacity="0.4" fill="none">
+            <path d="M900 40v100M960 40v100M900 45h60" />
+            <rect x="905" y="118" width="50" height="6" fill="#D6F23C" stroke="none" />
+          </g>
+          {/* street line */}
+          <line x1="0" y1="160" x2="1400" y2="160" stroke="#F2EEFE" strokeOpacity="0.15" strokeWidth="1" />
+          {/* hot air balloon */}
+          <g opacity="0.4">
+            <ellipse cx="1350" cy="30" rx="16" ry="20" fill="#734FA0" />
+            <path d="M1344 48h12l-4 8h-4z" fill="#734FA0" />
+          </g>
+        </svg>
+
+        <svg
+          className="footer-scene-car"
+          viewBox="0 0 90 40"
+          fill="none"
+          style={{ left: "-15%" }}
+        >
+          <path
+            d="M6 30 L10 18 Q14 12 24 12 L52 12 Q60 12 64 18 L70 30 Z"
+            fill="#734FA0"
+          />
+          <path d="M20 18 L26 13 L46 13 L52 18 Z" fill="#212121" opacity="0.5" />
+          <circle cx="22" cy="31" r="7" fill="#171717" />
+          <circle cx="58" cy="31" r="7" fill="#171717" />
+          <circle cx="22" cy="31" r="3" fill="#D6F23C" />
+          <circle cx="58" cy="31" r="3" fill="#D6F23C" />
+        </svg>
+
+        <svg
+          className="footer-scene-cyclist"
+          viewBox="0 0 60 46"
+          fill="none"
+          style={{ left: "-10%" }}
+        >
+          <circle cx="12" cy="36" r="9" stroke="#F2EEFE" strokeWidth="2" />
+          <circle cx="46" cy="36" r="9" stroke="#F2EEFE" strokeWidth="2" />
+          <path
+            d="M12 36 L26 20 L34 20 M26 20 L20 36 M34 20 L46 36 M34 20 L38 12 L44 12"
+            stroke="#F2EEFE"
+            strokeWidth="2"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <circle cx="34" cy="8" r="5" fill="#FC6607" />
+          <path d="M30 20 Q34 24 30 30" stroke="#FC6607" strokeWidth="4" fill="none" strokeLinecap="round" />
+        </svg>
+      </div>
+
       <div className="relative border-t border-white/10">
         <div className="mx-auto max-w-7xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-white/40">
