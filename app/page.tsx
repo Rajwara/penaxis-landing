@@ -11,7 +11,6 @@ import IndustriesStack from "@/components/IndustriesStack";
 import WhyUs from "@/components/WhyUs";
 import Team from "@/components/Team";
 import ShapeGrid from "@/components/ShapeGrid";
-import SpotlightDeck from "@/components/SpotlightDeck";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
@@ -34,7 +33,6 @@ export default function Home() {
 
         {/* TEMPORARY PREVIEW — remove or relocate once a placement is decided */}
         <ShapeGrid />
-        <SpotlightDeck />
 
         <CTA />
       </main>
