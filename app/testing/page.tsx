@@ -108,6 +108,10 @@ export default function TestingPage() {
             <stop offset="0" stopColor="#2e1f42" />
             <stop offset="1" stopColor="#171717" />
           </linearGradient>
+          <linearGradient id="tst-trail-grad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stopColor="#d6f23c" stopOpacity="0" />
+            <stop offset="1" stopColor="#d6f23c" stopOpacity="0.9" />
+          </linearGradient>
         </defs>
 
         <rect width="750" height="500" fill="url(#tst-bg-grad)" />
@@ -120,9 +124,38 @@ export default function TestingPage() {
             return <circle key={i} cx={x} cy={y} r={r} />;
           })}
         </g>
+
+        {/* Orbit rings with circling satellites, centered on the glow */}
+        <g id="tst-orbits" opacity="0.5">
+          <defs>
+            <path id="tst-orbit-path-1" d="M 445,120 A 70,26 0 1,1 305,120 A 70,26 0 1,1 445,120" fill="none" />
+            <path id="tst-orbit-path-2" d="M 485,120 A 110,40 0 1,1 265,120 A 110,40 0 1,1 485,120" fill="none" />
+            <path id="tst-orbit-path-3" d="M 525,120 A 150,56 0 1,1 225,120 A 150,56 0 1,1 525,120" fill="none" />
+          </defs>
+          <ellipse cx="375" cy="120" rx="70" ry="26" stroke="#d6f23c" strokeWidth="0.75" fill="none" />
+          <ellipse cx="375" cy="120" rx="110" ry="40" stroke="#b49fda" strokeWidth="0.75" fill="none" />
+          <ellipse cx="375" cy="120" rx="150" ry="56" stroke="#fc6607" strokeWidth="0.6" fill="none" />
+
+          <circle r="3" fill="#d6f23c">
+            <animateMotion dur="9s" repeatCount="indefinite" rotate="auto">
+              <mpath href="#tst-orbit-path-1" />
+            </animateMotion>
+          </circle>
+          <circle r="2.5" fill="#b49fda">
+            <animateMotion dur="14s" repeatCount="indefinite" rotate="auto">
+              <mpath href="#tst-orbit-path-2" />
+            </animateMotion>
+          </circle>
+          <circle r="2" fill="#fc6607">
+            <animateMotion dur="20s" repeatCount="indefinite" rotate="auto">
+              <mpath href="#tst-orbit-path-3" />
+            </animateMotion>
+          </circle>
+        </g>
+
         <g id="tst-fstar">
+          <line x1="600" y1="80" x2="645" y2="58" stroke="url(#tst-trail-grad)" strokeWidth="2" strokeLinecap="round" />
           <circle cx="600" cy="80" r="2.5" fill="#d6f23c" />
-          <line x1="600" y1="80" x2="630" y2="65" stroke="#d6f23c" strokeWidth="1.5" opacity="0.6" />
         </g>
 
         <polygon id="tst-peak-4" points={peakPoints(340, 60, 4)} fill="url(#tst-peak-grad-4)" />
