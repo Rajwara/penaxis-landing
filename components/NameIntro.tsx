@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
+import gsap from "gsap";
 
 // Ported from a generic "planet + particle field" three.js pattern
 // (a common personal-portfolio name-card technique) — an inner
@@ -15,6 +16,7 @@ import * as THREE from "three";
 
 export default function NameIntro() {
   const mountRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const mount = mountRef.current;
@@ -130,11 +132,30 @@ export default function NameIntro() {
     };
   }, []);
 
+  // "Go and come" breathing motion on the wordmark — gently scales up
+  // and back down, looping forever.
+  useEffect(() => {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced || !textRef.current) return;
+
+    const tween = gsap.to(textRef.current, {
+      scale: 1.08,
+      duration: 1.8,
+      ease: "sine.inOut",
+      yoyo: true,
+      repeat: -1,
+    });
+
+    return () => {
+      tween.kill();
+    };
+  }, []);
+
   return (
     <section className="ni-root" aria-label="Penaxis">
       <div ref={mountRef} className="ni-canvas" aria-hidden="true" role="presentation" />
       <div className="ni-name">
-        <div className="ni-name-text">PENAXIS</div>
+        <div ref={textRef} className="ni-name-text">PENAXIS</div>
       </div>
     </section>
   );
