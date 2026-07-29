@@ -1973,6 +1973,7 @@ button:focus-visible {
   height: 100vh;
   display: flex;
   align-items: center;
+  padding: 0 4vw;
   will-change: transform;
 }
 .hg-pin-wrap > * {
