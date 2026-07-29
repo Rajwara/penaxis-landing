@@ -3,7 +3,7 @@ export const navLeft = [
   { label: "Services", href: "/services" },
   { label: "Industries", href: "#industries" },
   // No dedicated case-studies page yet — placeholder destination until one exists
-  { label: "Case Studies", href: "#why-us" },
+  { label: "Case Studies", href: "/case-studies" },
 ];
 
 // Right navigation capsule — About (quiet) + Start a Project (primary CTA)
@@ -16,7 +16,7 @@ export const navCta = { label: "Start a Project", href: "#contact" };
 export const navMobile = [
   { label: "Services", href: "/services" },
   { label: "Industries", href: "#industries" },
-  { label: "Case Studies", href: "#why-us" },
+  { label: "Case Studies", href: "/case-studies" },
   { label: "About", href: "/about" },
   { label: "Our Team", href: "#team" },
 ];
