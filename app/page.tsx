@@ -25,12 +25,12 @@ export default function Home() {
         <HorizontalGallery />
         <ServicesShowcase />
         <Coverage />
+        <IndustriesStack />
         <StarfieldBanner />
         <About />
         <AIShowcase />
         <TechPicker />
         <Services />
-        <IndustriesStack />
         <WhyUs />
         <Team />
 
