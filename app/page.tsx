@@ -8,7 +8,7 @@ import TechPicker from "@/components/TechPicker";
 import Coverage from "@/components/Coverage";
 import Services from "@/components/Services";
 import ServicesShowcase from "@/components/ServicesShowcase";
-import Industries from "@/components/Industries";
+import IndustriesStack from "@/components/IndustriesStack";
 import WhyUs from "@/components/WhyUs";
 import Team from "@/components/Team";
 import ShapeGrid from "@/components/ShapeGrid";
@@ -30,7 +30,7 @@ export default function Home() {
         <AIShowcase />
         <TechPicker />
         <Services />
-        <Industries />
+        <IndustriesStack />
         <WhyUs />
         <Team />
 
