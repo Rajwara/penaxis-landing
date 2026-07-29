@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import CityScene from "@/components/CityScene";
 import HorizontalGallery from "@/components/HorizontalGallery";
+import PinnedGallery from "@/components/PinnedGallery";
 import RetroHero from "@/components/RetroHero";
 import MaterialHeading from "@/components/MaterialHeading";
 import LiquidHeading from "@/components/LiquidHeading";
@@ -32,6 +33,7 @@ export default function HomeV2() {
       <main>
         <CityScene />
         <HorizontalGallery />
+        <PinnedGallery />
         <RetroHero />
         <MaterialHeading />
         <LiquidHeading />
