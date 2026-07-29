@@ -16,7 +16,7 @@ import gsap from "gsap";
 // Used as a page loader: shows for ~10s then fades, scroll locked
 // while visible.
 
-const WORDS = ["Hello", "From", "Lahore"];
+const WORDS = ["Hello", "From", "Penaxis"];
 const SHOW_DURATION_MS = 10000;
 const FADE_DURATION_MS = 500;
 
