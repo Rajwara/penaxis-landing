@@ -1976,7 +1976,7 @@ button:focus-visible {
   will-change: transform;
 }
 .hg-pin-wrap > * {
-  margin: 0 1.5vw;
+  margin: 0 2vw;
   flex-shrink: 0;
 }
 .hg-card {
@@ -2012,6 +2012,7 @@ button:focus-visible {
 }
 .hg-pin-panel--violet { background: linear-gradient(155deg, #8768b7 0%, #5c3e82 100%); }
 .hg-pin-panel--ember { background: linear-gradient(155deg, #ff8a4c 0%, #e05500 100%); }
+.hg-pin-panel--volt { background: linear-gradient(155deg, #eaffa0 0%, #a7bd2c 100%); color: #212121; }
 
 .hg-closer {
   min-height: 100vh;

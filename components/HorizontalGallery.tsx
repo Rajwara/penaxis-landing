@@ -157,6 +157,7 @@ export default function HorizontalGallery() {
             />
             <div className="hg-pin-panel hg-pin-panel--violet hg-card">AI-Powered MVPs</div>
             <div className="hg-pin-panel hg-pin-panel--ember hg-card">Fractional Growth</div>
+            <div className="hg-pin-panel hg-pin-panel--volt hg-card">Web &amp; CRM Systems</div>
           </div>
         </div>
       </div>
