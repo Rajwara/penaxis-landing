@@ -1849,3 +1849,126 @@ button:focus-visible {
   .se-item { height: 50vh; }
   .se-item-desc { display: none; }
 }
+
+/* ============================================================
+   HorizontalGallery — three-part scroll section: an intro panel,
+   a pinned horizontal-scrolling gallery, and a closing CTA panel.
+   Ported the horizontal-pin technique (generic GSAP ScrollTrigger
+   pin+scrub against scroll position) but WITHOUT Locomotive Scroll,
+   which would hijack native scrolling for the whole page and break
+   this site's other scroll-driven sections. Original credit link
+   ("Made by Beings") dropped; lorem ipsum replaced with real copy;
+   two of three gallery images are brand-gradient panels since we
+   don't have real photography for them yet.
+   ============================================================ */
+.hg-intro {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10vw;
+  background: #f1eefb;
+  color: #212121;
+}
+.hg-intro h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 7vw, 5.5rem);
+  line-height: 1;
+  margin: 0 0 1rem;
+}
+.hg-intro h1 span { display: block; overflow: hidden; }
+.hg-intro h1 span > i {
+  display: inline-block;
+  font-style: normal;
+}
+.hg-intro p {
+  max-width: 22rem;
+  line-height: 1.6;
+  color: rgba(33, 33, 33, 0.65);
+}
+
+.hg-pin-outer {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  background: #212121;
+  color: #f2eefe;
+}
+.hg-pin-wrap {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  will-change: transform;
+}
+.hg-pin-wrap > * {
+  padding: 0 3vw;
+  flex-shrink: 0;
+}
+.hg-pin-heading {
+  width: 32vw;
+  min-width: 320px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+  line-height: 1.25;
+}
+.hg-pin-img {
+  height: 70vh;
+  width: 34vw;
+  min-width: 320px;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+.hg-pin-panel {
+  height: 70vh;
+  width: 34vw;
+  min-width: 320px;
+  border-radius: 1rem;
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #fff;
+}
+.hg-pin-panel--violet { background: linear-gradient(155deg, #8768b7 0%, #5c3e82 100%); }
+.hg-pin-panel--ember { background: linear-gradient(155deg, #ff8a4c 0%, #e05500 100%); }
+
+.hg-closer {
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  align-items: center;
+  padding: 50px 10vw;
+  background: #5c3e82;
+  color: #f1eefb;
+}
+.hg-closer-img {
+  height: 60vh;
+  width: 100%;
+  max-width: 420px;
+  object-fit: cover;
+  border-radius: 1rem;
+  justify-self: center;
+}
+.hg-closer h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  max-width: 26rem;
+}
+.hg-closer a {
+  color: #d6f23c;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+@media (max-width: 700px) {
+  .hg-pin-heading, .hg-pin-img, .hg-pin-panel { width: 78vw; }
+}
