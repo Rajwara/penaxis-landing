@@ -9,7 +9,6 @@ import Hero from "@/components/Hero";
 import StarfieldBanner from "@/components/StarfieldBanner";
 import About from "@/components/About";
 import AIShowcase from "@/components/AIShowcase";
-import TechPicker from "@/components/TechPicker";
 import Coverage from "@/components/Coverage";
 import Services from "@/components/Services";
 import ServicesExpand from "@/components/ServicesExpand";
@@ -41,7 +40,6 @@ export default function HomeV2() {
         <StarfieldBanner />
         <About />
         <AIShowcase />
-        <TechPicker />
         <Coverage />
         <Services />
         <ServicesExpand />

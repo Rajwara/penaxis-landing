@@ -4,7 +4,6 @@ import HorizontalGallery from "@/components/HorizontalGallery";
 import StarfieldBanner from "@/components/StarfieldBanner";
 import About from "@/components/About";
 import AIShowcase from "@/components/AIShowcase";
-import TechPicker from "@/components/TechPicker";
 import Coverage from "@/components/Coverage";
 import Services from "@/components/Services";
 import ServicesShowcase from "@/components/ServicesShowcase";
@@ -29,7 +28,6 @@ export default function Home() {
         <StarfieldBanner />
         <About />
         <AIShowcase />
-        <TechPicker />
         <Services />
         <WhyUs />
         <Team />
