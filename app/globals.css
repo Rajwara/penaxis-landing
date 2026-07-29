@@ -1913,10 +1913,10 @@ button:focus-visible {
   width: 100%;
   max-width: 960px;
   margin: 2.5rem auto 0;
-  border-radius: 1.25rem;
+  border-radius: 2rem;
   overflow: hidden;
-  box-shadow: 0 30px 60px rgba(33, 33, 33, 0.28);
-  border: 1px solid rgba(33, 33, 33, 0.08);
+  box-shadow: 0 40px 70px rgba(33, 33, 33, 0.45);
+  border: 2px solid rgba(33, 33, 33, 0.15);
 }
 .hg-intro-video video {
   display: block;
@@ -1924,6 +1924,7 @@ button:focus-visible {
   aspect-ratio: 16 / 9;
   object-fit: cover;
   background: #171717;
+  border-radius: 2rem;
 }
 
 .hg-intro-press {
