@@ -52,7 +52,7 @@ export default function Hero3D() {
       0.1,
       100
     );
-    camera.position.set(0, 0.4, 7.2);
+    camera.position.set(0, 0.4, 8.6);
 
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
@@ -97,9 +97,9 @@ export default function Hero3D() {
     }[] = [];
 
     const ringConfigs = [
-      { radius: 2.1, tilt: 0.15, count: 4, speed: 0.09 },
-      { radius: 2.85, tilt: -0.35, count: 5, speed: -0.065 },
-      { radius: 3.5, tilt: 0.55, count: 3, speed: 0.045 },
+      { radius: 1.85, tilt: 0.15, count: 4, speed: 0.09 },
+      { radius: 2.5, tilt: -0.35, count: 5, speed: -0.065 },
+      { radius: 3.05, tilt: 0.55, count: 3, speed: 0.045 },
     ];
 
     ringConfigs.forEach((cfg, ringIdx) => {
