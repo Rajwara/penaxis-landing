@@ -1976,58 +1976,42 @@ button:focus-visible {
   will-change: transform;
 }
 .hg-pin-wrap > * {
-  margin: 0 2.25vw;
+  margin: 0 1.5vw;
   flex-shrink: 0;
 }
 .hg-card {
   cursor: pointer;
 }
+.hg-pin-heading {
+  width: 32vw;
+  min-width: 320px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+  line-height: 1.25;
+}
+.hg-pin-img {
+  height: 70vh;
+  width: 34vw;
+  min-width: 320px;
+  object-fit: cover;
+  border-radius: 1rem;
+}
 .hg-pin-panel {
   height: 70vh;
-  width: 30vw;
-  min-width: 300px;
-  max-width: 460px;
+  width: 34vw;
+  min-width: 320px;
   border-radius: 1rem;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
+  align-items: flex-end;
   padding: 2rem;
   font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
   color: #fff;
 }
 .hg-pin-panel--violet { background: linear-gradient(155deg, #8768b7 0%, #5c3e82 100%); }
 .hg-pin-panel--ember { background: linear-gradient(155deg, #ff8a4c 0%, #e05500 100%); }
-.hg-pin-panel--volt { background: linear-gradient(155deg, #eaffa0 0%, #a7bd2c 100%); color: #212121; }
-.hg-pin-panel--void { background: linear-gradient(155deg, #3a2f52 0%, #171717 100%); }
-
-.hg-pin-panel-num {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  opacity: 0.7;
-  margin-bottom: 0.5rem;
-}
-.hg-pin-panel-title {
-  font-weight: 700;
-  font-size: 1.35rem;
-  line-height: 1.15;
-}
-.hg-pin-panel-desc {
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: 0.85rem;
-  line-height: 1.5;
-  margin-top: 0.75rem;
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: opacity 0.3s ease 0.15s;
-}
-.hg-card.is-expanded .hg-pin-panel-desc {
-  opacity: 0.92;
-  max-height: none;
-}
 
 .hg-closer {
   min-height: 100vh;
@@ -2061,5 +2045,5 @@ button:focus-visible {
 }
 
 @media (max-width: 700px) {
-  .hg-pin-panel { width: 78vw; max-width: none; }
+  .hg-pin-heading, .hg-pin-img, .hg-pin-panel { width: 78vw; }
 }
