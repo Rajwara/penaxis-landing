@@ -1979,6 +1979,9 @@ button:focus-visible {
   margin: 0 1.5vw;
   flex-shrink: 0;
 }
+.hg-card {
+  cursor: pointer;
+}
 .hg-pin-heading {
   width: 32vw;
   min-width: 320px;

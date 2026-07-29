@@ -26,6 +26,7 @@ if (typeof window !== "undefined") {
 export default function HorizontalGallery() {
   const pinOuterRef = useRef<HTMLDivElement>(null);
   const pinWrapRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -37,6 +38,17 @@ export default function HorizontalGallery() {
 
     let tween: gsap.core.Tween | null = null;
     let rafId = 0;
+
+    // Recompute the horizontal scroll distance whenever the track's total
+    // width changes (e.g. a card expands/collapses on click).
+    const refreshPin = () => {
+      const pinWrapWidth = pinWrap.scrollWidth;
+      const horizontalScrollLength = Math.max(0, pinWrapWidth - window.innerWidth);
+      if (tween?.scrollTrigger) {
+        tween.scrollTrigger.vars.end = `+=${Math.max(horizontalScrollLength, window.innerHeight * 0.5)}`;
+      }
+      ScrollTrigger.refresh();
+    };
 
     const ctx = gsap.context(() => {
       // Delay one frame so layout (including image intrinsic sizing) is
@@ -60,6 +72,39 @@ export default function HorizontalGallery() {
         });
 
         ScrollTrigger.refresh();
+
+        // Click-to-expand — same interaction as the Services accordion,
+        // applied to the photo + two color panels in this track.
+        const cards = cardsRef.current
+          ? Array.from(cardsRef.current.querySelectorAll<HTMLElement>(".hg-card"))
+          : [];
+        const clicked = new Array(cards.length).fill(false);
+
+        cards.forEach((card, i) => {
+          card.addEventListener("click", () => {
+            cards.forEach((_, idx) => {
+              if (i !== idx) clicked[idx] = false;
+            });
+            clicked[i] = !clicked[i];
+            cards.forEach((c, idx) => c.classList.toggle("is-expanded", clicked[idx]));
+
+            gsap.to(cards, {
+              width: (idx) => (idx === i ? undefined : "18vw"),
+              duration: 2,
+              ease: "elastic(1, .6)",
+              onComplete: refreshPin,
+            });
+            gsap.to(card, {
+              width: clicked[i] ? "46vw" : "34vw",
+              duration: 2.5,
+              ease: "elastic(1, .3)",
+              onComplete: refreshPin,
+            });
+            if (!clicked.some(Boolean)) {
+              gsap.to(cards, { width: "34vw", duration: 2, ease: "elastic(1, .6)", onComplete: refreshPin });
+            }
+          });
+        });
       });
     }, pinOuter);
 
@@ -104,13 +149,15 @@ export default function HorizontalGallery() {
             AI-powered products, digital transformation, fractional sales,
             and the web/CRM/software systems that hold it all together.
           </h2>
-          <img
-            className="hg-pin-img"
-            src="/images/hero/team-huddle.jpg"
-            alt="The Penaxis team"
-          />
-          <div className="hg-pin-panel hg-pin-panel--violet">AI-Powered MVPs</div>
-          <div className="hg-pin-panel hg-pin-panel--ember">Fractional Growth</div>
+          <div ref={cardsRef} style={{ display: "contents" }}>
+            <img
+              className="hg-pin-img hg-card"
+              src="/images/hero/team-huddle.jpg"
+              alt="The Penaxis team"
+            />
+            <div className="hg-pin-panel hg-pin-panel--violet hg-card">AI-Powered MVPs</div>
+            <div className="hg-pin-panel hg-pin-panel--ember hg-card">Fractional Growth</div>
+          </div>
         </div>
       </div>
     </>
