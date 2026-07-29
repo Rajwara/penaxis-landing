@@ -49,8 +49,6 @@ export default function CuboidLoader() {
       } else {
         gsap
           .timeline({ delay: 0.3 })
-          .from(".cl-location--lat", { x: 100, autoAlpha: 0, ease: "power4", duration: 1 })
-          .from(".cl-location--long", { x: -100, autoAlpha: 0, ease: "power4", duration: 1 }, 0)
           .from(cuboids, { y: winH, duration: 1.6, stagger: 0.14, ease: "elastic(0.4,0.3)" }, 0);
 
         gsap.to(cuboids, { rotateX: -360, duration: 8, repeat: -1, ease: "none" });
@@ -175,8 +173,6 @@ export default function CuboidLoader() {
 
         <div className="cl-base">
           <div className="cl-base-plate" />
-          <p className="cl-location cl-location--lat">31.5497° N</p>
-          <p className="cl-location cl-location--long">74.3436° E</p>
         </div>
       </div>
     </div>
