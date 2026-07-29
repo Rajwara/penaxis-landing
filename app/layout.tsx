@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import dynamic from "next/dynamic";
+
+const KineticLoader = dynamic(() => import("@/components/KineticLoader"), {
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: "Penaxis — Growth & Technology Partner",
@@ -22,7 +27,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-paper text-ink antialiased">{children}</body>
+      <body className="bg-paper text-ink antialiased">
+        <KineticLoader />
+        {children}
+      </body>
     </html>
   );
 }
