@@ -177,9 +177,11 @@ export default function RetroHero() {
 
         <div className="rh-image-container">
           <div ref={heroImgRef} style={{ width: "100%", height: "100%" }}>
-            {/* Placeholder — swap for <img src="/images/..." alt="..." className="..." />
-                once the photo is uploaded to /public/images/ */}
-            <div className="rh-img-placeholder">Photo pending upload</div>
+            <img
+              src="/images/hero/team-huddle.jpg"
+              alt="The Penaxis team, hands stacked together"
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center" }}
+            />
           </div>
         </div>
 
