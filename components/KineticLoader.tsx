@@ -3,23 +3,18 @@
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 
-// Ported technique: kinetic typography with Three.js, originally a
-// Codrops tutorial by Mario Carrillo (MIT licensed, github.com/
-// marioecg/codrops-kinetic-typo) — text is rendered to an offscreen
-// texture via a bitmap/MSDF font, then that texture is mapped onto a
-// 3D sphere whose fragment shader scrolls/repeats the UVs over time,
-// producing a flowing "kinetic" look. Used here as a loading screen:
-// same mechanism, "PENAXIS" instead of the demo's own word, Penaxis
-// brand colors, and only the sphere ("Swirl") variant of the
-// original's four geometries.
-//
-// IMPORTANT: three-bmfont-text has a MODULE-LEVEL statement
-// (`var Base = THREE.BufferGeometry`) that runs the instant it's
-// imported, expecting a global `THREE` (pre-ES-module convention).
-// A static top-level import would evaluate before we can set that
-// global. So three-bmfont-text and its msdf shader are imported
-// DYNAMICALLY inside the effect, after window.THREE is assigned —
-// dynamic imports evaluate at the point they're called, not hoisted.
+// Kinetic-typography loader: "PENAXIS" is drawn onto a plain 2D canvas
+// (bold system font, no async font/atlas loading required), turned
+// into a THREE.CanvasTexture, and mapped onto a rotating sphere whose
+// fragment shader continuously scrolls/repeats that texture across
+// the surface — the same "flowing text" look as the original
+// technique this was based on (a Codrops/marioecg tutorial using
+// three-bmfont-text for the text-to-texture step). That library turned
+// out to be built for a pre-ES6-class version of Three.js and throws
+// ("Class constructor cannot be invoked without 'new'") on the modern
+// Three.js version this project uses — so the text-to-texture step is
+// done with the plain Canvas 2D API instead, which has no such
+// compatibility issue and needs no extra dependencies or font files.
 
 const sphereVertex = /* glsl */ `
   varying vec2 vUv;
@@ -38,7 +33,7 @@ const sphereFragment = /* glsl */ `
   uniform sampler2D uTexture;
   void main() {
     float time = uTime * 1.4;
-    vec2 repeat = vec2(10., 10.);
+    vec2 repeat = vec2(6., 6.);
     vec2 uv = fract(vUv * repeat + vec2(sin(vUv.y * 1.0) * 4., time));
     vec3 tex = texture2D(uTexture, uv).rgb;
     float depth = vPosition.z / 10.;
@@ -47,8 +42,30 @@ const sphereFragment = /* glsl */ `
   }
 `;
 
-const SHOW_DURATION_MS = 10000; // fully visible for 10s, per request
+const SHOW_DURATION_MS = 10000; // fully visible for 10s
 const FADE_DURATION_MS = 500;
+
+function makeTextTexture(): THREE.CanvasTexture {
+  const canvas = document.createElement("canvas");
+  canvas.width = 1024;
+  canvas.height = 256;
+  const ctx = canvas.getContext("2d")!;
+
+  // Background fill — becomes the "gap" color between repeated text
+  ctx.fillStyle = "#212121";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "#f2eefe";
+  ctx.font = "900 150px 'Arial Black', Arial, sans-serif";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText("PENAXIS", canvas.width / 2, canvas.height / 2 + 10);
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
+  return texture;
+}
 
 export default function KineticLoader() {
   const mountRef = useRef<HTMLDivElement>(null);
@@ -60,9 +77,6 @@ export default function KineticLoader() {
       setHidden(true);
       return;
     }
-
-    // Set the legacy global BEFORE dynamically importing three-bmfont-text
-    (window as any).THREE = (window as any).THREE || THREE;
 
     const mount = mountRef.current;
     if (!mount) return;
@@ -79,73 +93,19 @@ export default function KineticLoader() {
     renderer.setSize(width, height);
     mount.appendChild(renderer.domElement);
 
-    let mesh: THREE.Mesh | null = null;
-    let material: THREE.ShaderMaterial | null = null;
-    let rt: THREE.WebGLRenderTarget | null = null;
-    let rtScene: THREE.Scene | null = null;
-    let rtCamera: THREE.PerspectiveCamera | null = null;
-    let disposed = false;
-    let raf = 0;
-
-    (async () => {
-      const [{ default: loadFont }, { default: createGeometry }, { default: MSDFShader }] =
-        await Promise.all([
-          import("load-bmfont"),
-          import("three-bmfont-text"),
-          import("three-bmfont-text/shaders/msdf"),
-        ]);
-
-      loadFont("/fonts/ArchivoBlack-Regular.fnt", (err: any, font: any) => {
-        if (err || disposed) return;
-
-        const fontGeometry = createGeometry({ font, text: "PENAXIS" });
-
-        new THREE.TextureLoader().load("/fonts/ArchivoBlack-Regular.png", (texture) => {
-          if (disposed) return;
-
-          const fontMaterial = new THREE.RawShaderMaterial(
-            MSDFShader({
-              map: texture,
-              side: THREE.DoubleSide,
-              transparent: true,
-              negate: false,
-              color: "#f2eefe",
-            })
-          );
-
-          rt = new THREE.WebGLRenderTarget(width, height);
-          rtCamera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
-          rtCamera.position.z = 2.4;
-          rtScene = new THREE.Scene();
-          rtScene.background = new THREE.Color("#212121");
-
-          const textMesh = new THREE.Mesh(fontGeometry, fontMaterial);
-          textMesh.position.set(-0.94, -0.12, 0);
-          textMesh.rotation.set(Math.PI, 0, 0);
-          textMesh.scale.set(0.008, 0.04, 1);
-          rtScene.add(textMesh);
-
-          const geometry = new THREE.SphereGeometry(12, 64, 64);
-          material = new THREE.ShaderMaterial({
-            vertexShader: sphereVertex,
-            fragmentShader: sphereFragment,
-            uniforms: {
-              uTime: { value: 0 },
-              uTexture: { value: rt.texture },
-            },
-            side: THREE.DoubleSide,
-          });
-
-          mesh = new THREE.Mesh(geometry, material);
-          mesh.onBeforeRender = (r) => {
-            r.setRenderTarget(rt!);
-            r.render(rtScene!, rtCamera!);
-            r.setRenderTarget(null);
-          };
-          scene.add(mesh);
-        });
-      });
-    })();
+    const texture = makeTextTexture();
+    const geometry = new THREE.SphereGeometry(12, 64, 64);
+    const material = new THREE.ShaderMaterial({
+      vertexShader: sphereVertex,
+      fragmentShader: sphereFragment,
+      uniforms: {
+        uTime: { value: 0 },
+        uTexture: { value: texture },
+      },
+      side: THREE.DoubleSide,
+    });
+    const mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
 
     const handleResize = () => {
       const w = window.innerWidth;
@@ -153,15 +113,15 @@ export default function KineticLoader() {
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
       renderer.setSize(w, h);
-      rt?.setSize(w, h);
     };
     window.addEventListener("resize", handleResize);
 
     const clock = new THREE.Clock();
+    let raf = 0;
     function animate() {
       raf = requestAnimationFrame(animate);
-      if (material) material.uniforms.uTime.value = clock.getElapsedTime();
-      if (mesh) mesh.rotation.y += 0.003;
+      material.uniforms.uTime.value = clock.getElapsedTime();
+      mesh.rotation.y += 0.003;
       renderer.render(scene, camera);
     }
     animate();
@@ -170,13 +130,14 @@ export default function KineticLoader() {
     const removeTimer = setTimeout(() => setHidden(true), SHOW_DURATION_MS + FADE_DURATION_MS);
 
     return () => {
-      disposed = true;
       clearTimeout(dismissTimer);
       clearTimeout(removeTimer);
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", handleResize);
       renderer.dispose();
-      rt?.dispose();
+      geometry.dispose();
+      material.dispose();
+      texture.dispose();
       if (mount.contains(renderer.domElement)) {
         mount.removeChild(renderer.domElement);
       }
