@@ -178,8 +178,8 @@ export default function RetroHero() {
         <div className="rh-image-container">
           <div ref={heroImgRef} style={{ width: "100%", height: "100%" }}>
             <img
-              src="/images/hero/team-huddle.jpg"
-              alt="The Penaxis team, hands stacked together"
+              src="/images/hero/office-logo-desk.jpg"
+              alt="Penaxis team members working at the office"
               style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center" }}
             />
           </div>
