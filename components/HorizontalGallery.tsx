@@ -74,11 +74,18 @@ export default function HorizontalGallery() {
   return (
     <>
       <section className="hg-intro">
+        <div className="hg-intro-eyebrow">From our founders</div>
         <h1>
           <span><i>Work that</i></span>
           <span><i>moves sideways</i></span>
         </h1>
         <p>Scroll through a few of the things Penaxis has been building lately.</p>
+        <div className="hg-intro-video">
+          <video controls poster="/images/hero/team-huddle.jpg" preload="metadata">
+            {/* Swap this src once the real CEO/founder interview video is uploaded */}
+            <source src="" type="video/mp4" />
+          </video>
+        </div>
       </section>
 
       <div ref={pinOuterRef} className="hg-pin-outer">

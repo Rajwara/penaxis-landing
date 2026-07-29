@@ -1890,6 +1890,39 @@ button:focus-visible {
   color: rgba(33, 33, 33, 0.65);
 }
 
+.hg-intro-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(33, 33, 33, 0.5);
+  margin-bottom: 1.25rem;
+}
+.hg-intro-eyebrow::before {
+  content: "";
+  width: 1.5rem;
+  height: 1px;
+  background: rgba(33, 33, 33, 0.35);
+}
+.hg-intro-video {
+  width: 100%;
+  max-width: 720px;
+  margin-top: 2.5rem;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(33, 33, 33, 0.15);
+}
+.hg-intro-video video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #171717;
+}
+
 .hg-pin-outer {
   height: 100vh;
   overflow: hidden;
