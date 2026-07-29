@@ -1911,7 +1911,7 @@ button:focus-visible {
 }
 .hg-intro-video {
   width: 100%;
-  max-width: 720px;
+  max-width: 1200px;
   margin-top: 2.5rem;
   border-radius: 1.25rem;
   overflow: hidden;
