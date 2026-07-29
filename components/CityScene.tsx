@@ -9,9 +9,11 @@ import gsap from "gsap";
 // particles orbiting above, and car-like blocks animating back and
 // forth through the scene, the whole group gently rotating toward the
 // cursor — from a widely-shared Three.js CodePen demo ("Lab City 3D"
-// by Victor Vergara). That demo's own heading text and personal
-// dribbble credit link aren't reused; colors are mapped to the
-// Penaxis palette instead of its red fog/background, and TweenMax
+// by Victor Vergara). Ported as close to 1:1 as the original code
+// (camera, lights, fog range, geometry, particle/car colors all kept
+// as-is) — the ONLY color changed is the fog/background itself,
+// swapped from the demo's red to the Penaxis violet. Heading text and
+// the demo's personal dribbble credit link aren't reused. TweenMax
 // calls are replaced with GSAP (its direct successor, same API).
 
 function mathRandom(num = 8) {
@@ -39,40 +41,40 @@ export default function CityScene() {
     }
     mount.appendChild(renderer.domElement);
 
-    const camera = new THREE.PerspectiveCamera(35, width / height, 1, 500);
-    camera.position.set(0, 5, 32);
+    // Original camera parameters, unchanged
+    const camera = new THREE.PerspectiveCamera(20, width / height, 1, 500);
+    camera.position.set(0, 2, 14);
 
     const scene = new THREE.Scene();
     const city = new THREE.Object3D();
     const smoke = new THREE.Object3D();
     const town = new THREE.Object3D();
 
-    // Brand fog/background — deep violet instead of the original's red
-    const bgColor = 0x2e1f42;
-    scene.background = new THREE.Color(bgColor);
-    scene.fog = new THREE.Fog(bgColor, 24, 48);
+    // ONLY color changed from the original: red (0xF02050) -> Penaxis violet
+    const setcolor = 0x734fa0;
+    scene.background = new THREE.Color(setcolor);
+    scene.fog = new THREE.Fog(setcolor, 10, 16);
 
-    // Buildings
+    // Buildings — same geometry/material setup as the original
     for (let i = 1; i < 100; i++) {
       const geometry = new THREE.BoxGeometry(1, 1, 1, 2, 2, 2);
       const material = new THREE.MeshStandardMaterial({
-        color: 0x171717,
+        color: 0x000000,
+        wireframe: false,
         side: THREE.DoubleSide,
       });
       const wmaterial = new THREE.MeshLambertMaterial({
-        color: 0xb49fda, // violet-tinted wireframe instead of plain white
+        color: 0xffffff,
         wireframe: true,
         transparent: true,
-        opacity: 0.12,
+        opacity: 0.03,
         side: THREE.DoubleSide,
       });
 
       const cube = new THREE.Mesh(geometry, material);
-      const wire = new THREE.Mesh(geometry, wmaterial);
-      const floor = new THREE.Mesh(geometry, material);
       const wfloor = new THREE.Mesh(geometry, wmaterial);
+      const floor = new THREE.Mesh(geometry, material);
 
-      cube.add(wire);
       cube.add(wfloor);
       cube.castShadow = true;
       cube.receiveShadow = true;
@@ -105,8 +107,8 @@ export default function CityScene() {
     pelement.receiveShadow = true;
     city.add(pelement);
 
-    // Particles ("smoke") — volt green instead of yellow
-    const gmaterial = new THREE.MeshToonMaterial({ color: 0xd6f23c, side: THREE.DoubleSide });
+    // Particles ("smoke") — original yellow, unchanged
+    const gmaterial = new THREE.MeshToonMaterial({ color: 0xffff00, side: THREE.DoubleSide });
     const gparticular = new THREE.CircleGeometry(0.01, 3);
     for (let h = 1; h < 300; h++) {
       const particular = new THREE.Mesh(gparticular, gmaterial);
@@ -115,10 +117,9 @@ export default function CityScene() {
       smoke.add(particular);
     }
 
-    // Cars — violet/ember alternating instead of yellow
+    // Cars — original yellow, unchanged
     let createCarPos = true;
-    const carColors = [0x734fa0, 0xfc6607];
-    const createCars = (cScale = 2, cPos = 20, cColor = carColors[0]) => {
+    const createCars = (cScale = 2, cPos = 20, cColor = 0xffff00) => {
       const cMat = new THREE.MeshToonMaterial({ color: cColor, side: THREE.DoubleSide });
       const cGeo = new THREE.BoxGeometry(1, cScale / 40, cScale / 40);
       const cElem = new THREE.Mesh(cGeo, cMat);
@@ -151,13 +152,13 @@ export default function CityScene() {
       city.add(cElem);
     };
     for (let i = 0; i < 60; i++) {
-      createCars(0.1, 20, carColors[i % 2]);
+      createCars(0.1, 20);
     }
 
-    // Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
-    const lightFront = new THREE.SpotLight(0xb49fda, 12, 20);
-    const lightBack = new THREE.PointLight(0x734fa0, 0.6);
+    // Lights — original intensities/colors, unchanged
+    const ambientLight = new THREE.AmbientLight(0xffffff, 4);
+    const lightFront = new THREE.SpotLight(0xffffff, 20, 10);
+    const lightBack = new THREE.PointLight(0xffffff, 0.5);
     lightFront.rotation.x = (45 * Math.PI) / 180;
     lightFront.rotation.z = (-45 * Math.PI) / 180;
     lightFront.position.set(5, 5, 5);
@@ -176,7 +177,7 @@ export default function CityScene() {
     city.add(smoke);
     city.add(town);
 
-    const gridHelper = new THREE.GridHelper(60, 120, 0x734fa0, 0x000000);
+    const gridHelper = new THREE.GridHelper(60, 120, 0xff0000, 0x000000);
     city.add(gridHelper);
 
     // Mouse parallax
@@ -221,7 +222,6 @@ export default function CityScene() {
       cancelAnimationFrame(raf);
       mount.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("resize", handleResize);
-      gsap.killTweensOf(city.children.map((c) => c.position));
       renderer.dispose();
       if (mount.contains(renderer.domElement)) {
         mount.removeChild(renderer.domElement);
