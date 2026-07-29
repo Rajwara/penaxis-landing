@@ -1911,11 +1911,12 @@ button:focus-visible {
 }
 .hg-intro-video {
   width: 100%;
-  max-width: 1200px;
-  margin-top: 2.5rem;
+  max-width: 960px;
+  margin: 2.5rem auto 0;
   border-radius: 1.25rem;
   overflow: hidden;
-  box-shadow: 0 30px 60px rgba(33, 33, 33, 0.15);
+  box-shadow: 0 30px 60px rgba(33, 33, 33, 0.28);
+  border: 1px solid rgba(33, 33, 33, 0.08);
 }
 .hg-intro-video video {
   display: block;
