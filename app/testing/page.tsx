@@ -154,8 +154,17 @@ export default function TestingPage() {
         </g>
 
         <g id="tst-fstar">
-          <line x1="600" y1="80" x2="645" y2="58" stroke="url(#tst-trail-grad)" strokeWidth="2" strokeLinecap="round" />
-          <circle cx="600" cy="80" r="2.5" fill="#d6f23c" />
+          {/* Upward growth-trend arrow instead of a plain comet streak */}
+          <polyline
+            points="570,110 590,96 608,102 632,72 656,80"
+            fill="none"
+            stroke="#d6f23c"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <polygon points="656,80 645,79 651,90" fill="#d6f23c" />
+          <image href="/images/logo/penaxis-mark.png" x="660" y="58" width="26" height="26" />
         </g>
 
         <polygon id="tst-peak-4" points={peakPoints(340, 60, 4)} fill="url(#tst-peak-grad-4)" />
