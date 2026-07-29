@@ -27,6 +27,7 @@ export default function Home() {
       <main>
         <NameIntro />
         <HorizontalGallery />
+        <ServicesShowcase />
         <RetroHero />
         <MaterialHeading />
         <LiquidHeading />
@@ -37,7 +38,6 @@ export default function Home() {
         <TechPicker />
         <Coverage />
         <Services />
-        <ServicesShowcase />
         <Industries />
         <WhyUs />
         <Team />
