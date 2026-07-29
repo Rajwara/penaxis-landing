@@ -84,9 +84,13 @@ export default function KineticLoader() {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
+    // Lock page scroll while the loader is visible
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-    camera.position.z = 26;
+    camera.position.z = 40;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -94,7 +98,7 @@ export default function KineticLoader() {
     mount.appendChild(renderer.domElement);
 
     const texture = makeTextTexture();
-    const geometry = new THREE.SphereGeometry(12, 64, 64);
+    const geometry = new THREE.SphereGeometry(10, 64, 64);
     const material = new THREE.ShaderMaterial({
       vertexShader: sphereVertex,
       fragmentShader: sphereFragment,
@@ -126,10 +130,14 @@ export default function KineticLoader() {
     }
     animate();
 
-    const dismissTimer = setTimeout(() => setFading(true), SHOW_DURATION_MS);
+    const dismissTimer = setTimeout(() => {
+      setFading(true);
+      document.body.style.overflow = prevOverflow;
+    }, SHOW_DURATION_MS);
     const removeTimer = setTimeout(() => setHidden(true), SHOW_DURATION_MS + FADE_DURATION_MS);
 
     return () => {
+      document.body.style.overflow = prevOverflow;
       clearTimeout(dismissTimer);
       clearTimeout(removeTimer);
       cancelAnimationFrame(raf);

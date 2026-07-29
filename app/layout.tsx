@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import dynamic from "next/dynamic";
-
-const KineticLoader = dynamic(() => import("@/components/KineticLoader"), {
-  ssr: false,
-});
+import KineticLoader from "@/components/KineticLoader";
 
 export const metadata: Metadata = {
   title: "Penaxis — Growth & Technology Partner",
