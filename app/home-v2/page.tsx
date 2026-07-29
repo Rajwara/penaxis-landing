@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import NameIntro from "@/components/NameIntro";
+import CityScene from "@/components/CityScene";
 import HorizontalGallery from "@/components/HorizontalGallery";
 import RetroHero from "@/components/RetroHero";
 import MaterialHeading from "@/components/MaterialHeading";
@@ -30,7 +30,7 @@ export default function HomeV2() {
     <>
       <Navbar />
       <main>
-        <NameIntro />
+        <CityScene />
         <HorizontalGallery />
         <RetroHero />
         <MaterialHeading />
