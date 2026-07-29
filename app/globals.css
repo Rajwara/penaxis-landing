@@ -2130,12 +2130,12 @@ button:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #0a0a0a;
+  background-color: #212121;
   background-size: 50px 50px;
   background-position: center;
   background-image:
-    linear-gradient(to right, rgba(180, 159, 218, 0.12) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(180, 159, 218, 0.12) 1px, transparent 1px);
+    linear-gradient(to right, rgba(183, 143, 218, 0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(183, 143, 218, 0.14) 1px, transparent 1px);
   color: #fff;
   overflow: hidden;
   transition: opacity 0.5s ease;
@@ -2180,10 +2180,10 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: #0a0a0a;
+  background-color: #5c3e82;
 }
 .cl-face--top, .cl-face--bottom {
-  background: #f2eefe;
+  background: #d6f23c;
   color: #212121;
 }
 .cl-face--front, .cl-face--back {
@@ -2207,31 +2207,6 @@ button:focus-visible {
   margin: 0;
   transform: translateY(-5px);
 }
-
-.cl-base {
-  position: absolute;
-  z-index: 0;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: min(85vw, 752px);
-  height: 250px;
-}
-.cl-base-plate {
-  width: 100%;
-  height: 100%;
-  background: #0a0a0a;
-  border: 1px solid #5e5d5e;
-}
-.cl-location {
-  position: absolute;
-  margin: 0;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
-}
-.cl-location--lat { top: 50%; left: 0; transform: rotate(-90deg) translateX(10px); }
-.cl-location--long { top: 50%; right: 0; transform: rotate(90deg) translateX(-10px); }
 
 @media (prefers-reduced-motion: reduce) {
   .cl-cuboid { animation: none !important; }
