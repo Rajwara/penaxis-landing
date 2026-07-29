@@ -3,10 +3,13 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { services } from "@/lib/data";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
+
+const THEMES = ["violet", "ember", "volt", "void"];
 
 // Ported technique: a pinned section whose inner track scrolls
 // horizontally as the page scrolls past it vertically — a generic
@@ -89,19 +92,19 @@ export default function HorizontalGallery() {
             cards.forEach((c, idx) => c.classList.toggle("is-expanded", clicked[idx]));
 
             gsap.to(cards, {
-              width: (idx) => (idx === i ? undefined : "18vw"),
+              width: (idx) => (idx === i ? undefined : "12vw"),
               duration: 2,
               ease: "elastic(1, .6)",
               onComplete: refreshPin,
             });
             gsap.to(card, {
-              width: clicked[i] ? "46vw" : "34vw",
+              width: clicked[i] ? "50vw" : "30vw",
               duration: 2.5,
               ease: "elastic(1, .3)",
               onComplete: refreshPin,
             });
             if (!clicked.some(Boolean)) {
-              gsap.to(cards, { width: "34vw", duration: 2, ease: "elastic(1, .6)", onComplete: refreshPin });
+              gsap.to(cards, { width: "30vw", duration: 2, ease: "elastic(1, .6)", onComplete: refreshPin });
             }
           });
         });
@@ -145,18 +148,17 @@ export default function HorizontalGallery() {
 
       <div ref={pinOuterRef} className="hg-pin-outer">
         <div ref={pinWrapRef} className="hg-pin-wrap">
-          <h2 className="hg-pin-heading">
-            AI-powered products, digital transformation, fractional sales,
-            and the web/CRM/software systems that hold it all together.
-          </h2>
           <div ref={cardsRef} style={{ display: "contents" }}>
-            <img
-              className="hg-pin-img hg-card"
-              src="/images/hero/team-huddle.jpg"
-              alt="The Penaxis team"
-            />
-            <div className="hg-pin-panel hg-pin-panel--violet hg-card">AI-Powered MVPs</div>
-            <div className="hg-pin-panel hg-pin-panel--ember hg-card">Fractional Growth</div>
+            {services.map((svc, i) => (
+              <div
+                key={svc.slug}
+                className={`hg-pin-panel hg-pin-panel--${THEMES[i % THEMES.length]} hg-card`}
+              >
+                <span className="hg-pin-panel-num">{svc.number}</span>
+                <span className="hg-pin-panel-title">{svc.title}</span>
+                <span className="hg-pin-panel-desc">{svc.short}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
