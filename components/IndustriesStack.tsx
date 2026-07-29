@@ -49,8 +49,8 @@ export default function IndustriesStack() {
     const initializeCards = () => {
       const cards = Array.from(slider.querySelectorAll<HTMLElement>(".ind-card"));
       gsap.to(cards, {
-        y: (i) => -15 + 15 * i + "%",
-        z: (i) => 15 * i,
+        y: (i) => -15 + 15 * Math.min(i, 4) + "%",
+        z: (i) => 15 * Math.min(i, 4),
         duration: 1,
         ease: prefersReduced ? "power2.out" : "ind-cubic",
         stagger: -0.1,
