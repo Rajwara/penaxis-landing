@@ -17,7 +17,7 @@ import gsap from "gsap";
 // while visible.
 
 const WORDS = ["Hello", "From", "Penaxis"];
-const SHOW_DURATION_MS = 10000;
+const SHOW_DURATION_MS = 5500;
 const FADE_DURATION_MS = 500;
 
 export default function CuboidLoader() {
