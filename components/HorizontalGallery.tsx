@@ -29,34 +29,46 @@ export default function HorizontalGallery() {
 
   useEffect(() => {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const pinOuter = pinOuterRef.current;
+    const pinWrap = pinWrapRef.current;
+    if (!pinOuter || !pinWrap) return;
+
     if (prefersReduced) return;
 
-    const ctx = gsap.context(() => {
-      const pinWrap = pinWrapRef.current;
-      if (!pinWrap) return;
+    let tween: gsap.core.Tween | null = null;
+    let rafId = 0;
 
-      const setupPin = () => {
+    const ctx = gsap.context(() => {
+      // Delay one frame so layout (including image intrinsic sizing) is
+      // settled before measuring widths — avoids a mis-measured, near-zero
+      // scroll distance on first paint.
+      rafId = requestAnimationFrame(() => {
         const pinWrapWidth = pinWrap.scrollWidth;
         const horizontalScrollLength = Math.max(0, pinWrapWidth - window.innerWidth);
 
-        return gsap.to(pinWrap, {
+        tween = gsap.to(pinWrap, {
           x: -horizontalScrollLength,
           ease: "none",
           scrollTrigger: {
-            trigger: pinOuterRef.current,
+            trigger: pinOuter,
             pin: true,
             scrub: true,
             start: "top top",
-            end: () => `+=${horizontalScrollLength}`,
+            end: () => `+=${Math.max(horizontalScrollLength, window.innerHeight * 0.5)}`,
             invalidateOnRefresh: true,
           },
         });
-      };
 
-      setupPin();
-    }, pinOuterRef);
+        ScrollTrigger.refresh();
+      });
+    }, pinOuter);
 
-    return () => ctx.revert();
+    return () => {
+      cancelAnimationFrame(rafId);
+      tween?.scrollTrigger?.kill();
+      tween?.kill();
+      ctx.revert();
+    };
   }, []);
 
   return (
