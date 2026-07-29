@@ -2667,7 +2667,7 @@ button:focus-visible {
 
 .ih-poster {
   min-height: 100vh;
-  padding: 3rem 2rem 4.5rem;
+  padding: 8rem 2rem 4.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
