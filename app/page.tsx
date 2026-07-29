@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import NameIntro from "@/components/NameIntro";
+import HorizontalGallery from "@/components/HorizontalGallery";
 import RetroHero from "@/components/RetroHero";
-import FounderVideo from "@/components/FounderVideo";
 import MaterialHeading from "@/components/MaterialHeading";
 import LiquidHeading from "@/components/LiquidHeading";
 import Hero from "@/components/Hero";
@@ -26,8 +26,8 @@ export default function Home() {
       <Navbar />
       <main>
         <NameIntro />
+        <HorizontalGallery />
         <RetroHero />
-        <FounderVideo />
         <MaterialHeading />
         <LiquidHeading />
         <Hero />
