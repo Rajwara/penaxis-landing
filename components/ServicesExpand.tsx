@@ -1,90 +1,81 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
+import Reveal from "./Reveal";
 import { services } from "@/lib/data";
 
-// Ported technique: a row of panels that expand on click (one wide,
-// the rest narrow) using GSAP's elastic easing — a generic accordion
-// pattern. The original used random Unsplash portrait photos as
-// filler; those don't communicate anything about a service, so this
-// version uses brand-gradient panels labeled with the real 4 Penaxis
-// services instead, with each service's short description revealed
-// once its panel expands.
+// Reuses the same 3D-tilt hover-card treatment as ShapeGrid (the
+// .ux-parent/.ux-card/.ux-glass/.ux-logo styles already defined in
+// globals.css) instead of the earlier click-to-expand accordion —
+// same animation, populated with the real 4 Penaxis services.
 
-const THEMES = ["se-item--01", "se-item--02", "se-item--03", "se-item--04"];
+const THEMES = ["violet", "ember", "volt", "void"];
+
+const ICONS = [
+  <svg key="1" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z" />
+  </svg>,
+  <svg key="2" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 12a9 9 0 0 1-15 6.7L3 16" />
+    <path d="M17 3v5h-5M7 21v-5h5" />
+  </svg>,
+  <svg key="3" viewBox="0 0 24 24" aria-hidden="true">
+    <circle cx="12" cy="12" r="9" />
+    <circle cx="12" cy="12" r="5" />
+    <circle cx="12" cy="12" r="1" fill="#fff" />
+  </svg>,
+  <svg key="4" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 3l9 5-9 5-9-5 9-5z" />
+    <path d="M3 13l9 5 9-5" />
+  </svg>,
+];
 
 export default function ServicesExpand() {
-  const groupRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const group = groupRef.current;
-    if (!group) return;
-    const items = Array.from(group.querySelectorAll<HTMLDivElement>(".se-item"));
-    const clicked = new Array(items.length).fill(false);
-
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    const expand = (item: HTMLDivElement, i: number) => {
-      items.forEach((_, idx) => {
-        if (i !== idx) clicked[idx] = false;
-      });
-      clicked[i] = !clicked[i];
-
-      items.forEach((it, idx) => {
-        it.classList.toggle("is-expanded", clicked[idx]);
-      });
-
-      if (prefersReduced) {
-        items.forEach((it, idx) => {
-          it.style.width = clicked[idx] ? "42vw" : idx === i ? "15vw" : "15vw";
-        });
-        return;
-      }
-
-      gsap.to(items, {
-        width: (idx) => (idx === i ? undefined : "8vw"),
-        duration: 2,
-        ease: "elastic(1, .6)",
-      });
-      gsap.to(item, {
-        width: clicked[i] ? "42vw" : "15vw",
-        duration: 2.5,
-        ease: "elastic(1, .3)",
-      });
-      if (!clicked.some(Boolean)) {
-        gsap.to(items, { width: "15vw", duration: 2, ease: "elastic(1, .6)" });
-      }
-    };
-
-    const handlers: Array<() => void> = [];
-    items.forEach((item, i) => {
-      const handler = () => expand(item, i);
-      item.addEventListener("click", handler);
-      handlers.push(handler);
-    });
-
-    return () => {
-      items.forEach((item, i) => item.removeEventListener("click", handlers[i]));
-    };
-  }, []);
-
   return (
-    <section className="se-section">
-      <div className="se-head">
-        <h2>Four ways we help you grow</h2>
-        <p>Click a panel to see what it actually involves.</p>
-      </div>
-      <div ref={groupRef} className="se-group">
-        {services.map((svc, i) => (
-          <div key={svc.slug} className={`se-item ${THEMES[i % THEMES.length]}`}>
-            <div className="se-item-label">
-              <span className="se-item-num">{svc.number}</span>
-              <span className="se-item-title">{svc.title}</span>
-              <span className="se-item-desc">{svc.short}</span>
-            </div>
-          </div>
-        ))}
+    <section className="relative py-28 md:py-32 bg-paper">
+      <div className="mx-auto max-w-7xl px-6">
+        <Reveal as="div" className="text-center mb-16 max-w-xl mx-auto">
+          <h2 className="font-display font-bold text-3xl md:text-4xl text-ink tracking-tight">
+            Four ways we help you grow
+          </h2>
+          <p className="mt-3 text-ink/60">
+            AI-powered products, digital transformation, fractional sales,
+            and the web/CRM/software systems that hold it all together.
+          </p>
+        </Reveal>
+
+        <div className="shape-grid">
+          {services.map((svc, i) => (
+            <Reveal as="div" key={svc.slug} delay={i * 0.06}>
+              <div className={`ux-parent ux-parent--${THEMES[i % THEMES.length]}`}>
+                <div className="ux-card">
+                  <div className="ux-logo" aria-hidden="true">
+                    <span className="ux-circle" />
+                    <span className="ux-circle" />
+                    <span className="ux-circle" />
+                    <span className="ux-circle" />
+                    <span className="ux-circle">{ICONS[i % ICONS.length]}</span>
+                  </div>
+                  <div className="ux-glass" />
+                  <div className="ux-content">
+                    <span className="ux-title">{svc.title}</span>
+                    <span className="ux-text">{svc.short}</span>
+                  </div>
+                  <div className="ux-bottom">
+                    <span className="text-xs font-mono opacity-60">{svc.number}</span>
+                    <div className="ux-more">
+                      <button type="button" className="ux-more-btn">
+                        Learn more
+                      </button>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="m6 9 6 6 6-6" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
