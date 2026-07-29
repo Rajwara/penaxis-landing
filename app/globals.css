@@ -2646,3 +2646,265 @@ button:focus-visible {
   .pb-tags { flex-direction: column; }
   .pb-content { padding: 2rem 1.5rem 2rem; }
 }
+
+/* ============================================================
+   IndustriesHub — hub-and-spoke hero diagram (6 featured industries
+   orbiting a center mark) + a full grid of all 13 industries below +
+   closing CTA. Ported GSAP mechanism (intro timeline, ring pulses,
+   pointer/tile parallax, tile hover-tilt, scroll-contract, card
+   reveal) from a shared design; that design's own tagline copy and
+   its "@DERMEXCEL" credit were not reused, nor were the real
+   third-party tool logos it displayed (not relevant to industries
+   anyway) — icons and copy here are original, for Penaxis.
+   ============================================================ */
+:root {
+  --ih-bg1: #faf9fd;
+  --ih-ink: #212121;
+  --ih-mute: #8a8780;
+  --ih-tile: #171717;
+  --ih-accent: #734fa0;
+}
+
+.ih-poster {
+  min-height: 100vh;
+  padding: 3rem 2rem 4.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background: radial-gradient(120% 70% at 50% 0%, #f8f7fc 0%, #efedf7 60%, #e2dff2 100%);
+}
+.ih-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--ih-mute);
+  font-weight: 500;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+.ih-diagram {
+  position: relative;
+  width: 100%;
+  max-width: 820px;
+  aspect-ratio: 1.6 / 1;
+  margin: 0.5rem 0 3rem;
+}
+.ih-diagram svg.ih-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.ih-ring {
+  fill: rgba(115, 79, 160, 0.05);
+  stroke: rgba(115, 79, 160, 0.12);
+  stroke-width: 1;
+}
+.ih-link {
+  fill: none;
+  stroke: rgba(115, 79, 160, 0.4);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+}
+.ih-mark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #212121;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  cursor: pointer;
+  will-change: transform;
+  box-shadow: 0 14px 30px rgba(115, 79, 160, 0.35);
+}
+.ih-mark img { width: 34px; height: 34px; object-fit: contain; }
+.ih-tile {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 18px;
+  background: var(--ih-tile);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #faf9fd;
+  box-shadow: 0 24px 40px -16px rgba(0, 0, 0, 0.5), 0 10px 20px -6px rgba(0, 0, 0, 0.32);
+  cursor: pointer;
+  z-index: 10;
+  will-change: transform;
+}
+.ih-tile svg { width: 30px; height: 30px; display: block; }
+.ih-tile-1 { left: 12%; top: 8%; }
+.ih-tile-2 { right: 12%; top: 8%; }
+.ih-tile-3 { left: 4%; top: 46%; }
+.ih-tile-4 { right: 4%; top: 46%; }
+.ih-tile-5 { left: 12%; bottom: 8%; }
+.ih-tile-6 { right: 12%; bottom: 8%; }
+
+.ih-headline {
+  text-align: center;
+  margin: 1rem 0 1.75rem;
+}
+.ih-headline .ih-line {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.9rem, 5.6vw, 4rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  color: var(--ih-ink);
+  overflow: hidden;
+  display: block;
+  padding: 0.2rem 0;
+}
+.ih-headline .ih-inner { display: inline-block; }
+.ih-headline .ih-line-2 .ih-inner { color: var(--ih-accent); }
+
+.ih-sub {
+  font-size: 0.95rem;
+  color: rgba(33, 33, 33, 0.6);
+  max-width: 26rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* ---- Detail grid: ALL 13 industries ---- */
+.ih-section-grid {
+  padding: 5rem 1.5rem 5rem;
+  position: relative;
+}
+.ih-grid-head {
+  max-width: 1280px;
+  margin: 0 auto 3rem;
+}
+.ih-grid-head .ih-eyebrow2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ih-mute);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.ih-grid-head .ih-eyebrow2::before {
+  content: "";
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--ih-accent);
+  box-shadow: 0 0 0 3px rgba(115, 79, 160, 0.18);
+}
+.ih-grid-head h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: var(--ih-ink);
+}
+.ih-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.ih-card {
+  background: #fff;
+  border-radius: 1.5rem;
+  padding: 1.75rem 1.6rem;
+  box-shadow: 0 22px 40px -16px rgba(40, 30, 60, 0.15), 0 8px 16px -4px rgba(40, 30, 60, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+.ih-card-num {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--ih-mute);
+}
+.ih-card h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  color: var(--ih-ink);
+  line-height: 1.1;
+}
+.ih-card p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(33, 33, 33, 0.65);
+  flex: 1;
+}
+
+/* ---- CTA ---- */
+.ih-cta-section { padding: 3rem 1.5rem 6rem; }
+.ih-cta-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  background: #212121;
+  border-radius: 2.2rem;
+  padding: 5rem 2.5rem;
+  color: #f4f0eb;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.ih-cta-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.ih-cta-inner h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 5.5vw, 4.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+.ih-cta-inner h2 em {
+  font-style: normal;
+  color: #d6f23c;
+}
+.ih-cta-inner p {
+  max-width: 32rem;
+  margin: 0 auto 2rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+.ih-cta-btn {
+  background: #fff;
+  color: #212121;
+  border: none;
+  padding: 0.9rem 1.9rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .ih-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .ih-grid { grid-template-columns: 1fr; }
+  .ih-tile { width: 48px; height: 48px; }
+  .ih-tile svg { width: 22px; height: 22px; }
+  .ih-mark { width: 56px; height: 56px; }
+}

@@ -6,7 +6,7 @@ import AIShowcase from "@/components/AIShowcase";
 import Coverage from "@/components/Coverage";
 import Services from "@/components/Services";
 import ServicesShowcase from "@/components/ServicesShowcase";
-import IndustriesStack from "@/components/IndustriesStack";
+import IndustriesHub from "@/components/IndustriesHub";
 import WhyUs from "@/components/WhyUs";
 import Team from "@/components/Team";
 import ShapeGrid from "@/components/ShapeGrid";
@@ -22,7 +22,7 @@ export default function Home() {
         <HorizontalGallery />
         <ServicesShowcase />
         <Coverage />
-        <IndustriesStack />
+        <IndustriesHub />
         <About />
         <AIShowcase />
         <Services />
