@@ -62,7 +62,7 @@ export default function StarfieldBackground() {
       mouseX = e.clientX - rect.left - windowHalfX;
       mouseY = e.clientY - rect.top - windowHalfY;
     };
-    mount.addEventListener("pointermove", handlePointerMove);
+    window.addEventListener("pointermove", handlePointerMove);
 
     const handleResize = () => {
       const w = mount.clientWidth;
@@ -78,8 +78,8 @@ export default function StarfieldBackground() {
     let raf = 0;
     function animate() {
       if (!prefersReduced) {
-        camera.position.x += (mouseX - camera.position.x) * 0.005;
-        camera.position.y += (-mouseY - camera.position.y) * 0.005;
+        camera.position.x += (mouseX - camera.position.x) * 0.02;
+        camera.position.y += (-mouseY - camera.position.y) * 0.02;
         camera.lookAt(scene.position);
         stars.rotation.y += 0.00008;
       }
@@ -90,7 +90,7 @@ export default function StarfieldBackground() {
 
     return () => {
       cancelAnimationFrame(raf);
-      mount.removeEventListener("pointermove", handlePointerMove);
+      window.removeEventListener("pointermove", handlePointerMove);
       window.removeEventListener("resize", handleResize);
       renderer.dispose();
       starGeo.dispose();
