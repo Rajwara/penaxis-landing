@@ -2111,3 +2111,128 @@ button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .footer-scene-car, .footer-scene-cyclist { animation: none; left: 40%; }
 }
+
+/* ============================================================
+   CuboidLoader — "Hello / From / Lahore" 3D rotating cuboid page
+   loader. Ported animation mechanism (CSS 3D cuboid faces + GSAP
+   elastic drop-in + continuous rotation + mouse-reactive font
+   variation) from a shared CodePen-style demo. That demo's font
+   (Bandeins Strange) is explicitly demo-license-only, so this uses
+   the project's existing Space Grotesk Variable font instead — which
+   only has a weight axis (no width/stretch axis), so the mouse
+   effect here only varies font-weight, not stretch. Location swapped
+   to Lahore (Penaxis's real HQ) instead of the demo's Dublin.
+   ============================================================ */
+.cl-root {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0a0a0a;
+  background-size: 50px 50px;
+  background-position: center;
+  background-image:
+    linear-gradient(to right, rgba(180, 159, 218, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(180, 159, 218, 0.12) 1px, transparent 1px);
+  color: #fff;
+  overflow: hidden;
+  transition: opacity 0.5s ease;
+}
+
+.cl-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 900px;
+  visibility: hidden;
+}
+
+.cl-hi {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  text-align: center;
+  transform-style: preserve-3d;
+}
+
+.cl-cuboid {
+  position: relative;
+  width: min(70vw, 500px);
+  height: 70px;
+  margin: 30px 0;
+  transform-style: preserve-3d;
+}
+
+.cl-face {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #0a0a0a;
+}
+.cl-face--top, .cl-face--bottom {
+  background: #f2eefe;
+  color: #212121;
+}
+.cl-face--front, .cl-face--back {
+  width: 100%;
+  height: 70px;
+}
+.cl-face--front { transform: translateZ(35px); }
+.cl-face--back { transform: translateZ(-35px) rotateY(180deg) rotate(180deg); }
+.cl-face--top {
+  width: 100%;
+  height: 70px;
+  transform: translateY(-35px) rotateX(90deg);
+}
+.cl-face--bottom {
+  width: 100%;
+  height: 70px;
+  transform: translateY(35px) rotateX(-90deg);
+}
+
+.cl-word {
+  margin: 0;
+  transform: translateY(-5px);
+}
+
+.cl-base {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(85vw, 752px);
+  height: 250px;
+}
+.cl-base-plate {
+  width: 100%;
+  height: 100%;
+  background: #0a0a0a;
+  border: 1px solid #5e5d5e;
+}
+.cl-location {
+  position: absolute;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+.cl-location--lat { top: 50%; left: 0; transform: rotate(-90deg) translateX(10px); }
+.cl-location--long { top: 50%; right: 0; transform: rotate(90deg) translateX(-10px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .cl-cuboid { animation: none !important; }
+}

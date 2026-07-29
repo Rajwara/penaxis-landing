@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import KineticLoader from "@/components/KineticLoader";
+import CuboidLoader from "@/components/CuboidLoader";
 
 export const metadata: Metadata = {
   title: "Penaxis — Growth & Technology Partner",
@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-paper text-ink antialiased">
-        <KineticLoader />
+        <CuboidLoader />
         {children}
       </body>
     </html>
