@@ -113,14 +113,6 @@ export default function HorizontalGallery() {
           <div className="hg-pin-panel hg-pin-panel--ember">Fractional Growth</div>
         </div>
       </div>
-
-      <section className="hg-closer">
-        <img className="hg-closer-img" src="/images/hero/team-huddle.jpg" alt="The Penaxis team" />
-        <h2>
-          Want something built like this?{" "}
-          <a href="/contact">Let's talk →</a>
-        </h2>
-      </section>
     </>
   );
 }
