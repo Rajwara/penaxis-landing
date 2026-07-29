@@ -24,11 +24,11 @@ export default function Home() {
         <NameIntro />
         <HorizontalGallery />
         <ServicesShowcase />
+        <Coverage />
         <StarfieldBanner />
         <About />
         <AIShowcase />
         <TechPicker />
-        <Coverage />
         <Services />
         <Industries />
         <WhyUs />
