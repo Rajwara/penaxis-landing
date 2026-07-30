@@ -3,22 +3,25 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { team, stats } from "@/lib/data";
+import { team, stats, contact } from "@/lib/data";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-function initials(name: string) {
-  return name
-    .split(" ")
-    .map((n) => n[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-}
+// Only show team members we actually have a photo for
+const picturedTeam = team.filter((m) => m.image);
 
-const avatarPalette = ["bg-violet-600", "bg-ember-500", "bg-violet-900"];
+// Fixed (non-random) shuffle order for the hero row so photos don't cycle in data order.
+// Using a fixed permutation (rather than Math.random) avoids SSR/client hydration mismatches.
+const HERO_SHUFFLE_OFFSETS = [3, 0, 6, 2, 8, 1, 5, 4, 7];
+const shuffledHeroTeam = picturedTeam.length
+  ? HERO_SHUFFLE_OFFSETS.map((i) => picturedTeam[i % picturedTeam.length])
+  : [];
+
+const linkedinUrl = contact.linkedin.startsWith("http")
+  ? contact.linkedin
+  : `https://www.linkedin.com${contact.linkedin}`;
 
 // Decorative hero cards — abstract brand-gradient panels (no stock photos),
 // each with its resting rotation / parallax depth, matching the original's choreography
@@ -297,7 +300,15 @@ export default function AboutContent() {
               style={{ width: c.w, height: c.h, left: c.left, top: c.top }}
               aria-hidden="true"
             >
-              {CARD_ICONS[i % CARD_ICONS.length]}
+              {shuffledHeroTeam.length > 0 ? (
+                <img
+                  src={shuffledHeroTeam[i % shuffledHeroTeam.length].image}
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                CARD_ICONS[i % CARD_ICONS.length]
+              )}
             </div>
           ))}
         </div>
@@ -337,27 +348,29 @@ export default function AboutContent() {
         </div>
 
         <div className="ab-team-grid">
-          {team.map((member, i) => (
+          {picturedTeam.map((member) => (
             <div key={member.name} className="ab-t-card">
-              {member.image ? (
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="absolute inset-0 w-full h-full object-cover"
-                  aria-hidden="true"
-                />
-              ) : (
-                <>
-                  <div
-                    className={`absolute inset-0 ${avatarPalette[i % avatarPalette.length]}`}
-                    aria-hidden="true"
-                  />
-                  <span className="ab-t-initials">{initials(member.name)}</span>
-                </>
-              )}
+              <img
+                src={member.image}
+                alt={member.name}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <a
+                href={linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ab-t-linkedin"
+                aria-label={`${member.name} on LinkedIn`}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                  <path d="M4.98 3.5a2.5 2.5 0 11-.01 5.001A2.5 2.5 0 014.98 3.5zM.5 8.98h9v14.02h-9V8.98zM8.03 8.98h4.31v1.91h.06c.6-1.14 2.07-2.34 4.26-2.34 4.55 0 5.39 3 5.39 6.9v7.55h-4.5v-6.69c0-1.6-.03-3.65-2.23-3.65-2.23 0-2.57 1.74-2.57 3.54v6.8h-4.5V8.98z" />
+                </svg>
+              </a>
               <div className="ab-t-meta">
                 <div className="ab-nm">{member.name}</div>
                 <div className="ab-rl">{member.role}</div>
+                {member.bio && <div className="ab-bio">{member.bio}</div>}
               </div>
             </div>
           ))}

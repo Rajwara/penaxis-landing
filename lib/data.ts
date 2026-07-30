@@ -164,22 +164,22 @@ export const whyUsMetrics = [
 ];
 
 export const team = [
-  { name: "Adeel Aslam", role: "CEO & Founder", image: "/images/team/adeel-aslam.webp" },
+  { name: "Adeel Aslam", role: "CEO & Founder", image: "/images/team/adeel-aslam.webp", bio: "Leads vision and strategy for everything we build." },
   { name: "Shahzad Ali", role: "Co-Founder & CFO" },
-  { name: "Fizza Shahzad", role: "Social Media Associate", image: "/images/team/fizza-shahzad.webp" },
-  { name: "Hamza Durrani", role: "BD Manager", image: "/images/team/hamza-durrani.webp" },
-  { name: "Laiba Zafar", role: "Social Media Manager", image: "/images/team/laiba-zafar.webp" },
+  { name: "Fizza Shahzad", role: "Social Media Associate", image: "/images/team/fizza-shahzad.webp", bio: "Creates content that gets people talking." },
+  { name: "Hamza Durrani", role: "BD Manager", image: "/images/team/hamza-durrani.webp", bio: "Drives new business and keeps the pipeline moving." },
+  { name: "Laiba Zafar", role: "Social Media Manager", image: "/images/team/laiba-zafar.webp", bio: "Shapes our voice and presence across every platform." },
   { name: "Mutahar Murtaza", role: "Full Stack Developer" },
-  { name: "Zaid Bin Arif", role: "Business Development Executive", image: "/images/team/zaid-bin-arif.webp" },
+  { name: "Zaid Bin Arif", role: "Business Development Executive", image: "/images/team/zaid-bin-arif.webp", bio: "Connects with prospects and turns conversations into deals." },
   { name: "Sitara Tahir", role: "Project Manager" },
-  { name: "Abdullah Sadiq", role: "BD Representative", image: "/images/team/abdullah-sadiq.webp" },
-  { name: "Maleeha Farooq", role: "Social Media Associate", image: "/images/team/maleeha-farooq.webp" },
+  { name: "Abdullah Sadiq", role: "BD Representative", image: "/images/team/abdullah-sadiq.webp", bio: "Opens doors and builds relationships that turn into partnerships." },
+  { name: "Maleeha Farooq", role: "Social Media Associate", image: "/images/team/maleeha-farooq.webp", bio: "Keeps our social channels active, engaging, and on-brand." },
   { name: "Adnan Farooq", role: "AI DevOps Engineer" },
   { name: "Maham Aziz", role: "HR Manager" },
   { name: "Saad Sultan", role: "CMS Developer" },
   { name: "Farwa Saleem", role: "Recruitment Manager" },
-  { name: "Hamza", role: "Designer", image: "/images/team/hamza-designer.webp" },
-  { name: "Ali Raza", role: "Business Development Executive", image: "/images/team/ali-raza.webp" },
+  { name: "Hamza", role: "Designer", image: "/images/team/hamza-designer.webp", bio: "Turns ideas into clean, thoughtful visuals." },
+  { name: "Ali Raza", role: "Business Development Executive", image: "/images/team/ali-raza.webp", bio: "Builds relationships that grow into long-term partnerships." },
 ];
 
 export const contact = {

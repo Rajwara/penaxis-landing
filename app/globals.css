@@ -677,6 +677,28 @@ button:focus-visible {
 .ab-t-card:hover .ab-t-meta { transform: translateY(0); opacity: 1; }
 .ab-t-meta .ab-nm { font-weight: 700; font-size: 14px; font-family: var(--font-display); }
 .ab-t-meta .ab-rl { font-size: 11px; color: rgba(255, 255, 255, 0.65); margin-top: 2px; letter-spacing: 0.03em; }
+.ab-t-meta .ab-bio { font-size: 11px; color: rgba(255, 255, 255, 0.55); margin-top: 6px; line-height: 1.4; }
+.ab-t-linkedin {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(33, 33, 33, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #faf9fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.3s, transform 0.3s cubic-bezier(0.6, 0, 0.2, 1), background 0.2s;
+}
+.ab-t-card:hover .ab-t-linkedin { opacity: 1; transform: translateY(0); }
+.ab-t-linkedin:hover { background: #0a66c2; }
 
 /* Stats */
 .ab-stats { padding: 80px 40px 140px; position: relative; }
