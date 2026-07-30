@@ -33,6 +33,7 @@ export default function CookieConsent() {
       /* localStorage unavailable — banner just won't persist across visits */
     }
     setVisible(false);
+    window.dispatchEvent(new Event("penaxis-cookie-consent-resolved"));
   };
 
   if (!visible) return null;
