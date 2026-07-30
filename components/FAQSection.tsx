@@ -6,7 +6,9 @@ import Reveal from "./Reveal";
 // FAQ accordion: eyebrow + headline + expandable question cards, each
 // answer sliding open/closed. Layout inspired by a generic
 // agency-template FAQ section; questions/answers are original,
-// written for Penaxis's actual services.
+// written for Penaxis's actual services. Redesigned for a cleaner
+// look: bigger cards/text, stronger soft shadows, more pronounced
+// entrance animation.
 
 const FAQS = [
   {
@@ -31,42 +33,48 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 px-6">
-      <Reveal as="div" y={20} className="text-center mb-14">
-        <span className="inline-flex items-center gap-2 rounded-full bg-haze px-4 py-1.5 text-xs font-semibold text-ember-500">
+    <section className="py-24 px-6 bg-haze/50">
+      <Reveal as="div" y={30} scale={0.96} className="text-center mb-16">
+        <span className="inline-flex items-center gap-2 rounded-full bg-white shadow-sm px-4 py-1.5 text-xs font-semibold text-ember-500">
           <span className="w-1.5 h-1.5 rounded-full bg-ember-500" />
           FAQs
         </span>
-        <h2 className="mt-5 font-display font-bold text-3xl md:text-5xl text-ink">
+        <h2 className="mt-6 font-display font-bold text-4xl md:text-6xl text-ink">
           Frequently Asked
           <br />
           Questions
         </h2>
       </Reveal>
 
-      <div className="max-w-3xl mx-auto space-y-4">
+      <div className="max-w-3xl mx-auto space-y-5">
         {FAQS.map((item, i) => {
           const isOpen = openIndex === i;
           return (
-            <Reveal as="div" key={item.q} delay={i * 0.08} y={24}>
-              <div className="rounded-2xl bg-haze/60 shadow-sm overflow-hidden">
+            <Reveal as="div" key={item.q} delay={i * 0.1} y={32} scale={0.96}>
+              <div
+                className={`rounded-3xl bg-white transition-shadow duration-300 overflow-hidden ${
+                  isOpen
+                    ? "shadow-[0_25px_55px_-15px_rgba(46,31,66,0.28)]"
+                    : "shadow-[0_12px_30px_-12px_rgba(46,31,66,0.15)]"
+                }`}
+              >
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
+                  className="w-full flex items-center justify-between gap-4 px-7 py-6 text-left"
                 >
-                  <span className="font-display font-semibold text-ink">{item.q}</span>
+                  <span className="font-display font-bold text-lg md:text-xl text-ink">{item.q}</span>
                   <span
-                    className={`shrink-0 w-8 h-8 rounded-full bg-ink text-white flex items-center justify-center transition-transform duration-300 ${
+                    className={`shrink-0 w-10 h-10 rounded-full bg-ink text-white flex items-center justify-center shadow-[0_10px_20px_-6px_rgba(33,33,33,0.5)] transition-transform duration-300 ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   >
                     {isOpen ? (
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                         <line x1="5" y1="12" x2="19" y2="12" />
                       </svg>
                     ) : (
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                         <line x1="12" y1="5" x2="12" y2="19" />
                         <line x1="5" y1="12" x2="19" y2="12" />
                       </svg>
@@ -78,7 +86,7 @@ export default function FAQSection() {
                   style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-6 pb-5 -mt-1 text-sm text-ink/60 leading-relaxed border-t border-ink/10 pt-4">
+                    <p className="px-7 pb-7 -mt-1 text-base text-ink/60 leading-relaxed border-t border-ink/10 pt-5">
                       {item.a}
                     </p>
                   </div>

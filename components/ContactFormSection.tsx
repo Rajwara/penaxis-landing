@@ -17,7 +17,7 @@ const INFO_CARDS = [
     value: contact.email,
     href: `mailto:${contact.email}`,
     icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="2" y="4" width="20" height="16" rx="2" />
         <path d="m3 6 9 6 9-6" />
       </svg>
@@ -28,7 +28,7 @@ const INFO_CARDS = [
     value: contact.phone,
     href: `tel:${contact.phone.replace(/[^\d+]/g, "")}`,
     icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2z" />
       </svg>
     ),
@@ -38,7 +38,7 @@ const INFO_CARDS = [
     value: contact.address,
     href: null,
     icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M12 21s-7-6.5-7-11a7 7 0 1 1 14 0c0 4.5-7 11-7 11z" />
         <circle cx="12" cy="10" r="2.5" />
       </svg>
@@ -55,35 +55,34 @@ const SOCIALS = [
 
 export default function ContactFormSection() {
   return (
-    <section className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-violet-300 via-white to-ember-400" />
-      <div className="relative max-w-6xl mx-auto px-6 pt-20">
+    <section className="relative bg-haze/50 py-20 px-6">
+      <div className="max-w-6xl mx-auto">
         {/* Info cards row */}
-        <div className="grid sm:grid-cols-3 gap-5 mb-16">
+        <div className="grid sm:grid-cols-3 gap-6 mb-20">
           {INFO_CARDS.map((card, i) => {
             const Wrapper = card.href ? "a" : "div";
             return (
-              <Reveal as="div" key={card.label} delay={i * 0.08} y={24}>
+              <Reveal as="div" key={card.label} delay={i * 0.12} y={36} scale={0.94} duration={0.7}>
                 <Wrapper
                   {...(card.href ? { href: card.href } : {})}
-                  className="block rounded-2xl bg-paper/90 backdrop-blur shadow-md p-6 text-center hover:-translate-y-1 transition-transform"
+                  className="block rounded-3xl bg-white p-8 text-center shadow-[0_20px_45px_-12px_rgba(46,31,66,0.18)] hover:-translate-y-1.5 transition-transform duration-300"
                 >
-                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-ink text-white mb-4">
+                  <span className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-ink text-white mb-5 shadow-[0_14px_24px_-6px_rgba(33,33,33,0.55)]">
                     {card.icon}
                   </span>
-                  <div className="font-display font-bold text-ink">{card.label}</div>
-                  <div className="text-sm text-ink/55 mt-1">{card.value}</div>
+                  <div className="font-display font-bold text-xl text-ink">{card.label}</div>
+                  <div className="text-base text-ink/55 mt-1.5">{card.value}</div>
                 </Wrapper>
               </Reveal>
             );
           })}
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start pb-20">
+        <div className="grid lg:grid-cols-2 gap-14 items-start">
           {/* Left column */}
           <div>
-            <Reveal as="div" y={20}>
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur px-4 py-1.5 text-xs font-semibold text-violet-700">
+            <Reveal as="div" y={24} scale={0.96}>
+              <span className="inline-flex items-center gap-2 rounded-full bg-white shadow-sm px-4 py-1.5 text-xs font-semibold text-violet-700">
                 <span className="w-1.5 h-1.5 rounded-full bg-ember-500" />
                 Contact
               </span>
@@ -92,7 +91,7 @@ export default function ContactFormSection() {
                 <br />
                 what's next.
               </h2>
-              <p className="mt-4 max-w-md text-ink/60">
+              <p className="mt-4 max-w-md text-ink/60 text-lg">
                 Combining strategy, technology, and execution to build systems
                 that think, adapt, and grow. Tell us what you're working on.
               </p>
@@ -100,15 +99,15 @@ export default function ContactFormSection() {
 
             <div className="mt-10 flex flex-wrap gap-3">
               {SOCIALS.map((s, i) => (
-                <Reveal as="div" key={s.label} delay={i * 0.06} y={16}>
+                <Reveal as="div" key={s.label} delay={i * 0.08} y={20} scale={0.94}>
                   <a
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 rounded-full bg-white/85 backdrop-blur px-5 py-2.5 text-sm font-semibold text-ink hover:bg-white transition-colors"
+                    className="inline-flex items-center gap-3 rounded-full bg-white shadow-[0_10px_25px_-8px_rgba(46,31,66,0.2)] px-5 py-3 text-sm font-semibold text-ink hover:-translate-y-0.5 transition-transform"
                   >
                     {s.label}
-                    <span className="w-6 h-6 rounded-full bg-ink text-white flex items-center justify-center text-[0.6rem]">
+                    <span className="w-7 h-7 rounded-full bg-ink text-white flex items-center justify-center text-[0.65rem]">
                       →
                     </span>
                   </a>
@@ -118,7 +117,7 @@ export default function ContactFormSection() {
           </div>
 
           {/* Right column — form card */}
-          <Reveal as="div" delay={0.15} y={30} className="rounded-3xl bg-paper/95 backdrop-blur shadow-xl p-8 md:p-10">
+          <Reveal as="div" delay={0.15} y={40} scale={0.95} className="rounded-3xl bg-white shadow-[0_25px_60px_-15px_rgba(46,31,66,0.22)] p-8 md:p-10">
             <h3 className="font-display font-bold text-2xl text-ink mb-6">Fill this form below</h3>
             <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
               <div className="border-b border-ink/10 pb-2">

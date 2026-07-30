@@ -13,6 +13,7 @@ export default function Reveal({
   delay = 0,
   y = 28,
   x = 0,
+  scale = 1,
   duration = 0.9,
   className = "",
   as: Tag = "div",
@@ -21,6 +22,7 @@ export default function Reveal({
   delay?: number;
   y?: number;
   x?: number;
+  scale?: number;
   duration?: number;
   className?: string;
   as?: any;
@@ -33,11 +35,12 @@ export default function Reveal({
     const ctx = gsap.context(() => {
       gsap.fromTo(
         el,
-        { opacity: 0, y, x },
+        { opacity: 0, y, x, scale },
         {
           opacity: 1,
           y: 0,
           x: 0,
+          scale: 1,
           duration,
           delay,
           ease: "power3.out",
@@ -50,7 +53,7 @@ export default function Reveal({
       );
     });
     return () => ctx.revert();
-  }, [delay, y, x, duration]);
+  }, [delay, y, x, scale, duration]);
 
   return (
     <Tag ref={ref} className={className}>
