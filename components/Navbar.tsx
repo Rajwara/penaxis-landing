@@ -117,7 +117,7 @@ export default function Navbar() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
-        <div className="mx-auto max-w-7xl px-4 md:px-6 pt-4 md:pt-5 hidden lg:flex items-center justify-between">
+        <div className="relative mx-auto max-w-7xl px-4 md:px-6 pt-4 md:pt-5 hidden lg:flex items-center justify-between">
           {/* LEFT CAPSULE */}
           <nav
             aria-label="Primary"
@@ -147,18 +147,18 @@ export default function Navbar() {
                 {item.label}
               </a>
             ))}
-
-            {/* Industries mega menu panel */}
-            <div
-              onMouseEnter={openIndustries}
-              onMouseLeave={scheduleCloseIndustries}
-              className={`absolute left-1/2 -translate-x-1/2 top-full mt-3 transition-all duration-200 ${
-                industriesOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
-              }`}
-            >
-              <IndustriesMegaMenu />
-            </div>
           </nav>
+
+          {/* Industries mega menu panel — spans the full nav row width */}
+          <div
+            onMouseEnter={openIndustries}
+            onMouseLeave={scheduleCloseIndustries}
+            className={`absolute left-4 right-4 md:left-6 md:right-6 top-full mt-3 transition-all duration-200 ${
+              industriesOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
+            }`}
+          >
+            <IndustriesMegaMenu />
+          </div>
 
           {/* CENTER CAPSULE — brand + scroll-progress */}
           <button

@@ -65,7 +65,7 @@ const findIndustry = (title: string) => industries.find((i) => i.title === title
 
 export default function IndustriesMegaMenu() {
   return (
-    <div className="pointer-events-auto w-[820px] max-w-[92vw] rounded-3xl bg-paper shadow-2xl border border-ink/5 overflow-hidden grid grid-cols-[220px_1fr]">
+    <div className="pointer-events-auto w-full rounded-3xl bg-paper shadow-2xl border border-ink/5 overflow-hidden grid grid-cols-[220px_1fr]">
       {/* Sidebar */}
       <div className="bg-ink text-white p-6 flex flex-col">
         <h4 className="font-display font-bold text-sm mb-3">Explore</h4>
@@ -91,7 +91,7 @@ export default function IndustriesMegaMenu() {
       </div>
 
       {/* Categories grid */}
-      <div className="p-7 grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-8">
+      <div className="p-7 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-8">
         {CATEGORIES.map((cat) => (
           <div key={cat.heading}>
             <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-ink text-white mb-3">
