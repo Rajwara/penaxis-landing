@@ -9,7 +9,7 @@ export const navLeft = [
 // Right navigation capsule — About (quiet) + Start a Project (primary CTA)
 export const navRight = [{ label: "About", href: "/about" }];
 
-export const navCta = { label: "Start a Project", href: "#contact" };
+export const navCta = { label: "Start a Project", href: "/contact" };
 
 // Kept for mobile full-screen menu — same destinations plus Team,
 // per the spec's note that Team/Insights/Careers stay out of primary desktop nav for now

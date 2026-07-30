@@ -4,6 +4,7 @@ import ContactBanner from "@/components/ContactBanner";
 import ContactFormSection from "@/components/ContactFormSection";
 import OfficesSection from "@/components/OfficesSection";
 import ContactMapSection from "@/components/ContactMapSection";
+import ShapeGrid from "@/components/ShapeGrid";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
 
@@ -21,6 +22,10 @@ export default function ContactPage() {
         <ContactFormSection />
         <OfficesSection />
         <ContactMapSection />
+
+        {/* Relocated from the main homepage per client request — still a temporary/preview treatment */}
+        <ShapeGrid />
+
         <FAQSection />
       </main>
       <Footer />

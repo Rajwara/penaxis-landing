@@ -12,7 +12,6 @@ import Team from "@/components/Team";
 import GameChangers from "@/components/GameChangers";
 import LogoMarquee from "@/components/LogoMarquee";
 import Testimonials from "@/components/Testimonials";
-import ShapeGrid from "@/components/ShapeGrid";
 import ConnectSection from "@/components/ConnectSection";
 import Footer from "@/components/Footer";
 
@@ -34,9 +33,6 @@ export default function Home() {
         <GameChangers />
         <LogoMarquee />
         <Testimonials />
-
-        {/* TEMPORARY PREVIEW — remove or relocate once a placement is decided */}
-        <ShapeGrid />
 
         <ConnectSection />
       </main>
