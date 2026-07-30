@@ -1,206 +1,133 @@
 "use client";
 
-import Image from "next/image";
 import Reveal from "./Reveal";
-import { navMobile, contact } from "@/lib/data";
+import { contact } from "@/lib/data";
 
-// Rebuilt from a generic 4-column footer template (newsletter signup +
-// link columns + decorative bottom bar). Kept the overall layout idea;
-// dropped the template's own credit line ("Made with <3 in CakeCounter")
-// and its two hotlinked decorative GIFs (pulled from an unrelated
-// third-party blog CDN) since neither belongs on this site. Content
-// throughout is real Penaxis info instead of the template's generic
-// placeholders (app-store download links, etc. don't apply here).
+// Rebuilt footer layout matching a purchased template's structure
+// (confirmed owned by the user): giant background wordmark, a
+// centered gradient email pill, five link columns (eyebrow + big
+// title), a social row, and a bottom bar with address/copyright/
+// phone/back-to-top. Colors are Penaxis's own violet/volt instead of
+// the template's blue-teal gradient; only real destinations and real
+// confirmed social accounts are linked — no fabricated "News" page or
+// social handles we don't actually have.
 
-const RESOURCES = [
-  { label: "Our Team", href: "/about#team" },
-  { label: "Careers", href: "#" },
-  { label: "Insights", href: "#" },
-  { label: "Privacy Policy", href: "#" },
-  { label: "Terms & Conditions", href: "#" },
+const LINK_COLUMNS = [
+  { eyebrow: "What we do?", title: "Services", href: "/services" },
+  { eyebrow: "Who we are?", title: "About Us", href: "/about" },
+  { eyebrow: "How we deliver", title: "Contact Us", href: "/contact" },
+  { eyebrow: "What we're good at?", title: "Case Studies", href: "/case-studies" },
+  { eyebrow: "Where we work", title: "Industries", href: "/industries" },
 ];
 
+function ArrowIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+      <line x1="7" y1="17" x2="17" y2="7" />
+      <polyline points="7 7 17 7 17 17" />
+    </svg>
+  );
+}
+
 export default function Footer() {
+  const scrollToTop = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      window.scrollTo(0, 0);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <footer data-nav-theme="dark" className="relative bg-ink text-white overflow-hidden">
-      <div className="relative mx-auto max-w-7xl px-6 pt-20 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
-          {/* Get in touch */}
-          <Reveal as="div" delay={0.2} y={0} x={-40}>
-            <h3 className="font-display font-semibold text-lg mb-4">Get in touch</h3>
-            <p className="text-sm text-white/60 leading-relaxed mb-5">
-              Tell us what you're building — we'll follow up within one
-              business day.
-            </p>
-            <form
-              className="flex items-stretch gap-0"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <input
-                type="email"
-                required
-                placeholder="Email address"
-                className="flex-1 min-w-0 rounded-l-full bg-white/5 border border-white/15 border-r-0 px-4 py-2.5 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-violet-400"
-              />
-              <button
-                type="submit"
-                className="rounded-r-full bg-violet-600 hover:bg-violet-700 transition-colors px-5 py-2.5 text-sm font-semibold whitespace-nowrap"
-              >
-                Subscribe
-              </button>
-            </form>
-          </Reveal>
+      {/* Giant background wordmark */}
+      <div className="absolute inset-x-0 top-0 flex justify-center pt-2 pointer-events-none select-none overflow-hidden">
+        <span className="font-display font-black text-[16vw] leading-none text-white/[0.04] whitespace-nowrap">
+          PENAXIS
+        </span>
+      </div>
 
-          {/* Company */}
-          <Reveal as="div" delay={0.4} y={0} x={-40}>
-            <h3 className="font-display font-semibold text-lg mb-4">Company</h3>
-            <ul className="space-y-3 text-sm text-white/60">
-              {navMobile.map((item) => (
-                <li key={item.href + item.label}>
-                  <a href={item.href} className="hover:text-white transition-colors">
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
+      {/* Email pill */}
+      <div className="relative flex justify-center pt-24 pb-16 px-6">
+        <a
+          href={`mailto:${contact.email}`}
+          className="inline-flex items-center gap-3 rounded-full px-8 py-4 font-display font-semibold text-lg text-ink bg-gradient-to-r from-violet-500 to-[#D6F23C] hover:brightness-105 transition"
+        >
+          <span className="w-7 h-7 rounded-full bg-white/70 flex items-center justify-center shrink-0">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#212121" strokeWidth="2">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="m3 6 9 6 9-6" />
+            </svg>
+          </span>
+          {contact.email}
+        </a>
+      </div>
 
-          {/* Resources */}
-          <Reveal as="div" delay={0.6} y={0} x={-40}>
-            <h3 className="font-display font-semibold text-lg mb-4">Resources</h3>
-            <ul className="space-y-3 text-sm text-white/60">
-              {RESOURCES.map((item) => (
-                <li key={item.label}>
-                  <a href={item.href} className="hover:text-white transition-colors">
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+      {/* Link columns */}
+      <div className="relative max-w-7xl mx-auto px-6 pb-14 grid grid-cols-2 md:grid-cols-5 gap-y-10 gap-x-4 text-center">
+        {LINK_COLUMNS.map((col, i) => (
+          <Reveal as="div" key={col.title} delay={i * 0.08} y={0} x={-30}>
+            <div className="text-[0.65rem] font-mono tracking-[0.2em] uppercase text-white/40 mb-2">
+              {col.eyebrow}
+            </div>
+            <a href={col.href} className="font-display font-bold text-2xl md:text-3xl hover:text-[#D6F23C] transition-colors">
+              {col.title}
+            </a>
           </Reveal>
+        ))}
+      </div>
 
-          {/* Connect */}
-          <Reveal as="div" delay={0.8} y={0} x={-40}>
-            <h3 className="font-display font-semibold text-lg mb-4">Connect</h3>
-            <ul className="space-y-3 text-sm text-white/60 mb-6">
-              <li>{contact.phone}</li>
-              <li>
-                <a href={`mailto:${contact.email}`} className="hover:text-white transition-colors">
-                  {contact.email}
-                </a>
-              </li>
-              <li className="max-w-[220px]">{contact.address}</li>
-            </ul>
-            <div className="flex gap-3">
-              <a
-                href={`https://linkedin.com${contact.linkedin}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center hover:bg-violet-600 hover:border-violet-600 transition-colors"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      {/* Social row — only real, confirmed accounts */}
+      <div className="relative border-t border-white/10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-4">
+          <a
+            href={`https://linkedin.com${contact.linkedin}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between px-6 py-4 border-b sm:border-b-0 sm:border-r border-white/10 hover:bg-white/[0.03] transition-colors"
+          >
+            <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase">
+              <span className="w-6 h-6 rounded-full bg-white text-ink flex items-center justify-center">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
                 </svg>
-              </a>
-            </div>
-          </Reveal>
+              </span>
+              LinkedIn
+            </span>
+            <ArrowIcon />
+          </a>
         </div>
       </div>
 
-      <div className="footer-scene" aria-hidden="true">
-        <svg
-          className="footer-scene-skyline"
-          viewBox="0 0 1400 160"
-          preserveAspectRatio="xMidYMax slice"
-          fill="none"
-        >
-          {/* mountains */}
-          <path d="M1180 160L1250 70L1300 120L1340 60L1400 160H1180Z" fill="#734FA0" opacity="0.35" />
-          {/* buildings */}
-          <g fill="#B49FDA" opacity="0.3">
-            <rect x="0" y="70" width="46" height="90" />
-            <rect x="55" y="40" width="60" height="120" />
-            <rect x="125" y="90" width="40" height="70" />
-            <rect x="600" y="55" width="50" height="105" />
-            <rect x="660" y="30" width="42" height="130" />
-            <rect x="712" y="75" width="55" height="85" />
-            <rect x="930" y="60" width="46" height="100" />
-            <rect x="985" y="35" width="60" height="125" />
-            <rect x="1055" y="85" width="40" height="75" />
-          </g>
-          {/* trees near bus stop */}
-          <g fill="#5C3E82" opacity="0.4">
-            <circle cx="820" cy="95" r="26" />
-            <circle cx="850" cy="85" r="22" />
-            <rect x="815" y="100" width="8" height="40" />
-            <rect x="845" y="95" width="6" height="35" />
-          </g>
-          {/* bus stop bench */}
-          <g stroke="#D6F23C" strokeWidth="3" opacity="0.4" fill="none">
-            <path d="M900 40v100M960 40v100M900 45h60" />
-            <rect x="905" y="118" width="50" height="6" fill="#D6F23C" stroke="none" />
-          </g>
-          {/* street line */}
-          <line x1="0" y1="160" x2="1400" y2="160" stroke="#F2EEFE" strokeOpacity="0.15" strokeWidth="1" />
-          {/* hot air balloon */}
-          <g opacity="0.4">
-            <ellipse cx="1350" cy="30" rx="16" ry="20" fill="#734FA0" />
-            <path d="M1344 48h12l-4 8h-4z" fill="#734FA0" />
-          </g>
-        </svg>
-
-        <svg
-          className="footer-scene-car"
-          viewBox="0 0 90 40"
-          fill="none"
-          style={{ left: "-15%" }}
-        >
-          <path
-            d="M6 30 L10 18 Q14 12 24 12 L52 12 Q60 12 64 18 L70 30 Z"
-            fill="#734FA0"
-          />
-          <path d="M20 18 L26 13 L46 13 L52 18 Z" fill="#212121" opacity="0.5" />
-          <circle cx="22" cy="31" r="7" fill="#171717" />
-          <circle cx="58" cy="31" r="7" fill="#171717" />
-          <circle cx="22" cy="31" r="3" fill="#D6F23C" />
-          <circle cx="58" cy="31" r="3" fill="#D6F23C" />
-        </svg>
-
-        <svg
-          className="footer-scene-cyclist"
-          viewBox="0 0 60 46"
-          fill="none"
-          style={{ left: "-10%" }}
-        >
-          <circle cx="12" cy="36" r="9" stroke="#F2EEFE" strokeWidth="2" />
-          <circle cx="46" cy="36" r="9" stroke="#F2EEFE" strokeWidth="2" />
-          <path
-            d="M12 36 L26 20 L34 20 M26 20 L20 36 M34 20 L46 36 M34 20 L38 12 L44 12"
-            stroke="#F2EEFE"
-            strokeWidth="2"
-            fill="none"
-            strokeLinecap="round"
-          />
-          <circle cx="34" cy="8" r="5" fill="#FC6607" />
-          <path d="M30 20 Q34 24 30 30" stroke="#FC6607" strokeWidth="4" fill="none" strokeLinecap="round" />
-        </svg>
-      </div>
-
+      {/* Bottom bar */}
       <div className="relative border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-white/40">
-            © {new Date().getFullYear()} Penaxis. All rights reserved.
-          </p>
-          <a href="#top" aria-label="Penaxis home" className="opacity-80 hover:opacity-100 transition-opacity">
-            <Image
-              src="/images/logo/penaxis-logo-white.png"
-              alt="Penaxis"
-              width={110}
-              height={30}
-              style={{ height: 20, width: "auto" }}
-            />
-          </a>
+        <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/50">
+          <span className="inline-flex items-center gap-1.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D6F23C" strokeWidth="2">
+              <path d="M12 21s-7-6.5-7-11a7 7 0 1 1 14 0c0 4.5-7 11-7 11z" />
+              <circle cx="12" cy="10" r="2.5" />
+            </svg>
+            {contact.address}
+          </span>
+          <span>© {new Date().getFullYear()} Penaxis. All rights reserved.</span>
+          <span className="flex items-center gap-4">
+            <span className="inline-flex items-center gap-1.5">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D6F23C" strokeWidth="2">
+                <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2z" />
+              </svg>
+              {contact.phone}
+            </span>
+            <button
+              type="button"
+              onClick={scrollToTop}
+              aria-label="Back to top"
+              className="w-8 h-8 rounded-lg bg-[#D6F23C] text-ink flex items-center justify-center hover:brightness-95 transition"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M12 19V5M5 12l7-7 7 7" />
+              </svg>
+            </button>
+          </span>
         </div>
       </div>
     </footer>
