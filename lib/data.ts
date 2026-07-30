@@ -189,3 +189,30 @@ export const contact = {
   website: "www.penaxis.com",
   address: "2nd floor, 3-P, DHA Rahbar, Lahore, Pakistan, 54000",
 };
+
+// Dubai and Jordan addresses are placeholders (confirmed with the client
+// as OK to ship for now) — swap for the real registered addresses when
+// available. Pakistan uses the real, confirmed office address above.
+export const offices = [
+  {
+    country: "Pakistan",
+    city: "Lahore",
+    address: "2nd floor, 3-P, DHA Rahbar, Lahore, Pakistan, 54000",
+    blurb: "Our head office — strategy, delivery, and engineering all under one roof.",
+    theme: "violet",
+  },
+  {
+    country: "UAE",
+    city: "Dubai",
+    address: "Business Bay, Dubai, United Arab Emirates",
+    blurb: "Our regional hub for client partnerships across the Gulf.",
+    theme: "ember",
+  },
+  {
+    country: "Jordan",
+    city: "Amman",
+    address: "Abdali Boulevard, Amman, Jordan",
+    blurb: "Our newest base, extending delivery across the Levant.",
+    theme: "ink",
+  },
+];

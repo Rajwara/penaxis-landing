@@ -853,6 +853,127 @@ button:focus-visible {
   .gc-card-accent, .gc-card img { transition: none !important; }
 }
 
+/* Offices (contact page) */
+.ofc-section { padding: 6rem 0; }
+.ofc-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 1.6rem + 1.6vw, 3rem);
+  letter-spacing: -0.02em;
+  color: #212121;
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.ofc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
+  gap: 1.5rem;
+}
+.ofc-card {
+  position: relative;
+  display: block;
+  border-radius: 1.75rem;
+  padding: 1.75rem;
+  min-height: 280px;
+  overflow: hidden;
+  isolation: isolate;
+  color: #fff;
+  transition: transform 0.35s cubic-bezier(0.22, 0.9, 0.26, 1), box-shadow 0.35s;
+}
+.ofc-card:hover { transform: translateY(-6px); box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.35); }
+.ofc-card--violet { background: linear-gradient(150deg, #2a1d43, #5b3f8f 55%, #8a6fc4); }
+.ofc-card--ember { background: linear-gradient(150deg, #fc6607, #f2b45c 55%, #fdf6e3); color: #212121; }
+.ofc-card--ink { background: linear-gradient(150deg, #0e0e10, #1c1a22 60%, #2a2632); }
+.ofc-rings {
+  position: absolute;
+  top: -2rem;
+  right: -2rem;
+  width: 12rem;
+  height: 12rem;
+  z-index: -1;
+}
+.ofc-rings span {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+}
+.ofc-rings span:nth-child(2) { inset: 1.75rem; background: rgba(255, 255, 255, 0.1); }
+.ofc-rings span:nth-child(3) { inset: 3.5rem; background: rgba(255, 255, 255, 0.14); }
+.ofc-card--ember .ofc-rings span { background: rgba(255, 255, 255, 0.35); }
+.ofc-card--ember .ofc-rings span:nth-child(2) { background: rgba(255, 255, 255, 0.45); }
+.ofc-card--ember .ofc-rings span:nth-child(3) { background: rgba(255, 255, 255, 0.6); }
+.ofc-icon {
+  position: relative;
+  z-index: 1;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: right;
+}
+.ofc-card--ember .ofc-icon { background: rgba(255, 255, 255, 0.5); }
+.ofc-body { position: relative; z-index: 1; margin-top: 4.5rem; }
+.ofc-body h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+.ofc-country {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-top: 0.25rem;
+  font-weight: 400;
+}
+.ofc-body p {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  opacity: 0.75;
+  margin-top: 0.75rem;
+  max-width: 20rem;
+}
+.ofc-footer {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.75rem;
+  right: 1.75rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ofc-dots { display: flex; gap: 0.4rem; }
+.ofc-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+}
+.ofc-card--ember .ofc-dots span { background: rgba(33, 33, 33, 0.35); }
+.ofc-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.ofc-card--violet .ofc-open, .ofc-card--ink .ofc-open { color: #d6f23c; }
+.ofc-card--ember .ofc-open { color: #212121; }
+@media (prefers-reduced-motion: reduce) {
+  .ofc-card { transition: none !important; }
+}
+
 /* Testimonials (homepage) */
 .tm-section {
   background: #171717;
