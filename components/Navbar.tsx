@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { navLeft, navRight, navCta, navMobile } from "@/lib/data";
+import IndustriesMegaMenu from "./IndustriesMegaMenu";
 
 const LOGO_FULL_LIGHT = "/images/logo/penaxis-logo-purple.png"; // light nav surface
 const LOGO_FULL_DARK = "/images/logo/penaxis-logo-white.png"; // dark nav surface
@@ -39,6 +40,16 @@ export default function Navbar() {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
+  const [industriesOpen, setIndustriesOpen] = useState(false);
+  const industriesCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const openIndustries = () => {
+    if (industriesCloseTimer.current) clearTimeout(industriesCloseTimer.current);
+    setIndustriesOpen(true);
+  };
+  const scheduleCloseIndustries = () => {
+    industriesCloseTimer.current = setTimeout(() => setIndustriesOpen(false), 150);
+  };
   const rafRef = useRef<number | null>(null);
 
   const measure = useCallback(() => {
@@ -110,14 +121,21 @@ export default function Navbar() {
           {/* LEFT CAPSULE */}
           <nav
             aria-label="Primary"
-            className={`pointer-events-auto flex items-center gap-1 rounded-full border backdrop-blur-md px-2 py-2 transition-colors duration-500 ${capsuleSurface}`}
+            className={`relative pointer-events-auto flex items-center gap-1 rounded-full border backdrop-blur-md px-2 py-2 transition-colors duration-500 ${capsuleSurface}`}
           >
             {navLeft.map((item, i) => (
               <a
                 key={item.href + item.label}
                 href={item.href}
-                onMouseEnter={() => setHoverIdx(i)}
-                onMouseLeave={() => setHoverIdx(null)}
+                onMouseEnter={() => {
+                  setHoverIdx(i);
+                  if (item.label === "Industries") openIndustries();
+                  else scheduleCloseIndustries();
+                }}
+                onMouseLeave={() => {
+                  setHoverIdx(null);
+                  if (item.label === "Industries") scheduleCloseIndustries();
+                }}
                 className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   hoverIdx === i
                     ? isDark
@@ -129,6 +147,17 @@ export default function Navbar() {
                 {item.label}
               </a>
             ))}
+
+            {/* Industries mega menu panel */}
+            <div
+              onMouseEnter={openIndustries}
+              onMouseLeave={scheduleCloseIndustries}
+              className={`absolute left-1/2 -translate-x-1/2 top-full mt-3 transition-all duration-200 ${
+                industriesOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
+              }`}
+            >
+              <IndustriesMegaMenu />
+            </div>
           </nav>
 
           {/* CENTER CAPSULE — brand + scroll-progress */}
