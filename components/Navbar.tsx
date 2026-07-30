@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 import { navLeft, navRight, navCta, navMobile } from "@/lib/data";
 
 const LOGO_FULL_LIGHT = "/images/logo/penaxis-logo-purple.png"; // light nav surface
@@ -31,6 +32,8 @@ function LogoMark({ size = 22 }: { size?: number }) {
 }
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
   const [theme, setTheme] = useState<"light" | "dark">("dark");
@@ -80,6 +83,10 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   const scrollToTop = () => {
+    if (pathname !== "/") {
+      router.push("/");
+      return;
+    }
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       window.scrollTo(0, 0);
     } else {
@@ -128,7 +135,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={scrollToTop}
-            aria-label="Back to top"
+            aria-label="Penaxis home"
             className={`pointer-events-auto relative flex items-center justify-center rounded-full border backdrop-blur-md transition-all duration-500 ease-out overflow-hidden ${capsuleSurface} ${
               scrolled ? "w-14 h-14" : "w-[168px] h-14"
             }`}
@@ -223,7 +230,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={scrollToTop}
-            aria-label="Back to top"
+            aria-label="Penaxis home"
             className={`flex items-center justify-center rounded-full border backdrop-blur-md w-12 h-12 transition-colors duration-500 ${capsuleSurface}`}
           >
             <span className="relative flex items-center justify-center w-7 h-7">
