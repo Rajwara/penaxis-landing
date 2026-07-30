@@ -13,7 +13,7 @@ import GameChangers from "@/components/GameChangers";
 import LogoMarquee from "@/components/LogoMarquee";
 import Testimonials from "@/components/Testimonials";
 import ShapeGrid from "@/components/ShapeGrid";
-import CTA from "@/components/CTA";
+import ConnectSection from "@/components/ConnectSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -38,7 +38,7 @@ export default function Home() {
         {/* TEMPORARY PREVIEW — remove or relocate once a placement is decided */}
         <ShapeGrid />
 
-        <CTA />
+        <ConnectSection />
       </main>
       <Footer />
     </>
