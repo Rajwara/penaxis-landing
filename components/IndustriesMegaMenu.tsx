@@ -65,13 +65,13 @@ const findIndustry = (title: string) => industries.find((i) => i.title === title
 
 export default function IndustriesMegaMenu() {
   return (
-    <div className="w-full rounded-3xl bg-paper shadow-2xl border border-ink/5 overflow-hidden grid grid-cols-[220px_1fr]">
+    <div className="w-full min-h-[26rem] rounded-3xl bg-paper shadow-2xl border border-ink/5 overflow-hidden grid grid-cols-[220px_1fr] xl:grid-cols-[260px_1fr]">
       {/* Sidebar */}
-      <div className="bg-ink text-white p-6 flex flex-col">
+      <div className="bg-ink text-white p-7 flex flex-col">
         <h4 className="font-display font-bold text-sm mb-3">Explore</h4>
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex flex-wrap gap-2 mb-8">
           {["AI", "Software", "Growth"].map((tag) => (
-            <span key={tag} className="rounded-full bg-white/10 px-3 py-1 text-xs">
+            <span key={tag} className="rounded-full bg-white/10 px-3 py-1.5 text-xs">
               {tag}
             </span>
           ))}
@@ -79,9 +79,9 @@ export default function IndustriesMegaMenu() {
         <h4 className="font-display font-bold text-sm mb-3">13 industries, one team</h4>
         <a
           href="/industries"
-          className="block rounded-xl overflow-hidden bg-gradient-to-br from-violet-600 to-violet-900 h-28 mb-3 relative group"
+          className="block rounded-xl overflow-hidden bg-gradient-to-br from-violet-600 to-violet-900 h-36 mb-4 relative group"
         >
-          <span className="absolute inset-0 flex items-end p-3 text-xs font-semibold bg-black/10 group-hover:bg-black/0 transition-colors">
+          <span className="absolute inset-0 flex items-end p-4 text-xs font-semibold bg-black/10 group-hover:bg-black/0 transition-colors">
             See all industries →
           </span>
         </a>
@@ -91,14 +91,14 @@ export default function IndustriesMegaMenu() {
       </div>
 
       {/* Categories grid */}
-      <div className="p-7 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-8">
+      <div className="p-8 xl:p-9 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-x-7 gap-y-9 content-start">
         {CATEGORIES.map((cat) => (
           <div key={cat.heading}>
-            <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-ink text-white mb-3">
+            <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-ink text-white mb-3.5">
               <span className="w-4 h-4">{cat.icon}</span>
             </span>
-            <h5 className="font-display font-bold text-sm text-ink mb-2">{cat.heading}</h5>
-            <ul className="space-y-1.5">
+            <h5 className="font-display font-bold text-sm text-ink mb-2.5">{cat.heading}</h5>
+            <ul className="space-y-2">
               {cat.items.map((title) => {
                 const ind = findIndustry(title);
                 return (

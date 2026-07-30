@@ -37,22 +37,22 @@ const fizza = team.find((m) => m.name === "Fizza Shahzad");
 
 export default function ServicesMegaMenu() {
   return (
-    <div className="w-full rounded-3xl bg-paper shadow-2xl border border-ink/5 overflow-hidden grid grid-cols-[1fr_240px]">
+    <div className="w-full min-h-[26rem] rounded-3xl bg-paper shadow-2xl border border-ink/5 overflow-hidden grid grid-cols-[1fr_240px] xl:grid-cols-[1fr_280px]">
       {/* Main area */}
-      <div className="p-7">
+      <div className="p-8 xl:p-9 flex flex-col">
         <h4 className="font-display font-bold text-lg text-ink mb-1">Services</h4>
-        <p className="text-sm text-ink/50 mb-6 max-w-md">
+        <p className="text-sm text-ink/50 mb-8 max-w-md">
           Automate and manage the full journey — from first build to ongoing growth.
         </p>
 
-        <div className="grid grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 xl:grid-cols-4 gap-4 flex-1">
           {services.map((s) => {
             const isHighlight = s.slug === HIGHLIGHT_SLUG;
             return (
               <a
                 key={s.slug}
                 href={`/services#${s.slug}`}
-                className={`group relative rounded-2xl p-4 transition-colors ${
+                className={`group relative rounded-2xl p-5 transition-colors flex flex-col ${
                   isHighlight ? "bg-violet-600 text-white" : "hover:bg-ink/[0.04]"
                 }`}
               >
@@ -64,23 +64,23 @@ export default function ServicesMegaMenu() {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
-                    className="absolute top-3 right-3 opacity-70"
+                    className="absolute top-4 right-4 opacity-70"
                   >
                     <path d="M7 17L17 7M7 7h10v10" />
                   </svg>
                 )}
                 <span
-                  className={`inline-flex items-center justify-center w-8 h-8 rounded-lg mb-3 ${
+                  className={`inline-flex items-center justify-center w-9 h-9 rounded-lg mb-4 ${
                     isHighlight ? "bg-white/15" : "bg-ink/[0.06] text-ink"
                   }`}
                 >
                   <span className="w-4 h-4">{ICONS[s.slug]}</span>
                 </span>
-                <h5 className={`font-display font-bold text-sm mb-1 ${isHighlight ? "text-white" : "text-ink"}`}>
+                <h5 className={`font-display font-bold text-sm mb-2 ${isHighlight ? "text-white" : "text-ink"}`}>
                   {s.title}
                 </h5>
                 <p className={`text-xs leading-relaxed ${isHighlight ? "text-white/75" : "text-ink/50"}`}>
-                  {s.short.length > 78 ? s.short.slice(0, 78).trimEnd() + "…" : s.short}
+                  {s.short.length > 100 ? s.short.slice(0, 100).trimEnd() + "…" : s.short}
                 </p>
               </a>
             );
@@ -89,20 +89,23 @@ export default function ServicesMegaMenu() {
       </div>
 
       {/* Side card */}
-      <div className="bg-haze p-5 flex flex-col">
+      <div className="bg-haze p-6 flex flex-col">
         {fizza?.image && (
           <a
             href="/about"
-            className="block rounded-xl overflow-hidden h-32 mb-4 relative bg-gradient-to-br from-violet-200 to-volt/40"
+            className="block rounded-xl overflow-hidden h-44 mb-5 relative bg-gradient-to-br from-violet-200 to-volt/40"
           >
             <img src={fizza.image} alt="Penaxis team" className="w-full h-full object-cover" />
           </a>
         )}
-        <h5 className="font-display font-bold text-sm text-ink mb-1">Our team</h5>
-        <a href="/about" className="text-sm text-ink/55 hover:text-violet-700 transition-colors mb-2">
+        <h5 className="font-display font-bold text-sm text-ink mb-2">Our team</h5>
+        <a href="/about" className="text-sm text-ink/55 hover:text-violet-700 transition-colors mb-2.5">
           Meet the people behind the work
         </a>
-        <a href="/contact" className="text-sm text-ink/55 hover:text-violet-700 transition-colors">
+        <a
+          href="/contact"
+          className="mt-auto inline-flex items-center justify-center rounded-full bg-violet-600 text-white text-sm font-semibold px-5 py-3 hover:bg-violet-700 transition-colors"
+        >
           Start a project
         </a>
       </div>
