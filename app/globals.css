@@ -4020,3 +4020,129 @@ button:focus-visible {
   .av2-timeline-tabs { position: static; margin: 0 1rem 1rem; flex-wrap: wrap; }
   .av2-timeline-mark { display: none; }
 }
+
+/* Why Choose Us (homepage) */
+.wcu-section { padding: 6rem 0; background: #fff; }
+.wcu-panel {
+  position: relative;
+  border: 1px solid rgba(33, 33, 33, 0.1);
+  border-radius: 1.5rem;
+  background: #f4f4f5;
+  overflow: hidden;
+  padding: 3.5rem 3rem 0;
+}
+.wcu-tiles {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  max-width: 520px;
+  height: 300px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2px;
+  opacity: 0.9;
+  pointer-events: none;
+}
+.wcu-tiles span:nth-child(1) { grid-column: 1 / 3; grid-row: 1; background: #fff; }
+.wcu-tiles span:nth-child(2) { grid-column: 3; grid-row: 1 / 3; background: #fff; }
+.wcu-tiles span:nth-child(3) { grid-column: 1; grid-row: 2; background: transparent; }
+.wcu-tiles span:nth-child(4) { grid-column: 2; grid-row: 2; background: rgba(33, 33, 33, 0.04); }
+.wcu-tiles span:nth-child(5) { display: none; }
+.wcu-head { position: relative; z-index: 1; margin-bottom: 3.5rem; }
+.wcu-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #fff;
+  padding: 0.4rem 0.9rem 0.4rem 0.6rem;
+  border-radius: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #212121;
+  margin-bottom: 1.5rem;
+}
+.wcu-eyebrow-dot { width: 10px; height: 10px; background: #d6f23c; display: inline-block; }
+.wcu-heading {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 1.7rem + 2.2vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: #212121;
+  max-width: 32rem;
+}
+.wcu-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px dashed rgba(33, 33, 33, 0.25);
+}
+.wcu-item {
+  position: relative;
+  padding: 2.5rem 2rem 2.75rem;
+  border-right: 1px dashed rgba(33, 33, 33, 0.25);
+}
+.wcu-grid .wcu-item:last-child { border-right: none; }
+.wcu-item-corner {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #212121;
+}
+.wcu-item-corner--tl { top: -3px; left: -3px; }
+.wcu-item-corner--tr { top: -3px; right: -3px; }
+.wcu-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 0.75rem;
+  background: #2b2b2f;
+  color: #d6f23c;
+  margin-bottom: 1.5rem;
+}
+.wcu-item-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #212121;
+  margin-bottom: 0.75rem;
+}
+.wcu-item-copy {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(33, 33, 33, 0.55);
+}
+.wcu-stripe {
+  position: relative;
+  height: 2.5rem;
+  margin-top: -1px;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(33, 33, 33, 0.06) 0px,
+    rgba(33, 33, 33, 0.06) 1px,
+    transparent 1px,
+    transparent 9px
+  );
+  border-top: 1px dashed rgba(33, 33, 33, 0.25);
+}
+@media (max-width: 900px) {
+  .wcu-tiles { display: none; }
+  .wcu-grid { grid-template-columns: repeat(2, 1fr); }
+  .wcu-item:nth-child(2n) { border-right: none; }
+  .wcu-item:nth-child(-n+2) { border-bottom: 1px dashed rgba(33, 33, 33, 0.25); }
+}
+@media (max-width: 560px) {
+  .wcu-panel { padding: 2.5rem 1.5rem 0; }
+  .wcu-grid { grid-template-columns: 1fr; }
+  .wcu-item { border-right: none !important; border-bottom: 1px dashed rgba(33, 33, 33, 0.25); }
+  .wcu-item:last-child { border-bottom: none; }
+}

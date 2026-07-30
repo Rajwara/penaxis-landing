@@ -7,7 +7,7 @@ import Coverage from "@/components/Coverage";
 import Services from "@/components/Services";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import IndustriesStack from "@/components/IndustriesStack";
-import WhyUs from "@/components/WhyUs";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import Team from "@/components/Team";
 import GameChangers from "@/components/GameChangers";
 import LogoMarquee from "@/components/LogoMarquee";
@@ -28,7 +28,7 @@ export default function Home() {
         <About />
         <AIShowcase />
         <Services />
-        <WhyUs />
+        <WhyChooseUs />
         <Team />
         <GameChangers />
         <LogoMarquee />
