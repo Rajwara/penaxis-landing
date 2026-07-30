@@ -3,7 +3,6 @@ import NameIntro from "@/components/NameIntro";
 import HorizontalGallery from "@/components/HorizontalGallery";
 import About from "@/components/About";
 import AIShowcase from "@/components/AIShowcase";
-import Services from "@/components/Services";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import IndustriesStack from "@/components/IndustriesStack";
 import WhyChooseUs from "@/components/WhyChooseUs";
@@ -24,7 +23,6 @@ export default function Home() {
         <IndustriesStack />
         <About />
         <AIShowcase />
-        <Services />
         <WhyChooseUs />
         <GameChangers />
         <LogoMarquee />
