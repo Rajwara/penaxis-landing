@@ -4,8 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Reveal from "./Reveal";
-import CountStat from "./CountStat";
-import { missionVision, momentum, stats } from "@/lib/data";
+import { missionVision, momentum } from "@/lib/data";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -110,25 +109,6 @@ export default function About() {
             </div>
           </Reveal>
         </div>
-
-        <Reveal delay={0.1}>
-          <div className="mt-20 rounded-3xl bg-ink text-white px-8 py-10 grid grid-cols-2 md:grid-cols-5 gap-8">
-            {stats.map((s) => (
-              <div key={s.label} className="text-center md:text-left">
-                <div className="font-display font-bold text-3xl md:text-4xl text-volt">
-                  <CountStat
-                    value={s.value}
-                    prefix={s.prefix}
-                    suffix={s.suffix}
-                  />
-                </div>
-                <p className="text-xs text-white/55 mt-2 leading-snug">
-                  {s.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </Reveal>
       </div>
     </section>
   );

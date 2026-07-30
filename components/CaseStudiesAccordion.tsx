@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Reveal from "./Reveal";
-import { caseStudyPlaceholders, team } from "@/lib/data";
+import CountStat from "./CountStat";
+import { caseStudyPlaceholders, stats, team } from "@/lib/data";
 
 // Ported from a reference "awards" accordion (date + title row, +/- toggle,
 // expanded description, and a thumbnail that appears on hover) and applied
@@ -73,6 +74,19 @@ export default function CaseStudiesAccordion() {
             );
           })}
         </div>
+
+        <Reveal delay={0.1} className="csa-stats-wrap">
+          <div className="csa-stats">
+            {stats.map((s) => (
+              <div key={s.label} className="csa-stat">
+                <div className="csa-stat-value">
+                  <CountStat value={s.value} prefix={s.prefix} suffix={s.suffix} />
+                </div>
+                <p className="csa-stat-label">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -4258,6 +4258,32 @@ button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .csa-thumb { transition: none !important; }
 }
+.csa-stats-wrap { margin-top: 5rem; margin-bottom: 2rem; }
+.csa-stats {
+  border-radius: 1.75rem;
+  background: #171717;
+  color: #fff;
+  padding: 2.5rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .csa-stats { grid-template-columns: repeat(5, 1fr); }
+}
+.csa-stat-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 1.3rem + 1vw, 2.2rem);
+  color: #d6f23c;
+}
+.csa-stat-label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
 
 /* Cookie consent banner */
 .cc-banner {
