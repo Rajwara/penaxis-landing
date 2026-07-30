@@ -3670,27 +3670,37 @@ button:focus-visible {
 
 /* Case Study v2 — filter grid */
 .csv2-grid-section {
-  background: #faf9fd;
-  padding: 3.5rem 0 6rem;
+  background: #151318;
+  padding: 4.5rem 0 6rem;
 }
 .csv2-intro {
   max-width: 46rem;
   font-family: var(--font-body);
-  color: rgba(33, 33, 33, 0.6);
+  color: rgba(255, 255, 255, 0.6);
   line-height: 1.7;
   margin-bottom: 2.5rem;
 }
-.csv2-intro strong { color: #212121; }
+.csv2-intro strong { color: #fff; }
+.csv2-filters-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
 .csv2-filters {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
   gap: 0.6rem;
   background: #fff;
   border-radius: 1.25rem;
   padding: 0.75rem;
   border: 1px solid rgba(33, 33, 33, 0.06);
-  margin-bottom: 3rem;
+  flex: 1 1 auto;
+  min-width: 0;
 }
+.csv2-filters::-webkit-scrollbar { display: none; }
 .csv2-filter {
   border: none;
   background: transparent;
@@ -3703,9 +3713,25 @@ button:focus-visible {
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
   white-space: nowrap;
+  flex: 0 0 auto;
 }
 .csv2-filter:hover { background: rgba(115, 79, 160, 0.08); color: #212121; }
 .csv2-filter.is-active { background: #734fa0; color: #fff; }
+.csv2-filter-arrow {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.csv2-filter-arrow:hover { background: rgba(255, 255, 255, 0.16); }
 .csv2-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(20rem, 100%), 1fr));

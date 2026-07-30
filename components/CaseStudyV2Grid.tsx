@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import Reveal from "./Reveal";
 import { industries } from "@/lib/data";
 
@@ -72,6 +72,11 @@ const findIndustry = (title: string) => industries.find((i) => i.title === title
 
 export default function CaseStudyV2Grid() {
   const [active, setActive] = useState<string>("all");
+  const filterScrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollFilters = (dir: 1 | -1) => {
+    filterScrollRef.current?.scrollBy({ left: dir * 260, behavior: "smooth" });
+  };
 
   const filtered = useMemo(
     () => (active === "all" ? PLACEHOLDER_STUDIES : PLACEHOLDER_STUDIES.filter((s) => s.tags.includes(active))),
@@ -89,24 +94,53 @@ export default function CaseStudyV2Grid() {
         </Reveal>
 
         <Reveal delay={0.05}>
-          <div className="csv2-filters" role="tablist" aria-label="Filter case studies by industry">
+          <div className="csv2-filters-wrap">
             <button
               type="button"
-              onClick={() => setActive("all")}
-              className={`csv2-filter ${active === "all" ? "is-active" : ""}`}
+              onClick={() => scrollFilters(-1)}
+              className="csv2-filter-arrow"
+              aria-label="Scroll filters left"
             >
-              See All
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2">
+                <path d="M15 6l-6 6 6 6" />
+              </svg>
             </button>
-            {FILTER_INDUSTRIES.map((title) => (
+
+            <div
+              ref={filterScrollRef}
+              className="csv2-filters"
+              role="tablist"
+              aria-label="Filter case studies by industry"
+            >
               <button
-                key={title}
                 type="button"
-                onClick={() => setActive(title)}
-                className={`csv2-filter ${active === title ? "is-active" : ""}`}
+                onClick={() => setActive("all")}
+                className={`csv2-filter ${active === "all" ? "is-active" : ""}`}
               >
-                {title}
+                See All
               </button>
-            ))}
+              {FILTER_INDUSTRIES.map((title) => (
+                <button
+                  key={title}
+                  type="button"
+                  onClick={() => setActive(title)}
+                  className={`csv2-filter ${active === title ? "is-active" : ""}`}
+                >
+                  {title}
+                </button>
+              ))}
+            </div>
+
+            <button
+              type="button"
+              onClick={() => scrollFilters(1)}
+              className="csv2-filter-arrow"
+              aria-label="Scroll filters right"
+            >
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2">
+                <path d="M9 6l6 6-6 6" />
+              </svg>
+            </button>
           </div>
         </Reveal>
 
