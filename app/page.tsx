@@ -8,7 +8,6 @@ import Services from "@/components/Services";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import IndustriesStack from "@/components/IndustriesStack";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import Team from "@/components/Team";
 import GameChangers from "@/components/GameChangers";
 import LogoMarquee from "@/components/LogoMarquee";
 import Testimonials from "@/components/Testimonials";
@@ -29,7 +28,6 @@ export default function Home() {
         <AIShowcase />
         <Services />
         <WhyChooseUs />
-        <Team />
         <GameChangers />
         <LogoMarquee />
         <Testimonials />
