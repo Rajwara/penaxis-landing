@@ -3,7 +3,6 @@ import NameIntro from "@/components/NameIntro";
 import HorizontalGallery from "@/components/HorizontalGallery";
 import About from "@/components/About";
 import AIShowcase from "@/components/AIShowcase";
-import Coverage from "@/components/Coverage";
 import Services from "@/components/Services";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import IndustriesStack from "@/components/IndustriesStack";
@@ -22,7 +21,6 @@ export default function Home() {
         <NameIntro />
         <HorizontalGallery />
         <ServicesShowcase />
-        <Coverage />
         <IndustriesStack />
         <About />
         <AIShowcase />
