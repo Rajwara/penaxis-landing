@@ -43,12 +43,12 @@ export default function OfficesSection() {
           {offices.map((office, i) => {
             const mapUrl = `https://www.google.com/maps?q=${encodeURIComponent(office.address)}`;
             return (
-              <Reveal key={office.country} y={30} delay={i * 0.08}>
+              <Reveal key={office.country} y={30} delay={i * 0.08} className="h-full">
                 <a
                   href={mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`ofc-card ofc-card--${office.theme}`}
+                  className={`ofc-card ofc-card--${office.theme} h-full`}
                 >
                   <div className="ofc-rings" aria-hidden="true">
                     <span />

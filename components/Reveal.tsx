@@ -6,6 +6,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
+  // Trigger positions are calculated once on mount. If page height shifts
+  // afterward (web fonts finishing load, images loading, or other sections
+  // being added), those positions go stale and reveals can fire at the
+  // wrong scroll point. Refresh once everything has actually settled.
+  window.addEventListener("load", () => ScrollTrigger.refresh());
+  if ((document as any).fonts?.ready) {
+    (document as any).fonts.ready.then(() => ScrollTrigger.refresh());
+  }
 }
 
 export default function Reveal({
