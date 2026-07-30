@@ -44,12 +44,14 @@ export default function LogoMarquee() {
     <section className="lgm-section">
       <div className="lgm-bg" aria-hidden="true" />
       <div className="relative max-w-7xl mx-auto px-6">
-        <p className="lgm-heading">Trusted by teams around the world</p>
-        <div className="lgm-viewport">
-          <div className="lgm-track">
-            {track.map((name, i) => (
-              <PlaceholderMark key={i} name={name} i={i} />
-            ))}
+        <div className="lgm-card">
+          <p className="lgm-heading">Trusted by teams around the world</p>
+          <div className="lgm-viewport">
+            <div className="lgm-track">
+              {track.map((name, i) => (
+                <PlaceholderMark key={i} name={name} i={i} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

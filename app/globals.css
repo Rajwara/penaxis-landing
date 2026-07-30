@@ -977,7 +977,7 @@ button:focus-visible {
 /* Logo Marquee (homepage) */
 .lgm-section {
   position: relative;
-  padding: 4.5rem 0;
+  padding: 3.5rem 0;
   overflow: hidden;
 }
 .lgm-bg {
@@ -986,17 +986,31 @@ button:focus-visible {
   background: url("/images/logos-bg/marquee-bg.webp") center / cover no-repeat;
   z-index: 0;
 }
+.lgm-card {
+  position: relative;
+  z-index: 1;
+  border-radius: 10px;
+  border: 1px solid #e3e3e3;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 2.75rem 0;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .lgm-heading {
   position: relative;
   z-index: 1;
   text-align: center;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(33, 33, 33, 0.4);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 0.95rem + 0.5vw, 1.5rem);
+  letter-spacing: -0.01em;
+  color: #212121;
   margin-bottom: 2.5rem;
+  padding: 0 1.5rem;
 }
 .lgm-viewport {
   position: relative;
@@ -1022,11 +1036,11 @@ button:focus-visible {
   align-items: center;
   gap: 0.5rem;
   color: #212121;
-  opacity: 0.45;
+  opacity: 0.75;
   white-space: nowrap;
   transition: opacity 0.25s;
 }
-.lgm-mark:hover { opacity: 0.9; }
+.lgm-mark:hover { opacity: 1; }
 .lgm-mark-label {
   font-family: var(--font-display);
   font-weight: 700;
