@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { navLeft, navRight, navCta, navMobile } from "@/lib/data";
 import IndustriesMegaMenu from "./IndustriesMegaMenu";
 import ServicesMegaMenu from "./ServicesMegaMenu";
+import CaseStudiesMegaMenu from "./CaseStudiesMegaMenu";
 
 const LOGO_FULL_LIGHT = "/images/logo/penaxis-logo-purple.png"; // light nav surface
 const LOGO_FULL_DARK = "/images/logo/penaxis-logo-white.png"; // dark nav surface
@@ -41,10 +42,10 @@ export default function Navbar() {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
-  const [activeMenu, setActiveMenu] = useState<"industries" | "services" | null>(null);
+  const [activeMenu, setActiveMenu] = useState<"industries" | "services" | "caseStudies" | null>(null);
   const menuCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const openMenu = (name: "industries" | "services") => {
+  const openMenu = (name: "industries" | "services" | "caseStudies") => {
     if (menuCloseTimer.current) clearTimeout(menuCloseTimer.current);
     setActiveMenu(name);
   };
@@ -132,11 +133,14 @@ export default function Navbar() {
                   setHoverIdx(i);
                   if (item.label === "Industries") openMenu("industries");
                   else if (item.label === "Services") openMenu("services");
+                  else if (item.label === "Case Studies") openMenu("caseStudies");
                   else scheduleCloseMenu();
                 }}
                 onMouseLeave={() => {
                   setHoverIdx(null);
-                  if (item.label === "Industries" || item.label === "Services") scheduleCloseMenu();
+                  if (item.label === "Industries" || item.label === "Services" || item.label === "Case Studies") {
+                    scheduleCloseMenu();
+                  }
                 }}
                 className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   hoverIdx === i
@@ -171,6 +175,17 @@ export default function Navbar() {
             }`}
           >
             <ServicesMegaMenu />
+          </div>
+
+          {/* Case Studies mega menu panel */}
+          <div
+            onMouseEnter={() => openMenu("caseStudies")}
+            onMouseLeave={scheduleCloseMenu}
+            className={`absolute left-4 right-4 md:left-6 md:right-6 top-full mt-3 transition-all duration-200 ${
+              activeMenu === "caseStudies" ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
+            }`}
+          >
+            <CaseStudiesMegaMenu />
           </div>
 
           {/* CENTER CAPSULE — brand + scroll-progress */}
