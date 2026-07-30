@@ -339,11 +339,22 @@ export default function AboutContent() {
         <div className="ab-team-grid">
           {team.map((member, i) => (
             <div key={member.name} className="ab-t-card">
-              <div
-                className={`absolute inset-0 ${avatarPalette[i % avatarPalette.length]}`}
-                aria-hidden="true"
-              />
-              <span className="ab-t-initials">{initials(member.name)}</span>
+              {member.image ? (
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  aria-hidden="true"
+                />
+              ) : (
+                <>
+                  <div
+                    className={`absolute inset-0 ${avatarPalette[i % avatarPalette.length]}`}
+                    aria-hidden="true"
+                  />
+                  <span className="ab-t-initials">{initials(member.name)}</span>
+                </>
+              )}
               <div className="ab-t-meta">
                 <div className="ab-nm">{member.name}</div>
                 <div className="ab-rl">{member.role}</div>
