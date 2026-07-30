@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Reveal from "./Reveal";
 import { team } from "@/lib/data";
 
@@ -64,13 +65,25 @@ export default function Team() {
           {team.map((member, i) => (
             <Reveal key={member.name} delay={(i % 5) * 0.05}>
               <div className="rounded-2xl border border-violet-100 bg-white p-5 text-center card-hover h-full flex flex-col items-center">
-                <div
-                  className={`w-14 h-14 rounded-full ${
-                    palette[i % palette.length]
-                  } text-white flex items-center justify-center font-display font-bold mb-4`}
-                >
-                  {initials(member.name)}
-                </div>
+                {member.image ? (
+                  <div className="w-14 h-14 rounded-full overflow-hidden mb-4 ring-1 ring-violet-100">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      width={56}
+                      height={56}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className={`w-14 h-14 rounded-full ${
+                      palette[i % palette.length]
+                    } text-white flex items-center justify-center font-display font-bold mb-4`}
+                  >
+                    {initials(member.name)}
+                  </div>
+                )}
                 <p className="font-semibold text-sm text-ink">
                   {member.name}
                 </p>

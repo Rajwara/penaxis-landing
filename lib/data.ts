@@ -164,20 +164,22 @@ export const whyUsMetrics = [
 ];
 
 export const team = [
-  { name: "Adeel Aslam", role: "CEO & Founder" },
+  { name: "Adeel Aslam", role: "CEO & Founder", image: "/images/team/adeel-aslam.webp" },
   { name: "Shahzad Ali", role: "Co-Founder & CFO" },
-  { name: "Fizza Shahzad", role: "Creative & Brand Lead" },
-  { name: "Hamza Durrani", role: "BD Manager" },
-  { name: "Laiba Zafar", role: "Social Media Manager" },
+  { name: "Fizza Shahzad", role: "Social Media Associate", image: "/images/team/fizza-shahzad.webp" },
+  { name: "Hamza Durrani", role: "BD Manager", image: "/images/team/hamza-durrani.webp" },
+  { name: "Laiba Zafar", role: "Social Media Manager", image: "/images/team/laiba-zafar.webp" },
   { name: "Mutahar Murtaza", role: "Full Stack Developer" },
-  { name: "Zaid Bin Arif", role: "Business Analyst" },
+  { name: "Zaid Bin Arif", role: "Business Development Executive", image: "/images/team/zaid-bin-arif.webp" },
   { name: "Sitara Tahir", role: "Project Manager" },
-  { name: "Abdullah Sadiq", role: "BD Representative" },
-  { name: "Maleeha Farooq", role: "Marketing Associate" },
+  { name: "Abdullah Sadiq", role: "BD Representative", image: "/images/team/abdullah-sadiq.webp" },
+  { name: "Maleeha Farooq", role: "Social Media Associate", image: "/images/team/maleeha-farooq.webp" },
   { name: "Adnan Farooq", role: "AI DevOps Engineer" },
   { name: "Maham Aziz", role: "HR Manager" },
   { name: "Saad Sultan", role: "CMS Developer" },
   { name: "Farwa Saleem", role: "Recruitment Manager" },
+  { name: "Hamza", role: "Designer", image: "/images/team/hamza-designer.webp" },
+  { name: "Ali Raza", role: "Business Development Executive", image: "/images/team/ali-raza.webp" },
 ];
 
 export const contact = {
