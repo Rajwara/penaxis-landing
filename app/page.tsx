@@ -10,6 +10,7 @@ import IndustriesStack from "@/components/IndustriesStack";
 import WhyUs from "@/components/WhyUs";
 import Team from "@/components/Team";
 import GameChangers from "@/components/GameChangers";
+import Testimonials from "@/components/Testimonials";
 import ShapeGrid from "@/components/ShapeGrid";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -30,6 +31,7 @@ export default function Home() {
         <WhyUs />
         <Team />
         <GameChangers />
+        <Testimonials />
 
         {/* TEMPORARY PREVIEW — remove or relocate once a placement is decided */}
         <ShapeGrid />
