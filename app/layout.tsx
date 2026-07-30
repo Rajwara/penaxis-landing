@@ -4,6 +4,7 @@ import CuboidLoader from "@/components/CuboidLoader";
 import CookieConsent from "@/components/CookieConsent";
 import ScrollToTop from "@/components/ScrollToTop";
 import QuickQuote from "@/components/QuickQuote";
+import StoreLocator from "@/components/StoreLocator";
 
 export const metadata: Metadata = {
   title: "Penaxis — Growth & Technology Partner",
@@ -31,6 +32,7 @@ export default function RootLayout({
         {children}
         <ScrollToTop />
         <QuickQuote />
+        <StoreLocator />
         <CookieConsent />
       </body>
     </html>

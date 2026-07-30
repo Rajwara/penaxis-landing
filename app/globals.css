@@ -4568,3 +4568,178 @@ button:focus-visible {
   margin-bottom: 1.5rem;
 }
 
+/* Store Locator */
+.sl-tab {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 7.25rem;
+  z-index: 62;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #171717;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 1.4rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.4);
+  transition: background 0.2s, bottom 0.25s ease;
+}
+.sl-tab.cc-cleared { bottom: 1.75rem; }
+.sl-tab:hover { background: #2b2b2f; }
+@media (max-width: 640px) {
+  .sl-tab { right: 1rem; bottom: 8rem; padding: 0.75rem 1.1rem; font-size: 0.78rem; }
+  .sl-tab.cc-cleared { bottom: 1rem; }
+}
+
+.sl-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: rgba(23, 20, 28, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: qq-fade 0.2s ease;
+}
+.sl-modal {
+  width: 100%;
+  max-width: 26rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.4);
+  animation: qq-pop 0.25s cubic-bezier(0.22, 0.9, 0.26, 1);
+}
+.sl-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #17163a;
+  color: #fff;
+  padding: 1.25rem 1.5rem;
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+.sl-header-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.sl-close {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.sl-close:hover { background: rgba(255, 255, 255, 0.22); }
+.sl-tabs {
+  display: flex;
+  gap: 0.4rem;
+  padding: 1rem 1.25rem 0;
+  background: #17163a;
+  border-radius: 0 0 1rem 1rem;
+}
+.sl-tab-btn {
+  flex: 1;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.65rem 0.5rem;
+  border-radius: 0.6rem 0.6rem 0 0;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.sl-tab-btn.is-active { background: #fff; color: #17163a; }
+.sl-card { padding: 1.5rem 1.5rem 1.75rem; }
+.sl-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+.sl-pin {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #17163a;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.sl-card-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #212121;
+}
+.sl-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgba(33, 33, 33, 0.08);
+  color: #212121;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+.sl-row svg { flex-shrink: 0; margin-top: 0.1rem; color: rgba(33, 33, 33, 0.45); }
+.sl-hours { margin-top: 0.5rem; }
+.sl-hours-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(33, 33, 33, 0.4);
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+.sl-hours .sl-row { border-bottom: none; padding-bottom: 0.15rem; }
+.sl-hours-closed {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: rgba(33, 33, 33, 0.45);
+  margin-left: 1.65rem;
+}
+.sl-actions { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
+.sl-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.sl-btn--primary { background: #17163a; color: #fff; border: none; }
+.sl-btn--primary:hover { background: #2a2860; }
+.sl-btn--ghost { background: #fff; color: #17163a; border: 1px solid rgba(33, 33, 33, 0.15); }
+.sl-btn--ghost:hover { border-color: rgba(33, 33, 33, 0.3); }
