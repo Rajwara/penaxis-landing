@@ -38,7 +38,7 @@ const ICONS: Record<string, JSX.Element> = {
 export default function AboutV2Beliefs() {
   return (
     <section className="avb-section">
-      <div className="avb-top">
+      <div className="mx-auto max-w-7xl px-6 avb-top">
         <Reveal>
           <span className="avb-pill">
             <span className="avb-pill-dot" />
@@ -53,43 +53,45 @@ export default function AboutV2Beliefs() {
         </Reveal>
       </div>
 
-      <div className="avb-split">
-        <div className="avb-left">
-          <Reveal>
-            <p className="avb-intro">
-              Our results speak for themselves. Each number reflects the trust we&apos;ve
-              built.
-            </p>
-          </Reveal>
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="avb-split">
+          <div className="avb-left">
+            <Reveal>
+              <p className="avb-intro">
+                Our results speak for themselves. Each number reflects the trust we&apos;ve
+                built.
+              </p>
+            </Reveal>
 
-          <div className="avb-stats">
-            {FEATURED_STATS.map((s, i) => (
-              <Reveal key={s.label} y={16} delay={0.05 + i * 0.06}>
-                <div className="avb-stat">
-                  <span className="avb-stat-icon">{ICONS[s.icon]}</span>
-                  <div>
-                    <p className="avb-stat-value">
-                      {s.prefix}
-                      {s.value}
-                      {s.suffix}
-                    </p>
-                    <p className="avb-stat-label">{s.label}</p>
+            <div className="avb-stats">
+              {FEATURED_STATS.map((s, i) => (
+                <Reveal key={s.label} y={16} delay={0.05 + i * 0.06}>
+                  <div className="avb-stat">
+                    <span className="avb-stat-icon">{ICONS[s.icon]}</span>
+                    <div>
+                      <p className="avb-stat-value">
+                        {s.prefix}
+                        {s.value}
+                        {s.suffix}
+                      </p>
+                      <p className="avb-stat-label">{s.label}</p>
+                    </div>
                   </div>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              ))}
+            </div>
           </div>
-        </div>
 
-        <Reveal delay={0.1} className="avb-right">
-          <img src="/images/hero/office-logo-desk.jpg" alt="Penaxis at work" className="avb-photo" />
-          <div className="avb-dots" aria-hidden="true" />
-          <div className="avb-checker" aria-hidden="true">
-            {Array.from({ length: 9 }).map((_, i) => (
-              <span key={i} />
-            ))}
-          </div>
-        </Reveal>
+          <Reveal delay={0.1} className="avb-right">
+            <img src="/images/hero/office-logo-desk.jpg" alt="Penaxis at work" className="avb-photo" />
+            <div className="avb-dots" aria-hidden="true" />
+            <div className="avb-checker" aria-hidden="true">
+              {Array.from({ length: 9 }).map((_, i) => (
+                <span key={i} />
+              ))}
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

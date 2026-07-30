@@ -57,7 +57,7 @@ const ICONS: Record<string, JSX.Element> = {
 export default function AboutV2Values() {
   return (
     <section className="av2-values">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <div className="av2-values-head">
           <Reveal>
             <h2 className="av2-values-heading">

@@ -4747,9 +4747,8 @@ button:focus-visible {
 /* About v2 — core beliefs (dark) */
 .avb-section { background: #171717; }
 .avb-top {
-  max-width: 56rem;
-  margin: 0 auto;
-  padding: 5rem 1.5rem 3.5rem;
+  padding-top: 5rem;
+  padding-bottom: 3.5rem;
   text-align: left;
 }
 .avb-pill {
@@ -4775,11 +4774,15 @@ button:focus-visible {
   line-height: 1.18;
   letter-spacing: -0.01em;
   color: #fff;
+  max-width: 46rem;
 }
 .avb-split {
   display: grid;
   grid-template-columns: 1fr;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  margin-bottom: 5rem;
 }
 @media (min-width: 900px) {
   .avb-split { grid-template-columns: 1fr 1.15fr; }

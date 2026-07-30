@@ -18,7 +18,7 @@ export default function AboutV2Timeline() {
 
   return (
     <section className="av2-timeline">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <Reveal className="av2-timeline-frame">
           <img src="/images/hero/team-huddle.jpg" alt="Penaxis at work" className="av2-timeline-bg" />
 

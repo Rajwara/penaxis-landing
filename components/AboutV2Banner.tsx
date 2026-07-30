@@ -13,7 +13,7 @@ const FEATURED_STATS = [stats[1], stats[2], stats[3], stats[0]];
 export default function AboutV2Banner() {
   return (
     <section className="av2-banner">
-      <div className="mx-auto max-w-6xl px-6 pt-32 md:pt-40 pb-16">
+      <div className="mx-auto max-w-7xl px-6 pt-32 md:pt-40 pb-16">
         <Reveal>
           <span className="av2-pill">Who We Are</span>
         </Reveal>
