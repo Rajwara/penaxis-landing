@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import CuboidLoader from "@/components/CuboidLoader";
+import CookieConsent from "@/components/CookieConsent";
 
 export const metadata: Metadata = {
   title: "Penaxis — Growth & Technology Partner",
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body className="bg-paper text-ink antialiased">
         <CuboidLoader />
         {children}
+        <CookieConsent />
       </body>
     </html>
   );
