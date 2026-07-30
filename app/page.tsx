@@ -9,6 +9,7 @@ import ServicesShowcase from "@/components/ServicesShowcase";
 import IndustriesStack from "@/components/IndustriesStack";
 import WhyUs from "@/components/WhyUs";
 import Team from "@/components/Team";
+import GameChangers from "@/components/GameChangers";
 import ShapeGrid from "@/components/ShapeGrid";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -28,6 +29,7 @@ export default function Home() {
         <Services />
         <WhyUs />
         <Team />
+        <GameChangers />
 
         {/* TEMPORARY PREVIEW — remove or relocate once a placement is decided */}
         <ShapeGrid />
