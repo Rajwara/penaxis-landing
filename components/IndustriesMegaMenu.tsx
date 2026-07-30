@@ -65,7 +65,7 @@ const findIndustry = (title: string) => industries.find((i) => i.title === title
 
 export default function IndustriesMegaMenu() {
   return (
-    <div className="pointer-events-auto w-full rounded-3xl bg-paper shadow-2xl border border-ink/5 overflow-hidden grid grid-cols-[220px_1fr]">
+    <div className="w-full rounded-3xl bg-paper shadow-2xl border border-ink/5 overflow-hidden grid grid-cols-[220px_1fr]">
       {/* Sidebar */}
       <div className="bg-ink text-white p-6 flex flex-col">
         <h4 className="font-display font-bold text-sm mb-3">Explore</h4>
