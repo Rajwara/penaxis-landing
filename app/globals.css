@@ -2379,17 +2379,12 @@ button:focus-visible {
   background: #f1eefb;
   color: #212121;
 }
-.hg-intro h1 {
+.hg-intro h2 {
   font-family: var(--font-display);
   font-weight: 800;
   font-size: clamp(2.4rem, 7vw, 5.5rem);
   line-height: 1;
   margin: 0 0 1rem;
-}
-.hg-intro h1 span { display: block; overflow: hidden; }
-.hg-intro h1 span > i {
-  display: inline-block;
-  font-style: normal;
 }
 .hg-intro p {
   max-width: 22rem;
