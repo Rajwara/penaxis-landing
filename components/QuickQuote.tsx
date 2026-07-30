@@ -59,7 +59,7 @@ export default function QuickQuote() {
                 </span>
                 <h3>Thanks — got it!</h3>
                 <p>We&apos;ll reach out using your preferred contact method shortly.</p>
-                <button type="button" className="qq-submit" onClick={closeAndReset}>
+                <button type="button" className="qq-submit btn-grad" onClick={closeAndReset}>
                   Close
                 </button>
               </div>
@@ -105,7 +105,7 @@ export default function QuickQuote() {
                     </select>
                   </label>
 
-                  <button type="submit" className="qq-submit">
+                  <button type="submit" className="qq-submit btn-grad">
                     Request Quote
                   </button>
                 </form>

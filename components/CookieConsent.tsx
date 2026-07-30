@@ -58,7 +58,7 @@ export default function CookieConsent() {
         <div className="cc-actions">
           <button
             type="button"
-            className="rounded-full bg-white/10 border border-white/20 hover:border-volt hover:bg-white/15 text-white font-semibold px-6 py-3 text-sm transition-colors"
+            className="btn-grad px-6 py-3 text-sm"
             onClick={() => choose("accepted")}
           >
             Accept All

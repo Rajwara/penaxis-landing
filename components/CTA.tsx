@@ -37,7 +37,7 @@ export default function CTA() {
           <Reveal delay={0.15}>
             <MagneticButton
               href={`mailto:${contact.email}`}
-              className="rounded-full bg-volt text-ink font-semibold px-8 py-4 text-sm inline-flex"
+              className="btn-grad px-8 py-4 text-sm"
             >
               Start a Conversation →
             </MagneticButton>

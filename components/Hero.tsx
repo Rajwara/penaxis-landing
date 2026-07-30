@@ -76,7 +76,7 @@ export default function Hero() {
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <MagneticButton
               href="#contact"
-              className="hero-cta rounded-full bg-violet-600 hover:bg-violet-700 text-white font-semibold px-8 py-4 text-sm"
+              className="btn-grad hero-cta px-8 py-4 text-sm"
             >
               Let&apos;s Build Together
             </MagneticButton>

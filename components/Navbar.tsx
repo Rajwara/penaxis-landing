@@ -271,11 +271,7 @@ export default function Navbar() {
             ))}
             <a
               href={navCta.href}
-              className={`ml-1 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300 ${
-                isDark
-                  ? "bg-volt text-ink hover:bg-white"
-                  : "bg-violet-600 text-white hover:bg-violet-700"
-              }`}
+              className="btn-grad ml-1 px-5 py-2.5 text-sm"
             >
               {navCta.label}
             </a>
@@ -357,7 +353,7 @@ export default function Navbar() {
           <a
             href={navCta.href}
             onClick={() => setMobileOpen(false)}
-            className="mt-8 text-center rounded-full bg-volt text-ink text-base font-semibold px-6 py-4"
+            className="btn-grad mt-8 text-base px-6 py-4"
           >
             {navCta.label}
           </a>

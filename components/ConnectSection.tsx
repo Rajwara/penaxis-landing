@@ -54,7 +54,7 @@ export default function ConnectSection() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full sm:w-auto rounded-full bg-violet-600 text-white font-semibold px-8 py-3.5 text-sm hover:bg-violet-700 transition-colors"
+                  className="btn-grad w-full sm:w-auto px-8 py-3.5 text-sm"
                 >
                   Start a Conversation
                 </button>

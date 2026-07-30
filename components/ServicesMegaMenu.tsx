@@ -104,7 +104,7 @@ export default function ServicesMegaMenu() {
         </a>
         <a
           href="/contact"
-          className="mt-auto inline-flex items-center justify-center rounded-full bg-violet-600 text-white text-sm font-semibold px-5 py-3 hover:bg-violet-700 transition-colors"
+          className="btn-grad mt-auto text-sm px-5 py-3"
         >
           Start a project
         </a>

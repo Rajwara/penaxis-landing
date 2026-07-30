@@ -154,7 +154,7 @@ export default function ContactFormSection() {
 
               <button
                 type="submit"
-                className="w-full rounded-full bg-ink hover:bg-ink/90 transition-colors text-white font-semibold py-4"
+                className="btn-grad w-full py-4"
               >
                 Submit Message
               </button>

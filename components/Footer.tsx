@@ -91,7 +91,7 @@ export default function Footer() {
         </span>
         <a
           href={`mailto:${contact.email}`}
-          className="relative inline-flex items-center gap-4 rounded-full px-10 py-6 font-display font-semibold text-xl md:text-2xl text-ink bg-gradient-to-r from-violet-500 to-ember-500 hover:brightness-105 transition"
+          className="btn-grad relative gap-4 px-10 py-6 font-display text-xl md:text-2xl"
         >
           <span className="w-9 h-9 rounded-full bg-white/70 flex items-center justify-center shrink-0">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#212121" strokeWidth="2">

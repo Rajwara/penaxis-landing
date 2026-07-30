@@ -160,7 +160,7 @@ export default function CaseStudiesMegaMenu() {
           </div>
           <a
             href="/contact"
-            className="shrink-0 rounded-full bg-violet-600 text-white text-sm font-semibold px-5 py-2.5 hover:bg-violet-700 transition-colors"
+            className="btn-grad shrink-0 text-sm px-5 py-2.5"
           >
             Talk to us
           </a>

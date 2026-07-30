@@ -40,7 +40,7 @@ export default function AIShowcase() {
           <div className="mt-10">
             <MagneticButton
               href="#services"
-              className="rounded-full bg-white/10 border border-white/20 hover:border-volt hover:bg-white/15 text-white font-semibold px-8 py-4 text-sm inline-flex"
+              className="btn-grad px-8 py-4 text-sm"
             >
               See how we build with AI →
             </MagneticButton>
