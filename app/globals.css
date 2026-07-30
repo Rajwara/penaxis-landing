@@ -3682,6 +3682,14 @@ button:focus-visible {
   margin-top: 0;
   margin-bottom: 3rem;
 }
+.csv2-grid-heading {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 1.45rem + 1.4vw, 2.6rem);
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin-bottom: 1rem;
+}
 .csv2-intro {
   max-width: 46rem;
   font-family: var(--font-body);

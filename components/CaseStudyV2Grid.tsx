@@ -49,6 +49,9 @@ export default function CaseStudyV2Grid() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="csv2-grid-head">
           <Reveal>
+            <h2 className="csv2-grid-heading">Browse Our Work</h2>
+          </Reveal>
+          <Reveal delay={0.03}>
             <p className="csv2-intro">
               Insights and inspiration from Penaxis&apos;s project work. Spanning industries
               and services, we&apos;re proud of what we build alongside our partners.
