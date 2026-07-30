@@ -4266,9 +4266,9 @@ button:focus-visible {
   right: 0;
   bottom: 0;
   z-index: 70;
-  background: #fff;
-  border-top: 1px solid rgba(33, 33, 33, 0.1);
-  box-shadow: 0 -10px 30px -10px rgba(46, 31, 66, 0.15);
+  background: #171717;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 -20px 40px -15px rgba(0, 0, 0, 0.4);
   padding: 1.5rem 1.75rem;
 }
 .cc-inner {
@@ -4287,19 +4287,29 @@ button:focus-visible {
   flex: 1 1 32rem;
   min-width: 0;
 }
-.cc-mark { width: 34px; height: 34px; object-fit: contain; flex-shrink: 0; margin-top: 0.15rem; }
+.cc-mark-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #faf9fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.cc-mark { width: 20px; height: 20px; object-fit: contain; }
 .cc-title {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 0.95rem;
-  color: #212121;
+  color: #fff;
   margin-bottom: 0.35rem;
 }
 .cc-copy {
   font-family: var(--font-body);
   font-size: 0.84rem;
   line-height: 1.6;
-  color: rgba(33, 33, 33, 0.6);
+  color: rgba(255, 255, 255, 0.55);
   max-width: 42rem;
 }
 .cc-actions {
@@ -4317,10 +4327,8 @@ button:focus-visible {
   transition: background 0.2s, color 0.2s, border-color 0.2s;
   white-space: nowrap;
 }
-.cc-btn--primary { background: #734fa0; color: #fff; border: none; }
-.cc-btn--primary:hover { background: #5c3e82; }
-.cc-btn--ghost { background: transparent; color: #212121; border: 1px solid rgba(33, 33, 33, 0.2); }
-.cc-btn--ghost:hover { border-color: rgba(33, 33, 33, 0.4); }
+.cc-btn--ghost { background: transparent; color: rgba(255, 255, 255, 0.6); border: 1px solid rgba(255, 255, 255, 0.15); }
+.cc-btn--ghost:hover { color: #fff; border-color: rgba(255, 255, 255, 0.3); }
 .cc-links {
   max-width: 1400px;
   margin: 1rem auto 0;
@@ -4330,11 +4338,11 @@ button:focus-visible {
   font-family: var(--font-body);
   font-size: 0.8rem;
 }
-.cc-links a { color: #734fa0; font-weight: 600; }
-.cc-links a:hover { color: #5c3e82; text-decoration: underline; }
-.cc-links-divider { width: 1px; height: 12px; background: rgba(33, 33, 33, 0.15); }
+.cc-links a { color: #d6f23c; font-weight: 600; }
+.cc-links a:hover { color: #fff; text-decoration: underline; }
+.cc-links-divider { width: 1px; height: 12px; background: rgba(255, 255, 255, 0.15); }
 @media (max-width: 640px) {
   .cc-banner { padding: 1.25rem; }
   .cc-actions { width: 100%; }
-  .cc-btn { flex: 1 1 auto; }
+  .cc-actions button { flex: 1 1 auto; }
 }

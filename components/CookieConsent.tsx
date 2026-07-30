@@ -41,7 +41,9 @@ export default function CookieConsent() {
     <div className="cc-banner" role="dialog" aria-label="Cookie consent">
       <div className="cc-inner">
         <div className="cc-main">
-          <img src="/images/logo/penaxis-mark.png" alt="" className="cc-mark" aria-hidden="true" />
+          <span className="cc-mark-badge" aria-hidden="true">
+            <img src="/images/logo/penaxis-mark.png" alt="" className="cc-mark" />
+          </span>
           <div>
             <p className="cc-title">This website uses cookies</p>
             <p className="cc-copy">
@@ -53,7 +55,11 @@ export default function CookieConsent() {
         </div>
 
         <div className="cc-actions">
-          <button type="button" className="cc-btn cc-btn--primary" onClick={() => choose("accepted")}>
+          <button
+            type="button"
+            className="rounded-full bg-white/10 border border-white/20 hover:border-volt hover:bg-white/15 text-white font-semibold px-6 py-3 text-sm transition-colors"
+            onClick={() => choose("accepted")}
+          >
             Accept All
           </button>
           <button type="button" className="cc-btn cc-btn--ghost" onClick={() => choose("declined")}>
