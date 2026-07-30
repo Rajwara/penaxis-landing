@@ -230,15 +230,15 @@ export default function Navbar() {
                     cy="22"
                     r={RING_R}
                     fill="none"
-                    strokeWidth="1.5"
-                    className={isDark ? "stroke-white/15" : "stroke-ink/10"}
+                    strokeWidth="2.5"
+                    className={isDark ? "stroke-white/25" : "stroke-ink/15"}
                   />
                   <circle
                     cx="22"
                     cy="22"
                     r={RING_R}
                     fill="none"
-                    strokeWidth="1.5"
+                    strokeWidth="2.5"
                     strokeLinecap="round"
                     stroke="currentColor"
                     className={isDark ? "text-volt" : "text-violet-600"}
@@ -293,9 +293,9 @@ export default function Navbar() {
             <span className="relative flex items-center justify-center w-7 h-7">
               {scrolled && (
                 <svg viewBox="0 0 44 44" className="absolute inset-0 w-full h-full -rotate-90" aria-hidden="true">
-                  <circle cx="22" cy="22" r={RING_R} fill="none" strokeWidth="1.5" className={isDark ? "stroke-white/15" : "stroke-ink/10"} />
+                  <circle cx="22" cy="22" r={RING_R} fill="none" strokeWidth="2.5" className={isDark ? "stroke-white/25" : "stroke-ink/15"} />
                   <circle
-                    cx="22" cy="22" r={RING_R} fill="none" strokeWidth="1.5" strokeLinecap="round"
+                    cx="22" cy="22" r={RING_R} fill="none" strokeWidth="2.5" strokeLinecap="round"
                     stroke="currentColor" className={isDark ? "text-volt" : "text-violet-600"}
                     strokeDasharray={RING_C} strokeDashoffset={ringOffset}
                     style={{ transition: "stroke-dashoffset 120ms linear" }}
