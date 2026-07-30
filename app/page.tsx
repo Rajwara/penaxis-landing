@@ -8,6 +8,7 @@ import IndustriesStack from "@/components/IndustriesStack";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import GameChangers from "@/components/GameChangers";
 import LogoMarquee from "@/components/LogoMarquee";
+import CaseStudiesAccordion from "@/components/CaseStudiesAccordion";
 import Testimonials from "@/components/Testimonials";
 import ConnectSection from "@/components/ConnectSection";
 import Footer from "@/components/Footer";
@@ -26,6 +27,7 @@ export default function Home() {
         <WhyChooseUs />
         <GameChangers />
         <LogoMarquee />
+        <CaseStudiesAccordion />
         <Testimonials />
 
         <ConnectSection />

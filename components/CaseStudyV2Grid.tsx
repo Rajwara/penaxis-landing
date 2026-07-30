@@ -2,7 +2,7 @@
 
 import { useMemo, useRef, useState } from "react";
 import Reveal from "./Reveal";
-import { industries } from "@/lib/data";
+import { industries, caseStudyPlaceholders, caseStudyGradients } from "@/lib/data";
 
 // Ported from a reference "customer success stories" filter grid: an intro
 // line, a row of pill filters ("See All" + categories), and a card grid
@@ -26,47 +26,8 @@ const FILTER_INDUSTRIES = [
   "Automotive & Auto Care",
 ];
 
-const GRADIENTS = [
-  "linear-gradient(150deg, #734FA0, #2a1d43)",
-  "linear-gradient(150deg, #FC6607, #a83e00)",
-  "linear-gradient(150deg, #D6F23C, #7c8f1c)",
-  "linear-gradient(150deg, #8a6fc4, #212121)",
-];
-
-const PLACEHOLDER_STUDIES = [
-  {
-    title: "Launching an MVP for an AI-Powered SaaS Startup",
-    tags: ["Software, IT & SaaS"],
-  },
-  {
-    title: "Automating Fulfillment for a Regional E-Commerce Retailer",
-    tags: ["E-Commerce & Retail", "Software, IT & SaaS"],
-  },
-  {
-    title: "Building a Custom CRM for a Healthcare Provider Network",
-    tags: ["Healthcare & Wellness", "Software, IT & SaaS"],
-  },
-  {
-    title: "Standing Up a Learning Portal for an EdTech Platform",
-    tags: ["Education & EdTech"],
-  },
-  {
-    title: "Modernizing Deal Flow for a Growing Real Estate Platform",
-    tags: ["Real Estate & Property", "Software, IT & SaaS"],
-  },
-  {
-    title: "Streamlining Dispatch for a Logistics & Fleet Operator",
-    tags: ["Logistics & Transportation"],
-  },
-  {
-    title: "Digital Transformation for a Multi-Location Auto Service Group",
-    tags: ["Automotive & Auto Care"],
-  },
-  {
-    title: "Secure Payments Infrastructure for a Fintech Product",
-    tags: ["Fintech & Financial Services", "Software, IT & SaaS"],
-  },
-];
+const GRADIENTS = caseStudyGradients;
+const PLACEHOLDER_STUDIES = caseStudyPlaceholders;
 
 const findIndustry = (title: string) => industries.find((i) => i.title === title);
 

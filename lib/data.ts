@@ -193,6 +193,70 @@ export const contact = {
 // Dubai and Jordan addresses are placeholders (confirmed with the client
 // as OK to ship for now) — swap for the real registered addresses when
 // available. Pakistan uses the real, confirmed office address above.
+// Placeholder case studies — no real case studies exist yet (per the
+// project handoff, /case-studies is a placeholder page), so these are
+// clearly-generic, non-attributed project descriptions (no invented
+// client names, quotes, or stats), shared between the casestudy-v2 page
+// and the homepage case-studies accordion. Swap for real case studies
+// whenever they exist.
+export const caseStudyPlaceholders = [
+  {
+    title: "Launching an MVP for an AI-Powered SaaS Startup",
+    tags: ["Software, IT & SaaS"],
+    blurb:
+      "Took a concept from whiteboard to a launch-ready SaaS MVP — core features first, AI built in from day one, focused on speed to market.",
+  },
+  {
+    title: "Automating Fulfillment for a Regional E-Commerce Retailer",
+    tags: ["E-Commerce & Retail", "Software, IT & SaaS"],
+    blurb:
+      "Connected storefront, inventory, and shipping into one automated workflow, cutting manual order handling across the fulfillment process.",
+  },
+  {
+    title: "Building a Custom CRM for a Healthcare Provider Network",
+    tags: ["Healthcare & Wellness", "Software, IT & SaaS"],
+    blurb:
+      "Designed a tailored CRM and patient-record workflow that centralized information across multiple provider locations.",
+  },
+  {
+    title: "Standing Up a Learning Portal for an EdTech Platform",
+    tags: ["Education & EdTech"],
+    blurb:
+      "Built a learning portal covering course delivery, student progress tracking, and instructor tools from the ground up.",
+  },
+  {
+    title: "Modernizing Deal Flow for a Growing Real Estate Platform",
+    tags: ["Real Estate & Property", "Software, IT & SaaS"],
+    blurb:
+      "Replaced spreadsheet-based deal tracking with a purpose-built platform for listings, pipeline stages, and broker collaboration.",
+  },
+  {
+    title: "Streamlining Dispatch for a Logistics & Fleet Operator",
+    tags: ["Logistics & Transportation"],
+    blurb:
+      "Built a dispatch and fleet-tracking system that gave operations real-time visibility into routes, drivers, and delivery status.",
+  },
+  {
+    title: "Digital Transformation for a Multi-Location Auto Service Group",
+    tags: ["Automotive & Auto Care"],
+    blurb:
+      "Unified booking, service history, and customer communication across multiple locations under one digital system.",
+  },
+  {
+    title: "Secure Payments Infrastructure for a Fintech Product",
+    tags: ["Fintech & Financial Services", "Software, IT & SaaS"],
+    blurb:
+      "Designed and integrated a secure payments layer, built to handle compliance requirements alongside a smooth checkout experience.",
+  },
+];
+
+export const caseStudyGradients = [
+  "linear-gradient(150deg, #734FA0, #2a1d43)",
+  "linear-gradient(150deg, #FC6607, #a83e00)",
+  "linear-gradient(150deg, #D6F23C, #7c8f1c)",
+  "linear-gradient(150deg, #8a6fc4, #212121)",
+];
+
 export const offices = [
   {
     country: "Pakistan",
