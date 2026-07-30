@@ -2,16 +2,21 @@
 
 import { useState } from "react";
 import Reveal from "./Reveal";
-import { caseStudyPlaceholders, caseStudyGradients } from "@/lib/data";
+import { caseStudyPlaceholders, team } from "@/lib/data";
 
 // Ported from a reference "awards" accordion (date + title row, +/- toggle,
 // expanded description, and a thumbnail that appears on hover) and applied
 // to case studies instead. No real case studies exist yet, so this reuses
 // the same clearly-placeholder project descriptions as casestudy-v2 (shared
-// via lib/data) with abstract gradient thumbnails rather than real or
-// fabricated project photos. Swap for real work whenever it exists.
+// via lib/data). Hover thumbnails use team photos as temporary stand-ins
+// (client's request) until real project photos exist — a fixed shuffle
+// order (not Math.random) so the order matches between server and client
+// render and doesn't cause a hydration mismatch.
 
 const FEATURED = caseStudyPlaceholders.slice(0, 5);
+const pictured = team.filter((m) => m.image);
+const THUMB_SHUFFLE = [4, 0, 7, 2, 6, 1, 5, 3, 8];
+const thumbImages = THUMB_SHUFFLE.map((i) => pictured[i % pictured.length]?.image).filter(Boolean);
 
 export default function CaseStudiesAccordion() {
   const [open, setOpen] = useState<number | null>(3);
@@ -46,7 +51,14 @@ export default function CaseStudiesAccordion() {
                     </span>
                   </button>
 
-                  <div className="csa-thumb" style={{ background: caseStudyGradients[i % caseStudyGradients.length] }} aria-hidden="true" />
+                  {thumbImages.length > 0 && (
+                    <img
+                      src={thumbImages[i % thumbImages.length]}
+                      alt=""
+                      className="csa-thumb"
+                      aria-hidden="true"
+                    />
+                  )}
 
                   <div className="csa-row-body" aria-hidden={!isOpen}>
                     <div className="csa-row-body-inner">
