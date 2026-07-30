@@ -2936,6 +2936,7 @@ button:focus-visible {
   margin: 0 0.75%;
 }
 .ssh-cards-col .se-item:first-child { margin-left: 0; }
+.ssh-cards-col .se-item:last-child { margin-right: 0; }
 
 @media (max-width: 900px) {
   .ssh-layout { flex-direction: column; }
