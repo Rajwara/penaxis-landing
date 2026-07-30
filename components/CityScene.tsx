@@ -230,9 +230,9 @@ export default function CityScene() {
   }, []);
 
   return (
-    <section className="cs-root" aria-label="Penaxis">
-      <div ref={mountRef} className="cs-canvas-mount" aria-hidden="true" role="presentation" />
-      <div className="cs-overlay">
+    <section className="city-scene-root" aria-label="Penaxis">
+      <div ref={mountRef} className="city-scene-canvas-mount" aria-hidden="true" role="presentation" />
+      <div className="city-scene-overlay">
         <h1>Growth, Engineered.</h1>
         <p>— Human expertise, AI-scale execution —</p>
       </div>

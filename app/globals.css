@@ -2247,18 +2247,18 @@ button:focus-visible {
    demo's own text and personal dribbble credit link were dropped;
    colors recolored to the Penaxis palette instead of its red fog.
    ============================================================ */
-.cs-root {
+.city-scene-root {
   position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
   cursor: crosshair;
 }
-.cs-canvas-mount {
+.city-scene-canvas-mount {
   position: absolute;
   inset: 0;
 }
-.cs-overlay {
+.city-scene-overlay {
   position: absolute;
   top: 42%;
   left: 50%;
@@ -2270,7 +2270,7 @@ button:focus-visible {
   background: rgba(33, 33, 33, 0.25);
   border-radius: 1rem;
 }
-.cs-overlay h1 {
+.city-scene-overlay h1 {
   font-family: var(--font-display);
   font-weight: 800;
   font-size: clamp(2rem, 5vw, 3.4rem);
@@ -2278,7 +2278,7 @@ button:focus-visible {
   margin: 0;
   letter-spacing: -0.01em;
 }
-.cs-overlay p {
+.city-scene-overlay p {
   margin-top: 0.6rem;
   font-family: var(--font-mono);
   font-size: 0.8rem;
