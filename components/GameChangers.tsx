@@ -9,7 +9,9 @@ const linkedinUrl = contact.linkedin.startsWith("http")
 
 // Pick the three spotlighted people by name from the shared team data,
 // so bios/roles/photos stay in sync with the rest of the site.
-const featuredNames = ["Adeel Aslam", "Hamza Durrani", "Laiba Zafar"];
+// Adeel is listed second so he lands in the center slot (which gets the
+// vertical offset + bottom-corner accent treatment).
+const featuredNames = ["Hamza Durrani", "Adeel Aslam", "Laiba Zafar"];
 const featured = featuredNames
   .map((name) => team.find((m) => m.name === name))
   .filter((m): m is (typeof team)[number] => Boolean(m));
@@ -40,8 +42,9 @@ export default function GameChangers() {
             <Reveal key={member.name} delay={0.1 + i * 0.08}>
               <div className="gc-card">
                 <div className="gc-card-accent" aria-hidden="true" />
-                <div className="gc-card-shade" aria-hidden="true" />
                 <img src={member.image} alt={member.name} />
+                <div className="gc-card-dim" aria-hidden="true" />
+                <div className="gc-card-shade" aria-hidden="true" />
                 <div className="gc-card-content">
                   <h3>{member.name}</h3>
                   <p>{member.role}</p>
