@@ -974,6 +974,69 @@ button:focus-visible {
   .ofc-card { transition: none !important; }
 }
 
+/* Logo Marquee (homepage) */
+.lgm-section {
+  position: relative;
+  padding: 4.5rem 0;
+  overflow: hidden;
+}
+.lgm-bg {
+  position: absolute;
+  inset: 0;
+  background: url("/images/logos-bg/marquee-bg.webp") center / cover no-repeat;
+  z-index: 0;
+}
+.lgm-heading {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(33, 33, 33, 0.4);
+  margin-bottom: 2.5rem;
+}
+.lgm-viewport {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.lgm-track {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+  width: max-content;
+  animation: lgm-scroll 28s linear infinite;
+}
+.lgm-viewport:hover .lgm-track { animation-play-state: paused; }
+@keyframes lgm-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.lgm-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #212121;
+  opacity: 0.45;
+  white-space: nowrap;
+  transition: opacity 0.25s;
+}
+.lgm-mark:hover { opacity: 0.9; }
+.lgm-mark-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lgm-track { animation: none; }
+}
+
 /* Testimonials (homepage) */
 .tm-section {
   background: #171717;
