@@ -22,12 +22,12 @@ export default function Home() {
         <HorizontalGallery />
         <ServicesShowcase />
         <IndustriesStack />
+        <CaseStudiesAccordion />
         <About />
         <AIShowcase />
         <WhyChooseUs />
         <GameChangers />
         <LogoMarquee />
-        <CaseStudiesAccordion />
         <Testimonials />
 
         <ConnectSection />

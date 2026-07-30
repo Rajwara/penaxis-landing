@@ -4193,10 +4193,20 @@ button:focus-visible {
 }
 .csa-row:hover .csa-toggle { background: #734fa0; color: #fff; }
 .csa-row-body {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.22, 0.9, 0.26, 1), opacity 0.3s ease;
+}
+.csa-row.is-open .csa-row-body {
+  max-height: 320px;
+  opacity: 1;
+}
+.csa-row-body-inner {
   padding: 0 8.5rem 1.75rem 0;
   max-width: 40rem;
 }
-.csa-row-body p {
+.csa-row-body-inner p {
   font-family: var(--font-body);
   font-size: 0.95rem;
   line-height: 1.7;
@@ -4240,7 +4250,7 @@ button:focus-visible {
   .csa-tag { display: none; }
   .csa-title { font-size: 1.05rem; }
   .csa-toggle { width: 2.25rem; height: 2.25rem; font-size: 1.1rem; }
-  .csa-row-body { padding-right: 0; }
+  .csa-row-body-inner { padding-right: 0; }
   .csa-thumb { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {

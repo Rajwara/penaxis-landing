@@ -18,7 +18,7 @@ export default function CaseStudiesAccordion() {
 
   return (
     <section className="csa-section">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <Reveal className="text-center mb-14">
           <span className="csa-eyebrow">
             <span className="csa-eyebrow-dot" />
@@ -48,14 +48,14 @@ export default function CaseStudiesAccordion() {
 
                   <div className="csa-thumb" style={{ background: caseStudyGradients[i % caseStudyGradients.length] }} aria-hidden="true" />
 
-                  {isOpen && (
-                    <div className="csa-row-body">
+                  <div className="csa-row-body" aria-hidden={!isOpen}>
+                    <div className="csa-row-body-inner">
                       <p>{study.blurb}</p>
                       <a href="/casestudy-v2" className="csa-readall">
                         Read All
                       </a>
                     </div>
-                  )}
+                  </div>
                 </div>
               </Reveal>
             );
