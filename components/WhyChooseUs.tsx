@@ -47,14 +47,6 @@ export default function WhyChooseUs() {
     <section className="wcu-section">
       <div className="mx-auto max-w-7xl px-6">
         <div className="wcu-panel">
-          <div className="wcu-tiles" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
-          </div>
-
           <div className="wcu-head">
             <Reveal>
               <span className="wcu-eyebrow">
