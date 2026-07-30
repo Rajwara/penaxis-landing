@@ -85,13 +85,13 @@ export default function Footer() {
   return (
     <footer data-nav-theme="dark" className="relative bg-ink text-white overflow-hidden">
       {/* Giant full-bleed wordmark with the email pill centered over it */}
-      <div className="relative h-56 md:h-72 flex items-center justify-center overflow-hidden">
+      <div className="relative min-h-[16rem] md:min-h-[20rem] py-14 flex items-center justify-center overflow-hidden">
         <span className="absolute inset-0 flex items-center justify-center font-display font-black text-[20vw] leading-none text-white/[0.05] whitespace-nowrap select-none pointer-events-none">
           PENAXIS
         </span>
         <a
           href={`mailto:${contact.email}`}
-          className="relative inline-flex items-center gap-3 rounded-full px-8 py-4 font-display font-semibold text-lg text-ink bg-gradient-to-r from-violet-500 to-[#D6F23C] hover:brightness-105 transition"
+          className="relative inline-flex items-center gap-3 rounded-full px-8 py-4 font-display font-semibold text-lg text-ink bg-gradient-to-r from-violet-500 to-ember-500 hover:brightness-105 transition"
         >
           <span className="w-7 h-7 rounded-full bg-white/70 flex items-center justify-center shrink-0">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#212121" strokeWidth="2">
