@@ -3670,32 +3670,38 @@ button:focus-visible {
 
 /* Case Study v2 — filter grid */
 .csv2-grid-section {
+  position: relative;
+  z-index: 1;
   background: #151318;
-  padding: 4.5rem 0 6rem;
+  padding: 5.5rem 0 6rem;
+}
+.csv2-grid-head {
+  margin-top: 0;
+  margin-bottom: 3rem;
 }
 .csv2-intro {
   max-width: 46rem;
   font-family: var(--font-body);
+  font-size: 0.98rem;
   color: rgba(255, 255, 255, 0.6);
   line-height: 1.7;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 .csv2-intro strong { color: #fff; }
 .csv2-filters-wrap {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 3rem;
+  gap: 0.6rem;
 }
 .csv2-filters {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
   scrollbar-width: none;
-  gap: 0.6rem;
+  gap: 0.5rem;
   background: #fff;
   border-radius: 1.25rem;
-  padding: 0.75rem;
+  padding: 0.6rem;
   border: 1px solid rgba(33, 33, 33, 0.06);
   flex: 1 1 auto;
   min-width: 0;
@@ -3705,9 +3711,9 @@ button:focus-visible {
   border: none;
   background: transparent;
   border-radius: 999px;
-  padding: 0.55rem 1.1rem;
+  padding: 0.5rem 1rem;
   font-family: var(--font-body);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: rgba(33, 33, 33, 0.55);
   cursor: pointer;
@@ -3719,8 +3725,8 @@ button:focus-visible {
 .csv2-filter.is-active { background: #734fa0; color: #fff; }
 .csv2-filter-arrow {
   flex: 0 0 auto;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: none;
   background: rgba(255, 255, 255, 0.08);
@@ -3732,6 +3738,12 @@ button:focus-visible {
   transition: background 0.2s;
 }
 .csv2-filter-arrow:hover { background: rgba(255, 255, 255, 0.16); }
+@media (max-width: 640px) {
+  .csv2-grid-section { padding-top: 4rem; }
+  .csv2-intro { font-size: 0.9rem; }
+  .csv2-filter-arrow { width: 34px; height: 34px; }
+  .csv2-filter { font-size: 0.75rem; padding: 0.45rem 0.85rem; }
+}
 .csv2-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(20rem, 100%), 1fr));

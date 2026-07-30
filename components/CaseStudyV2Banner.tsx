@@ -9,7 +9,7 @@ import Reveal from "./Reveal";
 export default function CaseStudyV2Banner() {
   return (
     <section className="csv2-banner">
-      <div className="mx-auto max-w-5xl px-6 pt-36 pb-4 md:pt-44">
+      <div className="mx-auto max-w-5xl px-6 pt-36 pb-16 md:pt-44 md:pb-20">
         <Reveal>
           <span className="csv2-pill">Our Work</span>
         </Reveal>

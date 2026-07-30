@@ -86,63 +86,65 @@ export default function CaseStudyV2Grid() {
   return (
     <section className="csv2-grid-section">
       <div className="mx-auto max-w-6xl px-6">
-        <Reveal>
-          <p className="csv2-intro">
-            Insights and inspiration from Penaxis&apos;s project work. Spanning industries and
-            services, we&apos;re proud of what we build alongside our partners.
-          </p>
-        </Reveal>
+        <div className="csv2-grid-head">
+          <Reveal>
+            <p className="csv2-intro">
+              Insights and inspiration from Penaxis&apos;s project work. Spanning industries
+              and services, we&apos;re proud of what we build alongside our partners.
+            </p>
+          </Reveal>
 
-        <Reveal delay={0.05}>
-          <div className="csv2-filters-wrap">
-            <button
-              type="button"
-              onClick={() => scrollFilters(-1)}
-              className="csv2-filter-arrow"
-              aria-label="Scroll filters left"
-            >
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2">
-                <path d="M15 6l-6 6 6 6" />
-              </svg>
-            </button>
-
-            <div
-              ref={filterScrollRef}
-              className="csv2-filters"
-              role="tablist"
-              aria-label="Filter case studies by industry"
-            >
+          <Reveal delay={0.05}>
+            <div className="csv2-filters-wrap">
               <button
                 type="button"
-                onClick={() => setActive("all")}
-                className={`csv2-filter ${active === "all" ? "is-active" : ""}`}
+                onClick={() => scrollFilters(-1)}
+                className="csv2-filter-arrow"
+                aria-label="Scroll filters left"
               >
-                See All
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2">
+                  <path d="M15 6l-6 6 6 6" />
+                </svg>
               </button>
-              {FILTER_INDUSTRIES.map((title) => (
-                <button
-                  key={title}
-                  type="button"
-                  onClick={() => setActive(title)}
-                  className={`csv2-filter ${active === title ? "is-active" : ""}`}
-                >
-                  {title}
-                </button>
-              ))}
-            </div>
 
-            <button
-              type="button"
-              onClick={() => scrollFilters(1)}
-              className="csv2-filter-arrow"
-              aria-label="Scroll filters right"
-            >
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2">
-                <path d="M9 6l6 6-6 6" />
-              </svg>
-            </button>
-          </div>
-        </Reveal>
+              <div
+                ref={filterScrollRef}
+                className="csv2-filters"
+                role="tablist"
+                aria-label="Filter case studies by industry"
+              >
+                <button
+                  type="button"
+                  onClick={() => setActive("all")}
+                  className={`csv2-filter ${active === "all" ? "is-active" : ""}`}
+                >
+                  See All
+                </button>
+                {FILTER_INDUSTRIES.map((title) => (
+                  <button
+                    key={title}
+                    type="button"
+                    onClick={() => setActive(title)}
+                    className={`csv2-filter ${active === title ? "is-active" : ""}`}
+                  >
+                    {title}
+                  </button>
+                ))}
+              </div>
+
+              <button
+                type="button"
+                onClick={() => scrollFilters(1)}
+                className="csv2-filter-arrow"
+                aria-label="Scroll filters right"
+              >
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2">
+                  <path d="M9 6l6 6-6 6" />
+                </svg>
+              </button>
+            </div>
+          </Reveal>
+        </div>
 
         <div className="csv2-cards">
           {filtered.map((study, i) => (
