@@ -3650,8 +3650,16 @@ button:focus-visible {
   line-height: 1.12;
   letter-spacing: -0.02em;
   color: #212121;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
   max-width: 40rem;
+}
+.csv2-banner-copy {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(33, 33, 33, 0.6);
+  max-width: 34rem;
+  margin-bottom: 2.5rem;
 }
 .csv2-image {
   border-radius: 1.75rem;

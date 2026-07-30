@@ -9,7 +9,7 @@ import Reveal from "./Reveal";
 export default function CaseStudyV2Banner() {
   return (
     <section className="csv2-banner">
-      <div className="mx-auto max-w-5xl px-6 pt-36 pb-16 md:pt-44 md:pb-20">
+      <div className="mx-auto max-w-7xl px-6 pt-36 pb-16 md:pt-44 md:pb-20">
         <Reveal>
           <span className="csv2-pill">Our Work</span>
         </Reveal>
@@ -18,7 +18,13 @@ export default function CaseStudyV2Banner() {
             Real Projects, <span className="text-violet-600">Real Impact</span>
           </h1>
         </Reveal>
-        <Reveal delay={0.1} className="mb-10 md:mb-14">
+        <Reveal delay={0.08}>
+          <p className="csv2-banner-copy">
+            A look at the platforms, products, and systems we&apos;ve helped build —
+            spanning industries, services, and the teams who trusted us to deliver.
+          </p>
+        </Reveal>
+        <Reveal delay={0.12} className="mb-10 md:mb-14">
           <div className="csv2-image">
             <img src="/images/hero/team-huddle.jpg" alt="Penaxis at work" />
           </div>
