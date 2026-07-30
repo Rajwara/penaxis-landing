@@ -2926,11 +2926,9 @@ button:focus-visible {
 .ssh-cards-col {
   flex: 0 0 70%;
   max-width: 70%;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: hidden;
   white-space: nowrap;
   user-select: none;
-  padding-bottom: 0.5rem;
 }
 .ssh-cards-col .se-item {
   width: 22%;

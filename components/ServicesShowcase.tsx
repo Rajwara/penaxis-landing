@@ -5,12 +5,18 @@ import gsap from "gsap";
 import { services } from "@/lib/data";
 
 // Duplicate of ServicesExpand — same content, same click-to-expand
-// elastic animation, same 4 real services — with an image added on
-// the left (~30% of the section) and the cards column resized to
-// ~70%. Rebuilt with container-relative (%) width targets instead of
-// vw, since vw sizing only works when a section spans the full page
-// width; now that the cards share space with the image column, % is
-// what correctly resolves against the narrower column.
+// panel layout, same 4 real services — with an image added on the left
+// (~30% of the section) and the cards column resized to ~70%. Rebuilt
+// with container-relative (%) width targets instead of vw, since vw
+// sizing only works when a section spans the full page width; now that
+// the cards share space with the image column, % is what correctly
+// resolves against the narrower column.
+//
+// Uses a smooth power3 ease (not ServicesExpand's bouncier elastic ease)
+// since the overshoot from elastic easing was briefly pushing the row's
+// total width past 100%, popping a horizontal scrollbar in and out
+// during the open/close animation. overflow is hidden here too, as a
+// second line of defense against that.
 //
 // IMAGE: no real photo specified yet for this slot — using the team
 // photo as a placeholder. Swap the src below once a real image is
@@ -48,16 +54,16 @@ export default function ServicesShowcase() {
 
       gsap.to(items, {
         width: (idx) => (idx === i ? undefined : "10%"),
-        duration: 2,
-        ease: "elastic(1, .6)",
+        duration: 0.8,
+        ease: "power3.inOut",
       });
       gsap.to(item, {
         width: clicked[i] ? "58%" : "22%",
-        duration: 2.5,
-        ease: "elastic(1, .3)",
+        duration: 0.8,
+        ease: "power3.inOut",
       });
       if (!clicked.some(Boolean)) {
-        gsap.to(items, { width: "22%", duration: 2, ease: "elastic(1, .6)" });
+        gsap.to(items, { width: "22%", duration: 0.8, ease: "power3.inOut" });
       }
     };
 
