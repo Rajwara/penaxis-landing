@@ -45,12 +45,16 @@ export default function StoreLocator() {
 
   return (
     <>
-      <button type="button" className={`sl-tab ${ccCleared ? "cc-cleared" : ""}`} onClick={() => setOpen(true)}>
-        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <button
+        type="button"
+        className={`sl-tab ${ccCleared ? "cc-cleared" : ""}`}
+        onClick={() => setOpen(true)}
+        aria-label="Find a location"
+      >
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8">
           <path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" />
           <circle cx="12" cy="9" r="2.4" />
         </svg>
-        Store Locator
       </button>
 
       {open && (
