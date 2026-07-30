@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import ContactBanner from "@/components/ContactBanner";
+import ContactFormSection from "@/components/ContactFormSection";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -14,7 +15,7 @@ export default function ContactPage() {
       <Navbar />
       <main>
         <ContactBanner />
-        {/* More sections to come */}
+        <ContactFormSection />
       </main>
       <Footer />
     </>
