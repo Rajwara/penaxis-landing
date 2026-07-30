@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { navLeft, navRight, navCta, navMobile } from "@/lib/data";
 import IndustriesMegaMenu from "./IndustriesMegaMenu";
+import ServicesMegaMenu from "./ServicesMegaMenu";
 
 const LOGO_FULL_LIGHT = "/images/logo/penaxis-logo-purple.png"; // light nav surface
 const LOGO_FULL_DARK = "/images/logo/penaxis-logo-white.png"; // dark nav surface
@@ -40,15 +41,15 @@ export default function Navbar() {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
-  const [industriesOpen, setIndustriesOpen] = useState(false);
-  const industriesCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [activeMenu, setActiveMenu] = useState<"industries" | "services" | null>(null);
+  const menuCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const openIndustries = () => {
-    if (industriesCloseTimer.current) clearTimeout(industriesCloseTimer.current);
-    setIndustriesOpen(true);
+  const openMenu = (name: "industries" | "services") => {
+    if (menuCloseTimer.current) clearTimeout(menuCloseTimer.current);
+    setActiveMenu(name);
   };
-  const scheduleCloseIndustries = () => {
-    industriesCloseTimer.current = setTimeout(() => setIndustriesOpen(false), 150);
+  const scheduleCloseMenu = () => {
+    menuCloseTimer.current = setTimeout(() => setActiveMenu(null), 150);
   };
   const rafRef = useRef<number | null>(null);
 
@@ -129,12 +130,13 @@ export default function Navbar() {
                 href={item.href}
                 onMouseEnter={() => {
                   setHoverIdx(i);
-                  if (item.label === "Industries") openIndustries();
-                  else scheduleCloseIndustries();
+                  if (item.label === "Industries") openMenu("industries");
+                  else if (item.label === "Services") openMenu("services");
+                  else scheduleCloseMenu();
                 }}
                 onMouseLeave={() => {
                   setHoverIdx(null);
-                  if (item.label === "Industries") scheduleCloseIndustries();
+                  if (item.label === "Industries" || item.label === "Services") scheduleCloseMenu();
                 }}
                 className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   hoverIdx === i
@@ -151,13 +153,24 @@ export default function Navbar() {
 
           {/* Industries mega menu panel — spans the full nav row width */}
           <div
-            onMouseEnter={openIndustries}
-            onMouseLeave={scheduleCloseIndustries}
+            onMouseEnter={() => openMenu("industries")}
+            onMouseLeave={scheduleCloseMenu}
             className={`absolute left-4 right-4 md:left-6 md:right-6 top-full mt-3 transition-all duration-200 ${
-              industriesOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
+              activeMenu === "industries" ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
             }`}
           >
             <IndustriesMegaMenu />
+          </div>
+
+          {/* Services mega menu panel */}
+          <div
+            onMouseEnter={() => openMenu("services")}
+            onMouseLeave={scheduleCloseMenu}
+            className={`absolute left-4 right-4 md:left-6 md:right-6 top-full mt-3 transition-all duration-200 ${
+              activeMenu === "services" ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
+            }`}
+          >
+            <ServicesMegaMenu />
           </div>
 
           {/* CENTER CAPSULE — brand + scroll-progress */}
