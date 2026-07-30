@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import NameIntro from "@/components/NameIntro";
 import HorizontalGallery from "@/components/HorizontalGallery";
-import About from "@/components/About";
 import AIShowcase from "@/components/AIShowcase";
 import ServicesShowcase from "@/components/ServicesShowcase";
 import IndustriesStack from "@/components/IndustriesStack";
@@ -23,7 +22,6 @@ export default function Home() {
         <ServicesShowcase />
         <IndustriesStack />
         <CaseStudiesAccordion />
-        <About />
         <AIShowcase />
         <WhyChooseUs />
         <GameChangers />
