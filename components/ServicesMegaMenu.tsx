@@ -92,14 +92,14 @@ export default function ServicesMegaMenu() {
       <div className="bg-haze p-6 flex flex-col">
         {fizza?.image && (
           <a
-            href="/about"
+            href="/game-changers"
             className="block rounded-xl overflow-hidden h-44 mb-5 relative bg-gradient-to-br from-violet-200 to-volt/40"
           >
             <img src={fizza.image} alt="Penaxis team" className="w-full h-full object-cover" />
           </a>
         )}
         <h5 className="font-display font-bold text-sm text-ink mb-2">Our team</h5>
-        <a href="/about" className="text-sm text-ink/55 hover:text-violet-700 transition-colors mb-2.5">
+        <a href="/game-changers" className="text-sm text-ink/55 hover:text-violet-700 transition-colors mb-2.5">
           Meet the people behind the work
         </a>
         <a

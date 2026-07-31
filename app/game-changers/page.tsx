@@ -4,7 +4,7 @@ import AboutContent from "@/components/AboutContent";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "About — Penaxis",
+  title: "Game Changers — Penaxis",
   description:
     "Small team, big results. Meet the people behind Penaxis's strategy, technology, and growth work.",
 };

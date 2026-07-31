@@ -9,7 +9,7 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "About — Penaxis",
+  title: "Who We Are — Penaxis",
   description: "Penaxis — Growth & Technology Partner.",
 };
 

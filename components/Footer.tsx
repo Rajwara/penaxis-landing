@@ -16,7 +16,7 @@ import { contact } from "@/lib/data";
 
 const LINK_COLUMNS = [
   { eyebrow: "What we do?", title: "Services", href: "/services" },
-  { eyebrow: "Who we are?", title: "About Us", href: "/about" },
+  { eyebrow: "Who we are?", title: "About Us", href: "/who-we-are" },
   { eyebrow: "How we deliver", title: "Contact Us", href: "/contact" },
   { eyebrow: "What we're good at?", title: "Case Studies", href: "/case-studies" },
   { eyebrow: "Where we work", title: "Industries", href: "/industries" },

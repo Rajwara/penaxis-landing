@@ -11,10 +11,10 @@ export const navLeft = [
 export const navRight = [
   {
     label: "About",
-    href: "/about",
+    href: "/game-changers",
     children: [
-      { label: "Game Changers", href: "/about" },
-      { label: "Who We Are", href: "/about-v2" },
+      { label: "Game Changers", href: "/game-changers" },
+      { label: "Who We Are", href: "/who-we-are" },
     ],
   },
 ];
@@ -27,8 +27,8 @@ export const navMobile = [
   { label: "Services", href: "/services" },
   { label: "Industries", href: "/industries" },
   { label: "Case Studies", href: "/case-studies" },
-  { label: "Game Changers", href: "/about" },
-  { label: "Who We Are", href: "/about-v2" },
+  { label: "Game Changers", href: "/game-changers" },
+  { label: "Who We Are", href: "/who-we-are" },
   { label: "Our Team", href: "#team" },
 ];
 
