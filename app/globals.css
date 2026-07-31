@@ -5322,3 +5322,46 @@ button:focus-visible {
 .avbt-bottom-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .avbt-violet { background: #734fa0; min-height: 12rem; display: flex; flex-direction: column; }
 .avbt-volt { background: #d6f23c; min-height: 12rem; display: flex; flex-direction: column; }
+
+/* Blob cursor-mask effect (testing page) */
+.blob-fx-section { padding: 6rem 0; background: #fff; }
+.blob-fx-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #734fa0;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+.blob-fx-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.4rem);
+  color: #212121;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.blob-fx-canvas-wrap {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 22rem;
+  max-height: 40rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  cursor: none;
+}
+.blob-fx-canvas-wrap canvas { display: block; width: 100% !important; height: 100% !important; }
+.blob-fx-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: rgba(33, 33, 33, 0.35);
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}

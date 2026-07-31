@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import BlobCursorEffect from "@/components/BlobCursorEffect";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -209,6 +210,8 @@ export default function TestingPage() {
           </div>
         </section>
       </div>
+
+      <BlobCursorEffect />
 
       <a href="/" className="tst-back">
         ← Back to Penaxis
