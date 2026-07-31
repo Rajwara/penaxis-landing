@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import CuboidLoader from "@/components/CuboidLoader";
+// import CuboidLoader from "@/components/CuboidLoader"; // temporarily disabled per client request
 import CookieConsent from "@/components/CookieConsent";
 import ScrollToTop from "@/components/ScrollToTop";
 import QuickQuote from "@/components/QuickQuote";
@@ -28,7 +28,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-paper text-ink antialiased">
-        <CuboidLoader />
+        {/* CuboidLoader temporarily disabled per client request — re-enable by uncommenting */}
+        {/* <CuboidLoader /> */}
         {children}
         <ScrollToTop />
         <QuickQuote />
