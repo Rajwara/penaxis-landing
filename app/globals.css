@@ -4897,15 +4897,25 @@ button:focus-visible {
   border-radius: 1.5rem;
   padding: 1.75rem;
   overflow: hidden;
+  background-image: url("/images/panels/service-panel-bg.webp");
+  background-size: cover;
+  background-position: center 15%;
   transition: flex-basis 0.5s ease, padding 0.5s ease;
 }
+.fp-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
 .fp-slide.is-active { flex: 0 0 55%; }
-.fp--violet { background: linear-gradient(160deg, #8768b7, #5c3e82); }
-.fp--ink { background: linear-gradient(160deg, #2e2e33, #171717); }
-.fp--ember { background: linear-gradient(160deg, #ff9a52, #fc6607); }
-.fp--volt { background: linear-gradient(160deg, #eaf9a0, #d6f23c); }
+.fp--violet::before { background: linear-gradient(160deg, rgba(135, 104, 183, 0.82), rgba(92, 62, 130, 0.88)); }
+.fp--ink::before { background: linear-gradient(160deg, rgba(46, 46, 51, 0.8), rgba(23, 23, 23, 0.9)); }
+.fp--ember::before { background: linear-gradient(160deg, rgba(255, 154, 82, 0.8), rgba(252, 102, 7, 0.88)); }
+.fp--volt::before { background: linear-gradient(160deg, rgba(234, 249, 160, 0.82), rgba(214, 242, 60, 0.88)); }
 .fp-title {
   position: relative;
+  z-index: 1;
   width: 22rem;
   height: 3.5rem;
   color: #fff;
@@ -4929,6 +4939,7 @@ button:focus-visible {
 .fp-about {
   opacity: 0;
   position: relative;
+  z-index: 1;
   color: rgba(255, 255, 255, 0.85);
   width: 100%;
   font-family: var(--font-body);
