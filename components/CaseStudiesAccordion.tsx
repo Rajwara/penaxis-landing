@@ -20,7 +20,7 @@ const THUMB_SHUFFLE = [4, 0, 7, 2, 6, 1, 5, 3, 8];
 const thumbImages = THUMB_SHUFFLE.map((i) => pictured[i % pictured.length]?.image).filter(Boolean);
 
 export default function CaseStudiesAccordion() {
-  const [open, setOpen] = useState<number | null>(3);
+  const [open, setOpen] = useState<number | null>(null);
 
   return (
     <section className="csa-section">
