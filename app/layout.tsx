@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 // import CuboidLoader from "@/components/CuboidLoader"; // temporarily disabled per client request
-import CookieConsent from "@/components/CookieConsent";
+// import CookieConsent from "@/components/CookieConsent"; // temporarily disabled per client request
 import ScrollToTop from "@/components/ScrollToTop";
 import QuickQuote from "@/components/QuickQuote";
 import StoreLocator from "@/components/StoreLocator";
@@ -34,7 +34,8 @@ export default function RootLayout({
         <ScrollToTop />
         <QuickQuote />
         <StoreLocator />
-        <CookieConsent />
+        {/* CookieConsent temporarily disabled per client request — re-enable by uncommenting this and the import above */}
+        {/* <CookieConsent /> */}
       </body>
     </html>
   );
