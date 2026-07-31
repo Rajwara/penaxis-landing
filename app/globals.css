@@ -5027,7 +5027,7 @@ button:focus-visible {
 }
 
 /* FAQs page (accordion with images) */
-.faqp-section { max-width: 56rem; margin: 0 auto; padding: 9rem 1.5rem 6rem; }
+.faqp-section { max-width: 80rem; margin: 0 auto; padding: 9rem 1.5rem 6rem; }
 .faqp-breadcrumb {
   font-family: var(--font-mono);
   font-size: 0.85rem;
@@ -5067,6 +5067,7 @@ button:focus-visible {
   font-size: 1.15rem;
   line-height: 1.4;
   color: #212121;
+  max-width: 42rem;
 }
 .faqp-chevron {
   display: flex;
