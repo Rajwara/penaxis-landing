@@ -18,8 +18,8 @@ export default function AboutV2Page() {
     <>
       <Navbar />
       <main>
-        <AboutV2Bento />
         <AboutV2Banner />
+        <AboutV2Bento />
         <AboutV2Beliefs />
         <AboutV2Values />
         <AboutV2Timeline />
