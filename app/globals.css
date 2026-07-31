@@ -3951,7 +3951,7 @@ button:focus-visible {
 }
 
 /* About v2 — timeline */
-.av2-timeline { padding: 0 0 6rem; background: #fff; }
+.av2-timeline { padding: 0 0 6rem; background: #171717; }
 .av2-timeline-frame {
   position: relative;
   display: block;
@@ -5352,7 +5352,7 @@ button:focus-visible {
 .avbt-volt { background: #fc6607; min-height: 12rem; display: flex; flex-direction: column; }
 
 /* Blob cursor-mask effect (testing page) */
-.blob-fx-section { padding: 6rem 0; background: #fff; }
+.blob-fx-section { padding: 6rem 0; background: #171717; }
 .blob-fx-eyebrow {
   font-family: var(--font-mono);
   font-size: 0.75rem;
@@ -5367,7 +5367,7 @@ button:focus-visible {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.4rem);
-  color: #212121;
+  color: #fff;
   text-align: center;
   margin-bottom: 2.5rem;
 }
@@ -5389,7 +5389,7 @@ button:focus-visible {
   transform: translate(-50%, -50%);
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  color: rgba(33, 33, 33, 0.35);
+  color: rgba(255, 255, 255, 0.35);
   pointer-events: none;
   transition: opacity 0.4s ease;
 }
