@@ -2439,29 +2439,43 @@ button:focus-visible {
   color: rgba(33, 33, 33, 0.35);
   margin-bottom: 1.25rem;
 }
-.hg-intro-press-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 2.5rem 3.5rem;
+.hg-intro-press-viewport {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
 }
-.hg-intro-press-row img {
+.hg-intro-press-track {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+  width: max-content;
+  animation: hg-press-scroll 22s linear infinite;
+}
+.hg-intro-press-viewport:hover .hg-intro-press-track { animation-play-state: paused; }
+@keyframes hg-press-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.hg-intro-press-track img {
   height: 28px;
   width: auto;
   max-width: 130px;
   object-fit: contain;
   filter: grayscale(100%);
   opacity: 0.55;
+  flex-shrink: 0;
   transition: opacity 0.2s, filter 0.2s;
 }
-.hg-intro-press-row img:hover {
+.hg-intro-press-track img:hover {
   filter: grayscale(0%);
   opacity: 1;
 }
+@media (prefers-reduced-motion: reduce) {
+  .hg-intro-press-track { animation: none; }
+}
 @media (max-width: 700px) {
-  .hg-intro-press-row { gap: 1.75rem 2rem; }
-  .hg-intro-press-row img { height: 22px; }
+  .hg-intro-press-track { gap: 2rem; }
+  .hg-intro-press-track img { height: 22px; }
 }
 
 .hg-pin-outer {

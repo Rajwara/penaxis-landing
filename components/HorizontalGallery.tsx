@@ -4,7 +4,20 @@
 // + panel gallery that used to follow this has been removed entirely,
 // so ServicesShowcase now sits directly after this section instead.
 
+const PRESS_LOGOS = [
+  { src: "/images/press/breakit.svg", alt: "Breakit" },
+  { src: "/images/press/forbes.svg", alt: "Forbes" },
+  { src: "/images/press/etn.svg", alt: "ETN" },
+  { src: "/images/press/fortune-logo.png", alt: "Fortune" },
+  { src: "/images/press/dagens-industri.png", alt: "Dagens Industri" },
+];
+
 export default function HorizontalGallery() {
+  // Duplicated for a seamless continuous-scroll loop. Add more real,
+  // confirmed press logos to PRESS_LOGOS above whenever available — the
+  // marquee handles any number of items the same way.
+  const track = [...PRESS_LOGOS, ...PRESS_LOGOS];
+
   return (
     <section className="hg-intro">
       <div className="hg-intro-eyebrow">From our founders</div>
@@ -18,12 +31,12 @@ export default function HorizontalGallery() {
       </div>
       <div className="hg-intro-press">
         <div className="hg-intro-press-label">Featured in</div>
-        <div className="hg-intro-press-row">
-          <img src="/images/press/breakit.svg" alt="Breakit" />
-          <img src="/images/press/forbes.svg" alt="Forbes" />
-          <img src="/images/press/etn.svg" alt="ETN" />
-          <img src="/images/press/fortune-logo.png" alt="Fortune" />
-          <img src="/images/press/dagens-industri.png" alt="Dagens Industri" />
+        <div className="hg-intro-press-viewport">
+          <div className="hg-intro-press-track">
+            {track.map((logo, i) => (
+              <img key={i} src={logo.src} alt={logo.alt} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
