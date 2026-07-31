@@ -24,15 +24,6 @@ export default function ServiceBanner({
       <div className="svb-glow svb-glow--b" aria-hidden="true" />
 
       <div className="mx-auto max-w-7xl px-6 svb-inner">
-        <Reveal>
-          <a href="/services" className="svb-back">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.2">
-              <path d="M19 12H5M11 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            All Services
-          </a>
-        </Reveal>
-
         <div className="svb-row">
           <div className="svb-scroll" aria-hidden="true">
             <span>Scroll</span>
