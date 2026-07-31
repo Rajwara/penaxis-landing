@@ -219,7 +219,7 @@ export default function Navbar() {
                 scrolled ? "opacity-100" : "opacity-0"
               }`}
             >
-              <span className="relative flex items-center justify-center w-9 h-9">
+              <span className="relative flex items-center justify-center w-12 h-14">
                 <svg
                   viewBox="0 0 44 44"
                   className="absolute inset-0 w-full h-full -rotate-90"
