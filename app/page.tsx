@@ -17,9 +17,9 @@ export default function Home() {
         <NameIntro />
         <HorizontalGallery />
         <ServiceFlexPanels />
-        <CaseStudiesAccordion />
         <WhyChooseUs />
         <GameChangers />
+        <CaseStudiesAccordion />
         <Testimonials />
 
         <ConnectSection />
