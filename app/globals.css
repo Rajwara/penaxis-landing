@@ -5174,7 +5174,7 @@ button:focus-visible {
 }
 
 /* About v2 — bento hero grid */
-.avbt-section { padding: 7rem 0 2rem; background: #faf9fd; }
+.avbt-section { padding: 7rem 0 2rem; background: #171717; }
 .avbt-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -5197,8 +5197,8 @@ button:focus-visible {
   overflow: hidden;
 }
 .avbt-black {
-  background: #171717;
-  color: #fff;
+  background: #fff;
+  color: #212121;
   display: flex;
   flex-direction: column;
   min-height: 24rem;
@@ -5240,21 +5240,21 @@ button:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  background: #f4f4f5;
-  color: #171717;
+  background: #171717;
+  color: #fff;
   border-radius: 999px;
   padding: 0.5rem 0.5rem 0.5rem 1.1rem;
   align-self: flex-start;
   font-family: var(--font-body);
   transition: background 0.2s;
 }
-.avbt-pill:hover { background: #fff; }
+.avbt-pill:hover { background: #2b2b2f; }
 .avbt-pill-label {
   font-size: 0.6rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: rgba(23, 23, 23, 0.4);
+  color: rgba(255, 255, 255, 0.5);
   display: block;
 }
 .avbt-pill-main { font-size: 0.9rem; font-weight: 700; margin-right: 0.5rem; }
@@ -5262,8 +5262,8 @@ button:focus-visible {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: #171717;
-  color: #fff;
+  background: #fff;
+  color: #171717;
   display: flex;
   align-items: center;
   justify-content: center;
