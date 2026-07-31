@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
-import ServicesIntro from "@/components/ServicesIntro";
 import ServicesCube from "@/components/ServicesCube";
 import Footer from "@/components/Footer";
 
@@ -15,7 +14,6 @@ export default function ServicesPage() {
     <>
       <Navbar />
       <main>
-        <ServicesIntro />
         <ServicesCube />
       </main>
       <Footer />
