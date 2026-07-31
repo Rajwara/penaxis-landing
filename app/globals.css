@@ -4878,9 +4878,9 @@ button:focus-visible {
 }
 
 /* Service Flex Panels (homepage) — vertical hover-expand strips */
-.fp-section { padding: 6rem 1.5rem; background: #faf9fd; }
+.fp-section { padding: 6rem 1.5rem; background: #171717; }
 .fp-header {
-  max-width: 1400px;
+  max-width: 80rem;
   margin: 0 auto 3.5rem;
   display: flex;
   flex-wrap: wrap;
@@ -4895,7 +4895,7 @@ button:focus-visible {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #5c7a0e;
+  color: #d6f23c;
   margin-bottom: 0.9rem;
 }
 .fp-heading {
@@ -4903,7 +4903,7 @@ button:focus-visible {
   font-weight: 500;
   font-size: clamp(2rem, 1.6rem + 1.8vw, 3rem);
   line-height: 1.2;
-  color: #212121;
+  color: #fff;
   max-width: 32rem;
 }
 .fp-underline { position: relative; display: inline-block; }
@@ -4914,7 +4914,7 @@ button:focus-visible {
   right: -4%;
   bottom: -0.35em;
   height: 0.3em;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'%3E%3Cpath d='M0 9 C 15 1, 30 1, 50 7 C 70 13, 85 4, 100 3' fill='none' stroke='%23a8c162' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'%3E%3Cpath d='M0 9 C 15 1, 30 1, 50 7 C 70 13, 85 4, 100 3' fill='none' stroke='%23d6f23c' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;
   background-size: 100% 100%;
 }
 .fp-header-right { max-width: 22rem; text-align: right; }
@@ -4922,15 +4922,15 @@ button:focus-visible {
   font-family: var(--font-body);
   font-size: 0.92rem;
   line-height: 1.6;
-  color: rgba(33, 33, 33, 0.6);
+  color: rgba(255, 255, 255, 0.55);
   margin-bottom: 1.25rem;
 }
 .fp-cta {
   display: inline-flex;
   align-items: center;
   gap: 1.5rem;
-  background: #171717;
-  color: #fff;
+  background: #fff;
+  color: #171717;
   border-radius: 999px;
   padding: 0.4rem 0.4rem 0.4rem 1.5rem;
   font-family: var(--font-body);
@@ -4938,13 +4938,13 @@ button:focus-visible {
   font-size: 0.9rem;
   transition: background 0.2s;
 }
-.fp-cta:hover { background: #2b2b2f; }
+.fp-cta:hover { background: #d6f23c; }
 .fp-cta-icon {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #fff;
-  color: #171717;
+  background: #171717;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4957,7 +4957,7 @@ button:focus-visible {
   .fp-header-right { text-align: left; max-width: 100%; }
 }
 .fp-container {
-  max-width: 1400px;
+  max-width: 80rem;
   margin: 0 auto;
   width: 100%;
   display: flex;
