@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import NameIntro from "@/components/NameIntro";
 import HorizontalGallery from "@/components/HorizontalGallery";
 import ServiceFlexPanels from "@/components/ServiceFlexPanels";
-import IndustriesStack from "@/components/IndustriesStack";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import GameChangers from "@/components/GameChangers";
 import CaseStudiesAccordion from "@/components/CaseStudiesAccordion";
@@ -18,7 +17,6 @@ export default function Home() {
         <NameIntro />
         <HorizontalGallery />
         <ServiceFlexPanels />
-        <IndustriesStack />
         <CaseStudiesAccordion />
         <WhyChooseUs />
         <GameChangers />
