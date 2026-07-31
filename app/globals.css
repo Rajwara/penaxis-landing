@@ -3951,7 +3951,7 @@ button:focus-visible {
 }
 
 /* About v2 — timeline */
-.av2-timeline { padding: 0 0 6rem; background: #171717; }
+.av2-timeline { padding: 6rem 0; background: #171717; }
 .av2-timeline-frame {
   position: relative;
   display: block;
