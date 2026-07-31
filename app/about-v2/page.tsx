@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
+import AboutV2Bento from "@/components/AboutV2Bento";
 import AboutV2Banner from "@/components/AboutV2Banner";
 import AboutV2Beliefs from "@/components/AboutV2Beliefs";
 import AboutV2Values from "@/components/AboutV2Values";
@@ -17,6 +18,7 @@ export default function AboutV2Page() {
     <>
       <Navbar />
       <main>
+        <AboutV2Bento />
         <AboutV2Banner />
         <AboutV2Beliefs />
         <AboutV2Values />
