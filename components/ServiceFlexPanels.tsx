@@ -17,11 +17,9 @@ import { services } from "@/lib/data";
 // cards get a dark overlay (for the rotated title's contrast); the
 // overlay fades away on the open/active card for a clean look.
 //
-// The arrow button sits in a "corner notch": it pokes out half outside
-// the card's bottom-right corner, with two small quarter-circle fillets
-// (matching the page background) smoothing the transition from the
-// card's straight edges into the circle — the same technique as the
-// Elementor reference's box-shadow/border-radius corner decoration.
+// (A "corner notch" treatment for the arrow button was tried and
+// reverted — it disrupted the card's look, so the button is back to a
+// plain circle sitting inside the card's own padding.)
 
 const BACKGROUNDS = [
   "/images/panels/service-panel-bg-1.webp",
@@ -44,36 +42,28 @@ export default function ServiceFlexPanels() {
             key={s.slug}
             className={`fp-slide ${i === active ? "is-active" : ""}`}
             onMouseEnter={() => setActive(i)}
+            style={{ backgroundImage: `url(${BACKGROUNDS[i % BACKGROUNDS.length]})` }}
           >
-            <div
-              className="fp-slide-inner"
-              style={{ backgroundImage: `url(${BACKGROUNDS[i % BACKGROUNDS.length]})` }}
-            >
-              <div className="fp-content">
-                <div className="fp-title">{s.title}</div>
-                <div className="fp-about">
-                  <p>{s.short}</p>
-                </div>
+            <div className="fp-content">
+              <div className="fp-title">{s.title}</div>
+              <div className="fp-about">
+                <p>{s.short}</p>
               </div>
             </div>
-            <div className="fp-corner">
-              <span className="fp-corner-fillet fp-corner-fillet--top" aria-hidden="true" />
-              <span className="fp-corner-fillet fp-corner-fillet--left" aria-hidden="true" />
-              <a href={`/services#${s.slug}`} className="fp-arrow" aria-label={`Learn more about ${s.title}`}>
-                <span className="fp-arrow-track">
-                  <span className="fp-arrow-slot">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2">
-                      <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </span>
-                  <span className="fp-arrow-slot">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2">
-                      <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </span>
+            <a href={`/services#${s.slug}`} className="fp-arrow" aria-label={`Learn more about ${s.title}`}>
+              <span className="fp-arrow-track">
+                <span className="fp-arrow-slot">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2">
+                    <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </span>
-              </a>
-            </div>
+                <span className="fp-arrow-slot">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2">
+                    <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </span>
+            </a>
           </div>
         ))}
       </div>

@@ -4894,22 +4894,14 @@ button:focus-visible {
   flex: 0 0 8.5%;
   height: 100%;
   cursor: pointer;
-  transition: flex-basis 0.5s ease;
-}
-.fp-slide-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
   border-radius: 1.5rem;
-  border-bottom-right-radius: 0.5rem;
   padding: 1.75rem;
   overflow: hidden;
-  background-image: url("/images/panels/service-panel-bg.webp"); /* fallback; overridden inline per-card */
   background-size: cover;
   background-position: center 15%;
-  transition: padding 0.5s ease;
+  transition: flex-basis 0.5s ease, padding 0.5s ease;
 }
-.fp-slide-inner::before {
+.fp-slide::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -4918,7 +4910,7 @@ button:focus-visible {
   transition: opacity 0.4s ease;
 }
 .fp-slide.is-active { flex: 0 0 55%; }
-.fp-slide.is-active .fp-slide-inner::before { opacity: 0; }
+.fp-slide.is-active::before { opacity: 0; }
 .fp-content {
   position: relative;
   z-index: 1;
@@ -4961,29 +4953,10 @@ button:focus-visible {
   transition: opacity 0.4s ease 0.1s;
 }
 .fp-slide.is-active .fp-about { opacity: 1; }
-.fp-corner {
-  position: absolute;
-  right: -22px;
-  bottom: -22px;
-  width: 44px;
-  height: 44px;
-  z-index: 2;
-  opacity: 0;
-  transform: scale(0.8);
-  transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
-}
-.fp-slide.is-active .fp-corner { opacity: 1; transform: scale(1); }
-.fp-corner-fillet {
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  background: #faf9fd;
-  z-index: 1;
-}
-.fp-corner-fillet--top { left: 8px; top: -14px; border-bottom-right-radius: 14px; }
-.fp-corner-fillet--left { left: -14px; top: 8px; border-bottom-right-radius: 14px; }
 .fp-arrow {
-  position: relative;
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -4992,9 +4965,12 @@ button:focus-visible {
   display: flex;
   align-items: center;
   overflow: hidden;
-  transition: background 0.2s;
-  z-index: 2;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s, background 0.2s;
+  z-index: 1;
 }
+.fp-slide.is-active .fp-arrow { opacity: 1; transform: scale(1); }
 .fp-arrow-track {
   display: flex;
   align-items: center;
@@ -5012,8 +4988,7 @@ button:focus-visible {
 .fp-arrow:hover { background: #734fa0; }
 @media (max-width: 900px) {
   .fp-container { height: auto; flex-direction: column; }
-  .fp-slide { flex: none; height: 4.5rem; }
-  .fp-slide-inner { padding: 1.25rem; }
+  .fp-slide { flex: none; height: 4.5rem; padding: 1.25rem; }
   .fp-slide.is-active { height: auto; min-height: 12rem; }
   .fp-title {
     width: auto;
