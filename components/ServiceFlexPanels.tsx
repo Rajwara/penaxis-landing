@@ -12,7 +12,8 @@ import { services } from "@/lib/data";
 // Penaxis's own 4 real services instead of the reference's (Spanish,
 // real-estate-specific) placeholder copy.
 //
-// All cards share the same photo background with no color tint. Closed
+// Each card has its own photo background (cards 1-2 use dedicated
+// photos; cards 3-4 share the original photo). No color tint. Closed
 // cards get a dark overlay (for the rotated title's contrast); the
 // overlay fades away on the open/active card for a clean look.
 //
@@ -21,6 +22,13 @@ import { services } from "@/lib/data";
 // (matching the page background) smoothing the transition from the
 // card's straight edges into the circle — the same technique as the
 // Elementor reference's box-shadow/border-radius corner decoration.
+
+const BACKGROUNDS = [
+  "/images/panels/service-panel-bg-1.webp",
+  "/images/panels/service-panel-bg-2.webp",
+  "/images/panels/service-panel-bg.webp",
+  "/images/panels/service-panel-bg.webp",
+];
 
 export default function ServiceFlexPanels() {
   const [active, setActive] = useState(0);
@@ -37,7 +45,10 @@ export default function ServiceFlexPanels() {
             className={`fp-slide ${i === active ? "is-active" : ""}`}
             onMouseEnter={() => setActive(i)}
           >
-            <div className="fp-slide-inner">
+            <div
+              className="fp-slide-inner"
+              style={{ backgroundImage: `url(${BACKGROUNDS[i % BACKGROUNDS.length]})` }}
+            >
               <div className="fp-content">
                 <div className="fp-title">{s.title}</div>
                 <div className="fp-about">
