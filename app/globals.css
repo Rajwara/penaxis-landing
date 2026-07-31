@@ -4879,6 +4879,83 @@ button:focus-visible {
 
 /* Service Flex Panels (homepage) — vertical hover-expand strips */
 .fp-section { padding: 6rem 1.5rem; background: #faf9fd; }
+.fp-header {
+  max-width: 1400px;
+  margin: 0 auto 3.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+}
+.fp-eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #5c7a0e;
+  margin-bottom: 0.9rem;
+}
+.fp-heading {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2rem, 1.6rem + 1.8vw, 3rem);
+  line-height: 1.2;
+  color: #212121;
+  max-width: 32rem;
+}
+.fp-underline { position: relative; display: inline-block; }
+.fp-underline::after {
+  content: "";
+  position: absolute;
+  left: -2%;
+  right: -4%;
+  bottom: -0.35em;
+  height: 0.3em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'%3E%3Cpath d='M0 9 C 15 1, 30 1, 50 7 C 70 13, 85 4, 100 3' fill='none' stroke='%23a8c162' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat;
+  background-size: 100% 100%;
+}
+.fp-header-right { max-width: 22rem; text-align: right; }
+.fp-header-copy {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(33, 33, 33, 0.6);
+  margin-bottom: 1.25rem;
+}
+.fp-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: #171717;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.4rem 0.4rem 0.4rem 1.5rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+.fp-cta:hover { background: #2b2b2f; }
+.fp-cta-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  color: #171717;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+.fp-cta:hover .fp-cta-icon { transform: translateX(3px); }
+@media (max-width: 768px) {
+  .fp-header { flex-direction: column; align-items: flex-start; }
+  .fp-header-right { text-align: left; max-width: 100%; }
+}
 .fp-container {
   max-width: 1400px;
   margin: 0 auto;

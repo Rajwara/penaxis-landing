@@ -33,6 +33,31 @@ export default function ServiceFlexPanels() {
 
   return (
     <section className="fp-section">
+      <div className="fp-header">
+        <div className="fp-header-left">
+          <span className="fp-eyebrow">Our Services</span>
+          <h2 className="fp-heading">
+            Explore ways we can move your
+            <br />
+            business <span className="fp-underline">forward</span>
+          </h2>
+        </div>
+        <div className="fp-header-right">
+          <p className="fp-header-copy">
+            From AI-powered MVPs to fractional sales support — everything you
+            need under one team.
+          </p>
+          <a href="/contact" className="fp-cta">
+            <span>Start a Project</span>
+            <span className="fp-cta-icon">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2">
+                <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+
       <div
         className="fp-container"
         onMouseLeave={() => setActive(0)}
