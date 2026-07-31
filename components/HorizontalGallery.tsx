@@ -13,10 +13,12 @@ const PRESS_LOGOS = [
 ];
 
 export default function HorizontalGallery() {
-  // Duplicated for a seamless continuous-scroll loop. Add more real,
-  // confirmed press logos to PRESS_LOGOS above whenever available — the
-  // marquee handles any number of items the same way.
-  const track = [...PRESS_LOGOS, ...PRESS_LOGOS];
+  // Tripled (not just duplicated) for a smoother, less repetitive-looking
+  // loop — with only 5 real logos, doubling made the strip only slightly
+  // wider than the viewport, so the cycle felt short and cramped. Add
+  // more real, confirmed press logos to PRESS_LOGOS above whenever
+  // available — the marquee handles any number of items the same way.
+  const track = [...PRESS_LOGOS, ...PRESS_LOGOS, ...PRESS_LOGOS];
 
   return (
     <section className="hg-intro">

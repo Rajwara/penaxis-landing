@@ -2447,14 +2447,14 @@ button:focus-visible {
 .hg-intro-press-track {
   display: flex;
   align-items: center;
-  gap: 3.5rem;
+  gap: 4.5rem;
   width: max-content;
-  animation: hg-press-scroll 22s linear infinite;
+  animation: hg-press-scroll 30s linear infinite;
 }
 .hg-intro-press-viewport:hover .hg-intro-press-track { animation-play-state: paused; }
 @keyframes hg-press-scroll {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  to { transform: translateX(-33.3333%); }
 }
 .hg-intro-press-track img {
   height: 28px;
@@ -2471,7 +2471,8 @@ button:focus-visible {
   opacity: 1;
 }
 @media (prefers-reduced-motion: reduce) {
-  .hg-intro-press-track { animation: none; }
+  .hg-intro-press-track { animation: none; width: 100%; justify-content: center; flex-wrap: wrap; }
+  .hg-intro-press-track img:nth-child(n + 6) { display: none; }
 }
 @media (max-width: 700px) {
   .hg-intro-press-track { gap: 2rem; }
