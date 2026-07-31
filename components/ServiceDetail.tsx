@@ -52,10 +52,6 @@ export default function ServiceDetail({ slug }: { slug: string }) {
 
       <section className="svi-section svi-section--service">
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal delay={0.12} className="svi-frame">
-            <img src={FRAME_PHOTOS[index % FRAME_PHOTOS.length]} alt="Penaxis at work" />
-          </Reveal>
-
           <div className="svi-approach">
             <Reveal>
               <h2 className="svi-eyebrow">About This Service</h2>
@@ -64,6 +60,10 @@ export default function ServiceDetail({ slug }: { slug: string }) {
               <p className="svi-copy">{service.long}</p>
             </Reveal>
           </div>
+
+          <Reveal delay={0.12} className="svi-frame">
+            <img src={FRAME_PHOTOS[index % FRAME_PHOTOS.length]} alt="Penaxis at work" />
+          </Reveal>
 
           <div className="svi-split">
             <Reveal>
