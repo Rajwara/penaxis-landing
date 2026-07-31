@@ -4907,12 +4907,18 @@ button:focus-visible {
   position: absolute;
   inset: 0;
   z-index: 0;
+  background: rgba(0, 0, 0, 0.45);
+  transition: opacity 0.4s ease;
 }
 .fp-slide.is-active { flex: 0 0 55%; }
-.fp--violet::before { background: linear-gradient(160deg, rgba(135, 104, 183, 0.82), rgba(92, 62, 130, 0.88)); }
-.fp--ink::before { background: linear-gradient(160deg, rgba(46, 46, 51, 0.8), rgba(23, 23, 23, 0.9)); }
-.fp--ember::before { background: linear-gradient(160deg, rgba(255, 154, 82, 0.8), rgba(252, 102, 7, 0.88)); }
-.fp--volt::before { background: linear-gradient(160deg, rgba(234, 249, 160, 0.82), rgba(214, 242, 60, 0.88)); }
+.fp-slide.is-active::before { opacity: 0; }
+.fp-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+}
+.fp-slide.is-active .fp-content { max-width: 65%; }
 .fp-title {
   position: relative;
   z-index: 1;
@@ -4932,7 +4938,6 @@ button:focus-visible {
   left: 0;
   transition: transform 0.5s ease, top 0.5s ease;
 }
-.fp--volt .fp-title { color: #212121; }
 .fp-slide.is-active .fp-title {
   transform: rotate(0deg) translateX(0);
 }
@@ -4948,7 +4953,6 @@ button:focus-visible {
   margin-top: 1.5rem;
   transition: opacity 0.4s ease 0.1s;
 }
-.fp--volt .fp-about { color: rgba(33, 33, 33, 0.75); }
 .fp-slide.is-active .fp-about { opacity: 1; }
 .fp-arrow {
   position: absolute;
