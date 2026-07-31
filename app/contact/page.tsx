@@ -21,10 +21,11 @@ export default function ContactPage() {
         <ContactBanner />
         <ContactFormSection />
         <OfficesSection />
-        <ContactMapSection />
 
         {/* Relocated from the main homepage per client request — still a temporary/preview treatment */}
         <ShapeGrid />
+
+        <ContactMapSection />
 
         <FAQSection />
       </main>
