@@ -75,6 +75,12 @@ export default function CaseStudiesAccordion() {
           })}
         </div>
 
+        <Reveal delay={0.08} className="text-center mt-10">
+          <a href="/case-studies" className="btn-grad csa-view-all">
+            View All Case Studies
+          </a>
+        </Reveal>
+
         <Reveal delay={0.1} className="csa-stats-wrap">
           <div className="csa-stats">
             {stats.map((s) => (

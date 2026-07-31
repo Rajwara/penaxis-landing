@@ -5727,3 +5727,4 @@ button:focus-visible {
 @media (max-width: 640px) {
   .svi-pixels { display: none; }
 }
+.csa-view-all { padding: 0.9rem 2rem; font-size: 0.9rem; }
