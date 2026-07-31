@@ -4580,7 +4580,7 @@ button:focus-visible {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid hsla(0, 0%, 100%, 0.2);
-  color: #fff;
+  color: #fc6607;
   border-radius: 50%;
   cursor: pointer;
   box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.35);
