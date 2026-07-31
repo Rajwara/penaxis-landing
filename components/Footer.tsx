@@ -145,12 +145,14 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="relative border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/50">
-          <span className="inline-flex items-center gap-1.5">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D6F23C" strokeWidth="2">
-              <path d="M12 21s-7-6.5-7-11a7 7 0 1 1 14 0c0 4.5-7 11-7 11z" />
-              <circle cx="12" cy="10" r="2.5" />
-            </svg>
-            {contact.address}
+          <span className="inline-flex items-center gap-3">
+            <a href="/privacy-policy" className="hover:text-white transition-colors">
+              Privacy Policy
+            </a>
+            <span aria-hidden="true">|</span>
+            <a href="/terms-conditions" className="hover:text-white transition-colors">
+              Terms &amp; Conditions
+            </a>
           </span>
           <span>© {new Date().getFullYear()} Penaxis. All rights reserved.</span>
           <span className="flex items-center gap-4">
