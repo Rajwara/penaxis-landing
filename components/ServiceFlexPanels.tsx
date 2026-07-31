@@ -34,9 +34,18 @@ export default function ServiceFlexPanels() {
               <p>{s.short}</p>
             </div>
             <a href={`/services#${s.slug}`} className="fp-arrow" aria-label={`Learn more about ${s.title}`}>
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2">
-                <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              <span className="fp-arrow-track">
+                <span className="fp-arrow-slot">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2">
+                    <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+                <span className="fp-arrow-slot">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2">
+                    <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </span>
             </a>
           </div>
         ))}
