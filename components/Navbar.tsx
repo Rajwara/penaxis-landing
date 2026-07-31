@@ -42,10 +42,10 @@ export default function Navbar() {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
-  const [activeMenu, setActiveMenu] = useState<"industries" | "services" | "caseStudies" | null>(null);
+  const [activeMenu, setActiveMenu] = useState<"industries" | "services" | "caseStudies" | "about" | null>(null);
   const menuCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const openMenu = (name: "industries" | "services" | "caseStudies") => {
+  const openMenu = (name: "industries" | "services" | "caseStudies" | "about") => {
     if (menuCloseTimer.current) clearTimeout(menuCloseTimer.current);
     setActiveMenu(name);
   };
@@ -257,17 +257,45 @@ export default function Navbar() {
             className={`pointer-events-auto flex items-center gap-1 rounded-full border backdrop-blur-md px-2 py-2 transition-colors duration-500 ${capsuleSurface}`}
           >
             {navRight.map((item, i) => (
-              <a
+              <div
                 key={item.href + item.label}
-                href={item.href}
-                onMouseEnter={() => setHoverIdx(100 + i)}
-                onMouseLeave={() => setHoverIdx(null)}
-                className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  hoverIdx === 100 + i ? (isDark ? "bg-white/10" : "bg-ink/[0.06]") : ""
-                } ${isDark ? "hover:text-white" : "hover:text-violet-700"}`}
+                className="relative"
+                onMouseEnter={() => {
+                  setHoverIdx(100 + i);
+                  if (item.children) openMenu("about");
+                }}
+                onMouseLeave={() => {
+                  setHoverIdx(null);
+                  if (item.children) scheduleCloseMenu();
+                }}
               >
-                {item.label}
-              </a>
+                <a
+                  href={item.href}
+                  className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                    hoverIdx === 100 + i ? (isDark ? "bg-white/10" : "bg-ink/[0.06]") : ""
+                  } ${isDark ? "hover:text-white" : "hover:text-violet-700"}`}
+                >
+                  {item.label}
+                </a>
+
+                {item.children && (
+                  <div
+                    className={`absolute right-0 top-full mt-2 transition-all duration-200 ${
+                      activeMenu === "about"
+                        ? "opacity-100 translate-y-0 pointer-events-auto"
+                        : "opacity-0 -translate-y-2 pointer-events-none"
+                    }`}
+                  >
+                    <ul className="nav-about-dropdown">
+                      {item.children.map((child) => (
+                        <li key={child.href}>
+                          <a href={child.href}>{child.label}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
             ))}
             <a
               href={navCta.href}

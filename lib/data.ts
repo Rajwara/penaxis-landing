@@ -6,8 +6,18 @@ export const navLeft = [
   { label: "Case Studies", href: "/case-studies" },
 ];
 
-// Right navigation capsule — About (quiet) + Start a Project (primary CTA)
-export const navRight = [{ label: "About", href: "/about" }];
+// Right navigation capsule — About (quiet, with a small hover dropdown for
+// the two About-style pages) + Start a Project (primary CTA)
+export const navRight = [
+  {
+    label: "About",
+    href: "/about",
+    children: [
+      { label: "Game Changers", href: "/about" },
+      { label: "Who We Are", href: "/about-v2" },
+    ],
+  },
+];
 
 export const navCta = { label: "Start a Project", href: "/contact" };
 
@@ -17,7 +27,8 @@ export const navMobile = [
   { label: "Services", href: "/services" },
   { label: "Industries", href: "/industries" },
   { label: "Case Studies", href: "/case-studies" },
-  { label: "About", href: "/about" },
+  { label: "Game Changers", href: "/about" },
+  { label: "Who We Are", href: "/about-v2" },
   { label: "Our Team", href: "#team" },
 ];
 
