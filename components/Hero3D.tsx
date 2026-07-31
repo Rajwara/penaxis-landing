@@ -9,7 +9,7 @@ import * as THREE from "three";
 // gently rotates on its own — an abstract reading of the brand's own
 // orbit-ring motif used throughout their materials.
 
-const NODE_COLORS = [0x6339e0, 0xf2662b, 0xd6f23c];
+const NODE_COLORS = [0x6339e0, 0xf2662b, 0xfc6607];
 
 function makeGlowTexture() {
   const size = 128;

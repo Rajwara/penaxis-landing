@@ -52,7 +52,7 @@ export default function RetroHero() {
       if (!plasmaRef.current) return;
       plasmaRef.current.style.background = `
         radial-gradient(ellipse 70% 70% at ${bv.b1x}% ${bv.b1y}%, rgba(115,79,160,0.85) 0%, transparent 55%),
-        radial-gradient(ellipse 60% 60% at ${bv.b2x}% ${bv.b2y}%, rgba(214,242,60,0.85) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 60% at ${bv.b2x}% ${bv.b2y}%, rgba(252, 102, 7,0.85) 0%, transparent 55%),
         radial-gradient(ellipse 65% 65% at ${bv.b3x}% ${bv.b3y}%, rgba(252,102,7,0.8) 0%, transparent 55%),
         radial-gradient(ellipse 50% 50% at ${bv.b4x}% ${bv.b4y}%, rgba(180,159,218,0.7) 0%, transparent 50%),
         #f1eefb

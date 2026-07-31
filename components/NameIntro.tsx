@@ -88,7 +88,7 @@ export default function NameIntro() {
     dLight0.position.set(1, 0, 0);
     const dLight1 = new THREE.DirectionalLight(0xb49fda, 1);
     dLight1.position.set(0.75, 1, 0.5);
-    const dLight2 = new THREE.DirectionalLight(0xd6f23c, 0.5);
+    const dLight2 = new THREE.DirectionalLight(0xfc6607, 0.5);
     dLight2.position.set(-0.75, -1, 0.5);
     scene.add(dLight0, dLight1, dLight2);
 

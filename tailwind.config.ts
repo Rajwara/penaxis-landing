@@ -25,7 +25,7 @@ const config: Config = {
           500: "#FC6607",
           600: "#E05500",
         },
-        volt: "#D6F23C",
+        volt: "#FC6607",
       },
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],

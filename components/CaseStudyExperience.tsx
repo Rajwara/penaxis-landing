@@ -134,7 +134,7 @@ const hexToVec3 = (hex: string): [number, number, number] => {
 };
 
 const BG_COLORS = { dark: "#171717", light: "#faf9fd" };
-const ACCENT_COLORS = { dark: "#d6f23c", light: "#5c3e82" };
+const ACCENT_COLORS = { dark: "#fc6607", light: "#5c3e82" };
 
 export default function CaseStudyExperience() {
   const canvasRef = useRef<HTMLCanvasElement>(null);

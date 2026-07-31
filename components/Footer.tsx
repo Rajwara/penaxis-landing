@@ -102,7 +102,7 @@ export default function Footer() {
             <div className="text-[0.65rem] font-mono tracking-[0.2em] uppercase text-white/40 mb-2">
               {col.eyebrow}
             </div>
-            <a href={col.href} className="font-display font-bold text-2xl md:text-4xl hover:text-[#D6F23C] transition-colors">
+            <a href={col.href} className="font-display font-bold text-2xl md:text-4xl hover:text-[#FC6607] transition-colors">
               {col.title}
             </a>
           </Reveal>
@@ -148,7 +148,7 @@ export default function Footer() {
           </span>
           <span>© {new Date().getFullYear()} Penaxis. All rights reserved.</span>
           <span className="inline-flex items-center gap-1.5">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D6F23C" strokeWidth="2">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FC6607" strokeWidth="2">
               <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2z" />
             </svg>
             {contact.phone}
