@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import NameIntro from "@/components/NameIntro";
 import HorizontalGallery from "@/components/HorizontalGallery";
 import AIShowcase from "@/components/AIShowcase";
-import ServicesShowcase from "@/components/ServicesShowcase";
 import ServiceFlexPanels from "@/components/ServiceFlexPanels";
 import IndustriesStack from "@/components/IndustriesStack";
 import WhyChooseUs from "@/components/WhyChooseUs";
@@ -20,7 +19,6 @@ export default function Home() {
       <main>
         <NameIntro />
         <HorizontalGallery />
-        <ServicesShowcase />
         <ServiceFlexPanels />
         <IndustriesStack />
         <CaseStudiesAccordion />
