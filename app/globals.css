@@ -5001,3 +5001,97 @@ button:focus-visible {
   .fp-slide.is-active .fp-title { transform: none; }
   .fp-about { margin-top: 0.75rem; }
 }
+
+/* FAQs page (accordion with images) */
+.faqp-section { max-width: 56rem; margin: 0 auto; padding: 9rem 1.5rem 6rem; }
+.faqp-breadcrumb {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: rgba(33, 33, 33, 0.45);
+  margin-bottom: 0.75rem;
+}
+.faqp-heading {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 1.6rem + 1.8vw, 3rem);
+  line-height: 1.2;
+  color: #212121;
+  margin-bottom: 4rem;
+}
+.faqp-list { border-top: 1px solid rgba(33, 33, 33, 0.12); }
+.faqp-row { border-bottom: 1px solid rgba(33, 33, 33, 0.12); }
+.faqp-row-head {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 6rem 1fr 1.5rem;
+  align-items: start;
+  gap: 1.5rem;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  padding: 1.75rem 0;
+}
+.faqp-tag {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: rgba(33, 33, 33, 0.4);
+  padding-top: 0.2rem;
+}
+.faqp-q {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  line-height: 1.4;
+  color: #212121;
+}
+.faqp-chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(33, 33, 33, 0.5);
+  margin-top: 0.3rem;
+  transition: transform 0.3s ease;
+}
+.faqp-chevron.is-open { transform: rotate(180deg); }
+.faqp-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.22, 0.9, 0.26, 1);
+}
+.faqp-body.is-open { max-height: 34rem; }
+.faqp-body-inner { padding: 0 0 2.25rem 7.5rem; }
+.faqp-image {
+  width: 100%;
+  max-width: 26rem;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 1.25rem;
+  display: block;
+}
+.faqp-a {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: rgba(33, 33, 33, 0.6);
+  max-width: 30rem;
+  margin-bottom: 1rem;
+}
+.faqp-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #734fa0;
+  border-bottom: 1px solid rgba(115, 79, 160, 0.4);
+  padding-bottom: 0.15rem;
+}
+.faqp-explore:hover { color: #5c3e82; border-color: #5c3e82; }
+@media (max-width: 640px) {
+  .faqp-section { padding-top: 8rem; }
+  .faqp-row-head { grid-template-columns: 1fr 1.5rem; }
+  .faqp-tag { display: none; }
+  .faqp-body-inner { padding-left: 0; }
+}
