@@ -6263,3 +6263,187 @@ button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .csb-stack-img { transition: none !important; }
 }
+
+/* Portfolio-style demo page (testing) */
+.pfd-root { background: #f2efe8; }
+.pfd-hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  border-radius: 0 0 2.5rem 2.5rem;
+}
+.pfd-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.pfd-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(23, 23, 23, 0.75) 0%, rgba(23, 23, 23, 0.35) 45%, rgba(23, 23, 23, 0.85) 100%);
+}
+.pfd-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 9rem 2.5rem 3rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.pfd-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #b49fda;
+  margin-bottom: 0.5rem;
+}
+.pfd-heading {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 1.8rem + 4vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  color: #fff;
+  max-width: 34rem;
+}
+.pfd-tagline { max-width: 18rem; margin-left: auto; margin-top: -6rem; }
+.pfd-tagline-lead {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+.pfd-tagline-sub {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.65);
+}
+.pfd-caps {
+  margin-top: auto;
+  padding-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) auto;
+  align-items: end;
+  gap: 1.5rem;
+}
+.pfd-cap { display: flex; flex-direction: column; gap: 0.35rem; }
+.pfd-cap-num {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #b49fda;
+}
+.pfd-cap-label {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+}
+.pfd-badge {
+  background: #734fa0;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.pfd-trusted {
+  padding: 4rem 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  border-bottom: 1px solid rgba(33, 33, 33, 0.08);
+}
+.pfd-trusted-label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: rgba(33, 33, 33, 0.45);
+  flex-shrink: 0;
+}
+.pfd-trusted-marquee { flex: 1; min-width: 0; }
+.pfd-behind {
+  padding: 6rem 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  max-width: 90rem;
+  margin: 0 auto;
+}
+@media (min-width: 900px) {
+  .pfd-behind { grid-template-columns: 1fr 1fr; }
+}
+.pfd-eyebrow--dark { color: #5c7a0e; color: #734fa0; margin-bottom: 1rem; }
+.pfd-behind-heading {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 1.6rem + 2vw, 3rem);
+  line-height: 1.15;
+  color: #212121;
+}
+.pfd-behind-copy {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: #212121;
+  margin-bottom: 2.5rem;
+}
+.pfd-behind-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.pfd-behind-cta-label {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: rgba(33, 33, 33, 0.5);
+}
+.pfd-cta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #734fa0;
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.6rem 0.6rem 0.6rem 1.25rem;
+  border-radius: 999px;
+}
+.pfd-cta-pill span {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  color: #734fa0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pfd-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  padding: 0 2.5rem 6rem;
+  max-width: 90rem;
+  margin: 0 auto;
+}
+.pfd-gallery img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 1.25rem;
+}
+@media (max-width: 768px) {
+  .pfd-hero-content { padding: 7rem 1.5rem 2rem; }
+  .pfd-tagline { margin-left: 0; margin-top: 1.5rem; }
+  .pfd-caps { grid-template-columns: repeat(2, 1fr); }
+  .pfd-badge { grid-column: span 2; justify-self: start; }
+  .pfd-behind { padding: 4rem 1.5rem; }
+  .pfd-gallery { grid-template-columns: 1fr; padding: 0 1.5rem 4rem; }
+}
