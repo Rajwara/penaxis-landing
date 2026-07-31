@@ -1,6 +1,7 @@
 "use client";
 
 import Reveal from "./Reveal";
+import ServiceProcess from "./ServiceProcess";
 import { services, stats } from "@/lib/data";
 
 // Template for a single service's detail page. Ported the "we craft
@@ -156,24 +157,7 @@ export default function ServiceDetail({ slug }: { slug: string }) {
         </div>
       </section>
 
-      <section className="svd-section">
-        <div className="mx-auto max-w-7xl px-6">
-          <Reveal>
-            <h2 className="svd-h2">What&apos;s included</h2>
-          </Reveal>
-          <div className="svd-pillars">
-            {service.pillars.map((p, i) => (
-              <Reveal key={p.title} y={20} delay={i * 0.06}>
-                <div className="svd-pillar">
-                  <span className="svd-pillar-num">{String(i + 1).padStart(2, "0")}</span>
-                  <h3>{p.title}</h3>
-                  <p>{p.copy}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ServiceProcess pillars={service.pillars} />
 
       <section className="svd-section svd-section--alt">
         <div className="mx-auto max-w-7xl px-6">
