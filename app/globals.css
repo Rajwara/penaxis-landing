@@ -6030,3 +6030,39 @@ button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .svb-glow, .svb-scroll svg { animation: none; }
 }
+
+/* Service page ticker (right after the banner) */
+.svt-viewport {
+  overflow: hidden;
+  background: #734fa0;
+  padding: 1.5rem 0;
+}
+.svt-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: svt-scroll 26s linear infinite;
+}
+.svt-viewport:hover .svt-track { animation-play-state: paused; }
+@keyframes svt-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-33.3333%); }
+}
+.svt-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.75rem;
+  padding: 0 1.75rem;
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.4rem);
+  letter-spacing: -0.01em;
+  color: #171717;
+  white-space: nowrap;
+}
+.svt-underline { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 4px; }
+.svt-star { color: #171717; flex-shrink: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .svt-track { animation: none; }
+}

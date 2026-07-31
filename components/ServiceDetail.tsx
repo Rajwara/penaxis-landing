@@ -2,6 +2,7 @@
 
 import Reveal from "./Reveal";
 import ServiceBanner from "./ServiceBanner";
+import ServiceTicker from "./ServiceTicker";
 import ServiceProcess from "./ServiceProcess";
 import { services, stats } from "@/lib/data";
 
@@ -42,6 +43,8 @@ export default function ServiceDetail({ slug }: { slug: string }) {
   return (
     <>
       <ServiceBanner service={service} stat={statA} />
+
+      <ServiceTicker />
 
       <section className="svi-section svi-section--service">
         <div className="mx-auto max-w-6xl px-6">
