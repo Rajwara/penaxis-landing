@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
+import BlobCursorEffect from "@/components/BlobCursorEffect";
 import AboutV2Bento from "@/components/AboutV2Bento";
 import AboutV2Banner from "@/components/AboutV2Banner";
 import AboutV2Values from "@/components/AboutV2Values";
@@ -16,6 +17,7 @@ export default function AboutV2Page() {
     <>
       <Navbar />
       <main>
+        <BlobCursorEffect />
         <AboutV2Banner />
         <AboutV2Bento />
         <AboutV2Values />
