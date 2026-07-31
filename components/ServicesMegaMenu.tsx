@@ -93,9 +93,9 @@ export default function ServicesMegaMenu() {
         {fizza?.image && (
           <a
             href="/game-changers"
-            className="block rounded-xl overflow-hidden h-44 mb-5 relative bg-gradient-to-br from-violet-200 to-volt/40"
+            className="block rounded-xl overflow-hidden h-60 mb-5 relative bg-gradient-to-br from-violet-200 to-volt/40"
           >
-            <img src={fizza.image} alt="Penaxis team" className="w-full h-full object-cover" />
+            <img src={fizza.image} alt="Penaxis team" className="w-full h-full object-cover object-top" />
           </a>
         )}
         <h5 className="font-display font-bold text-sm text-ink mb-2">Our team</h5>
