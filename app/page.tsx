@@ -6,7 +6,6 @@ import ServiceFlexPanels from "@/components/ServiceFlexPanels";
 import IndustriesStack from "@/components/IndustriesStack";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import GameChangers from "@/components/GameChangers";
-import LogoMarquee from "@/components/LogoMarquee";
 import CaseStudiesAccordion from "@/components/CaseStudiesAccordion";
 import Testimonials from "@/components/Testimonials";
 import ConnectSection from "@/components/ConnectSection";
@@ -25,7 +24,6 @@ export default function Home() {
         <AIShowcase />
         <WhyChooseUs />
         <GameChangers />
-        <LogoMarquee />
         <Testimonials />
 
         <ConnectSection />
