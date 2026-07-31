@@ -51,7 +51,7 @@ export default function ServicesMegaMenu() {
             return (
               <a
                 key={s.slug}
-                href={`/services#${s.slug}`}
+                href={`/services/${s.slug}`}
                 className={`group relative rounded-2xl p-5 transition-colors flex flex-col ${
                   isHighlight ? "bg-violet-600 text-white" : "hover:bg-ink/[0.04]"
                 }`}

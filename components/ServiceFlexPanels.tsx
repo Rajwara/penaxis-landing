@@ -75,7 +75,7 @@ export default function ServiceFlexPanels() {
                 <p>{s.short}</p>
               </div>
             </div>
-            <a href={`/services#${s.slug}`} className="fp-arrow" aria-label={`Learn more about ${s.title}`}>
+            <a href={`/services/${s.slug}`} className="fp-arrow" aria-label={`Learn more about ${s.title}`}>
               <span className="fp-arrow-track">
                 <span className="fp-arrow-slot">
                   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2">
