@@ -35,6 +35,7 @@ export default function ServiceFlexPanels() {
   return (
     <section className="fp-section">
       <StarfieldBackground />
+      <div className="fp-vignette" aria-hidden="true" />
       <div className="fp-header">
         <div className="fp-header-left">
           <span className="fp-eyebrow">Our Services</span>
