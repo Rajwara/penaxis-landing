@@ -22,12 +22,6 @@ const FRAME_PHOTOS = [
   "/images/hero/office-logo-desk.jpg",
   "/images/hero/team-huddle.jpg",
 ];
-const SPLIT_PHOTOS = [
-  "/images/team/zaid-bin-arif.webp",
-  "/images/team/laiba-zafar.webp",
-  "/images/team/abdullah-sadiq.webp",
-  "/images/team/hamza-designer.webp",
-];
 const STAT_PAIRS: [number, number][] = [
   [0, 3],
   [1, 3],
@@ -42,9 +36,8 @@ export default function ServiceDetail({ slug }: { slug: string }) {
 
   const prev = services[(index - 1 + services.length) % services.length];
   const next = services[(index + 1) % services.length];
-  const [statAIdx, statBIdx] = STAT_PAIRS[index % STAT_PAIRS.length];
+  const [statAIdx] = STAT_PAIRS[index % STAT_PAIRS.length];
   const statA = stats[statAIdx];
-  const statB = stats[statBIdx];
 
   return (
     <>
@@ -64,65 +57,6 @@ export default function ServiceDetail({ slug }: { slug: string }) {
           <Reveal delay={0.12} className="svi-frame">
             <img src={FRAME_PHOTOS[index % FRAME_PHOTOS.length]} alt="Penaxis at work" />
           </Reveal>
-
-          <div className="svi-split">
-            <Reveal>
-              <div>
-                <h2 className="svi-eyebrow">Ways to Engage</h2>
-                <ul className="svi-checklist">
-                  {service.engagements.map((e) => (
-                    <li key={e}>
-                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.4">
-                        <circle cx="12" cy="12" r="9" />
-                        <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none" />
-                      </svg>
-                      {e}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-            <Reveal delay={0.08} className="svi-split-image">
-              <img src={SPLIT_PHOTOS[index % SPLIT_PHOTOS.length]} alt="The Penaxis team" />
-            </Reveal>
-          </div>
-
-          <div className="svi-stats">
-            <Reveal>
-              <div className="svi-stat-card">
-                <span className="svi-stat-icon">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2">
-                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-                <div>
-                  <p className="svi-stat-title">
-                    {statA.prefix}
-                    {statA.value}
-                    {statA.suffix}
-                  </p>
-                  <p className="svi-stat-copy">{statA.label}</p>
-                </div>
-              </div>
-            </Reveal>
-            <Reveal delay={0.06}>
-              <div className="svi-stat-card">
-                <span className="svi-stat-icon">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2">
-                    <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" />
-                  </svg>
-                </span>
-                <div>
-                  <p className="svi-stat-title">
-                    {statB.prefix}
-                    {statB.value}
-                    {statB.suffix}
-                  </p>
-                  <p className="svi-stat-copy">{statB.label}</p>
-                </div>
-              </div>
-            </Reveal>
-          </div>
         </div>
       </section>
 
