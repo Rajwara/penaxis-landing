@@ -4892,7 +4892,8 @@ button:focus-visible {
 }
 
 /* Service Flex Panels (homepage) — vertical hover-expand strips */
-.fp-section { padding: 6rem 1.5rem; background: #171717; }
+.fp-section { position: relative; padding: 6rem 1.5rem; background: #171717; overflow: hidden; }
+.fp-header { position: relative; z-index: 1; }
 .fp-header {
   max-width: 80rem;
   margin: 0 auto 3.5rem;
@@ -4971,6 +4972,8 @@ button:focus-visible {
   .fp-header-right { text-align: left; max-width: 100%; }
 }
 .fp-container {
+  position: relative;
+  z-index: 1;
   max-width: 80rem;
   margin: 0 auto;
   width: 100%;

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { services } from "@/lib/data";
+import StarfieldBackground from "./StarfieldBackground";
 
 // Ported from a reference "flex slide" panel design: narrow vertical
 // strips with rotated titles that flip horizontal and expand wide on
@@ -33,6 +34,7 @@ export default function ServiceFlexPanels() {
 
   return (
     <section className="fp-section">
+      <StarfieldBackground />
       <div className="fp-header">
         <div className="fp-header-left">
           <span className="fp-eyebrow">Our Services</span>
