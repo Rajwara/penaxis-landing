@@ -1,6 +1,7 @@
 "use client";
 
 import Reveal from "./Reveal";
+import ServiceBanner from "./ServiceBanner";
 import ServiceProcess from "./ServiceProcess";
 import { services, stats } from "@/lib/data";
 
@@ -47,42 +48,10 @@ export default function ServiceDetail({ slug }: { slug: string }) {
 
   return (
     <>
+      <ServiceBanner service={service} stat={statA} />
+
       <section className="svi-section svi-section--service">
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal>
-            <a href="/services" className="svd-back">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.2">
-                <path d="M19 12H5M11 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              All Services
-            </a>
-          </Reveal>
-
-          <div className="svi-head">
-            <span className="svi-pixels svi-pixels--tl" aria-hidden="true">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <span key={i} />
-              ))}
-            </span>
-            <Reveal delay={0.05}>
-              <span className="svd-number">{service.number}</span>
-              <h1 className="svi-heading">{service.title}</h1>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <p className="svi-sub">{service.short}</p>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <a href="/contact" className="btn-grad svd-cta" style={{ marginTop: "1.5rem" }}>
-                Start a Project
-              </a>
-            </Reveal>
-            <span className="svi-pixels svi-pixels--br" aria-hidden="true">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <span key={i} />
-              ))}
-            </span>
-          </div>
-
           <Reveal delay={0.12} className="svi-frame">
             <img src={FRAME_PHOTOS[index % FRAME_PHOTOS.length]} alt="Penaxis at work" />
           </Reveal>
