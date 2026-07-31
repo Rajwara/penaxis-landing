@@ -212,48 +212,56 @@ export const contact = {
 // whenever they exist.
 export const caseStudyPlaceholders = [
   {
+    slug: "ai-powered-saas-mvp",
     title: "Launching an MVP for an AI-Powered SaaS Startup",
     tags: ["Software, IT & SaaS"],
     blurb:
       "Took a concept from whiteboard to a launch-ready SaaS MVP — core features first, AI built in from day one, focused on speed to market.",
   },
   {
+    slug: "ecommerce-fulfillment-automation",
     title: "Automating Fulfillment for a Regional E-Commerce Retailer",
     tags: ["E-Commerce & Retail", "Software, IT & SaaS"],
     blurb:
       "Connected storefront, inventory, and shipping into one automated workflow, cutting manual order handling across the fulfillment process.",
   },
   {
+    slug: "healthcare-crm",
     title: "Building a Custom CRM for a Healthcare Provider Network",
     tags: ["Healthcare & Wellness", "Software, IT & SaaS"],
     blurb:
       "Designed a tailored CRM and patient-record workflow that centralized information across multiple provider locations.",
   },
   {
+    slug: "edtech-learning-portal",
     title: "Standing Up a Learning Portal for an EdTech Platform",
     tags: ["Education & EdTech"],
     blurb:
       "Built a learning portal covering course delivery, student progress tracking, and instructor tools from the ground up.",
   },
   {
+    slug: "real-estate-deal-flow",
     title: "Modernizing Deal Flow for a Growing Real Estate Platform",
     tags: ["Real Estate & Property", "Software, IT & SaaS"],
     blurb:
       "Replaced spreadsheet-based deal tracking with a purpose-built platform for listings, pipeline stages, and broker collaboration.",
   },
   {
+    slug: "logistics-dispatch-system",
     title: "Streamlining Dispatch for a Logistics & Fleet Operator",
     tags: ["Logistics & Transportation"],
     blurb:
       "Built a dispatch and fleet-tracking system that gave operations real-time visibility into routes, drivers, and delivery status.",
   },
   {
+    slug: "auto-service-digital-transformation",
     title: "Digital Transformation for a Multi-Location Auto Service Group",
     tags: ["Automotive & Auto Care"],
     blurb:
       "Unified booking, service history, and customer communication across multiple locations under one digital system.",
   },
   {
+    slug: "fintech-payments-infrastructure",
     title: "Secure Payments Infrastructure for a Fintech Product",
     tags: ["Fintech & Financial Services", "Software, IT & SaaS"],
     blurb:
