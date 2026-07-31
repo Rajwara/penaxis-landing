@@ -74,14 +74,6 @@ function ArrowIcon() {
 }
 
 export default function Footer() {
-  const scrollToTop = () => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      window.scrollTo(0, 0);
-    } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
-
   return (
     <footer data-nav-theme="dark" className="relative bg-ink text-white overflow-hidden">
       {/* Giant full-bleed wordmark with the email pill centered over it */}
@@ -155,23 +147,11 @@ export default function Footer() {
             </a>
           </span>
           <span>© {new Date().getFullYear()} Penaxis. All rights reserved.</span>
-          <span className="flex items-center gap-4">
-            <span className="inline-flex items-center gap-1.5">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D6F23C" strokeWidth="2">
-                <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2z" />
-              </svg>
-              {contact.phone}
-            </span>
-            <button
-              type="button"
-              onClick={scrollToTop}
-              aria-label="Back to top"
-              className="w-8 h-8 rounded-lg bg-[#D6F23C] text-ink flex items-center justify-center hover:brightness-95 transition"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M12 19V5M5 12l7-7 7 7" />
-              </svg>
-            </button>
+          <span className="inline-flex items-center gap-1.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D6F23C" strokeWidth="2">
+              <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2z" />
+            </svg>
+            {contact.phone}
           </span>
         </div>
       </div>
