@@ -97,10 +97,10 @@ export default function ShapeGrid() {
       <div className="mx-auto max-w-7xl px-6">
         <Reveal as="div" className="text-center mb-16 max-w-xl mx-auto">
           <h2 id="shape-grid-title" className="font-display font-bold text-3xl md:text-4xl text-ink tracking-tight">
-            Shape system
+            Where we work from
           </h2>
           <p className="mt-3 text-ink/60">
-            Six structural variants — glass, chamfer, neo surface, cinema wide, crystal facet, layered stack.
+            Three countries, one team.
           </p>
         </Reveal>
 
