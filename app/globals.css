@@ -5352,7 +5352,7 @@ button:focus-visible {
 .avbt-volt { background: #fc6607; min-height: 12rem; display: flex; flex-direction: column; }
 
 /* Blob cursor-mask effect (testing page) */
-.blob-fx-section { padding: 6rem 0; background: #171717; }
+.blob-fx-section { padding: 10rem 0 6rem; background: #171717; }
 .blob-fx-eyebrow {
   font-family: var(--font-mono);
   font-size: 0.75rem;
