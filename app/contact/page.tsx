@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import ContactBanner from "@/components/ContactBanner";
 import ContactFormSection from "@/components/ContactFormSection";
-import OfficesSection from "@/components/OfficesSection";
 import ContactMapSection from "@/components/ContactMapSection";
 import ShapeGrid from "@/components/ShapeGrid";
 import FAQSection from "@/components/FAQSection";
@@ -20,7 +19,6 @@ export default function ContactPage() {
       <main>
         <ContactBanner />
         <ContactFormSection />
-        <OfficesSection />
 
         {/* Relocated from the main homepage per client request — still a temporary/preview treatment */}
         <ShapeGrid />
