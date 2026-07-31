@@ -6,69 +6,39 @@ import Reveal from "./Reveal";
 // hover via CSS perspective/transform-style, layered glass plane, concentric
 // orbit circles, social row). Structure and animation mechanics kept as-is;
 // recolored entirely to the Penaxis palette (violet / ember / volt / ink) and
-// switched to the site's existing display/body fonts. Not wired into the
-// page yet — placeholder content until we decide which section uses it.
+// switched to the site's existing display/body fonts. Repurposed to show the
+// 3 office locations (Pakistan, Dubai, Georgia) instead of the original
+// generic shape-variant placeholder content.
 
 const CARDS = [
   {
     theme: "violet",
-    title: "Orb glass",
-    text: "Soft pill body with stacked glass and concentric depth cues.",
+    title: "Pakistan Office",
+    text: "We are based in Pakistan.",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">
-        <circle cx="12" cy="12" r="5" fill="#fff" />
+        <path fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5.25 6.14 11.6 6.4 11.86a.85.85 0 0 0 1.2 0C12.86 20.6 19 14.25 19 9a7 7 0 0 0-7-7zm0 9.75A2.75 2.75 0 1 1 12 6.25a2.75 2.75 0 0 1 0 5.5z" />
       </svg>
     ),
   },
   {
     theme: "ember",
-    title: "Chamfer cut",
-    text: "Precision corners via clip-path — reads sharp on light UI.",
+    title: "Dubai Office",
+    text: "We are based in Dubai.",
     cut: true,
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path fill="#fff" d="M12 2L4 7v10l8 5 8-5V7l-8-5zm0 2.2l5.5 3.4L12 10.9 6.5 7.6 12 4.2zM6 9.9l5 3v6.1l-5-3.1V9.9zm12 6.1l-5 3.1v-6.2l5-3v6.1z" />
+        <path fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5.25 6.14 11.6 6.4 11.86a.85.85 0 0 0 1.2 0C12.86 20.6 19 14.25 19 9a7 7 0 0 0-7-7zm0 9.75A2.75 2.75 0 1 1 12 6.25a2.75 2.75 0 0 1 0 5.5z" />
       </svg>
     ),
   },
   {
     theme: "volt",
-    title: "Neo surface",
-    text: "High-contrast rim, hard shadow, and an electric accent rail.",
+    title: "Georgia Office",
+    text: "We are based in Georgia.",
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">
-        <circle cx="12" cy="12" r="4" fill="none" stroke="#111" strokeWidth="2" />
-      </svg>
-    ),
-  },
-  {
-    theme: "cinema",
-    title: "Cinema wide",
-    text: "Landscape canvas for metrics, testimonials, or dashboard hero tiles.",
-    wide: true,
-    icon: (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path fill="#fff" d="M8 5v14l11-7-11-7z" />
-      </svg>
-    ),
-  },
-  {
-    theme: "prism",
-    title: "Crystal facet",
-    text: "Angular gradient break with a prismatic highlight pass.",
-    icon: (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path fill="#111" d="M12 2l9 16H3L12 2zm0 4.5L7.5 16h9L12 6.5z" />
-      </svg>
-    ),
-  },
-  {
-    theme: "void",
-    title: "Layered stack",
-    text: "Three floating sheets with a subtle parallax on hover.",
-    icon: (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path fill="#fff" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
+        <path fill="#111" d="M12 2a7 7 0 0 0-7 7c0 5.25 6.14 11.6 6.4 11.86a.85.85 0 0 0 1.2 0C12.86 20.6 19 14.25 19 9a7 7 0 0 0-7-7zm0 9.75A2.75 2.75 0 1 1 12 6.25a2.75 2.75 0 0 1 0 5.5z" />
       </svg>
     ),
   },
@@ -108,9 +78,7 @@ export default function ShapeGrid() {
           {CARDS.map((card, i) => (
             <Reveal as="div" key={card.title} delay={i * 0.06}>
               <div
-                className={`ux-parent ux-parent--${card.theme} ${card.cut ? "ux-parent--cut" : ""} ${
-                  card.wide ? "ux-parent--wide ux-parent--span-2" : ""
-                }`}
+                className={`ux-parent ux-parent--${card.theme} ${card.cut ? "ux-parent--cut" : ""}`}
               >
                 <div className="ux-card">
                   <div className="ux-logo" aria-hidden="true">
