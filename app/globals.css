@@ -4876,3 +4876,89 @@ button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .btn-grad { transition: box-shadow 0.2s ease, transform 0.2s ease; }
 }
+
+/* Service Flex Panels (homepage) — vertical hover-expand strips */
+.fp-section { padding: 6rem 1.5rem; background: #faf9fd; }
+.fp-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  gap: 1rem;
+  height: 26rem;
+}
+.fp-slide {
+  position: relative;
+  flex: 0 0 8.5%;
+  height: 100%;
+  cursor: pointer;
+  border-radius: 1.5rem;
+  padding: 1.75rem;
+  overflow: hidden;
+  transition: flex-basis 0.5s ease, padding 0.5s ease;
+}
+.fp-slide.is-active { flex: 0 0 55%; }
+.fp--violet { background: linear-gradient(160deg, #8768b7, #5c3e82); }
+.fp--ink { background: linear-gradient(160deg, #2e2e33, #171717); }
+.fp--ember { background: linear-gradient(160deg, #ff9a52, #fc6607); }
+.fp--volt { background: linear-gradient(160deg, #eaf9a0, #d6f23c); }
+.fp-title {
+  position: relative;
+  width: 22rem;
+  height: 3.5rem;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin: 0;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  transform-origin: left center;
+  transform: rotate(-90deg) translateX(-100%);
+  top: 0;
+  left: 0;
+  transition: transform 0.5s ease, top 0.5s ease;
+}
+.fp--volt .fp-title { color: #212121; }
+.fp-slide.is-active .fp-title {
+  transform: rotate(0deg) translateX(0);
+}
+.fp-about {
+  opacity: 0;
+  position: relative;
+  color: rgba(255, 255, 255, 0.85);
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-top: 1.5rem;
+  transition: opacity 0.4s ease 0.1s;
+}
+.fp--volt .fp-about { color: rgba(33, 33, 33, 0.75); }
+.fp-slide.is-active .fp-about { opacity: 1; }
+.fp-link {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #fff;
+}
+.fp--volt .fp-link { color: #212121; }
+@media (max-width: 900px) {
+  .fp-container { height: auto; flex-direction: column; }
+  .fp-slide { flex: none; height: 4.5rem; padding: 1.25rem; }
+  .fp-slide.is-active { height: auto; min-height: 12rem; }
+  .fp-title {
+    width: auto;
+    height: auto;
+    transform: none;
+    position: static;
+    font-size: 1.15rem;
+  }
+  .fp-slide.is-active .fp-title { transform: none; }
+  .fp-about { margin-top: 0.75rem; }
+}
