@@ -4,6 +4,7 @@ import Reveal from "./Reveal";
 import ServiceBanner from "./ServiceBanner";
 import ServiceTicker from "./ServiceTicker";
 import ServiceProcess from "./ServiceProcess";
+import ServiceHighlights from "./ServiceHighlights";
 import { services, stats } from "@/lib/data";
 
 // Template for a single service's detail page. Ported the "we craft
@@ -64,6 +65,8 @@ export default function ServiceDetail({ slug }: { slug: string }) {
       </section>
 
       <ServiceProcess pillars={service.pillars} />
+
+      <ServiceHighlights stat={statA} photo={FRAME_PHOTOS[(index + 1) % FRAME_PHOTOS.length]} pillars={service.pillars} />
 
       <section className="svd-section svd-section--alt">
         <div className="mx-auto max-w-7xl px-6">
