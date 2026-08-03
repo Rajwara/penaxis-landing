@@ -27,6 +27,7 @@ export const navRight = [
     children: [
       { label: "Game Changers", href: "/game-changers" },
       { label: "Who We Are", href: "/who-we-are" },
+      { label: "FAQs", href: "/faqs" },
     ],
   },
 ];
@@ -41,6 +42,7 @@ export const navMobile = [
   { label: "Case Studies", href: "/case-studies" },
   { label: "Game Changers", href: "/game-changers" },
   { label: "Who We Are", href: "/who-we-are" },
+  { label: "FAQs", href: "/faqs" },
   { label: "Our Team", href: "#team" },
 ];
 
