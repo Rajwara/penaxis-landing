@@ -34,21 +34,15 @@ function LogoMark({ size = 22 }: { size?: number }) {
   );
 }
 
-const MOBILE_SUBMENUS: Record<string, { items: { label: string; href: string }[]; viewAllHref: string; viewAllLabel: string }> = {
+const MOBILE_SUBMENUS: Record<string, { items: { label: string; href: string }[] }> = {
   Services: {
     items: services.map((s) => ({ label: s.title, href: `/services/${s.slug}` })),
-    viewAllHref: "/services",
-    viewAllLabel: "View all services",
   },
   Industries: {
     items: industries.map((ind) => ({ label: ind.title, href: `/industries#${slugify(ind.title)}` })),
-    viewAllHref: "/industries",
-    viewAllLabel: "View all industries",
   },
   "Case Studies": {
     items: caseStudyPlaceholders.map((c) => ({ label: c.title, href: `/case-studies/${c.slug}` })),
-    viewAllHref: "/case-studies",
-    viewAllLabel: "View all case studies",
   },
 };
 
@@ -449,15 +443,6 @@ export default function Navbar() {
                         </a>
                       </li>
                     ))}
-                    <li>
-                      <a
-                        href={submenu.viewAllHref}
-                        onClick={() => setMobileOpen(false)}
-                        className="block py-2 text-sm font-semibold text-volt"
-                      >
-                        {submenu.viewAllLabel} →
-                      </a>
-                    </li>
                   </ul>
                 </div>
               </div>
