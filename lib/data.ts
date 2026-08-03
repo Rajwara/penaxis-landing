@@ -1,3 +1,15 @@
+// Shared slugify helper — turns an industry title into a URL-safe anchor id,
+// e.g. "Software, IT & SaaS" -> "software-it-saas". Used by both the
+// /industries page (to set the anchor) and the mobile nav accordion (to
+// link straight to it).
+export function slugify(str: string) {
+  return str
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 // Left navigation capsule — primary destinations
 export const navLeft = [
   { label: "Services", href: "/services" },

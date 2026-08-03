@@ -3341,6 +3341,7 @@ button:focus-visible {
   gap: 1rem;
   position: relative;
   overflow: hidden;
+  scroll-margin-top: 6.5rem;
 }
 .ih-card-num {
   font-family: var(--font-mono);

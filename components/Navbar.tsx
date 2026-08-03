@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { navLeft, navRight, navCta, navMobile, services, caseStudyPlaceholders } from "@/lib/data";
+import { navLeft, navRight, navCta, navMobile, services, caseStudyPlaceholders, industries, slugify } from "@/lib/data";
 import IndustriesMegaMenu from "./IndustriesMegaMenu";
 import ServicesMegaMenu from "./ServicesMegaMenu";
 import CaseStudiesMegaMenu from "./CaseStudiesMegaMenu";
@@ -39,6 +39,11 @@ const MOBILE_SUBMENUS: Record<string, { items: { label: string; href: string }[]
     items: services.map((s) => ({ label: s.title, href: `/services/${s.slug}` })),
     viewAllHref: "/services",
     viewAllLabel: "View all services",
+  },
+  Industries: {
+    items: industries.map((ind) => ({ label: ind.title, href: `/industries#${slugify(ind.title)}` })),
+    viewAllHref: "/industries",
+    viewAllLabel: "View all industries",
   },
   "Case Studies": {
     items: caseStudyPlaceholders.map((c) => ({ label: c.title, href: `/case-studies/${c.slug}` })),

@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { industries } from "@/lib/data";
+import { industries, slugify } from "@/lib/data";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -238,7 +238,7 @@ export default function IndustriesHub() {
         </div>
         <div className="ih-grid">
           {industries.map((ind, i) => (
-            <article className="ih-card" key={ind.title}>
+            <article className="ih-card" id={slugify(ind.title)} key={ind.title}>
               <span className="ih-card-num">{String(i + 1).padStart(2, "0")} / 13</span>
               <h3>{ind.title}</h3>
               <p>{ind.copy}</p>
