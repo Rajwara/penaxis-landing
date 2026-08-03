@@ -2213,6 +2213,7 @@ button:focus-visible {
   justify-content: center;
   position: relative;
   padding: 0.5rem 0;
+  cursor: pointer;
 }
 .ct-text-span {
   position: absolute;
@@ -2230,7 +2231,18 @@ button:focus-visible {
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
-.ct-text:hover > .ct-text-span {
+/* Real hover only — gated so touch devices (no true hover capability)
+   never trigger this via a tap. Without this gate, some mobile browsers
+   simulate a stuck :hover state after a tap-scroll, revealing every
+   line's hidden sub-text on top of the main text at once. */
+@media (hover: hover) and (pointer: fine) {
+  .ct-text:hover > .ct-text-span {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+/* Click/tap toggle — works on every device, and is the only way this
+   reveals on touch. */
+.ct-text.ct-active > .ct-text-span {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 .ct-text-span a {
