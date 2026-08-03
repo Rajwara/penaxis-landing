@@ -193,7 +193,7 @@ export const whyUsMetrics = [
 
 export const team = [
   { name: "Adeel Aslam", role: "CEO & Founder", image: "/images/team/adeel-aslam.webp", bio: "Leads vision and strategy for everything we build." },
-  { name: "Shahzad Ali", role: "Co-Founder & CFO" },
+  { name: "Shehzad Jalal", role: "Co-Founder & CFO", image: "/images/team/shehzad-jalal.webp", bio: "Keeps the numbers straight and the business on solid ground." },
   { name: "Fizza Shahzad", role: "Social Media Associate", image: "/images/team/fizza-shahzad.webp", bio: "Creates content that gets people talking." },
   { name: "Hamza Durrani", role: "BD Manager", image: "/images/team/hamza-durrani.webp", bio: "Drives new business and keeps the pipeline moving." },
   { name: "Laiba Zafar", role: "Social Media Manager", image: "/images/team/laiba-zafar.webp", bio: "Shapes our voice and presence across every platform." },
