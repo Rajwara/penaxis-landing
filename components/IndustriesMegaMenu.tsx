@@ -79,9 +79,15 @@ export default function IndustriesMegaMenu() {
         <h4 className="font-display font-bold text-sm mb-3">13 industries, one team</h4>
         <a
           href="/industries"
-          className="block rounded-xl overflow-hidden bg-gradient-to-br from-violet-600 to-violet-900 h-36 mb-4 relative group"
+          className="block rounded-xl overflow-hidden h-36 mb-4 relative group"
         >
-          <span className="absolute inset-0 flex items-end p-4 text-xs font-semibold bg-black/10 group-hover:bg-black/0 transition-colors">
+          <img
+            src="/images/hero/industries-network.webp"
+            alt="Global industry network"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <span className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent group-hover:from-black/80 transition-colors" />
+          <span className="absolute inset-0 flex items-end p-4 text-xs font-semibold text-white">
             See all industries →
           </span>
         </a>
