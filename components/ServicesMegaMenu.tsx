@@ -1,11 +1,12 @@
 "use client";
 
-import { services, team } from "@/lib/data";
+import { services } from "@/lib/data";
 
 // Ported mechanism from a reference product/services mega menu (a row of
 // icon+title+description items with one highlighted card, plus a side card
 // with an image and supporting links) — restyled with Penaxis's own 4 real
 // services and brand palette instead of the reference's product lineup.
+// Side card uses the real Penaxis team group photo.
 
 const ICONS: Record<string, JSX.Element> = {
   "ai-mvp": (
@@ -33,7 +34,7 @@ const ICONS: Record<string, JSX.Element> = {
 };
 
 const HIGHLIGHT_SLUG = "ai-mvp";
-const fizza = team.find((m) => m.name === "Fizza Shahzad");
+const TEAM_PHOTO = "/images/hero/team-group.webp";
 
 export default function ServicesMegaMenu() {
   return (
@@ -90,14 +91,12 @@ export default function ServicesMegaMenu() {
 
       {/* Side card */}
       <div className="bg-haze p-6 flex flex-col">
-        {fizza?.image && (
-          <a
-            href="/game-changers"
-            className="block rounded-xl overflow-hidden h-60 mb-5 relative bg-gradient-to-br from-violet-200 to-volt/40"
-          >
-            <img src={fizza.image} alt="Penaxis team" className="w-full h-full object-cover object-top" />
-          </a>
-        )}
+        <a
+          href="/game-changers"
+          className="block rounded-xl overflow-hidden h-60 mb-5 relative bg-gradient-to-br from-violet-200 to-volt/40"
+        >
+          <img src={TEAM_PHOTO} alt="The Penaxis team" className="w-full h-full object-cover object-top" />
+        </a>
         <h5 className="font-display font-bold text-sm text-ink mb-2">Our team</h5>
         <a href="/game-changers" className="text-sm text-ink/55 hover:text-violet-700 transition-colors mb-2.5">
           Meet the people behind the work
