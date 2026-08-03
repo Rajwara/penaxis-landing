@@ -4389,7 +4389,7 @@ button:focus-visible {
 /* Scroll to top button */
 .stt-btn {
   position: fixed;
-  right: 1.5rem;
+  left: 1.5rem;
   bottom: 11rem;
   z-index: 65;
   width: 46px;
@@ -4412,7 +4412,7 @@ button:focus-visible {
 .stt-btn.cc-cleared { bottom: 5.5rem; }
 .stt-btn:hover { background: #5c3e82; }
 @media (max-width: 640px) {
-  .stt-btn { right: 1rem; bottom: 12.5rem; width: 42px; height: 42px; }
+  .stt-btn { left: 1rem; bottom: 12.5rem; width: 42px; height: 42px; }
   .stt-btn.cc-cleared { bottom: 5rem; }
 }
 
@@ -4568,7 +4568,7 @@ button:focus-visible {
 /* Store Locator */
 .sl-tab {
   position: fixed;
-  right: 1.5rem;
+  left: 1.5rem;
   bottom: 7.25rem;
   z-index: 62;
   display: flex;
@@ -4589,7 +4589,7 @@ button:focus-visible {
 .sl-tab:hover { transform: scale(1.06); background: hsla(0, 0%, 100%, 0.18); }
 .sl-tab.cc-cleared { bottom: 1.75rem; }
 @media (max-width: 640px) {
-  .sl-tab { right: 1rem; bottom: 8rem; width: 46px; height: 46px; }
+  .sl-tab { left: 1rem; bottom: 8rem; width: 46px; height: 46px; }
   .sl-tab.cc-cleared { bottom: 1rem; }
 }
 

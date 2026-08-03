@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function IconMuted() {
   return (
@@ -23,13 +23,36 @@ function IconSound() {
 }
 
 // Full-bleed video banner for the top of the homepage.
-// Autoplays muted + looped (required by every major browser's autoplay
-// policy — audio can only start after a user gesture), with a tap-to-unmute
-// control so visitors can opt into sound.
+// Attempts autoplay WITH sound first. Browsers block audio-with-autoplay
+// for most first-time visitors (a hard policy, not something site code can
+// override), so this falls back to muted autoplay when the browser rejects
+// it — either way the video plays and loops, with a toggle to switch sound
+// on/off manually.
 
 export default function VideoBanner() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [muted, setMuted] = useState(true);
+  const [muted, setMuted] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Try to play with sound on first. Most browsers will reject this for
+    // a first-time visitor (autoplay-with-sound is blocked unless the
+    // visitor already has some engagement history with the site) — if so,
+    // fall back to muted autoplay so the video still plays.
+    video.muted = false;
+    video
+      .play()
+      .then(() => setMuted(false))
+      .catch(() => {
+        video.muted = true;
+        setMuted(true);
+        video.play().catch(() => {
+          /* Autoplay fully blocked; poster image stays visible */
+        });
+      });
+  }, []);
 
   const toggleSound = () => {
     const video = videoRef.current;
@@ -46,9 +69,7 @@ export default function VideoBanner() {
         className="vb-video"
         src="/videos/homepage-banner.mp4"
         poster="/images/hero/video-banner-poster.jpg"
-        autoPlay
         loop
-        muted
         playsInline
         preload="auto"
       />
