@@ -6554,3 +6554,54 @@ button:focus-visible {
   margin-bottom: 1.5rem;
 }
 .cso-p:last-child { margin-bottom: 0; }
+
+/* Homepage video banner — full-bleed autoplay/loop video hero */
+.vb-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 560px;
+  overflow: hidden;
+  background: #171717;
+}
+.vb-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.vb-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(23, 23, 23, 0.15) 0%, rgba(23, 23, 23, 0) 35%, rgba(23, 23, 23, 0.35) 100%);
+  pointer-events: none;
+}
+.vb-sound-toggle {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(23, 23, 23, 0.45);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.vb-sound-toggle:hover {
+  background: rgba(23, 23, 23, 0.7);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-1px);
+}
+@media (max-width: 640px) {
+  .vb-section { height: 100dvh; min-height: 480px; }
+  .vb-sound-toggle { right: 1rem; bottom: 1.25rem; padding: 0.5rem 0.85rem; font-size: 0.78rem; }
+}

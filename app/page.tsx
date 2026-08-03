@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import VideoBanner from "@/components/VideoBanner";
 import NameIntro from "@/components/NameIntro";
 import HorizontalGallery from "@/components/HorizontalGallery";
 import ServiceFlexPanels from "@/components/ServiceFlexPanels";
@@ -14,6 +15,7 @@ export default function Home() {
     <>
       <Navbar />
       <main>
+        <VideoBanner />
         <NameIntro />
         <HorizontalGallery />
         <ServiceFlexPanels />
