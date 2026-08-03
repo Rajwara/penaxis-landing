@@ -26,7 +26,7 @@ export default function HorizontalGallery() {
       <h2>Work that moves sideways</h2>
       <p>Scroll through a few of the things Penaxis has been building lately.</p>
       <div className="hg-intro-video">
-        <video controls poster="/images/hero/team-huddle.jpg" preload="metadata">
+        <video controls poster="/images/hero/founders-video-poster.webp" preload="metadata">
           {/* Swap this src once the real CEO/founder interview video is uploaded */}
           <source src="" type="video/mp4" />
         </video>
