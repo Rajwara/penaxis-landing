@@ -233,6 +233,7 @@ export const caseStudyPlaceholders = [
     tags: ["Software, IT & SaaS"],
     blurb:
       "Took a concept from whiteboard to a launch-ready SaaS MVP — core features first, AI built in from day one, focused on speed to market.",
+    image: "/images/case-studies/ai-powered-saas-mvp.webp",
   },
   {
     slug: "ecommerce-fulfillment-automation",
@@ -240,6 +241,7 @@ export const caseStudyPlaceholders = [
     tags: ["E-Commerce & Retail", "Software, IT & SaaS"],
     blurb:
       "Connected storefront, inventory, and shipping into one automated workflow, cutting manual order handling across the fulfillment process.",
+    image: "/images/case-studies/ecommerce-fulfillment-automation.webp",
   },
   {
     slug: "healthcare-crm",
@@ -247,6 +249,7 @@ export const caseStudyPlaceholders = [
     tags: ["Healthcare & Wellness", "Software, IT & SaaS"],
     blurb:
       "Designed a tailored CRM and patient-record workflow that centralized information across multiple provider locations.",
+    image: "/images/case-studies/healthcare-crm.webp",
   },
   {
     slug: "edtech-learning-portal",
@@ -254,6 +257,7 @@ export const caseStudyPlaceholders = [
     tags: ["Education & EdTech"],
     blurb:
       "Built a learning portal covering course delivery, student progress tracking, and instructor tools from the ground up.",
+    image: "/images/case-studies/edtech-learning-portal.webp",
   },
   {
     slug: "real-estate-deal-flow",
@@ -261,6 +265,7 @@ export const caseStudyPlaceholders = [
     tags: ["Real Estate & Property", "Software, IT & SaaS"],
     blurb:
       "Replaced spreadsheet-based deal tracking with a purpose-built platform for listings, pipeline stages, and broker collaboration.",
+    image: "/images/case-studies/real-estate-deal-flow.webp",
   },
   {
     slug: "logistics-dispatch-system",

@@ -3,21 +3,15 @@
 import { useState } from "react";
 import Reveal from "./Reveal";
 import CountStat from "./CountStat";
-import { caseStudyPlaceholders, stats, team } from "@/lib/data";
+import { caseStudyPlaceholders, stats } from "@/lib/data";
 
 // Ported from a reference "awards" accordion (date + title row, +/- toggle,
 // expanded description, and a thumbnail that appears on hover) and applied
-// to case studies instead. No real case studies exist yet, so this reuses
-// the same clearly-placeholder project descriptions as /case-studies (shared
-// via lib/data). Hover thumbnails use team photos as temporary stand-ins
-// (client's request) until real project photos exist — a fixed shuffle
-// order (not Math.random) so the order matches between server and client
-// render and doesn't cause a hydration mismatch.
+// to case studies instead. Hover thumbnails now use real topical images
+// (one per featured case study) instead of the team-photo stand-ins used
+// before real ones existed.
 
 const FEATURED = caseStudyPlaceholders.slice(0, 5);
-const pictured = team.filter((m) => m.image);
-const THUMB_SHUFFLE = [4, 0, 7, 2, 6, 1, 5, 3, 8];
-const thumbImages = THUMB_SHUFFLE.map((i) => pictured[i % pictured.length]?.image).filter(Boolean);
 
 export default function CaseStudiesAccordion() {
   const [open, setOpen] = useState<number | null>(null);
@@ -52,9 +46,9 @@ export default function CaseStudiesAccordion() {
                     </span>
                   </button>
 
-                  {thumbImages.length > 0 && (
+                  {study.image && (
                     <img
-                      src={thumbImages[i % thumbImages.length]}
+                      src={study.image}
                       alt=""
                       className="csa-thumb"
                       aria-hidden="true"
