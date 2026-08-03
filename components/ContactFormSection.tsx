@@ -52,9 +52,9 @@ const INFO_CARDS = [
 ];
 
 const SOCIALS = [
-  { label: "LinkedIn", href: `https://linkedin.com${contact.linkedin}` },
-  { label: "Facebook", href: "https://facebook.com/penaxis" },
-  { label: "Instagram", href: "https://instagram.com/penaxis" },
+  { label: "LinkedIn", href: `https://www.linkedin.com${contact.linkedin}` },
+  { label: "Facebook", href: "https://www.facebook.com/share/1F47cKGB3T/?mibextid=wwXIfr" },
+  { label: "Instagram", href: "https://www.instagram.com/penaxis.official?igsh=djg4MWdsaHNiNHdi" },
   { label: "YouTube", href: "https://youtube.com/@penaxis" },
 ];
 
