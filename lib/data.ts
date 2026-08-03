@@ -221,10 +221,9 @@ export const contact = {
 // Dubai and Jordan addresses are placeholders (confirmed with the client
 // as OK to ship for now) — swap for the real registered addresses when
 // available. Pakistan uses the real, confirmed office address above.
-// Placeholder case studies — no real case studies exist yet (per the
-// project handoff, /case-studies is a placeholder page), so these are
+// Placeholder case studies — no real case studies exist yet, so these are
 // clearly-generic, non-attributed project descriptions (no invented
-// client names, quotes, or stats), shared between the casestudy-v2 page
+// client names, quotes, or stats), shared between the /case-studies page
 // and the homepage case-studies accordion. Swap for real case studies
 // whenever they exist.
 export const caseStudyPlaceholders = [

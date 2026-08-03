@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
-import CaseStudyExperience from "@/components/CaseStudyExperience";
+import CaseStudyV2Banner from "@/components/CaseStudyV2Banner";
+import CaseStudyV2Grid from "@/components/CaseStudyV2Grid";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Case Studies — Penaxis",
-  description: "How Penaxis approaches a project, from first conversation to the system still running after launch.",
+  description: "Real projects and real impact — explore Penaxis's work by industry.",
 };
 
 export default function CaseStudiesPage() {
@@ -12,8 +14,10 @@ export default function CaseStudiesPage() {
     <>
       <Navbar />
       <main>
-        <CaseStudyExperience />
+        <CaseStudyV2Banner />
+        <CaseStudyV2Grid />
       </main>
+      <Footer />
     </>
   );
 }

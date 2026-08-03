@@ -113,7 +113,7 @@ export default function CaseStudyV2Grid() {
         <div className="csv2-cards">
           {filtered.map((study, i) => (
             <Reveal key={study.title} y={24} delay={0.05 + (i % 4) * 0.06}>
-              <a href="/case-studies" className="csv2-card">
+              <a href={`/case-studies/${study.slug}`} className="csv2-card">
                 <div className="csv2-card-thumb" style={{ background: GRADIENTS[i % GRADIENTS.length] }} />
                 <div className="csv2-card-tags">
                   {study.tags.map((tag) => (

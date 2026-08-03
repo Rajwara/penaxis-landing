@@ -8,7 +8,7 @@ import { caseStudyPlaceholders, stats, team } from "@/lib/data";
 // Ported from a reference "awards" accordion (date + title row, +/- toggle,
 // expanded description, and a thumbnail that appears on hover) and applied
 // to case studies instead. No real case studies exist yet, so this reuses
-// the same clearly-placeholder project descriptions as casestudy-v2 (shared
+// the same clearly-placeholder project descriptions as /case-studies (shared
 // via lib/data). Hover thumbnails use team photos as temporary stand-ins
 // (client's request) until real project photos exist — a fixed shuffle
 // order (not Math.random) so the order matches between server and client
@@ -64,7 +64,7 @@ export default function CaseStudiesAccordion() {
                   <div className="csa-row-body" aria-hidden={!isOpen}>
                     <div className="csa-row-body-inner">
                       <p>{study.blurb}</p>
-                      <a href="/casestudy-v2" className="csa-readall btn-grad">
+                      <a href="/case-studies" className="csa-readall btn-grad">
                         Read All
                       </a>
                     </div>
