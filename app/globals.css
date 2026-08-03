@@ -4539,6 +4539,17 @@ button:focus-visible {
   font-size: 0.9rem;
   padding: 0.85rem 1.5rem;
 }
+.qq-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.qq-error {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: #c0392b;
+  background: rgba(192, 57, 43, 0.08);
+  border: 1px solid rgba(192, 57, 43, 0.2);
+  border-radius: 0.6rem;
+  padding: 0.6rem 0.85rem;
+  margin: 0;
+}
 .qq-success { text-align: center; padding: 1rem 0; }
 .qq-success-icon {
   display: inline-flex;

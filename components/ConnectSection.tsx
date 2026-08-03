@@ -1,16 +1,43 @@
 "use client";
 
+import { useState } from "react";
 import Reveal from "./Reveal";
 import { contact } from "@/lib/data";
+import { submitForm } from "@/lib/submitForm";
 
 // Ported layout from a reference "Let's Connect" split contact section:
 // a cream form card on the left, a full-height photo on the right with a
 // floating "call us" pill overlapping the bottom edge. Replaces CTA.tsx on
 // the main homepage only (CTA.tsx / /home-v2 are untouched). Real Penaxis
-// phone number + a real office photo; form is UI-only (no backend wired
-// up yet), same as every other form on this site.
+// phone number + a real office photo. Submits to /api/contact, which
+// emails the submission to the Penaxis mailbox via Hostinger SMTP.
 
 export default function ConnectSection() {
+  const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", message: "" });
+  const [submitting, setSubmitting] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [error, setError] = useState("");
+
+  const handleChange = (field: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm((f) => ({ ...f, [field]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    setSubmitting(true);
+    try {
+      await submitForm("Homepage — Let's Connect", form);
+      setStatus("success");
+      setForm({ name: "", email: "", phone: "", company: "", message: "" });
+    } catch (err) {
+      setStatus("error");
+      setError(err instanceof Error ? err.message : "Something went wrong.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-20 md:py-28 bg-white">
       <div className="mx-auto max-w-7xl px-6">
@@ -34,32 +61,82 @@ export default function ConnectSection() {
               </p>
             </Reveal>
 
-            <Reveal delay={0.15}>
-              <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <Field label="Your name" placeholder="e.g. John Smith" />
-                  <Field label="Email address" placeholder="e.g. john@email.com" type="email" />
+            {status === "success" ? (
+              <Reveal delay={0.15}>
+                <div className="rounded-xl border border-emerald-600/20 bg-emerald-50 px-5 py-6 text-center">
+                  <p className="font-semibold text-emerald-800 mb-1">Thanks — message sent!</p>
+                  <p className="text-sm text-emerald-700/80">We&apos;ll get back to you within one business day.</p>
+                  <button
+                    type="button"
+                    onClick={() => setStatus("idle")}
+                    className="mt-4 text-sm font-medium text-violet-700 underline"
+                  >
+                    Send another message
+                  </button>
                 </div>
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <Field label="Phone number" placeholder="e.g. +1 222 444 66" type="tel" />
-                  <Field label="Company name" placeholder="e.g. Acme Inc." />
-                </div>
-                <div>
-                  <label className="block text-sm text-ink/70 mb-2">Your message</label>
-                  <textarea
-                    rows={4}
-                    placeholder="Type here …"
-                    className="w-full rounded-xl border border-ink/10 bg-white px-4 py-3 text-sm text-ink placeholder:text-ink/35 focus:outline-none focus:ring-2 focus:ring-violet-600/30 resize-none"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="btn-grad w-full sm:w-auto px-8 py-3.5 text-sm"
-                >
-                  Start a Conversation
-                </button>
-              </form>
-            </Reveal>
+              </Reveal>
+            ) : (
+              <Reveal delay={0.15}>
+                <form className="space-y-5" onSubmit={handleSubmit}>
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <Field
+                      label="Your name"
+                      placeholder="e.g. John Smith"
+                      value={form.name}
+                      onChange={handleChange("name")}
+                      required
+                    />
+                    <Field
+                      label="Email address"
+                      placeholder="e.g. john@email.com"
+                      type="email"
+                      value={form.email}
+                      onChange={handleChange("email")}
+                      required
+                    />
+                  </div>
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <Field
+                      label="Phone number"
+                      placeholder="e.g. +1 222 444 66"
+                      type="tel"
+                      value={form.phone}
+                      onChange={handleChange("phone")}
+                    />
+                    <Field
+                      label="Company name"
+                      placeholder="e.g. Acme Inc."
+                      value={form.company}
+                      onChange={handleChange("company")}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm text-ink/70 mb-2">Your message</label>
+                    <textarea
+                      rows={4}
+                      placeholder="Type here …"
+                      value={form.message}
+                      onChange={handleChange("message")}
+                      className="w-full rounded-xl border border-ink/10 bg-white px-4 py-3 text-sm text-ink placeholder:text-ink/35 focus:outline-none focus:ring-2 focus:ring-violet-600/30 resize-none"
+                    />
+                  </div>
+
+                  {status === "error" && (
+                    <p className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg px-4 py-2.5">
+                      {error}
+                    </p>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="btn-grad w-full sm:w-auto px-8 py-3.5 text-sm disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    {submitting ? "Sending…" : "Start a Conversation"}
+                  </button>
+                </form>
+              </Reveal>
+            )}
           </div>
 
           {/* Right — photo + floating call pill */}
@@ -94,10 +171,16 @@ function Field({
   label,
   placeholder,
   type = "text",
+  value,
+  onChange,
+  required,
 }: {
   label: string;
   placeholder: string;
   type?: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  required?: boolean;
 }) {
   return (
     <div>
@@ -105,6 +188,9 @@ function Field({
       <input
         type={type}
         placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        required={required}
         className="w-full rounded-xl border border-ink/10 bg-white px-4 py-3 text-sm text-ink placeholder:text-ink/35 focus:outline-none focus:ring-2 focus:ring-violet-600/30"
       />
     </div>

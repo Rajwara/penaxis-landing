@@ -2,17 +2,21 @@
 
 import { useEffect, useState } from "react";
 import { contact } from "@/lib/data";
+import { submitForm } from "@/lib/submitForm";
 
 // Fixed vertical tab on the left edge of the viewport. Clicking it opens a
 // modal with a short lead-capture form (name, email, phone, preferred
-// contact method). Form is UI-only — no backend wired up, same as every
-// other form on this site.
+// contact method). Submits to /api/contact, which emails the submission
+// to the Penaxis mailbox via Hostinger SMTP.
 
 const CONTACT_METHODS = ["WhatsApp", "Call", "Email"];
 
 export default function QuickQuote() {
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
+  const [form, setForm] = useState({ name: "", email: "", phone: "", contactMethod: "" });
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -33,6 +37,8 @@ export default function QuickQuote() {
   const closeAndReset = () => {
     setOpen(false);
     setSubmitted(false);
+    setError("");
+    setForm({ name: "", email: "", phone: "", contactMethod: "" });
   };
 
   return (
@@ -74,26 +80,60 @@ export default function QuickQuote() {
 
                 <form
                   className="qq-form"
-                  onSubmit={(e) => {
+                  onSubmit={async (e) => {
                     e.preventDefault();
-                    setSubmitted(true);
+                    setError("");
+                    setSubmitting(true);
+                    try {
+                      await submitForm("Quick Quote modal", form);
+                      setSubmitted(true);
+                    } catch (err) {
+                      setError(err instanceof Error ? err.message : "Something went wrong.");
+                    } finally {
+                      setSubmitting(false);
+                    }
                   }}
                 >
                   <label className="qq-field">
                     <span>Name</span>
-                    <input type="text" name="name" placeholder="Your name" required />
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Your name"
+                      required
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    />
                   </label>
                   <label className="qq-field">
                     <span>Email</span>
-                    <input type="email" name="email" placeholder="you@company.com" required />
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="you@company.com"
+                      required
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    />
                   </label>
                   <label className="qq-field">
                     <span>Phone number</span>
-                    <input type="tel" name="phone" placeholder="+1 222 444 66" required />
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="+1 222 444 66"
+                      required
+                      value={form.phone}
+                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    />
                   </label>
                   <label className="qq-field">
                     <span>Preferred way to contact</span>
-                    <select name="contactMethod" defaultValue="">
+                    <select
+                      name="contactMethod"
+                      value={form.contactMethod}
+                      onChange={(e) => setForm({ ...form, contactMethod: e.target.value })}
+                    >
                       <option value="" disabled>
                         Select an option
                       </option>
@@ -105,8 +145,10 @@ export default function QuickQuote() {
                     </select>
                   </label>
 
-                  <button type="submit" className="qq-submit btn-grad">
-                    Request Quote
+                  {error && <p className="qq-error">{error}</p>}
+
+                  <button type="submit" className="qq-submit btn-grad" disabled={submitting}>
+                    {submitting ? "Sending…" : "Request Quote"}
                   </button>
                 </form>
               </>
