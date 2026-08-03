@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import CaseStudyBanner from "@/components/CaseStudyBanner";
 import CaseStudyFeaturedCTA from "@/components/CaseStudyFeaturedCTA";
+import CaseStudyOverview from "@/components/CaseStudyOverview";
 import Footer from "@/components/Footer";
 import { caseStudyPlaceholders } from "@/lib/data";
 
@@ -32,6 +33,7 @@ export default function CaseStudySlugPage({ params }: { params: { slug: string }
       <main>
         <CaseStudyBanner title={study.title} tags={study.tags} />
         <CaseStudyFeaturedCTA featured={featured} />
+        <CaseStudyOverview blurb={study.blurb} title={study.title} />
       </main>
       <Footer />
     </>

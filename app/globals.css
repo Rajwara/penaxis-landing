@@ -6536,3 +6536,21 @@ button:focus-visible {
   transition: background 0.2s;
 }
 .csf-link:hover { background: #734fa0; }
+
+/* Case study overview (two paragraphs) */
+.cso-section { padding: 5rem 0; background: #fff; }
+.cso-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  color: #212121;
+  margin-bottom: 1.5rem;
+}
+.cso-p {
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: rgba(33, 33, 33, 0.7);
+  margin-bottom: 1.5rem;
+}
+.cso-p:last-child { margin-bottom: 0; }
