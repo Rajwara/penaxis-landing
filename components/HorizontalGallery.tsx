@@ -5,18 +5,18 @@
 // so ServicesShowcase now sits directly after this section instead.
 
 const PRESS_LOGOS = [
-  { src: "/images/press/breakit.svg", alt: "Breakit" },
-  { src: "/images/press/forbes.svg", alt: "Forbes" },
-  { src: "/images/press/etn.svg", alt: "ETN" },
-  { src: "/images/press/fortune-logo.png", alt: "Fortune" },
-  { src: "/images/press/dagens-industri.png", alt: "Dagens Industri" },
+  { src: "/images/press/bidmore.webp", alt: "BidMore" },
+  { src: "/images/press/seka.webp", alt: "Seka" },
+  { src: "/images/press/orbital.webp", alt: "Orbital Installation Technologies" },
+  { src: "/images/press/oktabytes.webp", alt: "OktaBytes" },
+  { src: "/images/press/nhs.webp", alt: "NHS" },
+  { src: "/images/press/e2e-worx.webp", alt: "E2E Worx" },
+  { src: "/images/press/the-plate-agent.webp", alt: "The Plate Agent" },
 ];
 
 export default function HorizontalGallery() {
   // Tripled (not just duplicated) for a smoother, less repetitive-looking
-  // loop — with only 5 real logos, doubling made the strip only slightly
-  // wider than the viewport, so the cycle felt short and cramped. Add
-  // more real, confirmed press logos to PRESS_LOGOS above whenever
+  // loop. Add more real, confirmed logos to PRESS_LOGOS above whenever
   // available — the marquee handles any number of items the same way.
   const track = [...PRESS_LOGOS, ...PRESS_LOGOS, ...PRESS_LOGOS];
 
