@@ -31,12 +31,19 @@ function getTransporter() {
   });
 }
 
+export type FormAttachment = {
+  filename: string;
+  content: Buffer;
+  contentType?: string;
+};
+
 export type FormSubmission = {
   source: string; // which form/section this came from, e.g. "Homepage — Let's Connect"
   fields: Record<string, string>;
+  attachments?: FormAttachment[];
 };
 
-export async function sendFormSubmission({ source, fields }: FormSubmission) {
+export async function sendFormSubmission({ source, fields, attachments }: FormSubmission) {
   const transporter = getTransporter();
   const to = process.env.CONTACT_TO_EMAIL || process.env.SMTP_USER!;
   const from = process.env.SMTP_USER!;
@@ -53,11 +60,19 @@ export async function sendFormSubmission({ source, fields }: FormSubmission) {
     )
     .join("");
 
+  const attachmentNote =
+    attachments && attachments.length > 0
+      ? `<p style="color:#888;font-size:13px;margin-top:16px;">📎 ${attachments.length} attachment${
+          attachments.length > 1 ? "s" : ""
+        }: ${attachments.map((a) => escapeHtml(a.filename)).join(", ")}</p>`
+      : "";
+
   const html = `
     <div style="font-family:sans-serif;max-width:560px;">
       <h2 style="color:#734FA0;margin-bottom:4px;">New form submission</h2>
       <p style="color:#888;margin-top:0;margin-bottom:20px;font-size:13px;">${escapeHtml(source)}</p>
       <table style="border-collapse:collapse;width:100%;">${rows}</table>
+      ${attachmentNote}
     </div>
   `;
 
@@ -73,6 +88,7 @@ export async function sendFormSubmission({ source, fields }: FormSubmission) {
     subject: `New form submission — ${source}`,
     text: `${source}\n\n${text}`,
     html,
+    attachments,
   });
 }
 

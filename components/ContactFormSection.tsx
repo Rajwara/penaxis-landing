@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Reveal from "./Reveal";
 import { contact } from "@/lib/data";
 import { submitForm } from "@/lib/submitForm";
@@ -12,9 +12,9 @@ import { submitForm } from "@/lib/submitForm";
 // Penaxis's own. Submits to /api/contact, which emails the submission
 // to the Penaxis mailbox via Hostinger SMTP. Added an email field (not
 // in the original layout) since a reply-to address is required to
-// actually get back to whoever submits. The "Add an attachment" button
-// stays decorative — file uploads need separate storage wiring and
-// weren't part of this pass.
+// actually get back to whoever submits. Attachments (JPG/PNG/PDF/Word,
+// max 3 files, 3MB each, 4MB total — Vercel serverless functions cap
+// request bodies around 4.5MB) are sent as real email attachments.
 
 const INFO_CARDS = [
   {
@@ -58,20 +58,66 @@ const SOCIALS = [
   { label: "YouTube", href: "https://youtube.com/@penaxis" },
 ];
 
+const MAX_FILES = 3;
+const MAX_FILE_BYTES = 3 * 1024 * 1024; // 3MB per file
+const MAX_TOTAL_BYTES = 4 * 1024 * 1024; // 4MB combined
+const ACCEPTED_TYPES = ".jpg,.jpeg,.png,.webp,.pdf,.doc,.docx";
+
+function formatFileSize(bytes: number) {
+  if (bytes < 1024 * 1024) return `${Math.round(bytes / 1024)}KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)}MB`;
+}
+
 export default function ContactFormSection() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [files, setFiles] = useState<File[]>([]);
+  const [fileError, setFileError] = useState("");
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [submitting, setSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [error, setError] = useState("");
+
+  const handleFilesSelected = (selected: FileList | null) => {
+    if (!selected || selected.length === 0) return;
+    setFileError("");
+
+    const incoming = Array.from(selected);
+    const combined = [...files, ...incoming];
+
+    if (combined.length > MAX_FILES) {
+      setFileError(`You can attach up to ${MAX_FILES} files.`);
+      return;
+    }
+    for (const f of incoming) {
+      if (f.size > MAX_FILE_BYTES) {
+        setFileError(`"${f.name}" is over the 3MB limit per file.`);
+        return;
+      }
+    }
+    const totalBytes = combined.reduce((sum, f) => sum + f.size, 0);
+    if (totalBytes > MAX_TOTAL_BYTES) {
+      setFileError("Total attachments can't exceed 4MB.");
+      return;
+    }
+
+    setFiles(combined);
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  };
+
+  const removeFile = (index: number) => {
+    setFileError("");
+    setFiles((prev) => prev.filter((_, i) => i !== index));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setSubmitting(true);
     try {
-      await submitForm("Contact page", form);
+      await submitForm("Contact page", form, files);
       setStatus("success");
       setForm({ name: "", email: "", phone: "", message: "" });
+      setFiles([]);
     } catch (err) {
       setStatus("error");
       setError(err instanceof Error ? err.message : "Something went wrong.");
@@ -202,12 +248,55 @@ export default function ContactFormSection() {
                   />
                 </div>
 
-                <button type="button" className="flex items-center gap-2 text-sm text-ink/40 cursor-not-allowed" title="File attachments aren't wired up yet">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M21.44 11.05l-9.19 9.19a5 5 0 0 1-7.07-7.07l9.19-9.19a3.5 3.5 0 0 1 4.95 4.95l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.49" />
-                  </svg>
-                  Add an attachment
-                </button>
+                <div>
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept={ACCEPTED_TYPES}
+                    multiple
+                    onChange={(e) => handleFilesSelected(e.target.files)}
+                    className="hidden"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => fileInputRef.current?.click()}
+                    disabled={files.length >= MAX_FILES}
+                    className="flex items-center gap-2 text-sm text-ink/60 hover:text-violet-700 transition-colors disabled:text-ink/30 disabled:cursor-not-allowed"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M21.44 11.05l-9.19 9.19a5 5 0 0 1-7.07-7.07l9.19-9.19a3.5 3.5 0 0 1 4.95 4.95l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.49" />
+                    </svg>
+                    Add an attachment
+                    <span className="text-xs text-ink/35">(JPG, PNG, PDF, Word — max 3MB each)</span>
+                  </button>
+
+                  {files.length > 0 && (
+                    <ul className="mt-3 space-y-1.5">
+                      {files.map((f, i) => (
+                        <li
+                          key={`${f.name}-${i}`}
+                          className="flex items-center justify-between gap-3 rounded-lg bg-ink/[0.04] px-3 py-2 text-sm"
+                        >
+                          <span className="truncate text-ink/75">
+                            {f.name} <span className="text-ink/40">({formatFileSize(f.size)})</span>
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => removeFile(i)}
+                            aria-label={`Remove ${f.name}`}
+                            className="shrink-0 text-ink/40 hover:text-red-600 transition-colors"
+                          >
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
+                              <path d="M6 6l12 12M18 6L6 18" />
+                            </svg>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {fileError && <p className="mt-2 text-xs text-red-600">{fileError}</p>}
+                </div>
 
                 {status === "error" && (
                   <p className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg px-4 py-2.5">
