@@ -6,7 +6,7 @@ import { stats } from "@/lib/data";
 // Ported from a reference "who we are" banner: pill badge, two-line accent
 // heading, large rounded photo, and a stat row underneath. Uses Penaxis's
 // own real stats (already used elsewhere on the site) instead of inventing
-// numbers. Image is a placeholder — client will swap in real photos shortly.
+// numbers. Photo is real (a Penaxis team meeting).
 
 const FEATURED_STATS = [stats[1], stats[2], stats[3], stats[0]];
 
@@ -26,7 +26,7 @@ export default function AboutV2Banner() {
 
         <Reveal delay={0.1} className="av2-image-wrap">
           <div className="av2-image">
-            <img src="/images/hero/office-logo-desk.jpg" alt="The Penaxis office" />
+            <img src="/images/hero/trusted-partner-office.webp" alt="The Penaxis team in a meeting" />
           </div>
         </Reveal>
 
