@@ -13,20 +13,20 @@ import StarfieldBackground from "./StarfieldBackground";
 // Penaxis's own 4 real services instead of the reference's (Spanish,
 // real-estate-specific) placeholder copy.
 //
-// Each card has its own photo background (cards 1-2 use dedicated
-// photos; cards 3-4 share the original photo). No color tint. Closed
-// cards get a dark overlay (for the rotated title's contrast); the
-// overlay fades away on the open/active card for a clean look.
+// Each card has its own dedicated photo background — real team photos,
+// one per service. No color tint. Closed cards get a dark overlay (for
+// the rotated title's contrast); the overlay fades away on the
+// open/active card for a clean look.
 //
 // (A "corner notch" treatment for the arrow button was tried and
 // reverted — it disrupted the card's look, so the button is back to a
 // plain circle sitting inside the card's own padding.)
 
 const BACKGROUNDS = [
-  "/images/panels/service-panel-bg-1.webp",
-  "/images/panels/service-panel-bg-2.webp",
-  "/images/panels/service-panel-bg.webp",
-  "/images/panels/service-panel-bg.webp",
+  "/images/panels/service-panel-team-1.webp",
+  "/images/panels/service-panel-team-2.webp",
+  "/images/panels/service-panel-team-3.webp",
+  "/images/panels/service-panel-team-4.webp",
 ];
 
 export default function ServiceFlexPanels() {
