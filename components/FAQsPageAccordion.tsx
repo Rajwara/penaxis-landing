@@ -17,7 +17,7 @@ const FAQS = [
     q: "What's the typical timeline from idea to v1?",
     a: "Most MVPs launch in about 3 weeks. We scope tight, ship something real fast, and iterate from there based on what we learn.",
     image: "/images/hero/office-logo-desk.jpg",
-    href: "/services",
+    href: "/services/ai-mvp",
   },
   {
     tag: "Getting Started",
@@ -38,7 +38,7 @@ const FAQS = [
     q: "Do you only build software, or do you help with growth too?",
     a: "Both. Penaxis combines AI-powered product development with fractional sales and digital transformation support, so the systems we build actually get used.",
     image: "/images/team/zaid-bin-arif.webp",
-    href: "/services",
+    href: "/services/ai-mvp",
   },
 ];
 

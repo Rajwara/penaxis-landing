@@ -66,13 +66,13 @@ export default function AboutV2Bento() {
             <Reveal delay={0.1} className="avbt-violet">
               <div className="avbt-card-top">
                 <span className="avbt-eyebrow avbt-eyebrow--light">What We Do</span>
-                <a href="/services" className="avbt-corner-arrow avbt-corner-arrow--light" aria-label="Our services">
+                <a href="/services/ai-mvp" className="avbt-corner-arrow avbt-corner-arrow--light" aria-label="Our services">
                   <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M7 17L17 7M7 7h10v10" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </a>
               </div>
-              <a href="/services" className="avbt-card-title avbt-card-title--light">
+              <a href="/services/ai-mvp" className="avbt-card-title avbt-card-title--light">
                 Our Services
               </a>
             </Reveal>

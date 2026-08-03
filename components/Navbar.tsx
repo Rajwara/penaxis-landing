@@ -139,34 +139,57 @@ export default function Navbar() {
             aria-label="Primary"
             className={`relative pointer-events-auto flex items-center gap-1 rounded-full border backdrop-blur-md px-2 py-2 transition-colors duration-500 ${capsuleSurface}`}
           >
-            {navLeft.map((item, i) => (
-              <a
-                key={item.href + item.label}
-                href={item.href}
-                onMouseEnter={() => {
-                  setHoverIdx(i);
-                  if (item.label === "Industries") openMenu("industries");
-                  else if (item.label === "Services") openMenu("services");
-                  else if (item.label === "Case Studies") openMenu("caseStudies");
-                  else scheduleCloseMenu();
-                }}
-                onMouseLeave={() => {
-                  setHoverIdx(null);
-                  if (item.label === "Industries" || item.label === "Services" || item.label === "Case Studies") {
-                    scheduleCloseMenu();
-                  }
-                }}
-                className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  hoverIdx === i
-                    ? isDark
-                      ? "bg-white/10"
-                      : "bg-ink/[0.06]"
-                    : ""
-                } ${isDark ? "hover:text-white" : "hover:text-violet-700"}`}
-              >
-                {item.label}
-              </a>
-            ))}
+            {navLeft.map((item, i) =>
+              item.href ? (
+                <a
+                  key={item.href + item.label}
+                  href={item.href}
+                  onMouseEnter={() => {
+                    setHoverIdx(i);
+                    if (item.label === "Industries") openMenu("industries");
+                    else if (item.label === "Case Studies") openMenu("caseStudies");
+                    else scheduleCloseMenu();
+                  }}
+                  onMouseLeave={() => {
+                    setHoverIdx(null);
+                    if (item.label === "Industries" || item.label === "Case Studies") {
+                      scheduleCloseMenu();
+                    }
+                  }}
+                  className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                    hoverIdx === i
+                      ? isDark
+                        ? "bg-white/10"
+                        : "bg-ink/[0.06]"
+                      : ""
+                  } ${isDark ? "hover:text-white" : "hover:text-violet-700"}`}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  key={item.label}
+                  onMouseEnter={() => {
+                    setHoverIdx(i);
+                    if (item.label === "Services") openMenu("services");
+                  }}
+                  onMouseLeave={() => {
+                    setHoverIdx(null);
+                    if (item.label === "Services") scheduleCloseMenu();
+                  }}
+                  className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-default ${
+                    hoverIdx === i
+                      ? isDark
+                        ? "bg-white/10"
+                        : "bg-ink/[0.06]"
+                      : ""
+                  } ${isDark ? "hover:text-white" : "hover:text-violet-700"}`}
+                >
+                  {item.label}
+                </button>
+              )
+            )}
           </nav>
 
           {/* Industries mega menu panel — spans the full nav row width */}
