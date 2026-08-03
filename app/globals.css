@@ -6436,3 +6436,103 @@ button:focus-visible {
   .pfd-behind { padding: 4rem 1.5rem; }
   .pfd-gallery { grid-template-columns: 1fr; padding: 0 1.5rem 4rem; }
 }
+
+/* Case study featured CTA section */
+.csf-section { padding: 6rem 0; background: #faf9fd; }
+.csf-heading {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 1.5rem + 1.6vw, 2.6rem);
+  line-height: 1.2;
+  color: #212121;
+  margin-bottom: 1rem;
+}
+.csf-sub {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  color: rgba(33, 33, 33, 0.6);
+  max-width: 28rem;
+  margin: 0 auto 2rem;
+}
+.csf-cta { padding: 0.9rem 2rem; font-size: 0.9rem; }
+.csf-trust {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: rgba(33, 33, 33, 0.4);
+  margin-top: 1rem;
+}
+.csf-card {
+  margin-top: 3.5rem;
+  background: #fff;
+  border: 1px solid rgba(33, 33, 33, 0.08);
+  border-radius: 1.75rem;
+  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  box-shadow: 0 30px 60px -35px rgba(46, 31, 66, 0.3);
+}
+@media (min-width: 800px) {
+  .csf-card { grid-template-columns: 1.1fr 1fr; }
+}
+.csf-mock { display: flex; justify-content: center; }
+.csf-mock-bezel {
+  width: 100%;
+  max-width: 22rem;
+  background: #212121;
+  border-radius: 1.25rem;
+  padding: 0.6rem;
+}
+.csf-mock-screen {
+  background: #f4f2fa;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+}
+.csf-mock-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; }
+.csf-mock-block { display: block; height: 0.85rem; border-radius: 0.4rem; background: rgba(33, 33, 33, 0.12); }
+.csf-mock-pill { width: 2rem; height: 0.85rem; border-radius: 999px; background: #734fa0; margin-left: auto; }
+.csf-mock-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 1rem; }
+.csf-mock-tile { display: block; aspect-ratio: 1; border-radius: 0.5rem; background: rgba(33, 33, 33, 0.08); }
+.csf-mock-tile--accent { background: #fc6607; }
+.csf-info { text-align: left; }
+.csf-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #734fa0;
+  background: rgba(115, 79, 160, 0.08);
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  margin-bottom: 1rem;
+}
+.csf-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  color: #212121;
+  margin-bottom: 0.75rem;
+}
+.csf-desc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: rgba(33, 33, 33, 0.6);
+  margin-bottom: 1.5rem;
+}
+.csf-link {
+  display: inline-block;
+  background: #212121;
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  transition: background 0.2s;
+}
+.csf-link:hover { background: #734fa0; }

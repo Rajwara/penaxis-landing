@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import CaseStudyBanner from "@/components/CaseStudyBanner";
+import CaseStudyFeaturedCTA from "@/components/CaseStudyFeaturedCTA";
 import Footer from "@/components/Footer";
 import { caseStudyPlaceholders } from "@/lib/data";
 
@@ -19,14 +20,18 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 }
 
 export default function CaseStudySlugPage({ params }: { params: { slug: string } }) {
-  const study = caseStudyPlaceholders.find((c) => c.slug === params.slug);
+  const index = caseStudyPlaceholders.findIndex((c) => c.slug === params.slug);
+  const study = caseStudyPlaceholders[index];
   if (!study) notFound();
+
+  const featured = caseStudyPlaceholders[(index + 1) % caseStudyPlaceholders.length];
 
   return (
     <>
       <Navbar />
       <main>
         <CaseStudyBanner title={study.title} tags={study.tags} />
+        <CaseStudyFeaturedCTA featured={featured} />
       </main>
       <Footer />
     </>
