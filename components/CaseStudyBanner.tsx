@@ -27,15 +27,6 @@ export default function CaseStudyBanner({
   return (
     <section className="csb-section">
       <div className="mx-auto max-w-6xl px-6">
-        <Reveal>
-          <a href="/case-studies" className="csb-back">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.2">
-              <path d="M19 12H5M11 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            All Case Studies
-          </a>
-        </Reveal>
-
         <Reveal delay={0.05}>
           <div className="csb-tags">
             {tags.map((t) => (
