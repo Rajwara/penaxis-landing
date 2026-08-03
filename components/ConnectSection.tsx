@@ -142,8 +142,8 @@ export default function ConnectSection() {
           {/* Right — photo + floating call pill */}
           <Reveal delay={0.1} className="relative min-h-[22rem] lg:min-h-[36rem]">
             <img
-              src="/images/hero/team-huddle.jpg"
-              alt="Penaxis team consultation"
+              src="/images/hero/lets-connect-team.webp"
+              alt="The Penaxis team"
               className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute left-4 right-4 md:left-8 md:right-8 bottom-6 rounded-full bg-white/95 backdrop-blur-sm shadow-lg px-5 py-3.5 flex items-center gap-4">
