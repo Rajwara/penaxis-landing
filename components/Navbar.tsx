@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { navLeft, navRight, navCta, navMobile } from "@/lib/data";
+import { navLeft, navRight, navCta, navMobile, services, caseStudyPlaceholders } from "@/lib/data";
 import IndustriesMegaMenu from "./IndustriesMegaMenu";
 import ServicesMegaMenu from "./ServicesMegaMenu";
 import CaseStudiesMegaMenu from "./CaseStudiesMegaMenu";
@@ -34,6 +34,19 @@ function LogoMark({ size = 22 }: { size?: number }) {
   );
 }
 
+const MOBILE_SUBMENUS: Record<string, { items: { label: string; href: string }[]; viewAllHref: string; viewAllLabel: string }> = {
+  Services: {
+    items: services.map((s) => ({ label: s.title, href: `/services/${s.slug}` })),
+    viewAllHref: "/services",
+    viewAllLabel: "View all services",
+  },
+  "Case Studies": {
+    items: caseStudyPlaceholders.map((c) => ({ label: c.title, href: `/case-studies/${c.slug}` })),
+    viewAllHref: "/case-studies",
+    viewAllLabel: "View all case studies",
+  },
+};
+
 export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
@@ -41,6 +54,7 @@ export default function Navbar() {
   const [progress, setProgress] = useState(0);
   const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
   const [activeMenu, setActiveMenu] = useState<"industries" | "services" | "caseStudies" | "about" | null>(null);
   const menuCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -90,6 +104,7 @@ export default function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
+    if (!mobileOpen) setMobileAccordion(null);
     return () => {
       document.body.style.overflow = "";
     };
@@ -366,18 +381,83 @@ export default function Navbar() {
           </button>
         </div>
 
-        <nav aria-label="Mobile" className="flex flex-col gap-2 px-6 pt-16">
-          {navMobile.map((item, i) => (
-            <a
-              key={item.href + item.label}
-              href={item.href}
-              onClick={() => setMobileOpen(false)}
-              className="font-display text-4xl font-medium py-3 border-b border-white/10 transition-colors hover:text-volt"
-              style={{ transitionDelay: mobileOpen ? `${i * 40}ms` : "0ms" }}
-            >
-              {item.label}
-            </a>
-          ))}
+        <nav aria-label="Mobile" className="flex flex-col gap-2 px-6 pt-16 overflow-y-auto max-h-[calc(100dvh-7rem)]">
+          {navMobile.map((item, i) => {
+            const submenu = MOBILE_SUBMENUS[item.label];
+            const isOpen = mobileAccordion === item.label;
+
+            if (!submenu) {
+              return (
+                <a
+                  key={item.href + item.label}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="font-display text-4xl font-medium py-3 border-b border-white/10 transition-colors hover:text-volt"
+                  style={{ transitionDelay: mobileOpen ? `${i * 40}ms` : "0ms" }}
+                >
+                  {item.label}
+                </a>
+              );
+            }
+
+            return (
+              <div
+                key={item.href + item.label}
+                className="border-b border-white/10"
+                style={{ transitionDelay: mobileOpen ? `${i * 40}ms` : "0ms" }}
+              >
+                <button
+                  type="button"
+                  onClick={() => setMobileAccordion(isOpen ? null : item.label)}
+                  aria-expanded={isOpen}
+                  className="w-full flex items-center justify-between gap-4 py-3 font-display text-4xl font-medium transition-colors hover:text-volt"
+                >
+                  {item.label}
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="22"
+                    height="22"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    className={`shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                  >
+                    <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+
+                <div
+                  className={`grid transition-all duration-300 ease-in-out ${
+                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  }`}
+                  style={{ overflow: "hidden" }}
+                >
+                  <ul className="flex flex-col gap-1 pb-4 pl-1 min-h-0">
+                    {submenu.items.map((sub) => (
+                      <li key={sub.href}>
+                        <a
+                          href={sub.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="block py-2 text-base text-white/70 hover:text-volt transition-colors"
+                        >
+                          {sub.label}
+                        </a>
+                      </li>
+                    ))}
+                    <li>
+                      <a
+                        href={submenu.viewAllHref}
+                        onClick={() => setMobileOpen(false)}
+                        className="block py-2 text-sm font-semibold text-volt"
+                      >
+                        {submenu.viewAllLabel} →
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            );
+          })}
           <a
             href={navCta.href}
             onClick={() => setMobileOpen(false)}
