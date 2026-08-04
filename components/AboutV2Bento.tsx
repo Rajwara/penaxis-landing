@@ -26,8 +26,8 @@ export default function AboutV2Bento() {
               how we build
             </h2>
             <img
-              src="/images/hero/team-huddle.jpg"
-              alt="Penaxis at work"
+              src="/images/hero/team-celebration.webp"
+              alt="The Penaxis team celebrating"
               className="avbt-black-photo"
             />
             <a href="/contact" className="avbt-pill">
