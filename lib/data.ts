@@ -104,11 +104,29 @@ export const services = [
     short:
       "Turning ideas into launch-ready SaaS products, AI assistants, automation tools, and scalable MVPs built for real-world validation and growth.",
     long: "We transform concepts into scalable digital products with practical AI built in. From SaaS tools and dashboards to AI assistants and automation platforms, we build launch-ready MVPs focused on essential functionality, speed to market, and measurable business value.",
+    heroImage: "/images/services/ai-mvp-about.webp",
+    highlightImage: "/images/services/ai-mvp-highlight.webp",
     pillars: [
-      { title: "Product Discovery & MVP Strategy", copy: "Defining the problem, target users, core features, and roadmap before development begins." },
-      { title: "SaaS & Custom MVP Development", copy: "Building responsive platforms, portals, dashboards, and web products with the right features first." },
-      { title: "AI Assistants & Intelligent Features", copy: "Integrating chatbots, knowledge assistants, document intelligence, content generation, and smart workflows." },
-      { title: "Automation & Third-Party Integrations", copy: "Connecting APIs, CRMs, payment systems, communication tools, and business platforms." },
+      {
+        title: "Product Discovery & MVP Strategy",
+        copy: "Defining the problem, target users, core features, and roadmap before development begins.",
+        image: "/images/services/pillar-product-discovery-mvp-strategy.webp",
+      },
+      {
+        title: "SaaS & Custom MVP Development",
+        copy: "Building responsive platforms, portals, dashboards, and web products with the right features first.",
+        image: "/images/services/pillar-saas-custom-mvp-development.webp",
+      },
+      {
+        title: "AI Assistants & Intelligent Features",
+        copy: "Integrating chatbots, knowledge assistants, document intelligence, content generation, and smart workflows.",
+        image: "/images/services/pillar-ai-assistants-intelligent-features.webp",
+      },
+      {
+        title: "Automation & Third-Party Integrations",
+        copy: "Connecting APIs, CRMs, payment systems, communication tools, and business platforms.",
+        image: "/images/services/pillar-automation-third-party-integrations.webp",
+      },
     ],
     engagements: ["Rapid prototype / proof of concept", "End-to-End MVP Build", "MVP Enhancement & AI Integration", "Post-Launch Support & Iteration"],
     stack: ["Claude", "Gemini", "Firebase", "Next.js", "Stripe", "Supabase", "LangChain", "Vercel", "Azure", "AWS", "Docker", "Zapier"],
