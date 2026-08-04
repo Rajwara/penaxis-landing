@@ -14,9 +14,11 @@ import { services, stats } from "@/lib/data";
 // service, using each service's own real title/short/long/engagements —
 // plus a fuller pillars grid, tools/stack chips, and prev/next nav.
 //
-// Frame/split photos cycle through Penaxis's real team/office photos
-// (no dedicated photo exists per service); stat cards reuse Penaxis's
-// own real, already-published stats rather than inventing numbers.
+// Frame/split photos cycle through Penaxis's real team/office photos for
+// services without dedicated photos yet. Digital Transformation has real,
+// topic-matched images (service.heroImage / service.highlightImage) that
+// take priority when present; stat cards reuse Penaxis's own real,
+// already-published stats rather than inventing numbers.
 
 const FRAME_PHOTOS = [
   "/images/hero/office-logo-desk.jpg",
@@ -59,14 +61,21 @@ export default function ServiceDetail({ slug }: { slug: string }) {
           </div>
 
           <Reveal delay={0.12} className="svi-frame">
-            <img src={FRAME_PHOTOS[index % FRAME_PHOTOS.length]} alt="Penaxis at work" />
+            <img
+              src={service.heroImage || FRAME_PHOTOS[index % FRAME_PHOTOS.length]}
+              alt="Penaxis at work"
+            />
           </Reveal>
         </div>
       </section>
 
       <ServiceProcess pillars={service.pillars} />
 
-      <ServiceHighlights stat={statA} photo={FRAME_PHOTOS[(index + 1) % FRAME_PHOTOS.length]} pillars={service.pillars} />
+      <ServiceHighlights
+        stat={statA}
+        photo={service.highlightImage || FRAME_PHOTOS[(index + 1) % FRAME_PHOTOS.length]}
+        pillars={service.pillars}
+      />
 
       <section className="svd-section svd-section--alt">
         <div className="mx-auto max-w-7xl px-6">

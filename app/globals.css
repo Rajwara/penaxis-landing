@@ -5845,12 +5845,14 @@ button:focus-visible {
 /* Abstract wireframe mockups */
 .svp-mock {
   position: relative;
-  height: 9.5rem;
+  height: 11rem;
   border-radius: 1rem;
   background: #f4f2fa;
   padding: 1.25rem;
   overflow: hidden;
 }
+.svp-mock--photo { padding: 0; background: #171717; }
+.svp-mock-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .svp-block {
   display: block;
   height: 1.9rem;

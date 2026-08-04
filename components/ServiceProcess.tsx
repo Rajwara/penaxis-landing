@@ -66,7 +66,7 @@ function StepMock({ variant, index }: { variant: (typeof MOCK_VARIANTS)[number];
 export default function ServiceProcess({
   pillars,
 }: {
-  pillars: { title: string; copy: string }[];
+  pillars: { title: string; copy: string; image?: string }[];
 }) {
   return (
     <section className="svp-section">
@@ -94,7 +94,13 @@ export default function ServiceProcess({
           {pillars.map((p, i) => (
             <Reveal key={p.title} y={24} delay={i * 0.05}>
               <div className="svp-card">
-                <StepMock variant={MOCK_VARIANTS[i % MOCK_VARIANTS.length]} index={i} />
+                {p.image ? (
+                  <div className="svp-mock svp-mock--photo">
+                    <img src={p.image} alt="" className="svp-mock-photo" />
+                  </div>
+                ) : (
+                  <StepMock variant={MOCK_VARIANTS[i % MOCK_VARIANTS.length]} index={i} />
+                )}
                 <span className="svp-card-num">{`//${String(i + 1).padStart(2, "0")}`}</span>
                 <h3 className="svp-card-title">{p.title}</h3>
                 <p className="svp-card-copy">{p.copy}</p>

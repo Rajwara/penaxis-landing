@@ -120,10 +120,24 @@ export const services = [
     short:
       "Helping businesses improve how they operate and grow through business analysis, process optimization, workflow automation, social media marketing, and a stronger digital presence.",
     long: "From business analysis and digital strategy to workflow automation and social media marketing, we help businesses improve efficiency, strengthen their digital presence, and build a more scalable foundation for growth.",
+    heroImage: "/images/services/digital-transformation-about.webp",
+    highlightImage: "/images/services/digital-transformation-highlight.webp",
     pillars: [
-      { title: "Business Analysis & Process Optimization", copy: "Assessing current workflows, identifying inefficiencies, and recommending practical improvements that support better decision-making and smoother operations." },
-      { title: "Digital Strategy & Transformation Roadmap", copy: "Creating clear digital strategies and step-by-step transformation plans aligned with business goals, market needs, and long-term growth priorities." },
-      { title: "Social Media Marketing & Digital Presence", copy: "Strengthening online visibility through strategic social media management, content planning, audience engagement, and a more consistent digital brand presence." },
+      {
+        title: "Business Analysis & Process Optimization",
+        copy: "Assessing current workflows, identifying inefficiencies, and recommending practical improvements that support better decision-making and smoother operations.",
+        image: "/images/services/pillar-business-analysis-process.webp",
+      },
+      {
+        title: "Digital Strategy & Transformation Roadmap",
+        copy: "Creating clear digital strategies and step-by-step transformation plans aligned with business goals, market needs, and long-term growth priorities.",
+        image: "/images/services/pillar-digital-strategy-roadmap.webp",
+      },
+      {
+        title: "Social Media Marketing & Digital Presence",
+        copy: "Strengthening online visibility through strategic social media management, content planning, audience engagement, and a more consistent digital brand presence.",
+        image: "/images/services/pillar-social-media-digital-presence.webp",
+      },
     ],
     engagements: ["Business Audit & Discovery", "Digital Strategy & Transformation Roadmap", "Social Media Strategy & Management", "Workflow Automation & Systems Integration"],
     stack: ["Meta", "TikTok", "LinkedIn", "HubSpot", "Jira", "Monday.com", "Google Workspace", "Miro", "Power BI"],
