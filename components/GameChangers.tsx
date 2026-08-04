@@ -11,7 +11,7 @@ const linkedinUrl = contact.linkedin.startsWith("http")
 // so bios/roles/photos stay in sync with the rest of the site.
 // Adeel is listed second so he lands in the center slot (which gets the
 // vertical offset + bottom-corner accent treatment).
-const featuredNames = ["Shehzad Jalal", "Adeel Aslam", "Laiba Zafar"];
+const featuredNames = ["Shahzad Ali", "Adeel Aslam", "Laiba Zafar"];
 const featured = featuredNames
   .map((name) => team.find((m) => m.name === name))
   .filter((m): m is (typeof team)[number] => Boolean(m));
