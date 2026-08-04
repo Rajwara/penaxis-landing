@@ -2,41 +2,38 @@
 
 import { useRef, useState } from "react";
 import Reveal from "./Reveal";
-import { team } from "@/lib/data";
 
 // Ported from a shared "testimonial slider" pattern (Swiper-based in the
 // original inspect HTML): a text panel synced to an image panel, arrows +
 // fraction pagination on the left, a peeking image stack on the right.
 // Re-implemented as a single hand-rolled carousel (matching the pattern
 // already used by SpotlightDeck in this project) instead of pulling in the
-// Swiper library. Quotes/companies are placeholder copy (as in the supplied
-// reference markup) — swap in real client testimonials when available.
-// Client photos are temporary stand-ins using team photos until real client
-// photos are supplied.
-
-const findImage = (name: string) => team.find((m) => m.name === name)?.image;
+// Swiper library. Client photos are real (Zohaib Khalid, Malih, Amar
+// Jeet). Quotes/roles/companies are still placeholder copy — client has
+// confirmed the photos are real but will supply the actual testimonial
+// content (quote, role, company) separately later.
 
 const TESTIMONIALS = [
   {
     quote:
       "We shipped our first copilot in 7 weeks and cut support tickets by 31%. The eval dashboards made every decision obvious.",
-    name: "Elena Ruiz",
+    name: "Zohaib Khalid",
     role: "Cantos SaaS's VP Product",
-    image: findImage("Maleeha Farooq"),
+    image: "/images/team/zohaib-khalid.webp",
   },
   {
     quote:
       "SSO/SAML and RBAC landed smoothly. Latency stayed <300ms on p95 — huge win for our agents.",
-    name: "Marcus Tan",
+    name: "Malih",
     role: "VectorPay's CTO",
-    image: findImage("Zaid Bin Arif"),
+    image: "/images/team/malih.webp",
   },
   {
     quote:
       "The best partner for agentic work. Multi-step planning, tool use, and audit trails — done right the first time.",
-    name: "David Kim",
+    name: "Amar Jeet",
     role: "Northway's Ecommerce Director",
-    image: findImage("Ali Raza"),
+    image: "/images/team/amar-jeet.webp",
   },
 ];
 
