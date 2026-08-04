@@ -14,7 +14,9 @@ const picturedTeam = team.filter((m) => m.image);
 
 // Fixed (non-random) shuffle order for the hero row so photos don't cycle in data order.
 // Using a fixed permutation (rather than Math.random) avoids SSR/client hydration mismatches.
-const HERO_SHUFFLE_OFFSETS = [3, 0, 6, 2, 8, 1, 5, 4, 7];
+// Index 4 lands on the big centered card (HERO_CARDS[4], left:44%, the largest one with
+// the "Meet the crew" pill overlapping it) — kept as Adeel Aslam (offset 0) per request.
+const HERO_SHUFFLE_OFFSETS = [3, 8, 6, 2, 0, 1, 5, 4, 7];
 const shuffledHeroTeam = picturedTeam.length
   ? HERO_SHUFFLE_OFFSETS.map((i) => picturedTeam[i % picturedTeam.length])
   : [];
