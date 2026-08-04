@@ -9,8 +9,8 @@ import { momentum } from "@/lib/data";
 // doesn't have that kind of long, dated company history to draw on
 // honestly, so this uses the real quarterly momentum data already tracked
 // elsewhere on the site (project counts per quarter) instead of inventing
-// founding dates or fake corporate milestones like acquisitions. Image is
-// a placeholder — client will swap in real photos shortly.
+// founding dates or fake corporate milestones like acquisitions. Photo is
+// real (a Penaxis team meeting).
 
 export default function AboutV2Timeline() {
   const [active, setActive] = useState(momentum.length - 1);
@@ -20,7 +20,7 @@ export default function AboutV2Timeline() {
     <section className="av2-timeline">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="av2-timeline-frame">
-          <img src="/images/hero/team-huddle.jpg" alt="Penaxis at work" className="av2-timeline-bg" />
+          <img src="/images/hero/momentum-team.webp" alt="The Penaxis team at work" className="av2-timeline-bg" />
 
           <div className="av2-timeline-card">
             <span className="av2-timeline-pill">{current.period}</span>
