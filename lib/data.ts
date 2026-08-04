@@ -167,8 +167,14 @@ export const services = [
     short:
       "Providing dedicated sales and growth support to identify prospects, generate qualified leads, build pipelines, and convert opportunities into revenue.",
     long: "We work as an extension of your sales team to identify ideal prospects, start qualified conversations, build a consistent pipeline, and support opportunities through the sales process. Clients engage us on a monthly retainer, with an additional commission linked to the sales opportunities we help generate and close.",
+    heroImage: "/images/services/sales-growth-about.webp",
+    highlightImage: "/images/services/sales-growth-highlight.webp",
     pillars: [
-      { title: "Business Development-as-a-Service", copy: "We operate as an extension of your commercial team, handling targeted prospecting, outreach, lead qualification, follow-ups, and meeting generation to build a consistent pipeline of relevant opportunities." },
+      {
+        title: "Business Development-as-a-Service",
+        copy: "We operate as an extension of your commercial team, handling targeted prospecting, outreach, lead qualification, follow-ups, and meeting generation to build a consistent pipeline of relevant opportunities.",
+        image: "/images/services/pillar-business-development-as-a-service.webp",
+      },
     ],
     engagements: ["Dedicated Monthly BD Partnership", "Focused Outreach Campaign", "Upwork Sales Management"],
     stack: ["Upwork", "Apollo.io", "HubSpot", "Salesforce", "Indeed", "Mailchimp", "Pipedrive", "ZoomInfo", "Instantly"],
