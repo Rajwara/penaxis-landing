@@ -188,9 +188,21 @@ export const services = [
     long: "We design and develop digital systems tailored to how your business actually works. From high-performing websites and custom CRMs to portals, dashboards, and internal platforms, we build solutions that improve and simplify operations, and support long-term growth.",
     heroImage: "/images/services/web-crm-software-about.webp",
     pillars: [
-      { title: "Website & E-Commerce Development", copy: "Building responsive business websites, e-commerce stores, landing pages, and digital experiences designed for usability, performance, and conversion." },
-      { title: "Custom CRM & Business Portals", copy: "Developing tailored CRM systems, customer portals, admin panels, and internal tools that centralize information and improve day-to-day management." },
-      { title: "Custom Software & Integrated Systems", copy: "Creating dashboards, workflow platforms, reporting systems, and custom applications connected with the tools and services your business relies on." },
+      {
+        title: "Website & E-Commerce Development",
+        copy: "Building responsive business websites, e-commerce stores, landing pages, and digital experiences designed for usability, performance, and conversion.",
+        image: "/images/services/pillar-website-ecommerce-development.webp",
+      },
+      {
+        title: "Custom CRM & Business Portals",
+        copy: "Developing tailored CRM systems, customer portals, admin panels, and internal tools that centralize information and improve day-to-day management.",
+        image: "/images/services/pillar-custom-crm-business-portals.webp",
+      },
+      {
+        title: "Custom Software & Integrated Systems",
+        copy: "Creating dashboards, workflow platforms, reporting systems, and custom applications connected with the tools and services your business relies on.",
+        image: "/images/services/pillar-custom-software-integrated-systems.webp",
+      },
     ],
     engagements: ["Fixed-Price Project", "Time & Materials", "Dedicated Development Team", "Maintenance & Support Retainer"],
     stack: ["Next.js", "React", "Node", "NestJS", "Django", "FastAPI", "Flutter", "Kotlin", "Swift", "Kubernetes", ".NET"],
