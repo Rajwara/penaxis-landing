@@ -187,6 +187,7 @@ export const services = [
       "Designing websites, custom CRMs, business portals, dashboards, and integrated software tailored to your workflows and business goals.",
     long: "We design and develop digital systems tailored to how your business actually works. From high-performing websites and custom CRMs to portals, dashboards, and internal platforms, we build solutions that improve and simplify operations, and support long-term growth.",
     heroImage: "/images/services/web-crm-software-about.webp",
+    highlightImage: "/images/services/web-crm-software-highlight.webp",
     pillars: [
       {
         title: "Website & E-Commerce Development",
