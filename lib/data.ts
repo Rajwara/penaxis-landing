@@ -287,12 +287,17 @@ export const contact = {
 // tender-intelligence platform) are proposed/concept work, not yet built —
 // flagged via `status: "concept"` and worded as designed/proposed rather
 // than delivered, per the source brief's instruction not to present
-// unbuilt work as an achieved result. No real photos exist yet, so the
-// `image` field is omitted — the grid falls back to its brand-gradient
-// thumbnails and the homepage accordion simply skips the hover thumbnail.
+// unbuilt work as an achieved result. The first 5 (Drivelo, AI receptionist
+// kiosk, BidLogics, SEKA Gravel, hotel booking platform) now have real
+// product screenshots via `image` (homepage accordion hover thumb) and
+// `gridImage` (case studies grid card) — the remaining entries have no
+// `image`/`gridImage` field, so the grid falls back to its brand-gradient
+// thumbnails and the homepage accordion skips the hover thumbnail for them.
 export const caseStudies = [
   {
     slug: "drivelo-logistics-platform",
+    image: "/images/case-studies/drivelo-logistics-platform-thumb.webp",
+    gridImage: "/images/case-studies/grid/drivelo-logistics-platform-grid.webp",
     title: "Drivelo — Integrated Digital Logistics & Fleet Management Ecosystem",
     tags: ["Logistics & Transportation"],
     blurb:
@@ -334,6 +339,8 @@ export const caseStudies = [
   },
   {
     slug: "ai-receptionist-visitor-kiosk",
+    image: "/images/case-studies/ai-receptionist-visitor-kiosk-thumb.webp",
+    gridImage: "/images/case-studies/grid/ai-receptionist-visitor-kiosk-grid.webp",
     title: "AI-Powered Multilingual Receptionist & Visitor Kiosk",
     tags: ["Education & EdTech"],
     blurb:
@@ -381,6 +388,8 @@ export const caseStudies = [
   },
   {
     slug: "bidlogics-tender-intelligence",
+    image: "/images/case-studies/bidlogics-tender-intelligence-thumb.webp",
+    gridImage: "/images/case-studies/grid/bidlogics-tender-intelligence-grid.webp",
     title: "BidLogics — AI-Powered Bidding & Tender Intelligence Platform",
     tags: ["Software, IT & SaaS"],
     blurb:
@@ -433,6 +442,8 @@ export const caseStudies = [
   },
   {
     slug: "seka-gravel-cycling-platform",
+    image: "/images/case-studies/seka-gravel-cycling-platform-thumb.webp",
+    gridImage: "/images/case-studies/grid/seka-gravel-cycling-platform-grid.webp",
     title: "SEKA Gravel — Membership-Driven Cycling Community & Race Management Platform",
     tags: ["Sports & Fitness"],
     blurb:
@@ -485,6 +496,8 @@ export const caseStudies = [
   },
   {
     slug: "hotel-booking-revenue-platform",
+    image: "/images/case-studies/hotel-booking-revenue-platform-thumb.webp",
+    gridImage: "/images/case-studies/grid/hotel-booking-revenue-platform-grid.webp",
     title: "One Intelligent Dashboard for Hotel Bookings, Revenue and Occupancy",
     tags: ["Software, IT & SaaS"],
     blurb:

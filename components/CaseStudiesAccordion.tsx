@@ -6,10 +6,11 @@ import CountStat from "./CountStat";
 import { caseStudies, stats } from "@/lib/data";
 
 // Ported from a reference "awards" accordion (date + title row, +/- toggle,
-// expanded description) and applied to case studies instead. These are
-// now Penaxis's real, delivered (and a couple of proposed/concept) case
-// studies — no real screenshots exist yet, so there's no hover thumbnail
-// for now; add one back in once real project imagery is available.
+// expanded description, and a thumbnail that appears on hover) and applied
+// to case studies instead. These are Penaxis's real, delivered (and a
+// couple of proposed/concept) case studies. Hover thumbnails use real
+// product screenshots where available (see `image` in lib/data.ts); rows
+// without one simply skip the thumbnail.
 
 const FEATURED = caseStudies.slice(0, 5);
 
@@ -45,6 +46,15 @@ export default function CaseStudiesAccordion() {
                       {isOpen ? "−" : "+"}
                     </span>
                   </button>
+
+                  {study.image && (
+                    <img
+                      src={study.image}
+                      alt=""
+                      className="csa-thumb"
+                      aria-hidden="true"
+                    />
+                  )}
 
                   <div className="csa-row-body" aria-hidden={!isOpen}>
                     <div className="csa-row-body-inner">

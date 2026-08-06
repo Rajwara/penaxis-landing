@@ -8,12 +8,10 @@ import { industries, caseStudies, caseStudyGradients } from "@/lib/data";
 // line, a row of pill filters ("See All" + categories), and a card grid
 // (image + tags + title) that filters live.
 //
-// There are no real case studies yet, so this uses Penaxis's real 13
-// industries to drive real, honest filter tags — but the case studies
-// themselves are clearly-placeholder, non-attributed project descriptions
-// (no invented client names, quotes, or stats) with abstract gradient
-// thumbnails instead of real or fabricated project photos, pending real
-// work to feature here.
+// Uses Penaxis's real 13 industries to drive real, honest filter tags.
+// Case studies with a real product screenshot (`gridImage` in lib/data.ts)
+// show that as the card thumbnail; the rest still fall back to the
+// abstract brand-gradient thumbnails pending real project photos.
 
 const FILTER_INDUSTRIES = [
   "Software, IT & SaaS",
@@ -114,7 +112,14 @@ export default function CaseStudyV2Grid() {
           {filtered.map((study, i) => (
             <Reveal key={study.title} y={24} delay={0.05 + (i % 4) * 0.06}>
               <a href={`/case-studies/${study.slug}`} className="csv2-card">
-                <div className="csv2-card-thumb" style={{ background: GRADIENTS[i % GRADIENTS.length] }} />
+                <div
+                  className="csv2-card-thumb"
+                  style={
+                    study.gridImage
+                      ? { backgroundImage: `url(${study.gridImage})`, backgroundSize: "cover", backgroundPosition: "center" }
+                      : { background: GRADIENTS[i % GRADIENTS.length] }
+                  }
+                />
                 <div className="csv2-card-tags">
                   {study.tags.map((tag) => (
                     <span key={tag} className="csv2-tag" title={findIndustry(tag)?.copy}>
