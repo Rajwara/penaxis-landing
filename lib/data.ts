@@ -513,6 +513,11 @@ export const caseStudies = [
     slug: "hotel-booking-revenue-platform",
     image: "/images/case-studies/hotel-booking-revenue-platform-thumb.webp",
     gridImage: "/images/case-studies/grid/hotel-booking-revenue-platform-grid.webp",
+    bannerImages: [
+      "/images/case-studies/banner/hotel-booking-banner-1.webp",
+      "/images/case-studies/banner/hotel-booking-banner-2.webp",
+      "/images/case-studies/banner/hotel-booking-banner-3.webp",
+    ],
     title: "One Intelligent Dashboard for Hotel Bookings, Revenue and Occupancy",
     tags: ["Software, IT & SaaS"],
     blurb:
