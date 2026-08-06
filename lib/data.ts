@@ -341,6 +341,11 @@ export const caseStudies = [
     slug: "ai-receptionist-visitor-kiosk",
     image: "/images/case-studies/ai-receptionist-visitor-kiosk-thumb.webp",
     gridImage: "/images/case-studies/grid/ai-receptionist-visitor-kiosk-grid.webp",
+    bannerImages: [
+      "/images/case-studies/banner/ai-receptionist-banner-1.webp",
+      "/images/case-studies/banner/ai-receptionist-banner-2.webp",
+      "/images/case-studies/banner/ai-receptionist-banner-3.webp",
+    ],
     title: "AI-Powered Multilingual Receptionist & Visitor Kiosk",
     tags: ["Education & EdTech"],
     blurb:

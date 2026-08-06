@@ -31,7 +31,7 @@ export default function CaseStudySlugPage({ params }: { params: { slug: string }
     <>
       <Navbar />
       <main>
-        <CaseStudyBanner title={study.title} tags={study.tags} />
+        <CaseStudyBanner title={study.title} tags={study.tags} images={study.bannerImages} />
         <CaseStudyDetail study={study} />
         <CaseStudyFeaturedCTA featured={featured} />
       </main>

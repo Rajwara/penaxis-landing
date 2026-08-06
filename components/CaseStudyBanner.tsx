@@ -8,8 +8,11 @@ import Reveal from "./Reveal";
 // z-index) while the others recede slightly — not the reference's
 // specific product screenshot/branding, just the stacked-hover
 // interaction, rebuilt with Penaxis's own real photos.
-
-const BANNER_IMAGES = [
+//
+// Case studies with real product imagery pass their own `images` prop
+// (see bannerImages in lib/data.ts); the rest fall back to this generic
+// office-photo placeholder set.
+const DEFAULT_BANNER_IMAGES = [
   "/images/hero/team-huddle.jpg",
   "/images/hero/office-logo-desk.jpg",
   "/images/team/hamza-designer.webp",
@@ -18,10 +21,13 @@ const BANNER_IMAGES = [
 export default function CaseStudyBanner({
   title,
   tags,
+  images,
 }: {
   title: string;
   tags: string[];
+  images?: string[];
 }) {
+  const bannerImages = images && images.length > 0 ? images : DEFAULT_BANNER_IMAGES;
   const [active, setActive] = useState<number | null>(null);
 
   return (
@@ -43,7 +49,7 @@ export default function CaseStudyBanner({
         <div className="csb-col-images">
           <Reveal delay={0.1}>
             <div className="csb-stack" onMouseLeave={() => setActive(null)}>
-              {BANNER_IMAGES.map((src, i) => (
+              {bannerImages.map((src, i) => (
                 <img
                   key={src}
                   src={src}
