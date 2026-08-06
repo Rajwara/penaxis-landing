@@ -5,13 +5,17 @@
 // so ServicesShowcase now sits directly after this section instead.
 
 const PRESS_LOGOS = [
+  { src: "/images/press/meerab-properties.webp", alt: "Meerab Properties" },
+  { src: "/images/press/drivelo.webp", alt: "Drivelo" },
+  { src: "/images/press/devminds.webp", alt: "DevMindz" },
+  { src: "/images/press/creative-nodes.webp", alt: "Creative Nodes" },
   { src: "/images/press/bidmore.webp", alt: "BidMore" },
   { src: "/images/press/seka.webp", alt: "Seka" },
+  { src: "/images/press/qovex-studio.webp", alt: "Qovex Studio" },
+  { src: "/images/press/the-plate-agent.webp", alt: "The Plate Agent" },
   { src: "/images/press/orbital.webp", alt: "Orbital Installation Technologies" },
   { src: "/images/press/oktabytes.webp", alt: "OktaBytes" },
-  { src: "/images/press/nhs.webp", alt: "NHS" },
-  { src: "/images/press/e2e-worx.webp", alt: "E2E Worx" },
-  { src: "/images/press/the-plate-agent.webp", alt: "The Plate Agent" },
+  { src: "/images/press/nas-enterprises.webp", alt: "NAS Enterprises" },
 ];
 
 export default function HorizontalGallery() {
