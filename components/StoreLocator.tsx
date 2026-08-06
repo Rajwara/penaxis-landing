@@ -9,10 +9,10 @@ import { contact } from "@/lib/data";
 //
 // Per client instruction: real per-office addresses for Dubai/Jordan
 // aren't ready yet, so all three tabs use the real Pakistan office address
-// for now. Phone numbers are clearly-placeholder (country code + a
-// repeating placeholder digit string), not real numbers, pending the
-// client's real numbers for each location. Hours are Mon–Sat 10am–7pm as
-// given, Sunday closed.
+// for now. Pakistan now uses the real contact number (from lib/data.ts);
+// Dubai/Jordan phone numbers are still clearly-placeholder (country code +
+// a repeating placeholder digit string), pending the client's real numbers
+// for each location. Hours are Mon–Sat 10am–7pm as given, Sunday closed.
 
 const LOCATIONS = [
   { key: "pk", label: "Pakistan", countryCode: "+92" },
@@ -39,8 +39,10 @@ export default function StoreLocator() {
   }, []);
 
   const location = LOCATIONS[active];
-  const phone = `${location.countryCode} ${PLACEHOLDER_LINE}`;
-  const telHref = `tel:${location.countryCode}${PLACEHOLDER_LINE}`.replace(/\s/g, "");
+  const phone = location.key === "pk" ? contact.phone : `${location.countryCode} ${PLACEHOLDER_LINE}`;
+  const telHref = location.key === "pk"
+    ? `tel:${contact.phone.replace(/[^\d+]/g, "")}`
+    : `tel:${location.countryCode}${PLACEHOLDER_LINE}`.replace(/\s/g, "");
   const mapsHref = `https://www.google.com/maps?q=${encodeURIComponent(contact.address)}`;
 
   return (

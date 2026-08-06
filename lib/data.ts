@@ -272,7 +272,7 @@ export const team = [
 ];
 
 export const contact = {
-  phone: "+92-324-4035507",
+  phone: "+92-317-4731492",
   email: "info@penaxis.com",
   linkedin: "/company/penaxis",
   website: "www.penaxis.com",
