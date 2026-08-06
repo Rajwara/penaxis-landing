@@ -395,6 +395,11 @@ export const caseStudies = [
     slug: "bidlogics-tender-intelligence",
     image: "/images/case-studies/bidlogics-tender-intelligence-thumb.webp",
     gridImage: "/images/case-studies/grid/bidlogics-tender-intelligence-grid.webp",
+    bannerImages: [
+      "/images/case-studies/banner/bidlogics-banner-1.webp",
+      "/images/case-studies/banner/bidlogics-banner-2.webp",
+      "/images/case-studies/banner/bidlogics-banner-3.webp",
+    ],
     title: "BidLogics — AI-Powered Bidding & Tender Intelligence Platform",
     tags: ["Software, IT & SaaS"],
     blurb:
