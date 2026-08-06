@@ -3,16 +3,16 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import CaseStudyBanner from "@/components/CaseStudyBanner";
 import CaseStudyFeaturedCTA from "@/components/CaseStudyFeaturedCTA";
-import CaseStudyOverview from "@/components/CaseStudyOverview";
+import CaseStudyDetail from "@/components/CaseStudyDetail";
 import Footer from "@/components/Footer";
-import { caseStudyPlaceholders } from "@/lib/data";
+import { caseStudies } from "@/lib/data";
 
 export function generateStaticParams() {
-  return caseStudyPlaceholders.map((c) => ({ slug: c.slug }));
+  return caseStudies.map((c) => ({ slug: c.slug }));
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const study = caseStudyPlaceholders.find((c) => c.slug === params.slug);
+  const study = caseStudies.find((c) => c.slug === params.slug);
   if (!study) return { title: "Case Study — Penaxis" };
   return {
     title: `${study.title} — Penaxis`,
@@ -21,11 +21,11 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 }
 
 export default function CaseStudySlugPage({ params }: { params: { slug: string } }) {
-  const index = caseStudyPlaceholders.findIndex((c) => c.slug === params.slug);
-  const study = caseStudyPlaceholders[index];
+  const index = caseStudies.findIndex((c) => c.slug === params.slug);
+  const study = caseStudies[index];
   if (!study) notFound();
 
-  const featured = caseStudyPlaceholders[(index + 1) % caseStudyPlaceholders.length];
+  const featured = caseStudies[(index + 1) % caseStudies.length];
 
   return (
     <>
@@ -33,7 +33,7 @@ export default function CaseStudySlugPage({ params }: { params: { slug: string }
       <main>
         <CaseStudyBanner title={study.title} tags={study.tags} />
         <CaseStudyFeaturedCTA featured={featured} />
-        <CaseStudyOverview blurb={study.blurb} title={study.title} />
+        <CaseStudyDetail study={study} />
       </main>
       <Footer />
     </>

@@ -279,77 +279,563 @@ export const contact = {
   address: "2nd floor, 3-P, DHA Rahbar, Lahore, Pakistan, 54000",
 };
 
+// Real case studies (client identities kept confidential per the source
+// brief's own explicit instructions where given — e.g. "keep completely
+// white-labelled", "do not mention the client" — so several titles use
+// the brief's own recommended, benefit-led phrasing instead of an internal
+// project codename). Two of these (the AI receptionist kiosk and the
+// tender-intelligence platform) are proposed/concept work, not yet built —
+// flagged via `status: "concept"` and worded as designed/proposed rather
+// than delivered, per the source brief's instruction not to present
+// unbuilt work as an achieved result. No real photos exist yet, so the
+// `image` field is omitted — the grid falls back to its brand-gradient
+// thumbnails and the homepage accordion simply skips the hover thumbnail.
+export const caseStudies = [
+  {
+    slug: "drivelo-logistics-platform",
+    title: "Drivelo — Integrated Digital Logistics & Fleet Management Ecosystem",
+    tags: ["Logistics & Transportation"],
+    blurb:
+      "Four connected apps — customer, driver, dispatch, and corporate site — replacing fragmented workflows with one on-demand logistics experience.",
+    status: "delivered",
+    region: "Gulf Region",
+    overview:
+      "A Gulf-based logistics company needed a unified digital ecosystem to replace fragmented workflows, manual driver coordination, and limited delivery visibility.",
+    challenge:
+      "The goal was an on-demand logistics experience — similar to ride-hailing platforms, but purpose-built for commercial freight operations.",
+    solutionIntro: "Penaxis developed four connected digital products covering the complete delivery lifecycle:",
+    solutionPoints: [
+      "Customer app for booking deliveries, tracking drivers, and accessing documents",
+      "Driver app for assignments, navigation, status updates, and proof of delivery",
+      "Web-based dispatch platform for job allocation, live fleet monitoring, and document management",
+      "Responsive corporate website for services, credentials, and customer enquiries",
+    ],
+    solutionNote:
+      "The ecosystem incorporated real-time GPS tracking, route navigation, in-app communication, automated notifications, role-based access, and centralized delivery documentation.",
+    techStack: [
+      { label: "Core Stack", items: "React Native, React, TypeScript, Node.js, Express.js, PostgreSQL, Redis, AWS, Docker, NGINX" },
+      { label: "Integrations", items: "Google Maps Platform, Directions API, Geolocation APIs, Firebase Cloud Messaging, Apple Push Notification Service, Twilio, WebSockets, Cloud Object Storage" },
+    ],
+    impactIntro:
+      "The solution created a single operational environment connecting customers, drivers, and dispatch teams throughout the delivery lifecycle.",
+    impactPoints: [
+      "Centralized fleet visibility across the whole operation",
+      "Faster job coordination between dispatch and drivers",
+      "Direct customer tracking for every delivery",
+      "Traceable proof-of-delivery records",
+      "Reduced dependence on calls, spreadsheets, and messaging apps",
+    ],
+    metrics: [
+      { value: "4", label: "Digital Products" },
+      { value: "1,000", label: "Concurrent Users" },
+      { value: "≤15-Second", label: "Live Tracking" },
+      { value: "99.5%", label: "Platform Availability" },
+    ],
+  },
+  {
+    slug: "ai-receptionist-visitor-kiosk",
+    title: "AI-Powered Multilingual Receptionist & Visitor Kiosk",
+    tags: ["Education & EdTech"],
+    blurb:
+      "A proposed, school-safe AI reception kiosk — multilingual visitor sign-in, translation, and a controlled FAQ assistant, designed to scale beyond schools.",
+    status: "concept",
+    region: "Multi-Market",
+    overview:
+      "An education technology entrepreneur needed a scalable self-service reception platform for schools, with future applications across hospitals, hotels, malls, and other visitor-heavy environments.",
+    challenge:
+      "The goal was to reduce repetitive front-desk work, overcome language barriers, and centralize visitor activity — without exposing users to unrestricted AI responses or unpredictable token-based costs.",
+    solutionIntro: "Penaxis designed a controlled, school-safe reception ecosystem comprising:",
+    solutionPoints: [
+      "Locked Android kiosk with voice, text, and touch interaction",
+      "Multilingual assistance across six manually selectable languages",
+      "School-approved knowledge base supporting up to 100 FAQs",
+      "Semantic question matching with confidence-based answer retrieval",
+      "Digital visitor sign-in, sign-out, and real-time on-site register",
+      "Two-way translation between reception staff and visitors",
+      "Customisable receptionist avatar, name, and school branding",
+      "Admin portal for FAQs, users, languages, visitors, and unanswered questions",
+      "Analytics for kiosk sessions, popular questions, language usage, and visitor activity",
+    ],
+    solutionNote:
+      "The configuration-driven architecture would let the same platform be adapted for additional schools and industries without rebuilding the core product. Phase 1 retrieves only school-approved answers — no GPT or other generative LLM sits in the live response path.",
+    techStack: [
+      { label: "Applications", items: "Kotlin, Jetpack Compose, React, Next.js, TypeScript, Tailwind CSS" },
+      { label: "Backend & Data", items: "Java, Spring Boot, PostgreSQL, pgvector, Redis, REST APIs" },
+      { label: "AI & Language", items: "OpenAI Whisper, Multilingual Sentence Embeddings, Semantic Similarity Search, Confidence-Based Retrieval, Android Native TTS" },
+      { label: "Integrations & Infrastructure", items: "Google/Azure Speech, Translation Provider, AWS EC2, NGINX, Docker, GitHub Actions, OpenAPI" },
+    ],
+    impactIntro:
+      "The platform was designed to consolidate reception assistance, multilingual communication, and visitor registration into one controlled environment.",
+    impactPoints: [
+      "Reduced repetitive staff involvement at reception",
+      "An exportable visitor history",
+      "Real-time visibility into who's currently on-site",
+      "Approved-information updates without ongoing developer support",
+    ],
+    metrics: [
+      { value: "5", label: "Core Modules" },
+      { value: "6", label: "Languages Supported" },
+      { value: "100", label: "Approved FAQs" },
+      { value: "2–4 Week", label: "Replication Time" },
+    ],
+  },
+  {
+    slug: "bidlogics-tender-intelligence",
+    title: "BidLogics — AI-Powered Bidding & Tender Intelligence Platform",
+    tags: ["Software, IT & SaaS"],
+    blurb:
+      "A proposed AI-first workspace for the full pre-award bidding lifecycle — tender discovery, explainable fit-scoring, and RAG-powered proposal drafting.",
+    status: "concept",
+    region: "Multi-Market",
+    overview:
+      "A growing enterprise operating across competitive B2B and public-sector markets needed an AI-first platform to modernise its pre-award bidding lifecycle.",
+    challenge:
+      "The goal was to replace fragmented procurement portals, spreadsheets, documents, and deadline trackers with one secure environment for discovering opportunities, evaluating suitability, preparing proposals, and monitoring bid performance.",
+    solutionIntro: "Penaxis designed an integrated tender intelligence platform featuring:",
+    solutionPoints: [
+      "Automated monitoring of configured tender portals and procurement sources",
+      "AI-generated Fit Scores with explainable recommendations and confidence indicators",
+      "Intelligent extraction of deadlines, requirements, evaluation criteria, and commercial risks",
+      "Structured Bid, Do Not Bid, and Manual Review recommendations",
+      "Historical award, competition, and indicative pricing intelligence",
+      "RAG-powered proposal drafting using approved organisational documents",
+      "Centralised bid pipeline, ownership, deadlines, and approval management",
+      "Public-market and prospective-client signal monitoring",
+      "Leadership dashboards covering pipeline value, submissions, and win/loss trends",
+      "Role-based permissions, tenant-isolated data, and complete decision audit trails",
+    ],
+    solutionNote:
+      "AI supports discovery, analysis, and drafting, while authorised users retain control over qualification, pricing, approvals, and final submissions.",
+    techStack: [
+      { label: "Applications", items: "React, Next.js, TypeScript, Tailwind CSS" },
+      { label: "Backend & Data", items: "Python, FastAPI, PostgreSQL, OpenSearch/Elasticsearch" },
+      { label: "AI & Document Intelligence", items: "OpenAI, Claude, Gemini, LangChain/LlamaIndex, RAG, pgvector/Pinecone/Azure AI Search, OCR, PDF Parsing, Table Extraction" },
+      { label: "Infrastructure & Security", items: "AWS/Azure, S3/Blob Storage, Docker, OAuth 2.0, SSO, MFA, Role-Based Access, Encryption" },
+    ],
+    impactIntro: "The platform was designed to help bidding teams:",
+    impactPoints: [
+      "Discover relevant opportunities across multiple sources",
+      "Prioritise high-fit tenders earlier",
+      "Reduce time spent reviewing unsuitable opportunities",
+      "Accelerate first-draft proposal preparation",
+      "Reuse approved organisational knowledge securely",
+      "Strengthen deadline, compliance, and approval governance",
+      "Preserve a searchable institutional history of past bids",
+      "Give leadership consolidated visibility into the tender pipeline",
+      "Make every AI-assisted recommendation explainable and auditable",
+    ],
+    metrics: [
+      { value: "6", label: "Intelligence Layers" },
+      { value: "3", label: "Decision Outcomes" },
+      { value: "1", label: "Unified Workspace" },
+      { value: "100%", label: "Human-Controlled" },
+    ],
+  },
+  {
+    slug: "seka-gravel-cycling-platform",
+    title: "SEKA Gravel — Membership-Driven Cycling Community & Race Management Platform",
+    tags: ["Sports & Fitness"],
+    blurb:
+      "A CMS-powered community hub for a gravel cycling organisation — rider profiles, race archives, paid memberships, and a gear marketplace in one place.",
+    status: "delivered",
+    region: "Greater Groningen, Netherlands",
+    overview:
+      "A community-led gravel cycling organisation needed more than a promotional website. Rider profiles, race records, membership access, exclusive content, and second-hand cycling listings needed to operate within one connected digital ecosystem.",
+    challenge:
+      "The goal was a distinctive, community-first platform that could support recurring memberships while letting the organisation independently manage its growing cycling community.",
+    solutionIntro: "Penaxis designed and developed a responsive, CMS-powered platform featuring:",
+    solutionPoints: [
+      "Individual rider profiles connected with racing histories",
+      "Upcoming race publishing and completed race archives",
+      "Dedicated race pages with reports, results, riders, and imagery",
+      "Paid registration and member authentication through Memberstack",
+      "Recurring annual membership payments through Stripe",
+      "Public and members-only races, pages, and community content",
+      "Cycling marketplace with seller details, pricing, and enquiries",
+      "Relational CMS architecture connecting riders, races, and reports",
+      "Dynamic filtering for riders, races, and marketplace listings",
+      "Custom administration for sponsors, members, and community content",
+    ],
+    solutionNote:
+      "The platform was structured so the client could publish races, maintain records, moderate listings, and expand its content without routine developer support.",
+    techStack: [
+      { label: "Design & Frontend", items: "Figma, Webflow, HTML5, CSS3, JavaScript ES6+" },
+      { label: "CMS Architecture", items: "Webflow CMS, Relational Collections, Reference Fields, Multi-Reference Fields, Dynamic Collection Templates" },
+      { label: "Membership & Payments", items: "Memberstack 2.0, Stripe Checkout, Recurring Subscriptions, Membership-Status Webhooks, Permission-Based Content Gating" },
+      { label: "Delivery & Optimisation", items: "Webflow Hosting, Global CDN, Responsive Images, WebP, Lazy Loading, Technical SEO" },
+    ],
+    impactIntro:
+      "The solution transformed a conventional cycling website into a functional digital home for the entire community.",
+    impactPoints: [
+      "Riders, races, memberships, and listings consolidated into one platform",
+      "Recurring revenue introduced through annual paid memberships",
+      "Payment status automatically tied to content permissions",
+      "Long-term rider profiles and performance histories preserved",
+      "Exclusive races and content offered to active members",
+      "Reduced manual membership and access verification",
+      "A dedicated equipment marketplace for cyclists",
+      "New races and community content published through reusable templates",
+    ],
+    metrics: [
+      { value: "4", label: "Connected Experiences" },
+      { value: "€250", label: "Annual Membership" },
+      { value: "3", label: "Core Integrations" },
+      { value: "6+", label: "CMS Structures" },
+    ],
+  },
+  {
+    slug: "hotel-booking-revenue-platform",
+    title: "One Intelligent Dashboard for Hotel Bookings, Revenue and Occupancy",
+    tags: ["Software, IT & SaaS"],
+    blurb:
+      "A unified hotel-management platform consolidating six booking channels, revenue tracking, and AI-powered occupancy forecasting into one dashboard.",
+    status: "delivered",
+    region: "Dubai, UAE",
+    overview:
+      "A Dubai-based hospitality operator needed one central platform to manage reservations received through direct and third-party booking channels.",
+    challenge:
+      "Separate calendars, payment records, commissions, and guest information made it difficult to maintain accurate availability, prevent overlapping reservations, and identify low-occupancy periods early.",
+    solutionIntro: "Penaxis developed a unified hotel-management platform featuring:",
+    solutionPoints: [
+      "Consolidated reservations from six direct and third-party channels",
+      "Central room-availability calendar",
+      "Booking, cancellation, refund, and guest-record management",
+      "Payment, payout, commission, and service-fee tracking",
+      "Revenue reporting by room type and booking source",
+      "AI-powered occupancy forecasting",
+      "Smart rate and promotion recommendations",
+      "Personalised guest-message drafting",
+      "Guest-review analysis and recurring feedback detection",
+      "Cancellation-risk indicators",
+      "Email, WhatsApp, and in-platform notifications",
+    ],
+    solutionNote: "Management retained approval over all pricing and promotional recommendations before publication.",
+    techStack: [
+      { label: "Frontend", items: "React, Next.js, TypeScript" },
+      { label: "Backend & Data", items: "Node.js, NestJS, Python, FastAPI, PostgreSQL" },
+      { label: "AI Models & Intelligence", items: "OpenAI, Claude, Gemini, Occupancy Forecasting, Pricing Recommendations, Review Intelligence, Cancellation-Risk Analysis" },
+      { label: "Booking Integrations", items: "Booking.com, Airbnb, Expedia, Agoda, Trip.com, Direct-Booking APIs" },
+      { label: "Payments & Communication", items: "Stripe, Checkout.com, UAE Payment Gateway, WhatsApp, Email, In-Platform Alerts" },
+    ],
+    impactIntro: "The platform created one operational environment for reservations, availability, payments, and revenue intelligence.",
+    impactPoints: [
+      "Bookings from multiple channels managed centrally",
+      "Reduced risk of overlapping reservations",
+      "Revenue monitored after commissions, fees, and refunds",
+      "Underbooked dates identified before they affected occupancy",
+      "Data-informed pricing and promotion decisions",
+      "More consistent guest communication",
+      "Recurring service issues recognised through review analysis",
+      "Reduced dependence on separate portals and spreadsheets",
+    ],
+    metrics: [
+      { value: "6", label: "Booking Channels" },
+      { value: "1", label: "Unified Calendar" },
+      { value: "360°", label: "Revenue Visibility" },
+      { value: "5", label: "AI Capabilities" },
+    ],
+  },
+  {
+    slug: "the-plate-agent-marketplace",
+    title: "The Plate Agent — AI-Powered Private Registration Marketplace & Valuation Engine",
+    tags: ["Automotive & Auto Care"],
+    blurb:
+      "A premium UK plate marketplace pairing searchable inventory with an AI-assisted valuation engine that turns vague buyer requests into qualified leads.",
+    status: "delivered",
+    region: "United Kingdom",
+    overview:
+      "A UK private registration dealer needed more than a conventional inventory website. The business needed to showcase plates already available for resale while capturing demand from buyers searching for registrations not currently held in stock.",
+    challenge:
+      "The goal was to turn open-ended buyer preferences into structured, commercially qualified enquiries — while giving customers immediate, indicative pricing guidance.",
+    solutionIntro:
+      "Penaxis developed a premium private registration marketplace with an AI-assisted classification and valuation workflow featuring:",
+    solutionPoints: [
+      "Searchable inventory of available private registrations",
+      "Category, pricing, and availability management",
+      "Advanced search, filtering, and fuzzy keyword matching",
+      "Preference-based sourcing for unavailable registrations",
+      "Collection of desired names, initials, words, dates, and numbers",
+      "Budget, format, and alternative-spelling capture",
+      "AI-assisted pattern recognition and plate classification",
+      "Indicative valuation ranges based on controlled pricing logic",
+      "Confidence thresholds, valuation boundaries, and fallback rules",
+      "Central dashboard for inventory, pricing, and enquiries",
+      "Transactional notifications with optional SMS and WhatsApp follow-ups",
+    ],
+    solutionNote:
+      "The architecture was prepared for reservations, deposits, and online purchases. The AI supports classification and indicative valuation, while the dealer retains complete authority over final sourcing decisions and quotations.",
+    techStack: [
+      { label: "Frontend", items: "Next.js 14, React 18, TypeScript, Tailwind CSS" },
+      { label: "Backend & Data", items: "Node.js, NestJS, PostgreSQL, Prisma ORM, REST APIs" },
+      { label: "AI & Valuation", items: "OpenAI GPT-4o mini, Structured Outputs, Hybrid Rules Engine, Pattern Recognition, Confidence Thresholds, JSON Schema Validation" },
+      { label: "Search", items: "PostgreSQL Full-Text Search, Indexed Filtering, Fuzzy Keyword Matching" },
+      { label: "Integrations", items: "AWS S3, Transactional Email API, Twilio SMS/WhatsApp, Google Analytics 4, Stripe/PayPal Readiness" },
+    ],
+    impactIntro:
+      "The platform established two connected commercial journeys: customers could either browse registrations already available or request an ideal plate and receive an indicative valuation.",
+    impactPoints: [
+      "Registrations, availability, and enquiries managed centrally",
+      "Buyers captured even without an exact inventory match",
+      "Reduced manual interpretation of early-stage requests",
+      "Indicative pricing available outside normal working hours",
+      "Vague preferences converted into structured sales opportunities",
+      "Demand intelligence collected around popular names and combinations",
+      "A scalable foundation for inventory and recommendation growth",
+    ],
+    metrics: [
+      { value: "2", label: "Purchase Journeys" },
+      { value: "24/7", label: "Price Estimates" },
+      { value: "6+", label: "Valuation Signals" },
+      { value: "100%", label: "Structured Enquiries" },
+    ],
+  },
+  {
+    slug: "dry-cleaning-delivery-platform",
+    title: "Dry Cleaning, Delivered: A Serverless Pickup-to-Return Ecosystem",
+    tags: ["Home Services & Maintenance"],
+    blurb:
+      "A serverless, multi-platform fulfilment ecosystem connecting customers, drivers, and cleaning partners across the full pickup-to-return lifecycle.",
+    status: "delivered",
+    region: "United States",
+    overview:
+      "A US-based, technology-enabled dry-cleaning service needed a unified platform connecting customers, delivery drivers, and local cleaning partners.",
+    challenge:
+      "The goal was to digitise the complete service lifecycle — from requesting a pickup and processing payment to cleaning-facility handover and final doorstep return.",
+    solutionIntro: "Penaxis developed a serverless, multi-platform fulfilment ecosystem featuring:",
+    solutionPoints: [
+      "Customer applications for iOS and Android",
+      "One-time and recurring pickup scheduling",
+      "Driver job acceptance and fulfilment workflows",
+      "Eight-stage order tracking from booking to final return",
+      "Central administration panel for customers, drivers, and orders",
+      "Cleaning-partner handover and status management",
+      "Secure online payments and transaction records",
+      "Active and historical order visibility",
+      "Status-based push notifications",
+      "Address and account management",
+      "Referral codes and customer credit balances",
+      "WhatsApp customer-support integration",
+      "Shared real-time data across web and mobile platforms",
+    ],
+    solutionNote:
+      "A unified GraphQL architecture connected every product surface to the same operational data model, creating a traceable chain of custody throughout the outward and return journeys.",
+    techStack: [
+      { label: "Web & Mobile", items: "React, React Native, TypeScript, JavaScript, iOS, Android" },
+      { label: "Backend & Data", items: "Hasura GraphQL Engine, PostgreSQL, GraphQL Queries/Mutations/Subscriptions, Serverless Functions, WebSockets" },
+      { label: "Payments", items: "Stripe Payments, Payment Intents, Customer Records, Transaction Webhooks" },
+      { label: "Integrations", items: "Firebase Cloud Messaging, Apple Push Notification Service, WhatsApp Deep Links, Mobile Geolocation, Cloud Object Storage" },
+      { label: "Security & Infrastructure", items: "JWT Authentication, Role-Based GraphQL Permissions, HTTPS/TLS, Managed PostgreSQL, Serverless Cloud Hosting, CDN Distribution" },
+    ],
+    impactIntro: "The platform transformed a traditionally offline service into a coordinated digital fulfilment marketplace.",
+    impactPoints: [
+      "Pickup requests accepted around the clock",
+      "Customers, drivers, and cleaning partners coordinated centrally",
+      "Both immediate and recurring collections supported",
+      "Every order tracked through the complete pickup-to-return lifecycle",
+      "Reduced dependence on calls and messaging for routine coordination",
+      "Unified customer, driver, payment, and order records",
+      "Clearer visibility into service progress for customers",
+      "Shared functionality deployed across web, iOS, and Android",
+    ],
+    metrics: [
+      { value: "4", label: "Product Surfaces" },
+      { value: "3-Sided", label: "Workflow" },
+      { value: "8", label: "Lifecycle Stages" },
+      { value: "1", label: "Unified GraphQL Layer" },
+    ],
+  },
+  {
+    slug: "cybersecurity-hr-platform",
+    title: "Digitising a Qatar-Based Cybersecurity Company — Inside and Out",
+    tags: ["Software, IT & SaaS"],
+    blurb:
+      "A premium corporate website plus a custom HR operations ERP, replacing fragmented workforce tools with one centralized system.",
+    status: "delivered",
+    region: "Qatar",
+    overview:
+      "A Qatar-based cybersecurity and enterprise technology company needed modernisation across both its external digital presence and internal workforce operations.",
+    challenge:
+      "Its existing website didn't adequately communicate the depth or enterprise value of its services, while employee records, attendance, leave, payroll, and approvals were managed through fragmented tools and manual processes.",
+    solutionIntro: "Penaxis delivered two connected digital platforms addressing the company's commercial positioning and internal operations.",
+    solutionPoints: [
+      "Enterprise Cybersecurity Website — cybersecurity and IT security solutions, risk management and security consulting, network and infrastructure security, cloud security, digital transformation services, enterprise technology consulting, managed IT services, and conversion-focused enquiry journeys",
+      "Custom HR Operations ERP — employee profiles and centralised records, departments/roles/reporting structures, attendance and working-hour tracking, check-in/check-out management, leave balances/applications/approvals, payroll records and salary slips, employee documents and contracts, performance and increment history, birthdays and work anniversaries, internal announcements, employee self-service, HR reporting dashboards, and role-based access",
+    ],
+    solutionNote:
+      "The information architecture translated technically complex services into a clearer value proposition for executives, IT leaders, and enterprise decision-makers.",
+    techStack: [
+      { label: "Public Experience", items: "Responsive Corporate Website, Structured Service Architecture, Corporate Enquiry Journeys" },
+      { label: "HR Operations", items: "Employee Records, Attendance, Leave Management, Payroll, Documents, Performance History" },
+      { label: "Access & Security", items: "Secure Authentication, Role-Based Access Control, Protected Employee Data, Administrative Permissions" },
+      { label: "Management", items: "Employee Self-Service, HR Dashboards, Reporting, Centralised Document Management" },
+    ],
+    impactIntro: "The engagement modernised how the company presented itself to enterprise prospects and managed its growing workforce.",
+    impactPoints: [
+      "A more credible presence within Qatar's cybersecurity market",
+      "Complex technical services communicated through a clearer structure",
+      "A professional enquiry journey for enterprise prospects",
+      "Employee information and HR administration centralised",
+      "Standardised attendance, leave, payroll, and approval workflows",
+      "Reduced dependence on spreadsheets and manual records",
+      "Structured self-service access for employees",
+      "A scalable operational foundation for workforce growth",
+    ],
+    metrics: [
+      { value: "2", label: "Digital Platforms" },
+      { value: "10+", label: "HR Workflows" },
+      { value: "3", label: "Access Levels" },
+      { value: "1", label: "Unified Employee Record" },
+    ],
+  },
+  {
+    slug: "ai-automotive-search-oktabytes",
+    title: "From Complex Filters to Conversations: Reimagining Automotive Search with AI",
+    tags: ["Automotive & Auto Care"],
+    blurb:
+      "A Generative AI automotive assistant for OktaBytes, letting buyers describe what they need in plain language instead of configuring technical filters.",
+    status: "delivered",
+    region: "United States",
+    overview:
+      "A leading US automotive marketplace wanted to modernise how customers discovered vehicles and how internal teams accessed inventory information.",
+    challenge:
+      "Traditional filters required buyers to already understand makes, models, and technical specifications. The goal was to let users describe what they needed naturally and receive accurate recommendations from thousands of live vehicle listings.",
+    solutionIntro:
+      "Penaxis developed a Generative AI-powered automotive assistant capable of understanding conversational requirements and translating them into controlled inventory searches. The platform featured:",
+    solutionPoints: [
+      "Natural-language vehicle discovery",
+      "Live integration with structured marketplace inventory",
+      "Dynamic generation of controlled database queries",
+      "Search across budget, location, mileage, year, and vehicle type",
+      "Filtering by make, model, transmission, powertrain, and features",
+      "Recommendations based on lifestyle and buying priorities",
+      "Side-by-side vehicle comparisons",
+      "Personalisation using preferences, location, and previous searches",
+      "Persistent conversation and search history",
+      "Separate access experiences for customers and internal teams",
+      "Administrative controls for prompts, models, and AI behaviour",
+      "A/B testing across different prompts and language models",
+    ],
+    solutionNote:
+      "A buyer could ask something like \"Find a fuel-efficient seven-seat SUV under $35,000 near Austin,\" and the assistant would convert that into relevant inventory criteria and return matching vehicles — no need to configure numerous technical filters. Once a suitable vehicle was identified, the assistant guided the user toward the right next step: requesting more information, contacting the dealership, booking a viewing, scheduling a test drive, or submitting a financing enquiry.",
+    techStack: [
+      { label: "AI Models", items: "Claude 3.5 Sonnet, Llama 3, Large Language Models, Prompt Experimentation" },
+      { label: "Application & Intelligence", items: "Python, Natural-Language Processing, Dynamic Query Generation, Recommendation Logic, Conversation History" },
+      { label: "Data & Infrastructure", items: "Amazon RDS, Amazon S3, Amazon SageMaker, AWS Lambda, Amazon API Gateway" },
+      { label: "Cloud Workflows", items: "Amazon EventBridge, Amazon SNS, Amazon SQS, Terraform" },
+    ],
+    impactIntro: "The solution transformed conventional vehicle search into a more intuitive, conversational buying experience.",
+    impactPoints: [
+      "Discovery simplified across thousands of vehicle listings",
+      "Buyers could search without knowing specific makes or models",
+      "Recommendations grounded in practical customer priorities",
+      "Inventory data made conversationally accessible to internal teams",
+      "Reduced repetitive availability and specification enquiries",
+      "Informed comparisons supported between shortlisted vehicles",
+      "Customer preferences captured before dealership handoff",
+      "More structured, commercially relevant enquiries generated",
+      "AI workloads scaled through a modular AWS architecture",
+    ],
+    metrics: [
+      { value: "2", label: "AI Models" },
+      { value: "9+", label: "Search Dimensions" },
+      { value: "5", label: "Conversion Actions" },
+      { value: "1", label: "Conversational Interface" },
+    ],
+  },
+  {
+    slug: "patient-care-management-platform",
+    title: "Integrated Patient Care & Clinical Management Platform",
+    tags: ["Healthcare & Wellness"],
+    blurb:
+      "One secure platform connecting patients, practitioners, appointments, and clinical records across a multi-clinic healthcare provider.",
+    status: "delivered",
+    region: "Johannesburg, South Africa",
+    overview:
+      "A multi-clinic healthcare provider needed one secure platform to connect patients, practitioners, appointments, and clinical records — replacing fragmented administrative processes.",
+    challenge:
+      "Scattered systems made it hard to give practitioners a complete view of a patient's history at the point of care, or to give patients a clear way to book, prepare for, and follow up on appointments.",
+    solutionIntro: "Penaxis built:",
+    solutionPoints: [
+      "Dedicated patient and practitioner portals",
+      "Multi-clinic appointment scheduling",
+      "Pre-consultation health assessments",
+      "Unified medical history, medication, and document records",
+      "Structured consultation reports and After Visit Summaries",
+      "Role-based access and privacy-conscious data management",
+    ],
+    techStack: [
+      { label: "Security", items: "Secure Authentication, Role-Based Access, Encrypted Records, Protected Document Storage" },
+    ],
+    impactIntro:
+      "The platform created a connected patient journey from appointment booking and pre-visit assessment through consultation, medication guidance, and follow-up care — while helping practitioners access the right clinical information from one system.",
+    impactPoints: [],
+    metrics: [],
+  },
+  {
+    slug: "recruitment-talent-platform",
+    title: "From Resume Overload to an Intelligent, Searchable Talent Pipeline",
+    tags: ["Consulting, Staffing & Immigration"],
+    blurb:
+      "A combined ATS and Recruitment CRM with explainable AI candidate matching, turning scattered resumes into a searchable, reusable talent pipeline.",
+    status: "delivered",
+    overview:
+      "A high-volume recruitment company needed to replace scattered resumes, spreadsheets, and screening notes with one intelligent system for managing candidates across multiple clients and vacancies.",
+    challenge:
+      "The goal was to help recruiters prioritise suitable candidates, rediscover previous applicants, and manage high-volume hiring — without removing human control from selection decisions.",
+    solutionIntro: "Penaxis built:",
+    solutionPoints: [
+      "Combined Applicant Tracking System and Recruitment CRM",
+      "Automated resume parsing and structured candidate profiles",
+      "Advanced filtering across skills, experience, salary, and availability",
+      "Explainable AI-assisted candidate matching",
+      "Screening notes and complete interaction histories",
+      "A reusable talent database for future and urgent vacancies",
+      "Custom recruitment pipelines and management dashboards",
+      "Human-reviewed AI summaries and communication drafts",
+    ],
+    techStack: [
+      { label: "Stack", items: "React, Next.js, PostgreSQL, OpenSearch, AI Matching, Vector Search, AWS/Azure" },
+    ],
+    impactIntro:
+      "The platform transformed disconnected applications into a searchable talent pipeline — helping recruiters prioritise suitable candidates, rediscover previous applicants, and manage high-volume hiring without removing human control from selection decisions.",
+    impactPoints: [],
+    metrics: [],
+  },
+  {
+    slug: "luxury-furniture-ecommerce",
+    title: "From Product Page to Personal Interior: An Immersive Shopify Experience",
+    tags: ["E-Commerce & Retail"],
+    blurb:
+      "An AI-powered \"View in Your Room\" experience for a luxury furniture retailer, letting buyers visualise pieces in their own space before checkout.",
+    status: "delivered",
+    region: "Canada",
+    overview:
+      "A luxury furniture retailer needed to give online buyers greater confidence when purchasing high-value pieces — helping them understand craftsmanship, explore every detail, and visualise products within their own interiors.",
+    challenge:
+      "High-value furniture is a considered purchase; static product photos alone weren't enough to give buyers confidence before checkout.",
+    solutionIntro: "Penaxis built:",
+    solutionPoints: [
+      "A premium, mobile-responsive Shopify storefront",
+      "Curated collections with detailed materials, dimensions, and finishes",
+      "Interactive 360° product exploration",
+      "An AI-powered \"View in Your Room\" experience",
+      "Customer room-image uploads with realistic product placement",
+      "Saved visualisations connected directly with checkout",
+      "Bespoke-product and white-glove delivery enquiries",
+    ],
+    techStack: [
+      { label: "Stack", items: "Shopify, Liquid, JavaScript, WebGL, Three.js, Computer Vision, AI Image Processing" },
+    ],
+    impactIntro:
+      "The platform transformed conventional product browsing into a personalised interior-design journey — allowing customers to inspect, visualise, and purchase luxury furniture through one immersive experience.",
+    impactPoints: [],
+    metrics: [],
+  },
+];
+
 // Dubai and Jordan addresses are placeholders (confirmed with the client
 // as OK to ship for now) — swap for the real registered addresses when
 // available. Pakistan uses the real, confirmed office address above.
-// Placeholder case studies — no real case studies exist yet, so these are
-// clearly-generic, non-attributed project descriptions (no invented
-// client names, quotes, or stats), shared between the /case-studies page
-// and the homepage case-studies accordion. Swap for real case studies
-// whenever they exist.
-export const caseStudyPlaceholders = [
-  {
-    slug: "ai-powered-saas-mvp",
-    title: "Launching an MVP for an AI-Powered SaaS Startup",
-    tags: ["Software, IT & SaaS"],
-    blurb:
-      "Took a concept from whiteboard to a launch-ready SaaS MVP — core features first, AI built in from day one, focused on speed to market.",
-    image: "/images/case-studies/ai-powered-saas-mvp.webp",
-  },
-  {
-    slug: "ecommerce-fulfillment-automation",
-    title: "Automating Fulfillment for a Regional E-Commerce Retailer",
-    tags: ["E-Commerce & Retail", "Software, IT & SaaS"],
-    blurb:
-      "Connected storefront, inventory, and shipping into one automated workflow, cutting manual order handling across the fulfillment process.",
-    image: "/images/case-studies/ecommerce-fulfillment-automation.webp",
-  },
-  {
-    slug: "healthcare-crm",
-    title: "Building a Custom CRM for a Healthcare Provider Network",
-    tags: ["Healthcare & Wellness", "Software, IT & SaaS"],
-    blurb:
-      "Designed a tailored CRM and patient-record workflow that centralized information across multiple provider locations.",
-    image: "/images/case-studies/healthcare-crm.webp",
-  },
-  {
-    slug: "edtech-learning-portal",
-    title: "Standing Up a Learning Portal for an EdTech Platform",
-    tags: ["Education & EdTech"],
-    blurb:
-      "Built a learning portal covering course delivery, student progress tracking, and instructor tools from the ground up.",
-    image: "/images/case-studies/edtech-learning-portal.webp",
-  },
-  {
-    slug: "real-estate-deal-flow",
-    title: "Modernizing Deal Flow for a Growing Real Estate Platform",
-    tags: ["Real Estate & Property", "Software, IT & SaaS"],
-    blurb:
-      "Replaced spreadsheet-based deal tracking with a purpose-built platform for listings, pipeline stages, and broker collaboration.",
-    image: "/images/case-studies/real-estate-deal-flow.webp",
-  },
-  {
-    slug: "logistics-dispatch-system",
-    title: "Streamlining Dispatch for a Logistics & Fleet Operator",
-    tags: ["Logistics & Transportation"],
-    blurb:
-      "Built a dispatch and fleet-tracking system that gave operations real-time visibility into routes, drivers, and delivery status.",
-  },
-  {
-    slug: "auto-service-digital-transformation",
-    title: "Digital Transformation for a Multi-Location Auto Service Group",
-    tags: ["Automotive & Auto Care"],
-    blurb:
-      "Unified booking, service history, and customer communication across multiple locations under one digital system.",
-  },
-  {
-    slug: "fintech-payments-infrastructure",
-    title: "Secure Payments Infrastructure for a Fintech Product",
-    tags: ["Fintech & Financial Services", "Software, IT & SaaS"],
-    blurb:
-      "Designed and integrated a secure payments layer, built to handle compliance requirements alongside a smooth checkout experience.",
-  },
-];
 
 export const caseStudyGradients = [
   "linear-gradient(150deg, #734FA0, #2a1d43)",

@@ -6581,6 +6581,132 @@ button:focus-visible {
 }
 .cso-p:last-child { margin-bottom: 0; }
 
+/* Case study detail — Client Overview / The Challenge / Our Solution /
+   Technology / Business Impact / Metrics, label-left content-right rows */
+.csd-section { padding: 2rem 0 6rem; background: #fff; }
+.csd-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #a15c00;
+  background: rgba(252, 102, 7, 0.1);
+  border: 1px solid rgba(252, 102, 7, 0.25);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 3rem;
+}
+.csd-row {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 2.5rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid rgba(33, 33, 33, 0.08);
+}
+.csd-row:first-of-type { padding-top: 0; }
+.csd-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #212121;
+  position: sticky;
+  top: 6rem;
+  align-self: start;
+}
+.csd-p {
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: rgba(33, 33, 33, 0.72);
+  margin-bottom: 1.25rem;
+}
+.csd-p:last-child { margin-bottom: 0; }
+.csd-note { font-size: 0.95rem; color: rgba(33, 33, 33, 0.55); font-style: italic; }
+.csd-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+.csd-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: rgba(33, 33, 33, 0.72);
+}
+.csd-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #734fa0;
+}
+.csd-tech-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.csd-tech-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem 1.25rem;
+  border-radius: 0.9rem;
+  background: #f1eefb;
+}
+.csd-tech-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #734fa0;
+}
+.csd-tech-items {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(33, 33, 33, 0.68);
+}
+.csd-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.csd-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  background: #171717;
+}
+.csd-metric-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #fc6607;
+}
+.csd-metric-label {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+@media (max-width: 40em) {
+  .csd-row { grid-template-columns: 1fr; gap: 0.75rem; }
+  .csd-label { position: static; }
+  .csd-metrics { grid-template-columns: 1fr 1fr; }
+}
+
+
 /* Homepage video banner — full-bleed autoplay/loop video hero */
 .vb-section {
   position: relative;

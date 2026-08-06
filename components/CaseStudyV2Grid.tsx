@@ -2,7 +2,7 @@
 
 import { useMemo, useRef, useState } from "react";
 import Reveal from "./Reveal";
-import { industries, caseStudyPlaceholders, caseStudyGradients } from "@/lib/data";
+import { industries, caseStudies, caseStudyGradients } from "@/lib/data";
 
 // Ported from a reference "customer success stories" filter grid: an intro
 // line, a row of pill filters ("See All" + categories), and a card grid
@@ -27,7 +27,7 @@ const FILTER_INDUSTRIES = [
 ];
 
 const GRADIENTS = caseStudyGradients;
-const PLACEHOLDER_STUDIES = caseStudyPlaceholders;
+const PLACEHOLDER_STUDIES = caseStudies;
 
 const findIndustry = (title: string) => industries.find((i) => i.title === title);
 
