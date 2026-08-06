@@ -26,7 +26,7 @@ export default function CaseStudyV2Banner() {
         </Reveal>
         <Reveal delay={0.12} className="mb-10 md:mb-14">
           <div className="csv2-image">
-            <img src="/images/hero/team-huddle.jpg" alt="Penaxis at work" />
+            <img src="/images/hero/case-study-v2-banner.webp" alt="Penaxis at work" />
           </div>
         </Reveal>
       </div>
