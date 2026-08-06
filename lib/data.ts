@@ -298,6 +298,11 @@ export const caseStudies = [
     slug: "drivelo-logistics-platform",
     image: "/images/case-studies/drivelo-logistics-platform-thumb.webp",
     gridImage: "/images/case-studies/grid/drivelo-logistics-platform-grid.webp",
+    bannerImages: [
+      "/images/case-studies/banner/drivelo-banner-1.webp",
+      "/images/case-studies/banner/drivelo-banner-2.webp",
+      "/images/case-studies/banner/drivelo-banner-3.webp",
+    ],
     title: "Drivelo — Integrated Digital Logistics & Fleet Management Ecosystem",
     tags: ["Logistics & Transportation"],
     blurb:
