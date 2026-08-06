@@ -6220,6 +6220,13 @@ button:focus-visible {
 
 /* Case study detail banner */
 .csb-section { padding: 10rem 0 4rem; background: #171717; }
+.csb-row {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+.csb-col-text { flex: 1 1 auto; min-width: 0; }
+.csb-col-images { flex: 0 0 26rem; display: flex; justify-content: center; }
 .csb-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
 .csb-tag {
   font-family: var(--font-mono);
@@ -6235,15 +6242,16 @@ button:focus-visible {
 .csb-title {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(2rem, 1.6rem + 2.2vw, 3.5rem);
+  font-size: clamp(2rem, 1.6rem + 1.6vw, 3rem);
   line-height: 1.1;
   letter-spacing: -0.01em;
   color: #fff;
-  max-width: 42rem;
-  margin-bottom: 3rem;
+  max-width: 34rem;
+  margin-bottom: 0;
 }
 .csb-stack {
   position: relative;
+  width: 24rem;
   height: 22rem;
   display: flex;
   justify-content: center;
@@ -6251,7 +6259,7 @@ button:focus-visible {
 .csb-stack-img {
   position: absolute;
   top: 0;
-  width: 20rem;
+  width: 15rem;
   height: 100%;
   object-fit: cover;
   border-radius: 1.5rem;
@@ -6261,16 +6269,20 @@ button:focus-visible {
   transition: transform 0.4s cubic-bezier(0.22, 0.9, 0.26, 1), filter 0.4s ease;
   filter: grayscale(35%);
 }
-.csb-stack-img:nth-child(1) { transform: translateX(-7rem) rotate(-6deg); }
+.csb-stack-img:nth-child(1) { transform: translateX(-5rem) rotate(-6deg); }
 .csb-stack-img:nth-child(2) { transform: translateX(0) rotate(0deg); }
-.csb-stack-img:nth-child(3) { transform: translateX(7rem) rotate(6deg); }
+.csb-stack-img:nth-child(3) { transform: translateX(5rem) rotate(6deg); }
 .csb-stack-img.is-active {
   transform: translateY(-0.75rem) scale(1.08) rotate(0deg) !important;
   filter: grayscale(0%);
 }
+@media (max-width: 900px) {
+  .csb-row { flex-direction: column; align-items: stretch; gap: 2.5rem; }
+  .csb-col-images { flex-basis: auto; justify-content: flex-start; }
+}
 @media (max-width: 640px) {
   .csb-section { padding: 8rem 0 3rem; }
-  .csb-stack { height: 16rem; }
+  .csb-stack { height: 16rem; width: 18rem; }
   .csb-stack-img { width: 12rem; }
   .csb-stack-img:nth-child(1) { transform: translateX(-3.5rem) rotate(-6deg); }
   .csb-stack-img:nth-child(3) { transform: translateX(3.5rem) rotate(6deg); }

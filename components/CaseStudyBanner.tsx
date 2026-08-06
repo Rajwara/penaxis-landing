@@ -26,32 +26,36 @@ export default function CaseStudyBanner({
 
   return (
     <section className="csb-section">
-      <div className="mx-auto max-w-6xl px-6">
-        <Reveal delay={0.05}>
-          <div className="csb-tags">
-            {tags.map((t) => (
-              <span key={t} className="csb-tag">
-                {t}
-              </span>
-            ))}
-          </div>
-          <h1 className="csb-title">{title}</h1>
-        </Reveal>
+      <div className="mx-auto max-w-6xl px-6 csb-row">
+        <div className="csb-col-text">
+          <Reveal delay={0.05}>
+            <div className="csb-tags">
+              {tags.map((t) => (
+                <span key={t} className="csb-tag">
+                  {t}
+                </span>
+              ))}
+            </div>
+            <h1 className="csb-title">{title}</h1>
+          </Reveal>
+        </div>
 
-        <Reveal delay={0.1}>
-          <div className="csb-stack" onMouseLeave={() => setActive(null)}>
-            {BANNER_IMAGES.map((src, i) => (
-              <img
-                key={src}
-                src={src}
-                alt=""
-                className={`csb-stack-img ${active === i ? "is-active" : ""}`}
-                style={{ zIndex: active === i ? 10 : 3 - i }}
-                onMouseEnter={() => setActive(i)}
-              />
-            ))}
-          </div>
-        </Reveal>
+        <div className="csb-col-images">
+          <Reveal delay={0.1}>
+            <div className="csb-stack" onMouseLeave={() => setActive(null)}>
+              {BANNER_IMAGES.map((src, i) => (
+                <img
+                  key={src}
+                  src={src}
+                  alt=""
+                  className={`csb-stack-img ${active === i ? "is-active" : ""}`}
+                  style={{ zIndex: active === i ? 10 : 3 - i }}
+                  onMouseEnter={() => setActive(i)}
+                />
+              ))}
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
