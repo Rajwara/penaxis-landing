@@ -570,6 +570,7 @@ export const caseStudies = [
   },
   {
     slug: "the-plate-agent-marketplace",
+    gridImage: "/images/case-studies/grid/the-plate-agent-marketplace-grid.webp",
     bannerImages: [
       "/images/case-studies/banner/plate-agent-banner-1.webp",
       "/images/case-studies/banner/plate-agent-banner-2.webp",
