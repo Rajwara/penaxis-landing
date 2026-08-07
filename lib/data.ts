@@ -801,6 +801,7 @@ export const caseStudies = [
   },
   {
     slug: "patient-care-management-platform",
+    gridImage: "/images/case-studies/grid/patient-care-management-platform-grid.webp",
     bannerImages: [
       "/images/case-studies/banner/patientcare-banner-1.webp",
       "/images/case-studies/banner/patientcare-banner-2.webp",
