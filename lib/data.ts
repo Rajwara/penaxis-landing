@@ -691,6 +691,7 @@ export const caseStudies = [
   },
   {
     slug: "cybersecurity-hr-platform",
+    gridImage: "/images/case-studies/grid/cybersecurity-hr-platform-grid.webp",
     bannerImages: [
       "/images/case-studies/banner/qsecure-banner-1.webp",
       "/images/case-studies/banner/qsecure-banner-2.webp",
