@@ -630,6 +630,7 @@ export const caseStudies = [
   },
   {
     slug: "dry-cleaning-delivery-platform",
+    gridImage: "/images/case-studies/grid/dry-cleaning-delivery-platform-grid.webp",
     bannerImages: [
       "/images/case-studies/banner/dry-cleaning-banner-1.webp",
       "/images/case-studies/banner/dry-cleaning-banner-2.webp",
