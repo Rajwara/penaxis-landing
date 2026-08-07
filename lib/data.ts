@@ -738,6 +738,11 @@ export const caseStudies = [
   },
   {
     slug: "ai-automotive-search-oktabytes",
+    bannerImages: [
+      "/images/case-studies/banner/oktabytes-banner-1.webp",
+      "/images/case-studies/banner/oktabytes-banner-2.webp",
+      "/images/case-studies/banner/oktabytes-banner-3.webp",
+    ],
     title: "From Complex Filters to Conversations: Reimagining Automotive Search with AI",
     tags: ["Automotive & Auto Care"],
     blurb:
