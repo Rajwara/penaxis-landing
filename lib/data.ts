@@ -867,6 +867,11 @@ export const caseStudies = [
   },
   {
     slug: "luxury-furniture-ecommerce",
+    bannerImages: [
+      "/images/case-studies/banner/furniture-banner-1.webp",
+      "/images/case-studies/banner/furniture-banner-2.webp",
+      "/images/case-studies/banner/furniture-banner-3.webp",
+    ],
     title: "From Product Page to Personal Interior: An Immersive Shopify Experience",
     tags: ["E-Commerce & Retail"],
     blurb:
