@@ -570,6 +570,11 @@ export const caseStudies = [
   },
   {
     slug: "the-plate-agent-marketplace",
+    bannerImages: [
+      "/images/case-studies/banner/plate-agent-banner-1.webp",
+      "/images/case-studies/banner/plate-agent-banner-2.webp",
+      "/images/case-studies/banner/plate-agent-banner-3.webp",
+    ],
     title: "The Plate Agent — AI-Powered Private Registration Marketplace & Valuation Engine",
     tags: ["Automotive & Auto Care"],
     blurb:
