@@ -832,6 +832,11 @@ export const caseStudies = [
   },
   {
     slug: "recruitment-talent-platform",
+    bannerImages: [
+      "/images/case-studies/banner/recruitment-banner-1.webp",
+      "/images/case-studies/banner/recruitment-banner-2.webp",
+      "/images/case-studies/banner/recruitment-banner-3.webp",
+    ],
     title: "From Resume Overload to an Intelligent, Searchable Talent Pipeline",
     tags: ["Consulting, Staffing & Immigration"],
     blurb:
