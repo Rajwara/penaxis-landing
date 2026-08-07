@@ -690,6 +690,11 @@ export const caseStudies = [
   },
   {
     slug: "cybersecurity-hr-platform",
+    bannerImages: [
+      "/images/case-studies/banner/qsecure-banner-1.webp",
+      "/images/case-studies/banner/qsecure-banner-2.webp",
+      "/images/case-studies/banner/qsecure-banner-3.webp",
+    ],
     title: "Digitising a Qatar-Based Cybersecurity Company — Inside and Out",
     tags: ["Software, IT & SaaS"],
     blurb:
