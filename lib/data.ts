@@ -740,6 +740,7 @@ export const caseStudies = [
   },
   {
     slug: "ai-automotive-search-oktabytes",
+    gridImage: "/images/case-studies/grid/ai-automotive-search-oktabytes-grid.webp",
     bannerImages: [
       "/images/case-studies/banner/oktabytes-banner-1.webp",
       "/images/case-studies/banner/oktabytes-banner-2.webp",
