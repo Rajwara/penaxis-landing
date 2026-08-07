@@ -630,6 +630,11 @@ export const caseStudies = [
   },
   {
     slug: "dry-cleaning-delivery-platform",
+    bannerImages: [
+      "/images/case-studies/banner/dry-cleaning-banner-1.webp",
+      "/images/case-studies/banner/dry-cleaning-banner-2.webp",
+      "/images/case-studies/banner/dry-cleaning-banner-3.webp",
+    ],
     title: "Dry Cleaning, Delivered: A Serverless Pickup-to-Return Ecosystem",
     tags: ["Home Services & Maintenance"],
     blurb:
