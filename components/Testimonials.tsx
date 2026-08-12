@@ -8,31 +8,28 @@ import Reveal from "./Reveal";
 // fraction pagination on the left, a peeking image stack on the right.
 // Re-implemented as a single hand-rolled carousel (matching the pattern
 // already used by SpotlightDeck in this project) instead of pulling in the
-// Swiper library. Client photos are real (Zohaib Khalid, Malih, Amar
-// Jeet). Quotes/roles/companies are still placeholder copy — client has
-// confirmed the photos are real but will supply the actual testimonial
-// content (quote, role, company) separately later.
+// Swiper library.
 
 const TESTIMONIALS = [
   {
     quote:
-      "We shipped our first copilot in 7 weeks and cut support tickets by 31%. The eval dashboards made every decision obvious.",
+      "Penaxis helped us make our outreach more focused and approach new markets with a clearer strategy. Their team helped us position our sports goods better and connect with the right potential buyers.",
     name: "Zohaib Khalid",
-    role: "Cantos SaaS's VP Product",
+    role: "CEO, NAS Enterprises",
     image: "/images/team/zohaib-khalid.webp",
   },
   {
     quote:
-      "SSO/SAML and RBAC landed smoothly. Latency stayed <300ms on p95 — huge win for our agents.",
-    name: "Malih",
-    role: "VectorPay's CTO",
+      "Penaxis has been a great extension of our team. They've supported us with software development when we needed extra resources, and have also been helping us improve our marketing and reach new markets.",
+    name: "Rohail Malih",
+    role: "CTO, Oktabytes",
     image: "/images/team/malih.webp",
   },
   {
     quote:
-      "The best partner for agentic work. Multi-step planning, tool use, and audit trails — done right the first time.",
-    name: "Amar Jeet",
-    role: "Northway's Ecommerce Director",
+      "What I liked about working with Penaxis was that they understood the business first, rather than just jumping into building a website. They helped us create a digital presence that feels premium, credible and much more aligned with The Plate Agent as a brand.",
+    name: "Amarjit",
+    role: "Founder, The Plate Agent",
     image: "/images/team/amar-jeet.webp",
   },
 ];
