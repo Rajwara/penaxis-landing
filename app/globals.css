@@ -2468,14 +2468,20 @@ button:focus-visible {
   from { transform: translateX(0); }
   to { transform: translateX(-33.3333%); }
 }
+.hg-intro-press-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 140px;
+  flex-shrink: 0;
+}
 .hg-intro-press-track img {
-  height: 28px;
-  width: auto;
-  max-width: 130px;
+  height: 100%;
+  width: 100%;
   object-fit: contain;
   filter: grayscale(100%);
   opacity: 0.55;
-  flex-shrink: 0;
   transition: opacity 0.2s, filter 0.2s;
 }
 .hg-intro-press-track img:hover {
@@ -2484,11 +2490,11 @@ button:focus-visible {
 }
 @media (prefers-reduced-motion: reduce) {
   .hg-intro-press-track { animation: none; width: 100%; justify-content: center; flex-wrap: wrap; }
-  .hg-intro-press-track img:nth-child(n + 6) { display: none; }
+  .hg-intro-press-logo:nth-child(n + 6) { display: none; }
 }
 @media (max-width: 700px) {
   .hg-intro-press-track { gap: 2rem; }
-  .hg-intro-press-track img { height: 22px; }
+  .hg-intro-press-logo { height: 30px; width: 110px; }
 }
 
 .hg-pin-outer {
