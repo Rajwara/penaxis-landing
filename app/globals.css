@@ -5381,9 +5381,9 @@ button:focus-visible {
 .avbt-violet { background: #734fa0; min-height: 12rem; display: flex; flex-direction: column; }
 .avbt-volt { background: #fc6607; min-height: 12rem; display: flex; flex-direction: column; }
 
-/* Blob cursor-mask effect (testing page) */
-.blob-fx-section { padding: 10rem 0 6rem; background: #171717; }
-.blob-fx-eyebrow {
+/* Who We Are — team photo hero */
+.av2-photo-section { padding: 10rem 0 6rem; background: #171717; }
+.av2-photo-eyebrow {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 700;
@@ -5393,7 +5393,7 @@ button:focus-visible {
   margin-bottom: 0.75rem;
   text-align: center;
 }
-.blob-fx-heading {
+.av2-photo-heading {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.4rem);
@@ -5401,7 +5401,7 @@ button:focus-visible {
   text-align: center;
   margin-bottom: 2.5rem;
 }
-.blob-fx-canvas-wrap {
+.av2-photo-frame {
   position: relative;
   width: 100%;
   height: 60vh;
@@ -5409,20 +5409,8 @@ button:focus-visible {
   max-height: 40rem;
   border-radius: 1.5rem;
   overflow: hidden;
-  cursor: none;
 }
-.blob-fx-canvas-wrap canvas { display: block; width: 100% !important; height: 100% !important; }
-.blob-fx-hint {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.35);
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-}
+.av2-photo-frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 /* About nav link — small hover dropdown */
 .nav-about-dropdown {
