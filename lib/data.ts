@@ -287,8 +287,9 @@ export const contact = {
 // tender-intelligence platform) are proposed/concept work, not yet built —
 // flagged via `status: "concept"` and worded as designed/proposed rather
 // than delivered, per the source brief's instruction not to present
-// unbuilt work as an achieved result. The first 5 (Drivelo, AI receptionist
-// kiosk, BidLogics, SEKA Gravel, hotel booking platform) now have real
+// unbuilt work as an achieved result. The first 5 (logistics platform, AI
+// receptionist kiosk, tender intelligence platform, cycling platform, hotel
+// booking platform) now have real
 // product screenshots via `image` (homepage accordion hover thumb) and
 // `gridImage` (case studies grid card) — the remaining entries have no
 // `image`/`gridImage` field, so the grid falls back to its brand-gradient
@@ -303,7 +304,7 @@ export const caseStudies = [
       "/images/case-studies/banner/drivelo-banner-2.webp",
       "/images/case-studies/banner/drivelo-banner-3.webp",
     ],
-    title: "Drivelo — Integrated Digital Logistics & Fleet Management Ecosystem",
+    title: "Integrated Digital Logistics & Fleet Management Ecosystem",
     tags: ["Logistics & Transportation"],
     blurb:
       "Four connected apps — customer, driver, dispatch, and corporate site — replacing fragmented workflows with one on-demand logistics experience.",
@@ -405,7 +406,7 @@ export const caseStudies = [
       "/images/case-studies/banner/bidlogics-banner-2.webp",
       "/images/case-studies/banner/bidlogics-banner-3.webp",
     ],
-    title: "BidLogics — AI-Powered Bidding & Tender Intelligence Platform",
+    title: "AI-Powered Bidding & Tender Intelligence Platform",
     tags: ["Software, IT & SaaS"],
     blurb:
       "A proposed AI-first workspace for the full pre-award bidding lifecycle — tender discovery, explainable fit-scoring, and RAG-powered proposal drafting.",
@@ -459,7 +460,7 @@ export const caseStudies = [
     slug: "seka-gravel-cycling-platform",
     image: "/images/case-studies/seka-gravel-cycling-platform-thumb.webp",
     gridImage: "/images/case-studies/grid/seka-gravel-cycling-platform-grid.webp",
-    title: "SEKA Gravel — Membership-Driven Cycling Community & Race Management Platform",
+    title: "Membership-Driven Cycling Community & Race Management Platform",
     tags: ["Sports & Fitness"],
     blurb:
       "A CMS-powered community hub for a gravel cycling organisation — rider profiles, race archives, paid memberships, and a gear marketplace in one place.",
