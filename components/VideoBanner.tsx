@@ -28,14 +28,32 @@ function IconSound() {
 // override), so this falls back to muted autoplay when the browser rejects
 // it — either way the video plays and loops, with a toggle to switch sound
 // on/off manually.
+//
+// Mobile gets its own edit of the banner; tablet and desktop share the
+// original. Picked via matchMedia rather than <source media="…"> — real
+// browsers don't reliably re-run the <source> selection algorithm for
+// <video> the way they do for <picture>, so it's driven from JS instead.
+// `src` starts undefined so server and first client render match (no
+// hydration mismatch); the effect below fills it in once the real
+// viewport is known.
+const MOBILE_QUERY = "(max-width: 640px)";
 
 export default function VideoBanner() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(false);
+  const [src, setSrc] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    const mq = window.matchMedia(MOBILE_QUERY);
+    const update = () => setSrc(mq.matches ? "/videos/homepage-banner-mobile.mp4" : "/videos/homepage-banner.mp4");
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
+    if (!video || !src) return;
 
     // Try to play with sound on first. Most browsers will reject this for
     // a first-time visitor (autoplay-with-sound is blocked unless the
@@ -52,7 +70,7 @@ export default function VideoBanner() {
           /* Autoplay fully blocked; poster image stays visible */
         });
       });
-  }, []);
+  }, [src]);
 
   const toggleSound = () => {
     const video = videoRef.current;
@@ -67,7 +85,7 @@ export default function VideoBanner() {
       <video
         ref={videoRef}
         className="vb-video"
-        src="/videos/homepage-banner.mp4"
+        src={src}
         poster="/images/hero/video-banner-poster.jpg"
         loop
         playsInline
