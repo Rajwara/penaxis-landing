@@ -26,10 +26,10 @@ export const navLeft = [
 export const navRight = [
   {
     label: "About",
-    href: "/game-changers",
+    href: "/who-we-are",
     children: [
-      { label: "Game Changers", href: "/game-changers" },
       { label: "Who We Are", href: "/who-we-are" },
+      { label: "Game Changers", href: "/game-changers" },
       { label: "FAQs", href: "/faqs" },
     ],
   },
