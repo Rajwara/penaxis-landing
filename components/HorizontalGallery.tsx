@@ -39,7 +39,9 @@ export default function HorizontalGallery() {
         <div className="hg-intro-press-viewport">
           <div className="hg-intro-press-track">
             {track.map((logo, i) => (
-              <img key={i} src={logo.src} alt={logo.alt} />
+              <span className="hg-intro-press-logo" key={i}>
+                <img src={logo.src} alt={logo.alt} />
+              </span>
             ))}
           </div>
         </div>

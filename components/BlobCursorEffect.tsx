@@ -318,7 +318,7 @@ export default function BlobCursorEffect() {
     <section className="blob-fx-section">
       <div className="mx-auto max-w-6xl px-6">
         <p className="blob-fx-eyebrow">Who We Are</p>
-        <h2 className="blob-fx-heading">There&apos;s more to us than meets the eye — move your cursor to find out</h2>
+        <h2 className="blob-fx-heading">We turn ambitious ideas into products, systems and growth.</h2>
         <div ref={containerRef} className="blob-fx-canvas-wrap">
           <p ref={hintRef} className="blob-fx-hint">
             Move your cursor here

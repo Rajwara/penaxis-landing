@@ -26,10 +26,10 @@ export const navLeft = [
 export const navRight = [
   {
     label: "About",
-    href: "/game-changers",
+    href: "/who-we-are",
     children: [
-      { label: "Game Changers", href: "/game-changers" },
       { label: "Who We Are", href: "/who-we-are" },
+      { label: "Game Changers", href: "/game-changers" },
       { label: "FAQs", href: "/faqs" },
     ],
   },
@@ -51,7 +51,7 @@ export const navMobile = [
 
 export const stats = [
   { value: "3", suffix: " Weeks", label: "Average MVP launch timeline" },
-  { value: "100", suffix: "+", label: "Projects delivered for our clients" },
+  { value: "50", suffix: "+", label: "Websites, platforms, or CRMs launched" },
   { value: "800", suffix: "K+", prefix: "$", label: "Client sales opportunities generated" },
   { value: "100", suffix: "%", label: "Milestones delivered on schedule" },
   { value: "80", suffix: "%", label: "Clients retained or renewed" },
