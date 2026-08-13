@@ -257,7 +257,7 @@ export const team = [
   { name: "Adnan Farooq", role: "Business Operations & Accounts Executive" },
   { name: "Maham Aziz", role: "HR Manager" },
   { name: "Saad Sultan", role: "Lead CRM & Automation Engineer", image: "/images/team/saad-sultan.webp", bio: "Builds the CRM and automation systems that keep everything connected." },
-  { name: "Farwa Saleem", role: "HR Associate", image: "/images/team/farwa-saleem.webp", bio: "Supports the team through every stage of the hiring journey." },
+  { name: "Farwa Saleem", role: "HR Associate", image: "/images/team/Farwa-Saleem-HR-Associate.png", bio: "Supports the team through every stage of the hiring journey." },
   { name: "Hamza Khan", role: "Motion Graphics Designer", image: "/images/team/hamza-khan.webp", bio: "Turns ideas into clean, thoughtful visuals." },
   { name: "Ali Raza", role: "Sales Development Representative", image: "/images/team/ali-raza.webp", bio: "Builds relationships that grow into long-term partnerships." },
   { name: "Musahb Ali", role: "Data Strategy Specialist", image: "/images/team/musahb-ali.webp", bio: "Turns raw data into clear, actionable strategy." },
