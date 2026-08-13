@@ -266,7 +266,7 @@ export const team = [
   { name: "Ahmad Raza", role: "Regional Growth Partner — GCC" },
   { name: "Hamza Shabbir", role: "Business Development Representative" },
   { name: "Muhammad Yousaf", role: "Project Manager" },
-  { name: "Muhammad Saad Salman", role: "CMS Developer" },
+  { name: "Muhammad Saad Salman", role: "CMS Developer", image: "/images/team/Muhammad-Saad-Salman-CMS-Developer.png", bio: "Builds and maintains the CMS-powered sites and platforms our clients run on." },
   { name: "Raza Hamid", role: "Business Development Executive" },
   { name: "Khubaib Malik", role: "Client Success Manager" },
 ];
