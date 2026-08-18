@@ -30,7 +30,7 @@ export default function AboutV2Timeline() {
             <h3 className="av2-timeline-title">Momentum</h3>
             <p className="av2-timeline-copy">
               Penaxis delivered {current.value} project{current.value === 1 ? "" : "s"} in{" "}
-              {current.period} — part of a steady, quarter-over-quarter climb as our team
+              {current.period} - part of a steady, quarter-over-quarter climb as our team
               and client base keep growing.
             </p>
           </div>

@@ -84,7 +84,7 @@ export default function SpotlightDeck() {
             Spotlight deck
           </h2>
           <p className="mt-3 text-ink/60">
-            Four panels in a stable horizontal stage — arrows, dots, keyboard, and swipe.
+            Four panels in a stable horizontal stage - arrows, dots, keyboard, and swipe.
           </p>
         </Reveal>
 

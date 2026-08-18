@@ -133,7 +133,7 @@ export default function CaseStudiesMegaMenu() {
                     <span className="flex items-center gap-2 min-w-0">
                       <span className="w-1.5 h-1.5 rounded-full bg-ink/20 group-hover:bg-violet-600 transition-colors shrink-0" />
                       <span className="truncate">{item.label}</span>
-                      {item.sub && <span className="text-xs text-ink/35 shrink-0">— {item.sub}</span>}
+                      {item.sub && <span className="text-xs text-ink/35 shrink-0">- {item.sub}</span>}
                     </span>
                     <svg
                       viewBox="0 0 24 24"
@@ -156,7 +156,7 @@ export default function CaseStudiesMegaMenu() {
         <div className="mt-5 pt-5 border-t border-ink/5 flex items-center justify-between gap-4">
           <div>
             <p className="text-sm font-semibold text-ink">Don't see yours yet?</p>
-            <p className="text-xs text-ink/50 mt-0.5">We're always adding new work — tell us what you're building.</p>
+            <p className="text-xs text-ink/50 mt-0.5">We're always adding new work - tell us what you're building.</p>
           </div>
           <a
             href="/contact"

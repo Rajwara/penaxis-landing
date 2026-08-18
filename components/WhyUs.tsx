@@ -108,7 +108,7 @@ export default function WhyUs() {
                 <div className="rounded-2xl bg-violet-900 text-white p-6 h-full">
                   <p className="font-display font-bold text-3xl mb-1">4</p>
                   <p className="text-xs text-white/70 leading-snug">
-                    Core verticals — Strategy, Design, Technology, Growth
+                    Core verticals - Strategy, Design, Technology, Growth
                   </p>
                 </div>
               </Reveal>

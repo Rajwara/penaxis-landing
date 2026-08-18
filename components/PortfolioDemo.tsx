@@ -72,7 +72,7 @@ export default function PortfolioDemo() {
         <div className="pfd-behind-right">
           <p className="pfd-behind-copy">
             We&apos;re a growth and technology team focused on building clear, functional systems
-            that solve real business problems — not just ones that look good in a pitch deck.
+            that solve real business problems - not just ones that look good in a pitch deck.
           </p>
           <div className="pfd-behind-cta-row">
             <p className="pfd-behind-cta-label">

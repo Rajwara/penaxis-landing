@@ -32,7 +32,7 @@ export default function GameChangers() {
         </Reveal>
         <Reveal delay={0.1}>
           <p className="gc-sub">
-            The people setting the pace at Penaxis — leading strategy,
+            The people setting the pace at Penaxis - leading strategy,
             driving new business, and shaping how the world sees us.
           </p>
         </Reveal>

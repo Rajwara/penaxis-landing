@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions — Penaxis",
+  title: "Terms & Conditions - Penaxis",
   description: "The terms governing use of the Penaxis website and services.",
 };
 
@@ -214,9 +214,9 @@ export default function TermsConditionsPage() {
           <section>
             <h2 className="font-display font-bold text-lg text-ink mb-2">8. Intellectual Property</h2>
             <p>
-              Unless otherwise stated, the Website and its original content—including its
+              Unless otherwise stated, the Website and its original content-including its
               design, text, graphics, branding, logos, illustrations, videos, animations,
-              software, layouts and other materials—are owned by or licensed to Penaxis and are
+              software, layouts and other materials-are owned by or licensed to Penaxis and are
               protected by applicable intellectual-property laws.
             </p>
             <p className="mt-3">You may view and use the Website for legitimate personal or internal business purposes.</p>

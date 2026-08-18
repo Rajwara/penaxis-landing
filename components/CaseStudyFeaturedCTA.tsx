@@ -23,7 +23,7 @@ export default function CaseStudyFeaturedCTA({
         </Reveal>
         <Reveal delay={0.05}>
           <p className="csf-sub">
-            Real projects, real results — explore how we&apos;ve helped businesses like yours.
+            Real projects, real results - explore how we&apos;ve helped businesses like yours.
           </p>
         </Reveal>
         <Reveal delay={0.1}>

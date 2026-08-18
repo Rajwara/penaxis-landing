@@ -74,12 +74,12 @@ const FACES = [
 ];
 
 const SCENES = [
-  { name: "Overview", tag: "Services — Penaxis" },
-  { name: services[0].title, tag: `01 — ${services[0].title}` },
-  { name: services[1].title, tag: `02 — ${services[1].title}` },
-  { name: services[2].title, tag: `03 — ${services[2].title}` },
-  { name: services[3].title, tag: `04 — ${services[3].title}` },
-  { name: "Start a project", tag: "05 — Let's build" },
+  { name: "Overview", tag: "Services - Penaxis" },
+  { name: services[0].title, tag: `01 - ${services[0].title}` },
+  { name: services[1].title, tag: `02 - ${services[1].title}` },
+  { name: services[2].title, tag: `03 - ${services[2].title}` },
+  { name: services[3].title, tag: `04 - ${services[3].title}` },
+  { name: "Start a project", tag: "05 - Let's build" },
 ];
 
 const easeIO = (t: number) => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t);
@@ -384,7 +384,7 @@ export default function ServicesCube() {
         {/* INTRO */}
         <section className="sv-section sv-intro">
           <div className="sv-card sv-center sv-reveal">
-            <p className="sv-tag sv-reveal">Services — Penaxis</p>
+            <p className="sv-tag sv-reveal">Services - Penaxis</p>
             <h1 className="sv-reveal">
               Four ways
               <br />
@@ -411,7 +411,7 @@ export default function ServicesCube() {
           <section key={svc.slug} className="sv-section">
             <div className={`sv-card ${i % 2 === 1 ? "sv-right" : ""} sv-reveal`}>
               <div className="sv-hline sv-reveal" />
-              <p className="sv-tag sv-reveal">{svc.number} — {svc.title}</p>
+              <p className="sv-tag sv-reveal">{svc.number} - {svc.title}</p>
               <h2 className="sv-reveal">{svc.title}</h2>
               <p className="sv-body sv-reveal">{svc.short}</p>
               <div className="sv-cta-row sv-reveal">
@@ -443,7 +443,7 @@ export default function ServicesCube() {
             </h2>
             <p className="sv-body sv-reveal">
               Tell us what you're building and we'll tell you which of these
-              four fits — or how we'd combine them.
+              four fits - or how we'd combine them.
             </p>
             <div className="sv-cta-row sv-reveal">
               <a className="sv-cta-back" href="#" data-scene-jump="4">

@@ -47,7 +47,7 @@ export default function ServiceFlexPanels() {
         </div>
         <div className="fp-header-right">
           <p className="fp-header-copy">
-            From AI-powered MVPs to fractional sales support — everything you
+            From AI-powered MVPs to fractional sales support - everything you
             need under one team.
           </p>
           <a href="/contact" className="fp-cta">

@@ -128,7 +128,7 @@ export default function StoreLocator() {
                     <circle cx="12" cy="12" r="9" />
                     <path d="M12 7v5l3 3" strokeLinecap="round" />
                   </svg>
-                  <span>Mon–Sat: 10:00am – 7:00pm</span>
+                  <span>Mon-Sat: 10:00am - 7:00pm</span>
                 </div>
                 <p className="sl-hours-closed">Sunday: Closed</p>
               </div>

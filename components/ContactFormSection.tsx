@@ -193,7 +193,7 @@ export default function ContactFormSection() {
             <h3 className="font-display font-bold text-2xl text-ink mb-6">Fill this form below</h3>
             {status === "success" ? (
               <div className="rounded-2xl border border-emerald-600/20 bg-emerald-50 px-6 py-8 text-center">
-                <p className="font-semibold text-emerald-800 mb-1">Thanks — message sent!</p>
+                <p className="font-semibold text-emerald-800 mb-1">Thanks - message sent!</p>
                 <p className="text-sm text-emerald-700/80">We&apos;ll get back to you within one business day.</p>
                 <button
                   type="button"
@@ -267,7 +267,7 @@ export default function ContactFormSection() {
                       <path d="M21.44 11.05l-9.19 9.19a5 5 0 0 1-7.07-7.07l9.19-9.19a3.5 3.5 0 0 1 4.95 4.95l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.49" />
                     </svg>
                     Add an attachment
-                    <span className="text-xs text-ink/35">(JPG, PNG, PDF, Word — max 3MB each)</span>
+                    <span className="text-xs text-ink/35">(JPG, PNG, PDF, Word - max 3MB each)</span>
                   </button>
 
                   {files.length > 0 && (

@@ -29,7 +29,7 @@ const FAQS = [
   {
     tag: "Industries",
     q: "Which industries do you work with?",
-    a: "13 and counting — from software and healthcare to logistics, retail, and real estate. If yours isn't listed yet, tell us about it.",
+    a: "13 and counting - from software and healthcare to logistics, retail, and real estate. If yours isn't listed yet, tell us about it.",
     image: "/images/hero/faq-industries.webp",
     href: "/industries",
   },

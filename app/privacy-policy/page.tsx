@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Penaxis",
+  title: "Privacy Policy - Penaxis",
   description: "How Penaxis collects, uses, and protects information.",
 };
 
@@ -48,9 +48,9 @@ export default function PrivacyPolicyPage() {
               party.
             </p>
             <p className="mt-3">
-              Where we process personal information on behalf of a client—for example, while
+              Where we process personal information on behalf of a client-for example, while
               operating a CRM, developing or maintaining a platform, supporting an outreach
-              campaign or providing another managed service—we may act as a data processor or
+              campaign or providing another managed service-we may act as a data processor or
               service provider. In those circumstances, the relevant client determines how and
               why that information is processed, and their privacy notice may apply.
             </p>
@@ -154,24 +154,24 @@ export default function PrivacyPolicyPage() {
               processing personal information, we may rely on one or more of the following:
             </p>
             <p className="mt-3">
-              <strong className="text-ink">Contractual necessity</strong> — where processing is
+              <strong className="text-ink">Contractual necessity</strong> - where processing is
               necessary to provide services you have requested or to take steps before entering
               into a contract.
             </p>
             <p className="mt-3">
-              <strong className="text-ink">Legitimate interests</strong> — where processing is
+              <strong className="text-ink">Legitimate interests</strong> - where processing is
               reasonably necessary for legitimate business purposes, such as responding to
               business enquiries, managing client relationships, improving our services,
               maintaining security and conducting appropriate B2B business development, provided
               those interests are not overridden by your rights.
             </p>
             <p className="mt-3">
-              <strong className="text-ink">Consent</strong> — where you have given us permission
+              <strong className="text-ink">Consent</strong> - where you have given us permission
               for a particular activity, such as certain marketing communications or
               non-essential cookies where consent is required.
             </p>
             <p className="mt-3">
-              <strong className="text-ink">Legal obligations</strong> — where we need to process
+              <strong className="text-ink">Legal obligations</strong> - where we need to process
               information to comply with applicable laws, regulatory requirements, court orders,
               taxation requirements or other legal obligations.
             </p>

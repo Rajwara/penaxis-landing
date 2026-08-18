@@ -8,8 +8,8 @@ import AboutV2Timeline from "@/components/AboutV2Timeline";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Who We Are — Penaxis",
-  description: "Penaxis — Growth & Technology Partner.",
+  title: "Who We Are - Penaxis",
+  description: "Penaxis - Growth & Technology Partner.",
 };
 
 export default function AboutV2Page() {

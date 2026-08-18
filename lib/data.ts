@@ -261,9 +261,9 @@ export const team = [
   { name: "Hamza Khan", role: "Motion Graphics Designer", image: "/images/team/hamza-khan.webp", bio: "Turns ideas into clean, thoughtful visuals." },
   { name: "Ali Raza", role: "Sales Development Representative", image: "/images/team/ali-raza.webp", bio: "Builds relationships that grow into long-term partnerships." },
   { name: "Musahb Ali", role: "Data Strategy Specialist", image: "/images/team/musahb-ali.webp", bio: "Turns raw data into clear, actionable strategy." },
-  { name: "Asad Saleem Farooq", role: "Regional Growth Partner — North America" },
-  { name: "Fraz Bin Arif", role: "Regional Growth Partner — Western Europe" },
-  { name: "Ahmad Raza", role: "Regional Growth Partner — GCC" },
+  { name: "Asad Saleem Farooq", role: "Regional Growth Partner - North America" },
+  { name: "Fraz Bin Arif", role: "Regional Growth Partner - Western Europe" },
+  { name: "Ahmad Raza", role: "Regional Growth Partner - GCC" },
   { name: "Hamza Shabbir", role: "Business Development Representative" },
   { name: "Muhammad Yousaf", role: "Project Manager" },
   { name: "Muhammad Saad Salman", role: "CMS Developer", image: "/images/team/Muhammad-Saad-Salman-CMS-Developer.png", bio: "Builds and maintains the CMS-powered sites and platforms our clients run on." },
@@ -307,13 +307,13 @@ export const caseStudies = [
     title: "Integrated Digital Logistics & Fleet Management Ecosystem",
     tags: ["Logistics & Transportation"],
     blurb:
-      "Four connected apps — customer, driver, dispatch, and corporate site — replacing fragmented workflows with one on-demand logistics experience.",
+      "Four connected apps - customer, driver, dispatch, and corporate site - replacing fragmented workflows with one on-demand logistics experience.",
     status: "delivered",
     region: "Gulf Region",
     overview:
       "A Gulf-based logistics company needed a unified digital ecosystem to replace fragmented workflows, manual driver coordination, and limited delivery visibility.",
     challenge:
-      "The goal was an on-demand logistics experience — similar to ride-hailing platforms, but purpose-built for commercial freight operations.",
+      "The goal was an on-demand logistics experience - similar to ride-hailing platforms, but purpose-built for commercial freight operations.",
     solutionIntro: "Penaxis developed four connected digital products covering the complete delivery lifecycle:",
     solutionPoints: [
       "Customer app for booking deliveries, tracking drivers, and accessing documents",
@@ -355,13 +355,13 @@ export const caseStudies = [
     title: "AI-Powered Multilingual Receptionist & Visitor Kiosk",
     tags: ["Education & EdTech"],
     blurb:
-      "A proposed, school-safe AI reception kiosk — multilingual visitor sign-in, translation, and a controlled FAQ assistant, designed to scale beyond schools.",
+      "A proposed, school-safe AI reception kiosk - multilingual visitor sign-in, translation, and a controlled FAQ assistant, designed to scale beyond schools.",
     status: "concept",
     region: "Multi-Market",
     overview:
       "An education technology entrepreneur needed a scalable self-service reception platform for schools, with future applications across hospitals, hotels, malls, and other visitor-heavy environments.",
     challenge:
-      "The goal was to reduce repetitive front-desk work, overcome language barriers, and centralize visitor activity — without exposing users to unrestricted AI responses or unpredictable token-based costs.",
+      "The goal was to reduce repetitive front-desk work, overcome language barriers, and centralize visitor activity - without exposing users to unrestricted AI responses or unpredictable token-based costs.",
     solutionIntro: "Penaxis designed a controlled, school-safe reception ecosystem comprising:",
     solutionPoints: [
       "Locked Android kiosk with voice, text, and touch interaction",
@@ -375,7 +375,7 @@ export const caseStudies = [
       "Analytics for kiosk sessions, popular questions, language usage, and visitor activity",
     ],
     solutionNote:
-      "The configuration-driven architecture would let the same platform be adapted for additional schools and industries without rebuilding the core product. Phase 1 retrieves only school-approved answers — no GPT or other generative LLM sits in the live response path.",
+      "The configuration-driven architecture would let the same platform be adapted for additional schools and industries without rebuilding the core product. Phase 1 retrieves only school-approved answers - no GPT or other generative LLM sits in the live response path.",
     techStack: [
       { label: "Applications", items: "Kotlin, Jetpack Compose, React, Next.js, TypeScript, Tailwind CSS" },
       { label: "Backend & Data", items: "Java, Spring Boot, PostgreSQL, pgvector, Redis, REST APIs" },
@@ -394,7 +394,7 @@ export const caseStudies = [
       { value: "5", label: "Core Modules" },
       { value: "6", label: "Languages Supported" },
       { value: "100", label: "Approved FAQs" },
-      { value: "2–4 Week", label: "Replication Time" },
+      { value: "2-4 Week", label: "Replication Time" },
     ],
   },
   {
@@ -409,7 +409,7 @@ export const caseStudies = [
     title: "AI-Powered Bidding & Tender Intelligence Platform",
     tags: ["Software, IT & SaaS"],
     blurb:
-      "A proposed AI-first workspace for the full pre-award bidding lifecycle — tender discovery, explainable fit-scoring, and RAG-powered proposal drafting.",
+      "A proposed AI-first workspace for the full pre-award bidding lifecycle - tender discovery, explainable fit-scoring, and RAG-powered proposal drafting.",
     status: "concept",
     region: "Multi-Market",
     overview:
@@ -463,7 +463,7 @@ export const caseStudies = [
     title: "Membership-Driven Cycling Community & Race Management Platform",
     tags: ["Sports & Fitness"],
     blurb:
-      "A CMS-powered community hub for a gravel cycling organisation — rider profiles, race archives, paid memberships, and a gear marketplace in one place.",
+      "A CMS-powered community hub for a gravel cycling organisation - rider profiles, race archives, paid memberships, and a gear marketplace in one place.",
     status: "delivered",
     region: "Greater Groningen, Netherlands",
     overview:
@@ -577,7 +577,7 @@ export const caseStudies = [
       "/images/case-studies/banner/plate-agent-banner-2.webp",
       "/images/case-studies/banner/plate-agent-banner-3.webp",
     ],
-    title: "The Plate Agent — AI-Powered Private Registration Marketplace & Valuation Engine",
+    title: "The Plate Agent - AI-Powered Private Registration Marketplace & Valuation Engine",
     tags: ["Automotive & Auto Care"],
     blurb:
       "A premium UK plate marketplace pairing searchable inventory with an AI-assisted valuation engine that turns vague buyer requests into qualified leads.",
@@ -586,7 +586,7 @@ export const caseStudies = [
     overview:
       "A UK private registration dealer needed more than a conventional inventory website. The business needed to showcase plates already available for resale while capturing demand from buyers searching for registrations not currently held in stock.",
     challenge:
-      "The goal was to turn open-ended buyer preferences into structured, commercially qualified enquiries — while giving customers immediate, indicative pricing guidance.",
+      "The goal was to turn open-ended buyer preferences into structured, commercially qualified enquiries - while giving customers immediate, indicative pricing guidance.",
     solutionIntro:
       "Penaxis developed a premium private registration marketplace with an AI-assisted classification and valuation workflow featuring:",
     solutionPoints: [
@@ -646,7 +646,7 @@ export const caseStudies = [
     overview:
       "A US-based, technology-enabled dry-cleaning service needed a unified platform connecting customers, delivery drivers, and local cleaning partners.",
     challenge:
-      "The goal was to digitise the complete service lifecycle — from requesting a pickup and processing payment to cleaning-facility handover and final doorstep return.",
+      "The goal was to digitise the complete service lifecycle - from requesting a pickup and processing payment to cleaning-facility handover and final doorstep return.",
     solutionIntro: "Penaxis developed a serverless, multi-platform fulfilment ecosystem featuring:",
     solutionPoints: [
       "Customer applications for iOS and Android",
@@ -698,7 +698,7 @@ export const caseStudies = [
       "/images/case-studies/banner/qsecure-banner-2.webp",
       "/images/case-studies/banner/qsecure-banner-3.webp",
     ],
-    title: "Digitising a Qatar-Based Cybersecurity Company — Inside and Out",
+    title: "Digitising a Qatar-Based Cybersecurity Company - Inside and Out",
     tags: ["Software, IT & SaaS"],
     blurb:
       "A premium corporate website plus a custom HR operations ERP, replacing fragmented workforce tools with one centralized system.",
@@ -710,8 +710,8 @@ export const caseStudies = [
       "Its existing website didn't adequately communicate the depth or enterprise value of its services, while employee records, attendance, leave, payroll, and approvals were managed through fragmented tools and manual processes.",
     solutionIntro: "Penaxis delivered two connected digital platforms addressing the company's commercial positioning and internal operations.",
     solutionPoints: [
-      "Enterprise Cybersecurity Website — cybersecurity and IT security solutions, risk management and security consulting, network and infrastructure security, cloud security, digital transformation services, enterprise technology consulting, managed IT services, and conversion-focused enquiry journeys",
-      "Custom HR Operations ERP — employee profiles and centralised records, departments/roles/reporting structures, attendance and working-hour tracking, check-in/check-out management, leave balances/applications/approvals, payroll records and salary slips, employee documents and contracts, performance and increment history, birthdays and work anniversaries, internal announcements, employee self-service, HR reporting dashboards, and role-based access",
+      "Enterprise Cybersecurity Website - cybersecurity and IT security solutions, risk management and security consulting, network and infrastructure security, cloud security, digital transformation services, enterprise technology consulting, managed IT services, and conversion-focused enquiry journeys",
+      "Custom HR Operations ERP - employee profiles and centralised records, departments/roles/reporting structures, attendance and working-hour tracking, check-in/check-out management, leave balances/applications/approvals, payroll records and salary slips, employee documents and contracts, performance and increment history, birthdays and work anniversaries, internal announcements, employee self-service, HR reporting dashboards, and role-based access",
     ],
     solutionNote:
       "The information architecture translated technically complex services into a clearer value proposition for executives, IT leaders, and enterprise decision-makers.",
@@ -774,7 +774,7 @@ export const caseStudies = [
       "A/B testing across different prompts and language models",
     ],
     solutionNote:
-      "A buyer could ask something like \"Find a fuel-efficient seven-seat SUV under $35,000 near Austin,\" and the assistant would convert that into relevant inventory criteria and return matching vehicles — no need to configure numerous technical filters. Once a suitable vehicle was identified, the assistant guided the user toward the right next step: requesting more information, contacting the dealership, booking a viewing, scheduling a test drive, or submitting a financing enquiry.",
+      "A buyer could ask something like \"Find a fuel-efficient seven-seat SUV under $35,000 near Austin,\" and the assistant would convert that into relevant inventory criteria and return matching vehicles - no need to configure numerous technical filters. Once a suitable vehicle was identified, the assistant guided the user toward the right next step: requesting more information, contacting the dealership, booking a viewing, scheduling a test drive, or submitting a financing enquiry.",
     techStack: [
       { label: "AI Models", items: "Claude 3.5 Sonnet, Llama 3, Large Language Models, Prompt Experimentation" },
       { label: "Application & Intelligence", items: "Python, Natural-Language Processing, Dynamic Query Generation, Recommendation Logic, Conversation History" },
@@ -815,7 +815,7 @@ export const caseStudies = [
     status: "delivered",
     region: "Johannesburg, South Africa",
     overview:
-      "A multi-clinic healthcare provider needed one secure platform to connect patients, practitioners, appointments, and clinical records — replacing fragmented administrative processes.",
+      "A multi-clinic healthcare provider needed one secure platform to connect patients, practitioners, appointments, and clinical records - replacing fragmented administrative processes.",
     challenge:
       "Scattered systems made it hard to give practitioners a complete view of a patient's history at the point of care, or to give patients a clear way to book, prepare for, and follow up on appointments.",
     solutionIntro: "Penaxis built:",
@@ -831,7 +831,7 @@ export const caseStudies = [
       { label: "Security", items: "Secure Authentication, Role-Based Access, Encrypted Records, Protected Document Storage" },
     ],
     impactIntro:
-      "The platform created a connected patient journey from appointment booking and pre-visit assessment through consultation, medication guidance, and follow-up care — while helping practitioners access the right clinical information from one system.",
+      "The platform created a connected patient journey from appointment booking and pre-visit assessment through consultation, medication guidance, and follow-up care - while helping practitioners access the right clinical information from one system.",
     impactPoints: [],
     metrics: [],
   },
@@ -850,7 +850,7 @@ export const caseStudies = [
     overview:
       "A high-volume recruitment company needed to replace scattered resumes, spreadsheets, and screening notes with one intelligent system for managing candidates across multiple clients and vacancies.",
     challenge:
-      "The goal was to help recruiters prioritise suitable candidates, rediscover previous applicants, and manage high-volume hiring — without removing human control from selection decisions.",
+      "The goal was to help recruiters prioritise suitable candidates, rediscover previous applicants, and manage high-volume hiring - without removing human control from selection decisions.",
     solutionIntro: "Penaxis built:",
     solutionPoints: [
       "Combined Applicant Tracking System and Recruitment CRM",
@@ -866,7 +866,7 @@ export const caseStudies = [
       { label: "Stack", items: "React, Next.js, PostgreSQL, OpenSearch, AI Matching, Vector Search, AWS/Azure" },
     ],
     impactIntro:
-      "The platform transformed disconnected applications into a searchable talent pipeline — helping recruiters prioritise suitable candidates, rediscover previous applicants, and manage high-volume hiring without removing human control from selection decisions.",
+      "The platform transformed disconnected applications into a searchable talent pipeline - helping recruiters prioritise suitable candidates, rediscover previous applicants, and manage high-volume hiring without removing human control from selection decisions.",
     impactPoints: [],
     metrics: [],
   },
@@ -884,7 +884,7 @@ export const caseStudies = [
     status: "delivered",
     region: "Canada",
     overview:
-      "A luxury furniture retailer needed to give online buyers greater confidence when purchasing high-value pieces — helping them understand craftsmanship, explore every detail, and visualise products within their own interiors.",
+      "A luxury furniture retailer needed to give online buyers greater confidence when purchasing high-value pieces - helping them understand craftsmanship, explore every detail, and visualise products within their own interiors.",
     challenge:
       "High-value furniture is a considered purchase; static product photos alone weren't enough to give buyers confidence before checkout.",
     solutionIntro: "Penaxis built:",
@@ -901,7 +901,7 @@ export const caseStudies = [
       { label: "Stack", items: "Shopify, Liquid, JavaScript, WebGL, Three.js, Computer Vision, AI Image Processing" },
     ],
     impactIntro:
-      "The platform transformed conventional product browsing into a personalised interior-design journey — allowing customers to inspect, visualise, and purchase luxury furniture through one immersive experience.",
+      "The platform transformed conventional product browsing into a personalised interior-design journey - allowing customers to inspect, visualise, and purchase luxury furniture through one immersive experience.",
     impactPoints: [],
     metrics: [],
   },
@@ -923,7 +923,7 @@ export const offices = [
     country: "Pakistan",
     city: "Lahore",
     address: "2nd floor, 3-P, DHA Rahbar, Lahore, Pakistan, 54000",
-    blurb: "Our head office — strategy, delivery, and engineering all under one roof.",
+    blurb: "Our head office - strategy, delivery, and engineering all under one roof.",
     theme: "violet",
   },
   {
