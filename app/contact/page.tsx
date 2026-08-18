@@ -8,7 +8,7 @@ import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Contact — Penaxis",
+  title: "Contact - Penaxis",
   description: "Get in touch with Penaxis to start a project.",
 };
 

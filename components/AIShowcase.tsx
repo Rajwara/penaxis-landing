@@ -32,7 +32,7 @@ export default function AIShowcase() {
         <Reveal delay={0.1}>
           <p className="text-white/55 text-lg max-w-lg mt-6 leading-relaxed">
             We actively use AI, automation, and modern workflows to improve
-            efficiency and speed — without losing the strategic judgment
+            efficiency and speed - without losing the strategic judgment
             that makes execution actually work.
           </p>
         </Reveal>

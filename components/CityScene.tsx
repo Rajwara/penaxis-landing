@@ -234,7 +234,7 @@ export default function CityScene() {
       <div ref={mountRef} className="city-scene-canvas-mount" aria-hidden="true" role="presentation" />
       <div className="city-scene-overlay">
         <h1>Growth, Engineered.</h1>
-        <p>— Human expertise, AI-scale execution —</p>
+        <p>Human expertise, AI-scale execution</p>
       </div>
     </section>
   );

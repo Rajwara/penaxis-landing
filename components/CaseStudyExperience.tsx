@@ -403,12 +403,12 @@ export default function CaseStudyExperience() {
       <div ref={scrollElRef} className="cs-scroll">
         <section id="cs-s0" className="cs-section">
           <div className="cs-card cs-center">
-            <div className="cs-tag">Case Studies — Penaxis</div>
+            <div className="cs-tag">Case Studies - Penaxis</div>
             <h1>ENGINEERED
               <br />
               OUTCOMES</h1>
             <p className="cs-body">
-              Scroll to explore how we approach a project — from the first
+              Scroll to explore how we approach a project - from the first
               conversation to the system that's still running long after
               launch.
             </p>
@@ -424,7 +424,7 @@ export default function CaseStudyExperience() {
         <section id="cs-s1" className="cs-section">
           <div className="cs-card cs-right">
             <div className="cs-hline" />
-            <div className="cs-tag">01 — Approach</div>
+            <div className="cs-tag">01 - Approach</div>
             <h2>WHAT WE
               <br />
               ACTUALLY DO</h2>
@@ -454,7 +454,7 @@ export default function CaseStudyExperience() {
         <section id="cs-s2" className="cs-section">
           <div className="cs-card">
             <div className="cs-hline" />
-            <div className="cs-tag">02 — Work</div>
+            <div className="cs-tag">02 - Work</div>
             <h2>WHERE WE
               <br />
               SHOW UP</h2>
@@ -475,13 +475,13 @@ export default function CaseStudyExperience() {
         <section id="cs-s3" className="cs-section">
           <div className="cs-card cs-center">
             <div className="cs-hline" />
-            <div className="cs-tag">03 — Process</div>
+            <div className="cs-tag">03 - Process</div>
             <h2>BUILD,
               <br />
               THEN PROVE IT</h2>
             <p className="cs-body">
               We scope tight, ship something real fast, and measure against
-              the outcome we agreed on up front — not just whether it
+              the outcome we agreed on up front - not just whether it
               shipped, but whether it worked.
             </p>
           </div>
@@ -490,13 +490,13 @@ export default function CaseStudyExperience() {
         <section id="cs-s4" className="cs-section">
           <div className="cs-card cs-right">
             <div className="cs-hline" />
-            <div className="cs-tag">04 — Contact</div>
+            <div className="cs-tag">04 - Contact</div>
             <h2>LET'S
               <br />
               BUILD ONE</h2>
             <p className="cs-body">
               Tell us what you're working on, and we'll tell you honestly
-              whether — and how — we'd approach it.
+              whether - and how - we'd approach it.
             </p>
             <a className="cs-cta" href="/#contact">
               Start a project

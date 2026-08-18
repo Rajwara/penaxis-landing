@@ -47,7 +47,7 @@ export default function CaseStudyDetail({ study }: { study: CaseStudyDetailData 
         {isConcept && (
           <Reveal>
             <div className="csd-status-badge">
-              Proposed Solution — designed, not yet built or deployed
+              Proposed Solution - designed, not yet built or deployed
             </div>
           </Reveal>
         )}

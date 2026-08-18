@@ -5,8 +5,8 @@ import CaseStudyV2Grid from "@/components/CaseStudyV2Grid";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Case Studies — Penaxis",
-  description: "Real projects and real impact — explore Penaxis's work by industry.",
+  title: "Case Studies - Penaxis",
+  description: "Real projects and real impact - explore Penaxis's work by industry.",
 };
 
 export default function CaseStudiesPage() {

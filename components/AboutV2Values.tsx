@@ -67,7 +67,7 @@ export default function AboutV2Values() {
           </Reveal>
           <Reveal delay={0.05}>
             <p className="av2-values-intro">
-              We offer a deeply personalized approach — practical strategy, hands-on
+              We offer a deeply personalized approach - practical strategy, hands-on
               execution, and honest communication, all designed to help your business
               reach its goals and grow with confidence.
             </p>

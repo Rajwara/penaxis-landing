@@ -43,7 +43,7 @@ export default function ServicesMegaMenu() {
       <div className="p-8 xl:p-9 flex flex-col">
         <h4 className="font-display font-bold text-lg text-ink mb-1">Services</h4>
         <p className="text-sm text-ink/50 mb-8 max-w-md">
-          Automate and manage the full journey — from first build to ongoing growth.
+          Automate and manage the full journey - from first build to ongoing growth.
         </p>
 
         <div className="grid grid-cols-2 xl:grid-cols-4 gap-4 flex-1">

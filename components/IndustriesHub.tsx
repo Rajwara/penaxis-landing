@@ -226,7 +226,7 @@ export default function IndustriesHub() {
           <span className="ih-line ih-line-2"><span className="ih-inner">EVERY INDUSTRY</span></span>
         </h1>
         <p className="ih-sub">
-          13 industries, one team — from software and healthcare to logistics
+          13 industries, one team - from software and healthcare to logistics
           and real estate, we build for how each one actually works.
         </p>
       </section>

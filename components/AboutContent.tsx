@@ -346,7 +346,7 @@ export default function AboutContent() {
           </div>
           <p>
             Every person you see here touches every project we ship. No middle
-            layer, no handoffs to strangers — just direct work with the people
+            layer, no handoffs to strangers - just direct work with the people
             doing it.
           </p>
         </div>

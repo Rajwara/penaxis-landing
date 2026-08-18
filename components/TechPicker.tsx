@@ -70,7 +70,7 @@ export default function TechPicker() {
         </Reveal>
         <Reveal delay={0.1}>
           <p className="text-white/55 max-w-lg mx-auto mb-16">
-            Click the circle to browse the technology behind Penaxis builds —
+            Click the circle to browse the technology behind Penaxis builds -
             AI, cloud, security, data, and everything in between.
           </p>
         </Reveal>

@@ -21,7 +21,7 @@ const FAQS = [
   },
   {
     q: "Which industries do you work with?",
-    a: "13 and counting — from software and healthcare to logistics, retail, and real estate. If yours isn't listed yet, tell us about it.",
+    a: "13 and counting - from software and healthcare to logistics, retail, and real estate. If yours isn't listed yet, tell us about it.",
   },
   {
     q: "Do you only build software, or do you help with growth too?",

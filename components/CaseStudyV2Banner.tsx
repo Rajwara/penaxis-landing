@@ -20,7 +20,7 @@ export default function CaseStudyV2Banner() {
         </Reveal>
         <Reveal delay={0.08}>
           <p className="csv2-banner-copy">
-            A look at the platforms, products, and systems we&apos;ve helped build —
+            A look at the platforms, products, and systems we&apos;ve helped build -
             spanning industries, services, and the teams who trusted us to deliver.
           </p>
         </Reveal>

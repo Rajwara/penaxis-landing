@@ -4,7 +4,7 @@ import FAQsPageAccordion from "@/components/FAQsPageAccordion";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "FAQs — Penaxis",
+  title: "FAQs - Penaxis",
   description: "Answers to common questions about working with Penaxis.",
 };
 

@@ -13,9 +13,9 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const study = caseStudies.find((c) => c.slug === params.slug);
-  if (!study) return { title: "Case Study — Penaxis" };
+  if (!study) return { title: "Case Study - Penaxis" };
   return {
-    title: `${study.title} — Penaxis`,
+    title: `${study.title} - Penaxis`,
     description: study.blurb,
   };
 }

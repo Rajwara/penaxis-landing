@@ -64,7 +64,7 @@ export default function ConnectSection() {
             {status === "success" ? (
               <Reveal delay={0.15}>
                 <div className="rounded-xl border border-emerald-600/20 bg-emerald-50 px-5 py-6 text-center">
-                  <p className="font-semibold text-emerald-800 mb-1">Thanks — message sent!</p>
+                  <p className="font-semibold text-emerald-800 mb-1">Thanks - message sent!</p>
                   <p className="text-sm text-emerald-700/80">We&apos;ll get back to you within one business day.</p>
                   <button
                     type="button"

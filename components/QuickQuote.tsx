@@ -63,7 +63,7 @@ export default function QuickQuote() {
                     <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
-                <h3>Thanks — got it!</h3>
+                <h3>Thanks - got it!</h3>
                 <p>We&apos;ll reach out using your preferred contact method shortly.</p>
                 <button type="button" className="qq-submit btn-grad" onClick={closeAndReset}>
                   Close
@@ -74,7 +74,7 @@ export default function QuickQuote() {
                 <p className="qq-eyebrow">Let&apos;s talk</p>
                 <h3 className="qq-title">Get a Quick Quote</h3>
                 <p className="qq-sub">
-                  Share a few details and we&apos;ll get back to you fast — or reach us directly
+                  Share a few details and we&apos;ll get back to you fast - or reach us directly
                   at {contact.email}.
                 </p>
 

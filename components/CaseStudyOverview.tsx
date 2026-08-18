@@ -20,7 +20,7 @@ export default function CaseStudyOverview({
         </Reveal>
         <Reveal delay={0.1}>
           <p className="cso-p">
-            Throughout the engagement we kept scope tight and feedback loops short — shipping
+            Throughout the engagement we kept scope tight and feedback loops short - shipping
             working pieces early, testing them against real usage, and refining from there. The
             result was a system built around how the team actually works, not a generic template
             stretched to fit.
