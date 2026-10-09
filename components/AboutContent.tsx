@@ -18,8 +18,10 @@ const picturedTeam = team.filter((m) => m.image);
 // the "Meet the crew" pill overlapping it) — kept as Adeel Aslam (offset 0) per request.
 // Index 5 (immediately right of center) is Saad Sultan (offset 11, after Muhammad Akram,
 // Sopio Pipia, and Alishba Arshad were inserted earlier in the team list), per request to
-// place his photo beside Adeel's.
-const HERO_SHUFFLE_OFFSETS = [3, 1, 6, 2, 0, 11, 5, 4, 7];
+// place his photo beside Adeel's. Index 6 is Laiba Zafar (offset 7, swapped in for Fizza
+// Shahzad per request — she's also featured on the homepage). Only 8 entries: HERO_CARDS
+// below has 8 slots, so a 9th offset here is never actually rendered.
+const HERO_SHUFFLE_OFFSETS = [3, 1, 6, 2, 0, 11, 7, 4];
 const shuffledHeroTeam = picturedTeam.length
   ? HERO_SHUFFLE_OFFSETS.map((i) => picturedTeam[i % picturedTeam.length])
   : [];
