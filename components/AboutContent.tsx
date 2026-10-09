@@ -16,10 +16,10 @@ const picturedTeam = team.filter((m) => m.image);
 // Using a fixed permutation (rather than Math.random) avoids SSR/client hydration mismatches.
 // Index 4 lands on the big centered card (HERO_CARDS[4], left:44%, the largest one with
 // the "Meet the crew" pill overlapping it) — kept as Adeel Aslam (offset 0) per request.
-// Index 5 (immediately right of center) is Saad Sultan (offset 10, after Muhammad Akram
-// and Sopio Pipia were inserted earlier in the team list), per request to place his photo
-// beside Adeel's.
-const HERO_SHUFFLE_OFFSETS = [3, 1, 6, 2, 0, 10, 5, 4, 7];
+// Index 5 (immediately right of center) is Saad Sultan (offset 11, after Muhammad Akram,
+// Sopio Pipia, and Alishba Arshad were inserted earlier in the team list), per request to
+// place his photo beside Adeel's.
+const HERO_SHUFFLE_OFFSETS = [3, 1, 6, 2, 0, 11, 5, 4, 7];
 const shuffledHeroTeam = picturedTeam.length
   ? HERO_SHUFFLE_OFFSETS.map((i) => picturedTeam[i % picturedTeam.length])
   : [];
