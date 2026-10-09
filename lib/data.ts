@@ -246,8 +246,9 @@ export const whyUsMetrics = [
 export const team = [
   { name: "Adeel Aslam", role: "CEO & Founder", image: "/images/team/adeel-aslam.webp", bio: "Leads vision and strategy for everything we build." },
   { name: "Shahzad Ali", role: "Co-Founder & COO", image: "/images/team/shahzad-ali.webp", bio: "Keeps operations running smoothly and the business on solid ground." },
-  { name: "Muhammad Akram", role: "Co-Founder & COO", image: "/images/team/muhammad-akram.webp", linkedin: "https://www.linkedin.com/in/muhammadakram12" },
-  { name: "Sopio Pipia", role: "Business Partner", image: "/images/team/sopio-pipia.webp", linkedin: "https://www.linkedin.com/in/sopio-pipia" },
+  { name: "Muhammad Akram", role: "Co-Founder & COO", image: "/images/team/muhammad-akram.webp", linkedin: "https://www.linkedin.com/in/muhammadakram12", bio: "Leads strategy and operations behind every successful project." },
+  { name: "Sopio Pipia", role: "Business Partner", image: "/images/team/sopio-pipia.webp", linkedin: "https://www.linkedin.com/in/sopio-pipia", bio: "Builds partnerships and growth opportunities across every market." },
+  { name: "Alishba Arshad", role: "Human Resources", image: "/images/team/alishba-arshad.webp", bio: "Supports people, culture, and processes that keep the team moving." },
   { name: "Fizza Shahzad", role: "Creative & Brand Lead", image: "/images/team/fizza-shahzad.webp", bio: "Creates content that gets people talking." },
   { name: "Hamza Durrani", role: "Business Development Manager", image: "/images/team/hamza-durrani.webp", bio: "Drives new business and keeps the pipeline moving." },
   { name: "Laiba Zafar", role: "Social Media Coordinator", image: "/images/team/laiba-zafar.webp", bio: "Shapes our voice and presence across every platform." },
