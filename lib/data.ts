@@ -246,6 +246,8 @@ export const whyUsMetrics = [
 export const team = [
   { name: "Adeel Aslam", role: "CEO & Founder", image: "/images/team/adeel-aslam.webp", bio: "Leads vision and strategy for everything we build." },
   { name: "Shahzad Ali", role: "Co-Founder & COO", image: "/images/team/shahzad-ali.webp", bio: "Keeps operations running smoothly and the business on solid ground." },
+  { name: "Muhammad Akram", role: "Co-Founder", image: "/images/team/muhammad-akram.webp", linkedin: "https://www.linkedin.com/in/muhammadakram12" },
+  { name: "Sopio Pipia", role: "Business Partner", image: "/images/team/sopio-pipia.webp", linkedin: "https://www.linkedin.com/in/sopio-pipia" },
   { name: "Fizza Shahzad", role: "Creative & Brand Lead", image: "/images/team/fizza-shahzad.webp", bio: "Creates content that gets people talking." },
   { name: "Hamza Durrani", role: "Business Development Manager", image: "/images/team/hamza-durrani.webp", bio: "Drives new business and keeps the pipeline moving." },
   { name: "Laiba Zafar", role: "Social Media Coordinator", image: "/images/team/laiba-zafar.webp", bio: "Shapes our voice and presence across every platform." },
@@ -257,7 +259,6 @@ export const team = [
   { name: "Adnan Farooq", role: "Business Operations & Accounts Executive" },
   { name: "Maham Aziz", role: "HR Manager" },
   { name: "Saad Sultan", role: "Lead CRM & Automation Engineer", image: "/images/team/saad-sultan.webp", bio: "Builds the CRM and automation systems that keep everything connected." },
-  { name: "Farwa Saleem", role: "HR Associate", image: "/images/team/Farwa-Saleem-HR-Associate.png", bio: "Supports the team through every stage of the hiring journey." },
   { name: "Hamza Khan", role: "Motion Graphics Designer", image: "/images/team/hamza-khan.webp", bio: "Turns ideas into clean, thoughtful visuals." },
   { name: "Ali Raza", role: "Sales Development Representative", image: "/images/team/ali-raza.webp", bio: "Builds relationships that grow into long-term partnerships." },
   { name: "Musahb Ali", role: "Data Strategy Specialist", image: "/images/team/musahb-ali.webp", bio: "Turns raw data into clear, actionable strategy." },
