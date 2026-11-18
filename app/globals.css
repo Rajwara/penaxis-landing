@@ -6740,6 +6740,23 @@ button:focus-visible {
   background: linear-gradient(180deg, rgba(23, 23, 23, 0.15) 0%, rgba(23, 23, 23, 0) 35%, rgba(23, 23, 23, 0.35) 100%);
   pointer-events: none;
 }
+.vb-heading {
+  position: absolute;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 6rem;
+  max-width: 44rem;
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 1.2rem + 3vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+  z-index: 2;
+  pointer-events: none;
+}
 .vb-sound-toggle {
   position: absolute;
   right: 1.5rem;
@@ -6767,10 +6784,12 @@ button:focus-visible {
 }
 @media (max-width: 1024px) {
   .vb-section { min-height: 480px; max-height: 760px; }
+  .vb-heading { bottom: 6.5rem; }
 }
 @media (max-width: 640px) {
   .vb-section { min-height: 420px; max-height: none; }
   .vb-sound-toggle { right: 1rem; bottom: 1.25rem; padding: 0.5rem 0.85rem; font-size: 0.78rem; }
+  .vb-heading { left: 1rem; right: 1rem; bottom: 5.5rem; font-size: clamp(1.5rem, 1.1rem + 4vw, 2.25rem); }
 }
 @media (max-width: 640px) and (orientation: landscape) {
   .vb-section { height: 100vh; height: 100dvh; min-height: 320px; }

@@ -7,7 +7,7 @@ import QuickQuote from "@/components/QuickQuote";
 import StoreLocator from "@/components/StoreLocator";
 
 export const metadata: Metadata = {
-  title: "Penaxis - Growth & Technology Partner",
+  title: "Penaxis | AI, Software Development & Growth Agency",
   description:
     "Penaxis combines AI, software development, digital strategy, and sales expertise to help businesses operate smarter and grow faster.",
   metadataBase: new URL("https://www.penaxis.com"),
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Penaxis - Growth & Technology Partner",
+    title: "Penaxis | AI, Software Development & Growth Agency",
     description:
       "From websites and CRMs to MVPs and sales pipelines, we help businesses scale smarter.",
     url: "https://www.penaxis.com",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Penaxis - Growth & Technology Partner",
+    title: "Penaxis | AI, Software Development & Growth Agency",
     description:
       "From websites and CRMs to MVPs and sales pipelines, we help businesses scale smarter.",
     images: ["/og-image.png"],
