@@ -50,9 +50,8 @@ export default function CaseStudiesAccordion() {
                   {study.image && (
                     <img
                       src={study.image}
-                      alt=""
+                      alt={`${study.title} - Penaxis case study`}
                       className="csa-thumb"
-                      aria-hidden="true"
                     />
                   )}
 

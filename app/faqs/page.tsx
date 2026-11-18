@@ -6,6 +6,9 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "FAQs - Penaxis",
   description: "Answers to common questions about working with Penaxis.",
+  alternates: {
+    canonical: "/faqs",
+  },
 };
 
 export default function FAQsPage() {

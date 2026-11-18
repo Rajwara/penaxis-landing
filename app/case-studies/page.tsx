@@ -7,6 +7,9 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Case Studies - Penaxis",
   description: "Real projects and real impact - explore Penaxis's work by industry.",
+  alternates: {
+    canonical: "/case-studies",
+  },
 };
 
 export default function CaseStudiesPage() {

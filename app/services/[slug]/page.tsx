@@ -15,6 +15,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   return {
     title: `${service.title} - Penaxis`,
     description: service.short,
+    alternates: {
+      canonical: `/services/${service.slug}`,
+    },
   };
 }
 

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import CityScene from "@/components/CityScene";
 import HorizontalGallery from "@/components/HorizontalGallery";
@@ -24,6 +25,14 @@ import Footer from "@/components/Footer";
 // comparing changes without touching the live homepage. Keep this in
 // sync manually, or replace its contents entirely once it becomes the
 // place for new homepage experiments.
+
+// Component sandbox, not a real content page - kept out of search.
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function HomeV2() {
   return (

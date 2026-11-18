@@ -9,7 +9,10 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Who We Are - Penaxis",
-  description: "Penaxis - Growth & Technology Partner.",
+  description: "Meet the team behind Penaxis - the strategists, engineers, and growth specialists building for our clients.",
+  alternates: {
+    canonical: "/who-we-are",
+  },
 };
 
 export default function AboutV2Page() {

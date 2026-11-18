@@ -69,16 +69,19 @@ export default function ContactBanner() {
 
   return (
     <section className="ct-banner">
+      {/* One real page heading for SEO/accessibility; visually hidden since
+          the animated line stack below is the actual visual headline. */}
+      <h1 className="sr-only">Contact Penaxis</h1>
       <div ref={containerRef} className="ct-container">
         {LINES.map((line, i) => (
-          <h1
+          <p
             className={`ct-text ${activeIndex === i ? "ct-active" : ""}`}
             key={i}
             onClick={() => setActiveIndex((prev) => (prev === i ? null : i))}
           >
             {line.main}
             <span className="ct-text-span">{line.hover}</span>
-          </h1>
+          </p>
         ))}
       </div>
     </section>

@@ -17,6 +17,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   return {
     title: `${study.title} - Penaxis`,
     description: study.blurb,
+    alternates: {
+      canonical: `/case-studies/${study.slug}`,
+    },
   };
 }
 
