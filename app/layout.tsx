@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "Penaxis",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Penaxis - Growth & Technology Partner",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: "Penaxis | AI, Software Development & Growth Agency",
     description:
       "From websites and CRMs to MVPs and sales pipelines, we help businesses scale smarter.",
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
 };
 
