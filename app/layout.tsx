@@ -11,13 +11,39 @@ export const metadata: Metadata = {
   description:
     "Penaxis combines AI, software development, digital strategy, and sales expertise to help businesses operate smarter and grow faster.",
   metadataBase: new URL("https://www.penaxis.com"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Penaxis - Growth & Technology Partner",
     description:
       "From websites and CRMs to MVPs and sales pipelines, we help businesses scale smarter.",
     url: "https://www.penaxis.com",
     siteName: "Penaxis",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Penaxis - Growth & Technology Partner",
+      },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Penaxis - Growth & Technology Partner",
+    description:
+      "From websites and CRMs to MVPs and sales pipelines, we help businesses scale smarter.",
+    images: ["/og-image.png"],
+  },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Penaxis",
+  url: "https://www.penaxis.com",
+  logo: "https://www.penaxis.com/icon.png",
 };
 
 export default function RootLayout({
@@ -28,6 +54,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-paper text-ink antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         {/* CuboidLoader temporarily disabled per client request — re-enable by uncommenting */}
         {/* <CuboidLoader /> */}
         {children}
