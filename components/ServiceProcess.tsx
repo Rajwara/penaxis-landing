@@ -84,7 +84,7 @@ export default function ServiceProcess({
             <p className="svp-sub">Every step designed to deliver clarity, impact, and results.</p>
           </Reveal>
           <Reveal delay={0.1}>
-            <a href="/contact" className="btn-grad svp-cta">
+            <a href="/contact-us" className="btn-grad svp-cta">
               Start a Project
             </a>
           </Reveal>

@@ -90,7 +90,7 @@ export default function IndustryDetail({
               <h2>
                 Building for {industry.title.split(",")[0].split("&")[0].trim()}? <em>Let&apos;s talk.</em>
               </h2>
-              <a href="/contact" className="btn-grad px-7 py-3.5">
+              <a href="/contact-us" className="btn-grad px-7 py-3.5">
                 Start a project
               </a>
             </div>

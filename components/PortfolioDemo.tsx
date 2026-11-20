@@ -46,7 +46,7 @@ export default function PortfolioDemo() {
                 <span className="pfd-cap-label">{c.label}</span>
               </div>
             ))}
-            <a href="/contact" className="pfd-badge">
+            <a href="/contact-us" className="pfd-badge">
               Start a Project
             </a>
           </div>
@@ -80,7 +80,7 @@ export default function PortfolioDemo() {
               <br />
               Meaningful Together
             </p>
-            <a href="/contact" className="pfd-cta-pill">
+            <a href="/contact-us" className="pfd-cta-pill">
               Get in touch
               <span>
                 <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.4">

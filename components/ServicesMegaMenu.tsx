@@ -102,7 +102,7 @@ export default function ServicesMegaMenu() {
           Meet the people behind the work
         </a>
         <a
-          href="/contact"
+          href="/contact-us"
           className="btn-grad mt-auto text-sm px-5 py-3"
         >
           Start a project

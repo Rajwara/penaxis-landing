@@ -91,7 +91,7 @@ export default function IndustriesMegaMenu() {
             See all industries →
           </span>
         </a>
-        <a href="/contact" className="mt-auto text-xs text-white/60 hover:text-white transition-colors">
+        <a href="/contact-us" className="mt-auto text-xs text-white/60 hover:text-white transition-colors">
           Don't see yours? {contact.email}
         </a>
       </div>

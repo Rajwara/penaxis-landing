@@ -30,7 +30,7 @@ export default function AboutV2Bento() {
               alt="The Penaxis team celebrating"
               className="avbt-black-photo"
             />
-            <a href="/contact" className="avbt-pill">
+            <a href="/contact-us" className="avbt-pill">
               <span className="avbt-pill-label">Start</span>
               <span className="avbt-pill-main">A Project</span>
               <span className="avbt-pill-icon">
@@ -81,13 +81,13 @@ export default function AboutV2Bento() {
             <Reveal delay={0.15} className="avbt-volt">
               <div className="avbt-card-top">
                 <span className="avbt-eyebrow">Have Some Questions?</span>
-                <a href="/contact" className="avbt-corner-arrow" aria-label="Contact us">
+                <a href="/contact-us" className="avbt-corner-arrow" aria-label="Contact us">
                   <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </a>
               </div>
-              <a href="/contact" className="avbt-card-title">
+              <a href="/contact-us" className="avbt-card-title">
                 Contact Us
               </a>
             </Reveal>

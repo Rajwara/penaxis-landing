@@ -73,7 +73,7 @@ export default function CareersHub() {
   return (
     <>
       <section className="car-banner">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <span className="car-eyebrow">Careers</span>
             <h1 className="car-heading">Help us build what&apos;s next</h1>
@@ -87,7 +87,7 @@ export default function CareersHub() {
       </section>
 
       <section className="car-roles">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <div className="car-grid">
             {careers.map((role, i) => {
               const isOpen = openRole === role.slug;

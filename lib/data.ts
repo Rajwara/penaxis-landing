@@ -32,7 +32,7 @@ export const navRight = [
   },
 ];
 
-export const navCta = { label: "Contact Us", href: "/contact" };
+export const navCta = { label: "Contact Us", href: "/contact-us" };
 
 // Kept for mobile full-screen menu — same destinations plus Team,
 // per the spec's note that Team/Insights stay out of primary desktop nav for now

@@ -246,7 +246,7 @@ export default function ServicesHero() {
         </h1>
         <p className="sph-sub">Everything you need to build, launch, and grow - under one roof.</p>
         <div className="sph-ctas">
-          <a href="/contact" className="sph-btn sph-btn--dark">
+          <a href="/contact-us" className="sph-btn sph-btn--dark">
             Start a Project
             <svg width="12" height="10" viewBox="0 0 12 10" fill="none" stroke="currentColor" strokeWidth="1.4">
               <path d="M0 5h10.5M7 1.2 10.8 5 7 8.8" />

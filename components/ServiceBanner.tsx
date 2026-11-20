@@ -40,7 +40,7 @@ export default function ServiceBanner({
           <div className="svb-side">
             <Reveal delay={0.1}>
               <p className="svb-desc">{service.short}</p>
-              <a href="/contact" className="btn-grad svb-cta">
+              <a href="/contact-us" className="btn-grad svb-cta">
                 Start a Project
               </a>
             </Reveal>

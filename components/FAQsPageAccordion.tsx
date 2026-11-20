@@ -24,7 +24,7 @@ const FAQS = [
     q: "What do we need to start?",
     a: "A clear problem statement, access to any existing data or systems, and a stakeholder who can make decisions. We'll run a kickoff call to align on scope.",
     image: "/images/hero/faq-getting-started.webp",
-    href: "/contact",
+    href: "/contact-us",
   },
   {
     tag: "Industries",
@@ -45,7 +45,7 @@ const FAQS = [
     q: "How much does a typical project cost?",
     a: "It depends on scope, but most engagements fall into a few clear models - fixed-price for a defined MVP, or a monthly retainer for ongoing work. We'll give you a real number after a short discovery call, not a generic range.",
     image: "/images/hero/momentum-team.webp",
-    href: "/contact",
+    href: "/contact-us",
   },
   {
     tag: "Team",
@@ -66,21 +66,21 @@ const FAQS = [
     q: "Do you offer support after launch?",
     a: "Yes. Every engagement includes a handover period, and most clients move into an ongoing support or retainer arrangement afterward so the product keeps improving post-launch.",
     image: "/images/hero/trusted-partner-office.webp",
-    href: "/contact",
+    href: "/contact-us",
   },
   {
     tag: "Process",
     q: "How do you communicate during a project?",
     a: "Weekly check-ins at minimum, plus a shared channel for day-to-day questions. You'll always know what's shipped, what's in progress, and what's next.",
     image: "/images/hero/team-huddle.jpg",
-    href: "/contact",
+    href: "/contact-us",
   },
   {
     tag: "Ownership",
     q: "Who owns the code and IP once the project is done?",
     a: "You do. Once the final payment clears, full ownership of the code, designs, and any custom IP built for you transfers entirely to your business.",
     image: "/images/hero/office-logo-desk.jpg",
-    href: "/contact",
+    href: "/contact-us",
   },
   {
     tag: "Existing Products",
@@ -122,7 +122,7 @@ const FAQS = [
     q: "We're in a different time zone - how does that work?",
     a: "We work with clients across North America, Europe, and the Gulf already, with team overlap hours built into the schedule and async updates so nothing waits on a single meeting slot.",
     image: "/images/hero/industries-network.webp",
-    href: "/contact",
+    href: "/contact-us",
   },
   {
     tag: "Proof of Work",
@@ -136,21 +136,21 @@ const FAQS = [
     q: "What happens if we need to change scope mid-project?",
     a: "It happens on almost every project, and that's fine - we document the change, its impact on timeline and cost, and get your sign-off before any work starts, so there are never surprise invoices.",
     image: "/images/hero/team-celebration.webp",
-    href: "/contact",
+    href: "/contact-us",
   },
   {
     tag: "Getting Started",
     q: "Is there a minimum project size you work with?",
     a: "We're set up for everything from a focused 5-day MVP sprint to multi-month platform builds. If you're not sure where your project fits, the fastest way to find out is a quick call.",
     image: "/images/panels/service-panel-team-1.webp",
-    href: "/contact",
+    href: "/contact-us",
   },
   {
     tag: "Payments",
     q: "How are payments structured?",
     a: "Typically a milestone-based schedule tied to project phases, or a recurring monthly payment for retainer work - agreed upfront before any work starts, with no hidden fees.",
     image: "/images/hero/lets-connect-team.webp",
-    href: "/contact",
+    href: "/contact-us",
   },
 ];
 
