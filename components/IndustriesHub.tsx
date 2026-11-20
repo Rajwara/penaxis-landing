@@ -237,11 +237,18 @@ export default function IndustriesHub() {
           <h2>Every industry we build for.</h2>
         </div>
         <div className="ih-grid">
-          {industries.map((ind, i) => (
-            <article className="ih-card" id={slugify(ind.title)} key={ind.title}>
-              <span className="ih-card-num">{String(i + 1).padStart(2, "0")} / 13</span>
-              <h3>{ind.title}</h3>
-              <p>{ind.copy}</p>
+          {industries.map((ind) => (
+            <article className="ih-card" key={ind.title}>
+              <div className="ih-card-media">
+                <img src={ind.image} alt="" />
+              </div>
+              <div className="ih-card-body">
+                <h3>{ind.title}</h3>
+                <p>{ind.copy}</p>
+                <a href={`/industries/${slugify(ind.title)}`} className="ih-card-link">
+                  Learn More
+                </a>
+              </div>
             </article>
           ))}
         </div>

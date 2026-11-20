@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { services, caseStudies, insights } from "@/lib/data";
+import { services, caseStudies, insights, industries, slugify } from "@/lib/data";
 
 const BASE_URL = "https://www.penaxis.com";
 
@@ -37,5 +37,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...caseStudyRoutes, ...insightRoutes];
+  const industryRoutes: MetadataRoute.Sitemap = industries.map((ind) => ({
+    url: `${BASE_URL}/industries/${slugify(ind.title)}`,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...serviceRoutes, ...caseStudyRoutes, ...insightRoutes, ...industryRoutes];
 }

@@ -39,7 +39,7 @@ const MOBILE_SUBMENUS: Record<string, { items: { label: string; href: string }[]
     items: services.map((s) => ({ label: s.title, href: `/services/${s.slug}` })),
   },
   Industries: {
-    items: industries.map((ind) => ({ label: ind.title, href: `/industries#${slugify(ind.title)}` })),
+    items: industries.map((ind) => ({ label: ind.title, href: `/industries/${slugify(ind.title)}` })),
   },
   "Case Studies": {
     items: caseStudies.map((c) => ({ label: c.title, href: `/case-studies/${c.slug}` })),

@@ -211,19 +211,136 @@ export const services = [
 ];
 
 export const industries = [
-  { title: "Software, IT & SaaS", copy: "Custom software, SaaS platforms and IT solutions for enterprises and startups." },
-  { title: "Education & EdTech", copy: "E-learning platforms, student portals, and digital learning solutions." },
-  { title: "Automotive & Auto Care", copy: "Platforms for dealerships, auto care, repair shops, and fleet management." },
-  { title: "Home Services & Maintenance", copy: "Platforms for on-demand home services, bookings, and field management." },
-  { title: "Logistics & Transportation", copy: "Solutions for fleet tracking, freight management, and transport companies." },
-  { title: "Consulting, Staffing & Immigration", copy: "Solutions for consulting firms, staffing agencies, and immigration services." },
-  { title: "E-Commerce & Retail", copy: "Scalable platforms for online stores, marketplaces, and omnichannel retail." },
-  { title: "Sports & Fitness", copy: "Apps and platforms for gyms, fitness, training, and sports communities." },
-  { title: "Food Delivery & Grocery", copy: "Apps and platforms for food delivery, grocery and quick commerce." },
-  { title: "Real Estate & Property", copy: "Digital solutions for property marketplaces, brokers, and property management." },
-  { title: "Fintech & Financial Services", copy: "Secure solutions for banking, payments, lending, and wealth management." },
-  { title: "Healthcare & Wellness", copy: "Clinics, practices, gyms, wellness centers, and healthcare service providers." },
-  { title: "Pet Care & Veterinary", copy: "Digital tools for veterinary clinics and pet care businesses." },
+  {
+    title: "Software, IT & SaaS",
+    copy: "Custom software, SaaS platforms and IT solutions for enterprises and startups.",
+    image: "/images/case-studies/grid/bidlogics-tender-intelligence-grid.webp",
+    solutions: [
+      "Custom SaaS platforms built around how your product actually works, not a generic template",
+      "API integrations and internal tools that connect the systems your team already relies on",
+      "AI-assisted features - search, matching, summarization - built into your existing product",
+    ],
+  },
+  {
+    title: "Education & EdTech",
+    copy: "E-learning platforms, student portals, and digital learning solutions.",
+    image: "/images/case-studies/grid/ai-receptionist-visitor-kiosk-grid.webp",
+    solutions: [
+      "Student and learning management portals that stay simple enough for every grade level to use",
+      "Virtual classroom and course delivery tools built around how your instructors actually teach",
+      "Enrollment, attendance, and admin systems that cut manual paperwork for staff",
+    ],
+  },
+  {
+    title: "Automotive & Auto Care",
+    copy: "Platforms for dealerships, auto care, repair shops, and fleet management.",
+    image: "/images/case-studies/grid/ai-automotive-search-oktabytes-grid.webp",
+    solutions: [
+      "AI-powered vehicle search and listing platforms that help buyers find the right match faster",
+      "Booking and workshop management systems for repair shops, dealerships, and fleet operators",
+      "Inventory and parts-tracking tools that keep service bays and showrooms running on time",
+    ],
+  },
+  {
+    title: "Home Services & Maintenance",
+    copy: "Platforms for on-demand home services, bookings, and field management.",
+    image: "/images/case-studies/grid/dry-cleaning-delivery-platform-grid.webp",
+    solutions: [
+      "On-demand booking platforms that let customers schedule service in a couple of taps",
+      "Field-team dispatch and scheduling tools that keep technicians routed efficiently",
+      "Delivery and pickup tracking so customers always know where their order stands",
+    ],
+  },
+  {
+    title: "Logistics & Transportation",
+    copy: "Solutions for fleet tracking, freight management, and transport companies.",
+    image: "/images/case-studies/grid/drivelo-logistics-platform-grid.webp",
+    solutions: [
+      "Fleet tracking and dispatch platforms built for real-time visibility across every vehicle",
+      "Freight and shipment management systems that cut manual coordination between teams",
+      "Driver and route optimization tools that bring down fuel and time costs",
+    ],
+  },
+  {
+    title: "Consulting, Staffing & Immigration",
+    copy: "Solutions for consulting firms, staffing agencies, and immigration services.",
+    image: "/images/case-studies/banner/recruitment-banner-1.webp",
+    solutions: [
+      "Applicant tracking and recruitment CRMs with AI-assisted candidate matching",
+      "Case and document management systems built for immigration and consulting workflows",
+      "Client and vacancy pipelines that keep every stakeholder working from the same data",
+    ],
+  },
+  {
+    title: "E-Commerce & Retail",
+    copy: "Scalable platforms for online stores, marketplaces, and omnichannel retail.",
+    image: "/images/case-studies/banner/furniture-banner-1.webp",
+    solutions: [
+      "Custom storefronts and headless commerce builds that scale past what templates allow",
+      "Immersive product experiences - configurators, AR previews - that help buyers decide faster",
+      "Omnichannel inventory and order systems that keep online and in-store stock in sync",
+    ],
+  },
+  {
+    title: "Sports & Fitness",
+    copy: "Apps and platforms for gyms, fitness, training, and sports communities.",
+    image: "/images/case-studies/grid/seka-gravel-cycling-platform-grid.webp",
+    solutions: [
+      "Training, route, and community platforms built for athletes and the clubs around them",
+      "Membership, booking, and class-scheduling systems for gyms and studios",
+      "Performance tracking tools that turn activity data into something members actually use",
+    ],
+  },
+  {
+    title: "Food Delivery & Grocery",
+    copy: "Apps and platforms for food delivery, grocery and quick commerce.",
+    image: "/images/hero/team-celebration.webp",
+    solutions: [
+      "Ordering and delivery platforms built for real-world logistics, not just a checkout flow",
+      "Quick-commerce inventory systems that keep availability accurate as stock moves fast",
+      "Driver and dispatch tools that keep delivery windows realistic and on time",
+    ],
+  },
+  {
+    title: "Real Estate & Property",
+    copy: "Digital solutions for property marketplaces, brokers, and property management.",
+    image: "/images/hero/trusted-partner-office.webp",
+    solutions: [
+      "Property marketplaces and listing platforms built around how buyers actually search",
+      "Broker and agency CRMs that keep leads, listings, and deals in one place",
+      "Property management portals for landlords, tenants, and maintenance requests",
+    ],
+  },
+  {
+    title: "Fintech & Financial Services",
+    copy: "Secure solutions for banking, payments, lending, and wealth management.",
+    image: "/images/hero/momentum-team.webp",
+    solutions: [
+      "Secure, compliant platforms for payments, lending, and digital banking workflows",
+      "Dashboards that turn transaction and account data into something a team can act on",
+      "Integrations with banking rails and payment providers, built to your compliance requirements",
+    ],
+  },
+  {
+    title: "Healthcare & Wellness",
+    copy: "Clinics, practices, gyms, wellness centers, and healthcare service providers.",
+    image: "/images/case-studies/grid/patient-care-management-platform-grid.webp",
+    solutions: [
+      "Patient care and clinic management platforms built around real clinical workflows",
+      "Telehealth and intake systems that cut administrative load for staff",
+      "Secure records and scheduling tools that keep patient data compliant and accessible",
+    ],
+  },
+  {
+    title: "Pet Care & Veterinary",
+    copy: "Digital tools for veterinary clinics and pet care businesses.",
+    image: "/images/hero/team-group.webp",
+    solutions: [
+      "Appointment and patient-record systems built for veterinary clinics and pet care businesses",
+      "Client communication tools - reminders, records, follow-ups - that cut no-shows",
+      "Booking platforms for grooming, boarding, and other pet care services",
+    ],
+  },
 ];
 
 export const whyUs = [

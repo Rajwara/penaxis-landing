@@ -1,6 +1,6 @@
 "use client";
 
-import { industries, contact } from "@/lib/data";
+import { industries, contact, slugify } from "@/lib/data";
 
 // Ported mechanism: a hover-triggered mega menu with a dark sidebar
 // (pill tags + a featured teaser) and a grid of categorized links —
@@ -110,7 +110,7 @@ export default function IndustriesMegaMenu() {
                 return (
                   <li key={title}>
                     <a
-                      href="/industries"
+                      href={`/industries/${slugify(title)}`}
                       title={ind?.copy}
                       className="text-sm text-ink/55 hover:text-violet-700 transition-colors"
                     >
