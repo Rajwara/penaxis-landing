@@ -1,36 +1,20 @@
-import Reveal from "./Reveal";
+"use client";
+
+import { useEffect, useRef } from "react";
 import { services } from "@/lib/data";
 
-// Full services listing for /services — a horizontal, icon-chip card per
-// service (number, icon, title, description, tech stack pills, "Learn
-// more") linking into its own /services/[slug] detail page. Deliberately
-// not another plain image-top card grid (already the pattern on
-// Industries/Insights/Case Studies) so /services has its own identity.
+// Ported from an uploaded reference "services marquee" design: a
+// full-bleed dark section with a looping text marquee, followed by
+// stacked service cards that slide out from under the card above as you
+// scroll. Recolored into Penaxis's ink/violet/orange palette instead of
+// the reference's green agriculture-site colors; content is constrained
+// to the site's standard max-w-7xl (matching the nav) inside the
+// full-width dark background.
 
-const SERVICE_ICONS: Record<string, JSX.Element> = {
-  "ai-mvp": (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-      <path d="M12 2a5 5 0 0 0-5 5c0 1.8.9 3 1.5 4.2C9 12.6 9 13 9 14v2h6v-2c0-1 0-1.4.5-2.8.6-1.2 1.5-2.4 1.5-4.2a5 5 0 0 0-5-5z" />
-      <path d="M9 19h6M10 22h4" />
-    </svg>
-  ),
-  "digital-transformation": (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-      <path d="M21 12a9 9 0 1 1-2.6-6.4M21 3v5h-5" />
-    </svg>
-  ),
-  "sales-growth": (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-      <path d="M3 17l6-6 4 4 8-8M21 7v6" />
-    </svg>
-  ),
-  "web-crm-software": (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-      <rect x="3" y="4" width="18" height="14" rx="2" />
-      <path d="M3 9h18M8 21h8" />
-    </svg>
-  ),
-};
+const MAX_ROT = 5; // degrees
+const START = 1.3; // fraction of viewport height where a card starts sliding in
+const END = 0.5;
+const SMOOTH = 0.12; // lower = smoother / laggier
 
 // The default heroImage for web-crm-software is an abstract graphic that
 // doesn't match the other 3 services' real photos — use the on-brand
@@ -40,42 +24,114 @@ const CARD_IMAGES: Record<string, string> = {
 };
 
 export default function ServicesPageList() {
-  return (
-    <section className="sphl-section">
-      <div className="mx-auto max-w-5xl px-6">
-        <Reveal as="div" className="sphl-head">
-          <span className="sphl-eyebrow">What We Do</span>
-          <h2 className="sphl-heading">Every service, in detail.</h2>
-        </Reveal>
+  const listRef = useRef<HTMLDivElement>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-        <div className="sphl-list">
-          {services.map((s, i) => (
-            <Reveal key={s.slug} y={20} delay={0.05 + i * 0.06}>
-              <a href={`/services/${s.slug}`} className="sphl-card">
-                <div className="sphl-card-media">
-                  <img src={CARD_IMAGES[s.slug] || s.heroImage} alt={s.title} />
-                  <span className="sphl-card-icon">{SERVICE_ICONS[s.slug]}</span>
-                </div>
-                <div className="sphl-card-body">
-                  <span className="sphl-card-num">{s.number}</span>
-                  <h3 className="sphl-card-title">{s.title}</h3>
-                  <p className="sphl-card-copy">{s.short}</p>
-                  <ul className="sphl-card-stack">
-                    {s.stack.slice(0, 4).map((tag) => (
-                      <li key={tag}>{tag}</li>
-                    ))}
-                  </ul>
-                  <span className="sphl-card-link">
-                    Learn more
-                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.4">
-                      <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </span>
-                </div>
-              </a>
-            </Reveal>
+  useEffect(() => {
+    const list = listRef.current;
+    if (!list) return;
+    const items = itemRefs.current.filter((el): el is HTMLDivElement => !!el);
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const current = items.map(() => 0);
+    let raf = 0;
+
+    function targetProgress(i: number) {
+      if (i === 0) return 1;
+      const vh = window.innerHeight;
+      const restingTop = list!.getBoundingClientRect().top + items[i].offsetTop;
+      const p = (START * vh - restingTop) / ((START - END) * vh);
+      return Math.min(1, Math.max(0, p));
+    }
+
+    function apply(i: number, p: number) {
+      if (i === 0) return;
+      const h = items[i].offsetHeight;
+      const y = -h * (1 - p);
+      const r = -MAX_ROT * (1 - p);
+      items[i].style.transform = `translate3d(0, ${y.toFixed(2)}px, 0) rotate(${r.toFixed(3)}deg)`;
+    }
+
+    items.forEach((_, i) => {
+      current[i] = targetProgress(i);
+      apply(i, current[i]);
+    });
+
+    function tick() {
+      items.forEach((_, i) => {
+        const t = targetProgress(i);
+        current[i] += (t - current[i]) * (reduce ? 1 : SMOOTH);
+        if (Math.abs(t - current[i]) < 0.0005) current[i] = t;
+        apply(i, current[i]);
+      });
+      raf = requestAnimationFrame(tick);
+    }
+    raf = requestAnimationFrame(tick);
+
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  return (
+    <section data-nav-theme="dark" className="svcl-section">
+      <div className="svcl-container">
+        <div className="svcl-marquee">
+          {[0, 1, 2].map((i) => (
+            <div key={i} className="svcl-marquee-track" aria-hidden={i > 0 ? "true" : undefined}>
+              <h2 className="svcl-marquee-text">
+                Services <span className="svcl-accent">* Capabilities *</span> Offerings *
+              </h2>
+            </div>
           ))}
         </div>
+      </div>
+
+      <div className="svcl-list" ref={listRef}>
+        {services.map((s, i) => (
+          <div
+            key={s.slug}
+            className="svcl-item"
+            style={{ zIndex: services.length - i }}
+            ref={(el) => {
+              itemRefs.current[i] = el;
+            }}
+          >
+            <div className="svcl-container">
+              <div className="svcl-inner">
+                <div className="svcl-image">
+                  <img src={CARD_IMAGES[s.slug] || s.heroImage} alt={s.title} />
+                </div>
+                <div className="svcl-text">
+                  <div className="svcl-number">{s.number}.</div>
+                  <div className="svcl-main">
+                    <div className="svcl-heading-wrap">
+                      <h3 className="svcl-heading">{s.title}</h3>
+                      <a href={`/services/${s.slug}`} className="svcl-more">
+                        <svg className="svcl-arrow-l" viewBox="0 0 33 11" fill="none">
+                          <path d="M0.5 0V6.5H31.5M31.5 6.5L28 3.5M31.5 6.5L28 9.5" stroke="currentColor" />
+                        </svg>
+                        <span className="svcl-more-in">
+                          Read more
+                          <svg className="svcl-arrow-r" viewBox="0 0 27 7" fill="none">
+                            <path d="M0 3.5H26M26 3.5L23 0.5M26 3.5L23 6.5" stroke="currentColor" />
+                          </svg>
+                        </span>
+                      </a>
+                    </div>
+                    <div className="svcl-desc-wrap">
+                      <p className="svcl-desc">{s.short}</p>
+                      <div className="svcl-tags">
+                        {s.stack.slice(0, 4).map((tag) => (
+                          <div key={tag} className="svcl-tag">
+                            {tag}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
