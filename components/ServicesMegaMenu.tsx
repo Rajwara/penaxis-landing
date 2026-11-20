@@ -90,7 +90,7 @@ export default function ServicesMegaMenu() {
       </div>
 
       {/* Side card */}
-      <div className="bg-haze p-6 flex flex-col">
+      <div className="bg-paper border-l border-ink/5 p-6 flex flex-col">
         <a
           href="/game-changers"
           className="block rounded-xl overflow-hidden h-60 mb-5 relative bg-gradient-to-br from-violet-200 to-volt/40"

@@ -49,7 +49,7 @@ export default function Coverage() {
     .join(" ");
 
   return (
-    <section className="relative py-20 md:py-28 bg-haze/40">
+    <section className="relative py-20 md:py-28 bg-paper">
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div>

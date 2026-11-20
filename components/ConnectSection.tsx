@@ -43,7 +43,7 @@ export default function ConnectSection() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid lg:grid-cols-[1fr_1.15fr] rounded-[2rem] overflow-hidden border border-ink/5 shadow-[0_30px_60px_-25px_rgba(46,31,66,0.15)]">
           {/* Left — form card */}
-          <div className="bg-haze p-8 md:p-12">
+          <div className="bg-paper p-8 md:p-12">
             <Reveal>
               <span className="inline-flex rounded-full border border-ink/15 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-ink/60 mb-8">
                 Schedule a Consultation
