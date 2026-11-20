@@ -50,11 +50,11 @@ export const navMobile = [
 ];
 
 export const stats = [
-  { value: "3", suffix: " Weeks", label: "Average MVP launch timeline" },
-  { value: "50", suffix: "+", label: "Websites, platforms, or CRMs launched" },
-  { value: "800", suffix: "K+", prefix: "$", label: "Client sales opportunities generated" },
-  { value: "100", suffix: "%", label: "Milestones delivered on schedule" },
-  { value: "80", suffix: "%", label: "Clients retained or renewed" },
+  { value: "5", suffix: " Days", prefix: "", label: "Average MVP launch timeline" },
+  { value: "4", suffix: " Core Verticals", prefix: "", label: "Strategy, Design, Technology, Growth" },
+  { value: "12", suffix: "+", prefix: "", label: "Industries Served" },
+  { value: "100", suffix: "%", prefix: "", label: "Milestones delivered on time" },
+  { value: "50", suffix: "+", prefix: "", label: "Websites, platforms, or CRMs launched" },
 ];
 
 export const missionVision = [
