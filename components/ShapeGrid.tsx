@@ -14,7 +14,10 @@ const CARDS = [
   {
     theme: "violet",
     title: "Pakistan Office",
-    text: "We are based in Pakistan.",
+    text: "2nd floor, 3, DHA Block P Tip Block Rahbar, Lahore, Pakistan",
+    mapHref:
+      "https://www.google.com/maps/search/?api=1&query=" +
+      encodeURIComponent("2nd floor, 3, DHA Block P Tip Block Rahbar, Lahore, Pakistan"),
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5.25 6.14 11.6 6.4 11.86a.85.85 0 0 0 1.2 0C12.86 20.6 19 14.25 19 9a7 7 0 0 0-7-7zm0 9.75A2.75 2.75 0 1 1 12 6.25a2.75 2.75 0 0 1 0 5.5z" />
@@ -24,7 +27,12 @@ const CARDS = [
   {
     theme: "ember",
     title: "Dubai Office",
-    text: "We are based in Dubai.",
+    text: "Leaders Building - Office No. 1 - 409 Sheikh Zayed Rd - Al Qouz First - Al Quoz - Dubai - United Arab Emirates",
+    mapHref:
+      "https://www.google.com/maps/search/?api=1&query=" +
+      encodeURIComponent(
+        "Leaders Building - Office No. 1 - 409 Sheikh Zayed Rd - Al Qouz First - Al Quoz - Dubai - United Arab Emirates"
+      ),
     cut: true,
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -85,14 +93,18 @@ export default function ShapeGrid() {
                   </div>
                   <div className="ux-bottom">
                     <CardIcons />
-                    <div className="ux-more">
-                      <button type="button" className="ux-more-btn">
-                        Open
-                      </button>
+                    <a
+                      href={card.mapHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ux-more"
+                      aria-label={`Open ${card.title} location in Google Maps`}
+                    >
+                      <span className="ux-more-btn">Open</span>
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="m6 9 6 6 6-6" />
                       </svg>
-                    </div>
+                    </a>
                   </div>
                 </div>
               </div>
