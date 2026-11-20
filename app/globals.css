@@ -5012,128 +5012,124 @@ button:focus-visible {
   .fp-header { flex-direction: column; align-items: flex-start; }
   .fp-header-right { text-align: left; max-width: 100%; }
 }
-.fp-container {
+/* Services accordion list (ported from a client-supplied reference
+   mockup's numbered accordion, restyled with Penaxis's brand colors,
+   fonts, and real service content instead of the reference's green
+   theme and placeholder copy) */
+.svc-acc-list {
   position: relative;
   z-index: 1;
   max-width: 80rem;
-  margin: 0 auto;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-  gap: 1rem;
-  height: 26rem;
+  margin: 3.5rem auto 0;
+  list-style: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
-.fp-slide {
-  position: relative;
-  flex: 0 0 8.5%;
-  height: 100%;
+.svc-acc-item { border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
+.svc-acc-toggle {
+  width: 100%;
+  background: none;
+  border: 0;
   cursor: pointer;
-  border-radius: 1.5rem;
-  padding: 1.75rem;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center 15%;
-  transition: flex-basis 0.5s ease, padding 0.5s ease;
+  text-align: left;
+  font: inherit;
+  color: inherit;
 }
-.fp-slide::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: rgba(0, 0, 0, 0.45);
-  transition: opacity 0.4s ease;
+.svc-acc-row {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 0;
 }
-.fp-slide.is-active { flex: 0 0 55%; }
-.fp-slide.is-active::before { opacity: 0; }
-.fp-content {
-  position: relative;
-  z-index: 1;
-  height: 100%;
-  width: 100%;
+.svc-acc-num {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.02em;
 }
-.fp-slide.is-active .fp-content { max-width: 65%; }
-.fp-title {
-  position: relative;
-  z-index: 1;
-  width: 22rem;
-  height: 3.5rem;
-  color: #fff;
+.svc-acc-name {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.6rem;
-  margin: 0;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  transform-origin: left center;
-  transform: rotate(-90deg) translateX(-100%);
-  top: 0;
-  left: 0;
-  transition: transform 0.5s ease, top 0.5s ease;
-}
-.fp-slide.is-active .fp-title {
-  transform: rotate(0deg) translateX(0);
-}
-.fp-about {
-  opacity: 0;
-  position: relative;
-  z-index: 1;
-  color: rgba(255, 255, 255, 0.85);
-  width: 100%;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-top: 1.5rem;
-  transition: opacity 0.4s ease 0.1s;
-}
-.fp-slide.is-active .fp-about { opacity: 1; }
-.fp-arrow {
-  position: absolute;
-  right: 1.5rem;
-  bottom: 1.5rem;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: #171717;
+  font-size: clamp(1.3rem, 1.1rem + 1vw, 1.9rem);
+  letter-spacing: -0.02em;
   color: #fff;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
+  transition: color 0.25s ease, transform 0.35s ease;
+}
+.svc-acc-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #b49fda;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.4s cubic-bezier(0.6, 0.05, 0.3, 1);
+}
+.svc-acc-toggle:hover .svc-acc-name { color: #b49fda; transform: translateX(6px); }
+.svc-acc-toggle:hover .svc-acc-icon { background: rgba(255, 255, 255, 0.14); }
+.svc-acc-item.is-open .svc-acc-icon { transform: rotate(45deg); background: #734fa0; color: #fff; }
+.svc-acc-item.is-open .svc-acc-name { color: #b49fda; }
+.svc-acc-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s cubic-bezier(0.6, 0.05, 0.3, 1);
+}
+.svc-acc-item.is-open .svc-acc-panel { grid-template-rows: 1fr; }
+.svc-acc-panel-inner { overflow: hidden; }
+.svc-acc-body {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr;
+  gap: 1.5rem;
+  padding-bottom: 2.5rem;
   opacity: 0;
-  transform: scale(0.8);
-  transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s, background 0.2s;
-  z-index: 1;
+  transform: translateY(-8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
-.fp-slide.is-active .fp-arrow { opacity: 1; transform: scale(1); }
-.fp-arrow-track {
+.svc-acc-item.is-open .svc-acc-body { opacity: 1; transform: none; transition-delay: 0.12s; }
+.svc-acc-content { max-width: 42rem; }
+.svc-acc-content p {
+  color: rgba(255, 255, 255, 0.65);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 1.3rem;
+}
+.svc-acc-tags {
   display: flex;
-  align-items: center;
-  transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  list-style: none;
+  margin-bottom: 1.5rem;
 }
-.fp-arrow-slot {
-  flex: 0 0 44px;
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.svc-acc-tags li {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
 }
-.fp-arrow:hover .fp-arrow-track { transform: translateX(-44px); }
-.fp-arrow:hover { background: #734fa0; }
-@media (max-width: 900px) {
-  .fp-container { height: auto; flex-direction: column; }
-  .fp-slide { flex: none; height: 4.5rem; padding: 1.25rem; }
-  .fp-slide.is-active { height: auto; min-height: 12rem; }
-  .fp-title {
-    width: auto;
-    height: auto;
-    transform: none;
-    position: static;
-    font-size: 1.15rem;
-  }
-  .fp-slide.is-active .fp-title { transform: none; }
-  .fp-about { margin-top: 0.75rem; }
+.svc-acc-learn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+.svc-acc-learn svg { transition: transform 0.25s ease; }
+.svc-acc-learn:hover { color: #b49fda; }
+.svc-acc-learn:hover svg { transform: translate(2px, -2px); }
+@media (max-width: 768px) {
+  .svc-acc-row { grid-template-columns: 2.25rem 1fr auto; gap: 0.75rem; padding: 1.5rem 0; }
+  .svc-acc-num { font-size: 0.85rem; }
+  .svc-acc-icon { width: 40px; height: 40px; }
+  .svc-acc-body { grid-template-columns: 1fr; padding-left: 0; padding-bottom: 1.75rem; }
+  .svc-acc-content p { font-size: 0.95rem; }
 }
 
 /* FAQs page (accordion with images) */
