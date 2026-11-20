@@ -102,7 +102,7 @@ export default function Footer() {
             <div className="text-[0.65rem] font-mono tracking-[0.2em] uppercase text-white/40 mb-2">
               {col.eyebrow}
             </div>
-            <a href={col.href} className="font-display font-bold text-2xl md:text-4xl hover:text-[#FC6607] transition-colors">
+            <a href={col.href} className="font-display font-bold text-2xl md:text-2xl lg:text-3xl whitespace-nowrap hover:text-[#FC6607] transition-colors">
               {col.title}
             </a>
           </Reveal>
