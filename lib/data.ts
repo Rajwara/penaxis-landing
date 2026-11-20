@@ -386,6 +386,9 @@ export const team = [
   { name: "Muhammad Saad Salman", role: "CMS Developer", image: "/images/team/Muhammad-Saad-Salman-CMS-Developer.png", bio: "Builds and maintains the CMS-powered sites and platforms our clients run on." },
   { name: "Raza Hamid", role: "Business Development Executive" },
   { name: "Khubaib Malik", role: "Client Success Manager" },
+  { name: "Umer Faraz", role: "Regional Sales Manager", image: "/images/team/umer-faraz.webp", bio: "Drives regional sales strategy and keeps the pipeline moving forward." },
+  { name: "Sumaira Hussain", role: "HR Operations Executive", image: "/images/team/sumaira-hussain.webp", bio: "Keeps HR operations running smoothly for the whole team." },
+  { name: "Abdul Ahad", role: "Performance Marketing", image: "/images/team/abdul-ahad.webp", bio: "Runs the paid campaigns that keep qualified leads coming in." },
 ];
 
 export const contact = {
