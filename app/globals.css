@@ -7542,50 +7542,65 @@ button:focus-visible {
   .sph-hero *, .sph-hero *::before, .sph-hero *::after { animation-duration: 0.01s !important; animation-iteration-count: 1 !important; }
 }
 
-/* Services listing grid below the hero (/services) */
-.sphl-section { padding: 6rem 0; background: #fff; }
-.sphl-head { max-width: 42rem; margin: 0 auto 3.5rem; text-align: center; }
-.sphl-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #734fa0; margin-bottom: 1rem; }
-.sphl-eyebrow:before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #734fa0; }
-.sphl-heading { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 1.5rem + 1.6vw, 2.75rem); color: #212121; }
-.sphl-list { display: flex; flex-direction: column; gap: 1.5rem; }
-.sphl-card {
-  display: grid;
-  grid-template-columns: 1fr;
-  border-radius: 1.75rem;
-  overflow: hidden;
-  background: #fff;
-  border: 1px solid rgba(33, 33, 33, 0.08);
-  box-shadow: 0 1px 2px rgba(33, 33, 33, 0.04);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+/* Services marquee + stacked cards below the hero (/services), ported
+   from an uploaded reference design: a full-bleed dark section with a
+   looping text marquee, then cards that slide out from under the card
+   above as you scroll. Recolored into Penaxis's ink/violet/orange
+   palette instead of the reference's green agriculture-site colors.
+   Each row's content is wrapped in .svcl-container (max-w-7xl, matching
+   the nav) inside the full-width dark background. */
+.svcl-section { position: relative; background: #212121; padding-bottom: 8rem; overflow: hidden; }
+.svcl-container { max-width: 80rem; margin: 0 auto; padding: 0 1.5rem; }
+
+.svcl-marquee { display: flex; padding-top: 4.5rem; margin-bottom: 5rem; }
+.svcl-marquee-track { flex: none; padding: 0 1rem 0.6rem 0; animation: svcl-scroll 20s linear infinite; will-change: transform; }
+.svcl-marquee-text { margin: 0; font-family: var(--font-display); font-size: clamp(2.5rem, 1.5rem + 7vw, 9rem); font-weight: 700; line-height: 0.95; letter-spacing: -0.03em; color: #fff; white-space: nowrap; }
+.svcl-accent { color: #a78bda; }
+@keyframes svcl-scroll { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+
+.svcl-list { position: relative; }
+.svcl-item { position: relative; padding: 1rem 0; background: #212121; border-bottom: 1px solid rgba(255, 255, 255, 0.1); will-change: transform; }
+.svcl-inner { display: flex; gap: 4rem; }
+.svcl-image { flex: 0 0 calc(50% - 2rem); aspect-ratio: 656.5 / 364.7; border-radius: 0.75rem; overflow: hidden; }
+.svcl-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.svcl-item:hover .svcl-image img { transform: scale(1.05); }
+
+.svcl-text { flex: 1; display: flex; flex-direction: column; padding-top: 2.5rem; }
+.svcl-number { margin-bottom: 1.75rem; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.05em; color: rgba(255, 255, 255, 0.45); }
+.svcl-main { display: flex; gap: 1rem; align-items: flex-start; }
+.svcl-heading-wrap { flex: 0 0 18rem; }
+.svcl-heading { margin: 0 0 1.5rem; font-family: var(--font-display); font-weight: 700; font-size: 1.85rem; line-height: 1.2; letter-spacing: -0.02em; color: #fff; }
+
+.svcl-more { display: inline-flex; align-items: center; gap: 5px; text-decoration: none; color: #fff; font-size: 0.875rem; }
+.svcl-arrow-l { width: 30px; color: #a78bda; transition: opacity 0.35s ease; }
+.svcl-arrow-r { width: 24px; color: #fc6607; opacity: 0; transition: opacity 0.35s ease; margin-left: 5px; }
+.svcl-more-in { display: flex; align-items: center; }
+.svcl-item:hover .svcl-arrow-l { opacity: 0; }
+.svcl-item:hover .svcl-arrow-r { opacity: 1; }
+
+.svcl-desc-wrap { flex: 1; }
+.svcl-desc { margin: 0 0 1.75rem; font-size: 0.95rem; line-height: 1.7; color: rgba(255, 255, 255, 0.55); }
+.svcl-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.svcl-tag { padding: 0.65rem 0.85rem; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 999px; font-family: var(--font-mono); font-size: 0.72rem; color: #fff; }
+
+@media (max-width: 1199px) {
+  .svcl-inner { gap: 2.5rem; }
+  .svcl-image { flex-basis: calc(50% - 1.25rem); }
+  .svcl-main { flex-direction: column; gap: 0; }
+  .svcl-heading-wrap { flex-basis: auto; }
+  .svcl-heading { margin-bottom: 1rem; }
+  .svcl-more { margin-bottom: 1.25rem; }
+  .svcl-text { padding-top: 0.5rem; }
 }
-@media (min-width: 768px) {
-  .sphl-card { grid-template-columns: 2fr 3fr; align-items: stretch; }
+@media (max-width: 767px) {
+  .svcl-container { padding: 0 1.25rem; }
+  .svcl-marquee { padding-top: 2.5rem; margin-bottom: 3rem; }
+  .svcl-section { padding-bottom: 5rem; }
+  .svcl-inner { flex-direction: column; gap: 1.5rem; }
+  .svcl-image { flex-basis: auto; width: 100%; }
+  .svcl-text { padding: 0 0 1.25rem; }
+  .svcl-heading { font-size: 1.5rem; }
 }
-.sphl-card:hover { transform: translateY(-4px); box-shadow: 0 30px 50px -20px rgba(46, 31, 66, 0.3); border-color: rgba(115, 79, 160, 0.25); }
-.sphl-card-media { position: relative; aspect-ratio: 16 / 11; overflow: hidden; }
-@media (min-width: 768px) { .sphl-card-media { aspect-ratio: auto; } }
-.sphl-card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-.sphl-card:hover .sphl-card-media img { transform: scale(1.05); }
-.sphl-card-icon {
-  position: absolute;
-  left: 1.25rem;
-  bottom: -1.1rem;
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: #734fa0;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 20px -6px rgba(46, 31, 66, 0.5);
+@media (prefers-reduced-motion: reduce) {
+  .svcl-marquee-track { animation: none; }
 }
-.sphl-card-icon svg { width: 22px; height: 22px; }
-.sphl-card-body { padding: 2.25rem 1.75rem 1.75rem; display: flex; flex-direction: column; gap: 0.85rem; }
-.sphl-card-num { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: #734fa0; }
-.sphl-card-title { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; color: #212121; }
-.sphl-card-copy { font-size: 0.95rem; line-height: 1.6; color: rgba(33, 33, 33, 0.6); }
-.sphl-card-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.1rem; }
-.sphl-card-stack li { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600; color: rgba(33, 33, 33, 0.55); background: #f6f4fb; border-radius: 999px; padding: 0.3rem 0.7rem; }
-.sphl-card-link { margin-top: 0.4rem; align-self: flex-start; display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 700; font-size: 0.9rem; color: #fc6607; }
