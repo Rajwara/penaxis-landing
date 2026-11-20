@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import Reveal from "./Reveal";
-import { contact } from "@/lib/data";
+import { contact, offices } from "@/lib/data";
 import { submitForm } from "@/lib/submitForm";
 
 // Two-column contact section: gradient background, eyebrow + headline
@@ -16,11 +16,20 @@ import { submitForm } from "@/lib/submitForm";
 // max 3 files, 3MB each, 4MB total — Vercel serverless functions cap
 // request bodies around 4.5MB) are sent as real email attachments.
 
+const PIN_ICON = (
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M12 21s-7-6.5-7-11a7 7 0 1 1 14 0c0 4.5-7 11-7 11z" />
+    <circle cx="12" cy="10" r="2.5" />
+  </svg>
+);
+
 const INFO_CARDS = [
   {
     label: "E-mail address",
     value: contact.email,
     href: `mailto:${contact.email}`,
+    external: false,
+    accent: "bg-ink",
     icon: (
       <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -32,23 +41,22 @@ const INFO_CARDS = [
     label: "Phone number",
     value: contact.phone,
     href: `tel:${contact.phone.replace(/[^\d+]/g, "")}`,
+    external: false,
+    accent: "bg-ink",
     icon: (
       <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2z" />
       </svg>
     ),
   },
-  {
-    label: "Our Location",
-    value: contact.address,
-    href: null,
-    icon: (
-      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M12 21s-7-6.5-7-11a7 7 0 1 1 14 0c0 4.5-7 11-7 11z" />
-        <circle cx="12" cy="10" r="2.5" />
-      </svg>
-    ),
-  },
+  ...offices.map((office) => ({
+    label: `${office.country === "Pakistan" ? "Pakistan" : office.city} Office`,
+    value: office.address,
+    href: `https://www.google.com/maps?q=${encodeURIComponent(office.address)}`,
+    external: true,
+    accent: office.theme === "ember" ? "bg-gradient-to-br from-ember-400 to-ember-600" : "bg-gradient-to-br from-violet-500 to-violet-700",
+    icon: PIN_ICON,
+  })),
 ];
 
 const SOCIALS = [
@@ -128,26 +136,26 @@ export default function ContactFormSection() {
 
   return (
     <section className="relative bg-paper py-20 px-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Info cards row */}
-        <div className="grid sm:grid-cols-3 gap-6 mb-20">
-          {INFO_CARDS.map((card, i) => {
-            const Wrapper = card.href ? "a" : "div";
-            return (
-              <Reveal as="div" key={card.label} delay={i * 0.12} y={36} scale={0.94} duration={0.7}>
-                <Wrapper
-                  {...(card.href ? { href: card.href } : {})}
-                  className="block rounded-3xl bg-white p-8 text-center shadow-[0_20px_45px_-12px_rgba(46,31,66,0.18)] hover:-translate-y-1.5 transition-transform duration-300"
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+          {INFO_CARDS.map((card, i) => (
+            <Reveal as="div" key={card.label} delay={i * 0.1} y={36} scale={0.92} duration={0.7}>
+              <a
+                href={card.href}
+                {...(card.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="group block h-full rounded-3xl bg-white p-8 text-center shadow-[0_20px_45px_-12px_rgba(46,31,66,0.18)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_30px_60px_-14px_rgba(46,31,66,0.28)]"
+              >
+                <span
+                  className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl text-white mb-5 shadow-[0_14px_24px_-6px_rgba(33,33,33,0.35)] transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-rotate-6 ${card.accent}`}
                 >
-                  <span className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-ink text-white mb-5 shadow-[0_14px_24px_-6px_rgba(33,33,33,0.55)]">
-                    {card.icon}
-                  </span>
-                  <div className="font-display font-bold text-xl text-ink">{card.label}</div>
-                  <div className="text-base text-ink/55 mt-1.5">{card.value}</div>
-                </Wrapper>
-              </Reveal>
-            );
-          })}
+                  {card.icon}
+                </span>
+                <div className="font-display font-bold text-xl text-ink">{card.label}</div>
+                <div className="text-base text-ink/55 mt-1.5">{card.value}</div>
+              </a>
+            </Reveal>
+          ))}
         </div>
 
         <div className="grid lg:grid-cols-2 gap-14 items-start">
