@@ -245,7 +245,7 @@ export default function Navbar() {
                 alt="Penaxis"
                 width={140}
                 height={40}
-                style={{ height: 24, width: "auto" }}
+                style={{ height: 32, width: "auto" }}
                 priority
               />
             </span>
