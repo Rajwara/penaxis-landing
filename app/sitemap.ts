@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { services, caseStudies } from "@/lib/data";
+import { services, caseStudies, insights } from "@/lib/data";
 
 const BASE_URL = "https://www.penaxis.com";
 
@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/faqs`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/game-changers`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/industries`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE_URL}/insights`, changeFrequency: "weekly", priority: 0.7 },
     { url: `${BASE_URL}/who-we-are`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/privacy-policy`, changeFrequency: "yearly", priority: 0.2 },
     { url: `${BASE_URL}/terms-conditions`, changeFrequency: "yearly", priority: 0.2 },
@@ -30,5 +31,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...caseStudyRoutes];
+  const insightRoutes: MetadataRoute.Sitemap = insights.map((post) => ({
+    url: `${BASE_URL}/insights/${post.slug}`,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...serviceRoutes, ...caseStudyRoutes, ...insightRoutes];
 }
