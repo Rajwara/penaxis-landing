@@ -19,6 +19,7 @@ const LINK_COLUMNS = [
   { eyebrow: "How we deliver", title: "Contact Us", href: "/contact" },
   { eyebrow: "What we're good at?", title: "Case Studies", href: "/case-studies" },
   { eyebrow: "Where we work", title: "Industries", href: "/industries" },
+  { eyebrow: "What we think", title: "Insights", href: "/insights" },
 ];
 
 const SOCIALS = [
@@ -95,7 +96,7 @@ export default function Footer() {
       </div>
 
       {/* Link columns */}
-      <div className="relative max-w-7xl mx-auto px-6 pb-16 grid grid-cols-2 md:grid-cols-5 gap-y-10 gap-x-4 text-center">
+      <div className="relative max-w-7xl mx-auto px-6 pb-16 grid grid-cols-2 md:grid-cols-6 gap-y-10 gap-x-4 text-center">
         {LINK_COLUMNS.map((col, i) => (
           <Reveal as="div" key={col.title} delay={i * 0.08} y={0} x={-30}>
             <div className="text-[0.65rem] font-mono tracking-[0.2em] uppercase text-white/40 mb-2">

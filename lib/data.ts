@@ -920,6 +920,123 @@ export const caseStudyGradients = [
   "linear-gradient(150deg, #8a6fc4, #212121)",
 ];
 
+// Insights — Penaxis's own editorial content (not client case studies).
+// Ordered newest first; the homepage teaser shows insights.slice(0, 3).
+export const insights = [
+  {
+    slug: "5-day-mvp-sprint-startup-validation",
+    category: "AI & MVP Development",
+    title: "How to Validate a Startup Idea With a 5-Day MVP Sprint",
+    excerpt:
+      "Most founders don't need six months and a six-figure budget to find out if an idea works. Here's how a tightly scoped MVP sprint gets you a real answer in days, not quarters.",
+    image: "/images/services/ai-mvp-about.webp",
+    date: "2026-11-18",
+    readTime: "6 min read",
+    body: [
+      { type: "p", text: "The most expensive mistake a founder can make isn't building the wrong product - it's spending too long finding out. Every extra week spent polishing a feature nobody has validated is a week not spent learning whether the idea works at all." },
+      { type: "h3", text: "Scope the smallest version that answers the real question" },
+      { type: "p", text: "A real MVP isn't a stripped-down version of the full product - it's the smallest thing you can put in front of a user that tests your riskiest assumption. Before any design or code work starts, we ask one question with the client: what's the single belief that, if wrong, kills this idea? Everything else gets cut until that question is the only thing left to answer." },
+      { type: "p", text: "That discipline is what makes a five-day timeline realistic. It's not about working faster on the same scope - it's about refusing to build anything that doesn't move the validation forward." },
+      { type: "h3", text: "What actually fits in five days" },
+      { type: "p", text: "In practice, that's usually one core user flow, a real (not mocked) data model behind it, and just enough interface polish that a user's reaction reflects the idea and not the rough edges. We lean on AI-assisted development to compress the parts of the build that are mechanical - scaffolding, boilerplate, integrations - so the team's time goes into the handful of decisions that actually matter." },
+      { type: "p", text: "It's also why this works best as a sprint, not a drawn-out engagement: a small, focused team moving continuously for five days ships more coherent software than a larger team context-switching across a month." },
+      { type: "p", text: "If you're sitting on an idea and trying to decide whether it deserves real investment, the fastest way to find out is usually to build the smallest version of it - not to keep debating it in a deck." },
+    ],
+  },
+  {
+    slug: "bespoke-vs-off-the-shelf-software",
+    category: "Digital Transformation",
+    title: "Bespoke Software vs. Off-the-Shelf Tools: How to Choose",
+    excerpt:
+      "Off-the-shelf tools get you moving fast, but they can start working against you the moment your process doesn't fit their defaults. Here's a practical way to decide which path makes sense.",
+    image: "/images/services/digital-transformation-about.webp",
+    date: "2026-11-11",
+    readTime: "7 min read",
+    body: [
+      { type: "p", text: "Almost every business starts with off-the-shelf software, and for good reason - it's cheap, it's fast to set up, and it covers the basics well. The decision to build something custom usually isn't about wanting bespoke software for its own sake. It's about the point where the tool you have starts shaping your process instead of supporting it." },
+      { type: "h3", text: "The signs it's time to look at a custom build" },
+      { type: "p", text: "The pattern we see most often across industries: a team has built a web of spreadsheets, automations, and workarounds just to make an off-the-shelf tool do something close to what the business actually needs. Each workaround looks small on its own, but together they become a second, unofficial system that someone has to maintain by hand - and that nobody fully understands." },
+      { type: "p", text: "Other common signals: paying for seats or modules you don't use just to get the one feature you do need, hitting a hard ceiling on customization, or finding that your core workflow is the exception the software wasn't built for." },
+      { type: "h3", text: "Bespoke isn't automatically the right answer" },
+      { type: "p", text: "Custom software is an investment, and it only pays off when the process being built is actually core to how the business creates value. If the workflow in question is generic - invoicing, basic scheduling, standard support tickets - an off-the-shelf tool will almost always be the more sensible choice, custom or not." },
+      { type: "p", text: "The honest version of this conversation, which is the one we have with every client before scoping anything, starts with mapping the real workflow end to end and being clear about which parts are genuinely differentiated and which parts are just operations. That's what decides the build, not a preference for custom software in general." },
+    ],
+  },
+  {
+    slug: "lessons-from-shipping-50-plus-products",
+    category: "Engineering",
+    title: "What We've Learned Shipping 50+ Products: Lessons From Our Engineering Team",
+    excerpt:
+      "Patterns repeat across client work more than you'd expect. Here are the habits that consistently separate projects that ship on time from the ones that drift.",
+    image: "/images/panels/service-panel-team-3.webp",
+    date: "2026-11-04",
+    readTime: "6 min read",
+    body: [
+      { type: "p", text: "After enough projects, the specific industry or feature set starts to matter less than you'd think when it comes to predicting whether a build stays on track. The patterns that separate a smooth delivery from a drifting one are remarkably consistent, and most of them have nothing to do with how good the engineers are." },
+      { type: "h3", text: "Scope creep is a communication failure, not a client problem" },
+      { type: "p", text: "Every project that's drifted that we've been part of has one thing in common: a decision got made in a conversation that never made it back into the written scope. Not because anyone was being difficult - because it felt too small to formalize at the time. The fix isn't stricter contracts, it's writing decisions down the same day they're made, in plain language the client actually reads." },
+      { type: "h3", text: "The best engineers ask about business goals before touching the editor" },
+      { type: "p", text: "A feature built to the literal spec and a feature built to the actual goal behind the spec can look identical in a planning doc and be completely different in practice. The habit we push hardest on internally is for engineers to understand why a feature matters before they start building it - because that's what lets them flag a better, cheaper, or faster approach before the work is already done." },
+      { type: "p", text: "None of this is complicated advice. It's just consistently hard to do under deadline pressure, which is exactly why so few teams actually do it well." },
+    ],
+  },
+  {
+    slug: "case-studies-into-pipeline-content-that-sells",
+    category: "Growth",
+    title: "Turning Case Studies Into Pipeline: A Practical Guide",
+    excerpt:
+      "A case study that only lives on your website isn't doing its job. Here's how to structure, publish, and reuse your proof of work so it actually generates conversations.",
+    image: "/images/services/sales-growth-about.webp",
+    date: "2026-10-28",
+    readTime: "5 min read",
+    body: [
+      { type: "p", text: "Most case studies are written once, published, and then forgotten - a single page that occasionally gets a visit from someone who was already close to buying. That's a huge amount of real proof sitting idle. A case study's actual job is to do the convincing for you in every channel where a prospect might encounter it, not just the one page it lives on." },
+      { type: "h3", text: "Write it backwards from the objection it needs to overcome" },
+      { type: "p", text: "The strongest case studies aren't written chronologically. They're written starting from the specific doubt a prospect has - can this team handle our industry's compliance requirements, can they move fast enough, will this actually integrate with what we already have - and then structured to answer that doubt directly, with the project as the evidence." },
+      { type: "h3", text: "One case study, five pieces of content" },
+      { type: "p", text: "A well-built case study should be able to become a sales deck slide, a LinkedIn post from the founder, an answer in a discovery call, a line in a proposal, and a page on the site - without rewriting it each time. That reuse is what actually moves it from \"nice portfolio piece\" to pipeline-generating asset." },
+      { type: "p", text: "If you're sitting on strong delivered work that hasn't been turned into a case study yet, that's usually the highest-leverage content gap to close first - it's proof you already have, just not yet in a form that sells." },
+    ],
+  },
+  {
+    slug: "how-engineering-teams-stay-current",
+    category: "Engineering",
+    title: "How Software Teams Stay Up to Date Without Chasing Every Trend",
+    excerpt:
+      "New frameworks and AI tools show up every month. Here's the filter we use internally to decide what's actually worth adopting, and what's just noise.",
+    image: "/images/hero/momentum-team.webp",
+    date: "2026-10-21",
+    readTime: "6 min read",
+    body: [
+      { type: "p", text: "The pace of new tools and frameworks in software right now makes it easy to feel like you're always behind. The teams that actually stay current aren't the ones trying every new release - they're the ones with a clear filter for what's worth their attention and what isn't." },
+      { type: "h3", text: "Adopt for a real problem, not for the resume line" },
+      { type: "p", text: "Our rule internally is simple: a new tool earns a place on a client project when it solves a problem we're actually hitting, not because it's trending. That keeps the stack boring in the right places - the parts that need to be stable - and current where it actually moves delivery forward, like AI-assisted coding, which has measurably cut the time it takes us to turn a validated idea into a working build." },
+      { type: "h3", text: "Build in time to evaluate, separate from client work" },
+      { type: "p", text: "The teams that fall behind are usually the ones with zero slack to explore anything - every hour is billed to a client deliverable, so nothing new ever gets a fair evaluation. We protect a small, recurring block of time explicitly for the team to try new tools against real (but non-critical) problems, so that by the time something is genuinely useful, we already know how it behaves." },
+      { type: "p", text: "Staying current isn't about knowing the most tools. It's about having already done the filtering by the time a client needs an answer." },
+    ],
+  },
+  {
+    slug: "crm-migration-checklist",
+    category: "Digital Transformation",
+    title: "CRM Migration Checklist: Moving Off Spreadsheets Without Losing Data",
+    excerpt:
+      "Spreadsheet CRMs break down quietly, long before anyone notices. This is the checklist we run with clients before, during, and after a migration.",
+    image: "/images/services/web-crm-software-about.webp",
+    date: "2026-10-14",
+    readTime: "7 min read",
+    body: [
+      { type: "p", text: "A spreadsheet CRM doesn't fail loudly. It fails quietly - a lead falls through a tab nobody checks, two reps work the same contact without knowing it, a note from a call three months ago never makes it into the record. By the time the business feels the pain clearly enough to act, there's usually a surprising amount of data riding on a system nobody fully trusts anymore." },
+      { type: "h3", text: "Before: audit what you actually have" },
+      { type: "p", text: "The step most migrations skip is a proper audit of the existing data - duplicate contacts, inconsistent field names across different team members' copies, notes buried in free-text fields that need to become structured data. Skipping this step is how a clean new CRM ends up just as messy as the old one, six months later." },
+      { type: "h3", text: "During: migrate in stages, not all at once" },
+      { type: "p", text: "We run migrations in stages: contacts and companies first, verified against the original source, then deal history, then automations and integrations last - once the team has already started trusting the new system with live data. A single big-bang cutover is where most of the horror stories come from." },
+      { type: "h3", text: "After: give the team a reason to actually use it" },
+      { type: "p", text: "A migration only succeeds if the team adopts the new system, and adoption usually comes down to whether it's actually faster for their daily work than the old habit was - not whether it has more features. That's the part worth spending the most design time on, and it's the part that gets rushed most often." },
+    ],
+  },
+];
+
 export const offices = [
   {
     country: "Pakistan",
