@@ -1024,9 +1024,8 @@ export const caseStudies = [
   },
 ];
 
-// Dubai and Jordan addresses are placeholders (confirmed with the client
-// as OK to ship for now) — swap for the real registered addresses when
-// available. Pakistan uses the real, confirmed office address above.
+// Jordan office closed. Pakistan and Dubai both use the real, confirmed
+// office addresses.
 
 export const caseStudyGradients = [
   "linear-gradient(150deg, #734FA0, #2a1d43)",
@@ -1163,16 +1162,9 @@ export const offices = [
   {
     country: "UAE",
     city: "Dubai",
-    address: "Business Bay, Dubai, United Arab Emirates",
+    address: "Leaders Building - Office No. 1 - 409 Sheikh Zayed Rd - Al Qouz First - Al Quoz - Dubai - United Arab Emirates",
     blurb: "Our regional hub for client partnerships across the Gulf.",
     theme: "ember",
-  },
-  {
-    country: "Jordan",
-    city: "Amman",
-    address: "Abdali Boulevard, Amman, Jordan",
-    blurb: "Our newest base, extending delivery across the Levant.",
-    theme: "ink",
   },
 ];
 

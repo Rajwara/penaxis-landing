@@ -7,17 +7,21 @@ import { contact } from "@/lib/data";
 // for each location, and a card with address/phone/email/hours plus Call
 // Now + Get Directions actions.
 //
-// Per client instruction: real per-office addresses for Dubai/Jordan
-// aren't ready yet, so all three tabs use the real Pakistan office address
-// for now. Pakistan now uses the real contact number (from lib/data.ts);
-// Dubai/Jordan phone numbers are still clearly-placeholder (country code +
-// a repeating placeholder digit string), pending the client's real numbers
-// for each location. Hours are Mon–Sat 10am–7pm as given, Sunday closed.
+// Jordan office closed — removed that tab entirely. Pakistan uses the
+// real contact number and address (from lib/data.ts); Dubai's address is
+// the real one already used in the footer and office-location cards, but
+// its phone number is still clearly-placeholder (country code + a
+// repeating placeholder digit string), pending the client's real number.
+// Hours are Mon–Sat 10am–7pm as given, Sunday closed.
 
 const LOCATIONS = [
-  { key: "pk", label: "Pakistan", countryCode: "+92" },
-  { key: "ae", label: "Dubai", countryCode: "+971" },
-  { key: "jo", label: "Jordan", countryCode: "+962" },
+  { key: "pk", label: "Pakistan", countryCode: "+92", address: contact.address },
+  {
+    key: "ae",
+    label: "Dubai",
+    countryCode: "+971",
+    address: "Leaders Building - Office No. 1 - 409 Sheikh Zayed Rd - Al Qouz First - Al Quoz - Dubai - United Arab Emirates",
+  },
 ];
 
 const PLACEHOLDER_LINE = "123456";
@@ -43,7 +47,7 @@ export default function StoreLocator() {
   const telHref = location.key === "pk"
     ? `tel:${contact.phone.replace(/[^\d+]/g, "")}`
     : `tel:${location.countryCode}${PLACEHOLDER_LINE}`.replace(/\s/g, "");
-  const mapsHref = `https://www.google.com/maps?q=${encodeURIComponent(contact.address)}`;
+  const mapsHref = `https://www.google.com/maps?q=${encodeURIComponent(location.address)}`;
 
   return (
     <>
@@ -105,7 +109,7 @@ export default function StoreLocator() {
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.8">
                   <path d="M3 7l9-4 9 4-9 4-9-4zM3 7v10l9 4 9-4V7" />
                 </svg>
-                <span>{contact.address}</span>
+                <span>{location.address}</span>
               </div>
               <div className="sl-row">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.8">
