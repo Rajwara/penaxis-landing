@@ -1,10 +1,16 @@
-export async function submitForm(source: string, fields: Record<string, string>, files?: File[]) {
+export async function submitForm(
+  source: string,
+  fields: Record<string, string>,
+  files?: File[],
+  formType?: string
+) {
   let res: Response;
 
   if (files && files.length > 0) {
     const formData = new FormData();
     formData.append("source", source);
     formData.append("fields", JSON.stringify(fields));
+    formData.append("formType", formType || "general");
     files.forEach((file) => formData.append("attachments", file));
 
     res = await fetch("/api/contact", {
@@ -15,7 +21,7 @@ export async function submitForm(source: string, fields: Record<string, string>,
     res = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ source, fields }),
+      body: JSON.stringify({ source, fields, formType: formType || "general" }),
     });
   }
 

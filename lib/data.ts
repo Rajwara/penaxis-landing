@@ -31,6 +31,7 @@ export const navRight = [
       { label: "Who We Are", href: "/who-we-are" },
       { label: "Game Changers", href: "/game-changers" },
       { label: "FAQs", href: "/faqs" },
+      { label: "Careers", href: "/careers" },
     ],
   },
 ];
@@ -38,7 +39,7 @@ export const navRight = [
 export const navCta = { label: "Contact Us", href: "/contact" };
 
 // Kept for mobile full-screen menu — same destinations plus Team,
-// per the spec's note that Team/Insights/Careers stay out of primary desktop nav for now
+// per the spec's note that Team/Insights stay out of primary desktop nav for now
 export const navMobile = [
   { label: "Services", href: "/services" },
   { label: "Industries", href: "/industries" },
@@ -46,6 +47,7 @@ export const navMobile = [
   { label: "Game Changers", href: "/game-changers" },
   { label: "Who We Are", href: "/who-we-are" },
   { label: "FAQs", href: "/faqs" },
+  { label: "Careers", href: "/careers" },
   { label: "Our Team", href: "#team" },
 ];
 
@@ -1175,5 +1177,75 @@ export const offices = [
     address: "Abdali Boulevard, Amman, Jordan",
     blurb: "Our newest base, extending delivery across the Levant.",
     theme: "ink",
+  },
+];
+
+// Careers — real current openings, condensed from the postings the team
+// runs on LinkedIn (salary figures intentionally left out; candidates state
+// their own expectations when applying instead).
+export const careers = [
+  {
+    slug: "graphic-motion-designer",
+    title: "Graphic & Motion Designer",
+    department: "Creative",
+    location: "DHA Rahbar, Lahore",
+    type: "Full-time, on-site",
+    experience: "3+ years",
+    summary: "A creative, detail-oriented designer who can bring strong visual ideas to life through both graphic design and motion.",
+    requirements: [
+      "At least 3 years of professional design experience",
+      "Proficiency in Adobe Illustrator, Photoshop, and After Effects - confident with both static and motion design, not just one",
+      "AI-savvy is a plus: experience with Higgsfield, Claude Design, or similar AI-powered creative tools",
+      "Immediate joiners preferred",
+    ],
+  },
+  {
+    slug: "seo-performance-marketing-lead",
+    title: "SEO & Performance Marketing Lead",
+    department: "Marketing",
+    location: "DHA Rahbar, Lahore",
+    type: "Full-time, on-site - Mon-Fri, 10 AM-7 PM",
+    experience: "4+ years",
+    summary: "An experienced, results-driven lead to take complete ownership of our organic growth and paid advertising strategy - for Penaxis and our international clients.",
+    requirements: [
+      "Advanced SEO: keyword research, on-page/off-page/technical SEO, link building, competitor analysis",
+      "AEO, GEO, and AI-search optimization, plus local SEO (Google Business Profile, citations, local landing pages)",
+      "Hands-on Google Ads and Meta Ads experience - strategy, execution, optimization, lead generation",
+      "SEO-driven content strategy and strong reporting skills (Search Console, GA4, Tag Manager)",
+      "Prior experience at a software development company or digital marketing agency preferred",
+    ],
+    note: "Portfolio and verifiable proof of results are required - SEO case studies, ad campaign performance (CPL/CPA/ROAS), or before-and-after reports (client-sensitive data can be anonymized). When applying, please also share your expected monthly salary and notice period / earliest joining date.",
+  },
+  {
+    slug: "full-stack-software-engineer",
+    title: "Full-Stack Software Engineer",
+    department: "Engineering",
+    location: "DHA Rahbar, Lahore",
+    type: "Full-time, on-site - Mon-Fri, 10 AM-7 PM",
+    experience: "3+ years",
+    summary: "A self-driven engineer with strong fundamentals in Next.js, React, TypeScript, and Python, comfortable using AI-assisted development tools to ship production work.",
+    requirements: [
+      "3+ years building production applications with Next.js, React, TypeScript, and Python",
+      "Solid backend experience - REST APIs, authentication, database architecture (PostgreSQL/MySQL)",
+      "Hands-on with AI coding agents (e.g. Claude Code, Codex, Cursor) while keeping strong engineering fundamentals",
+      "Comfortable owning deployment and production troubleshooting (Vercel, AWS, DigitalOcean, Docker, CI/CD)",
+      "Good to have: WordPress/Shopify/headless CMS experience, LLM API integrations (OpenAI, Anthropic)",
+    ],
+  },
+  {
+    slug: "business-development-associate",
+    title: "Business Development Associate (BDA)",
+    department: "Growth",
+    location: "DHA Rahbar, Lahore",
+    type: "Full-time, on-site - Monday-Friday",
+    experience: "0-2 years",
+    summary: "An energetic, confident BDA to drive our international outbound sales - cold calling, LinkedIn outreach, and lead generation for B2B clients across the US, UK, and Australia.",
+    requirements: [
+      "Comfortable with daily international cold calling and confident handling early objections",
+      "LinkedIn outreach and prospecting (Sales Navigator or similar) with organized, consistent follow-up",
+      "Strong written and spoken English",
+      "Fresh graduates with strong communication skills welcome - up to 2 years' relevant experience preferred",
+      "Good to have: prior cold-calling experience, CRM tools (Zoho, Apollo, Instantly)",
+    ],
   },
 ];
