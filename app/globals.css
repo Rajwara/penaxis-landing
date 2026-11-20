@@ -3253,7 +3253,7 @@ button:focus-visible {
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: #212121;
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
