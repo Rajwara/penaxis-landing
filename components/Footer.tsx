@@ -22,6 +22,17 @@ const LINK_COLUMNS = [
   { eyebrow: "What we think", title: "Insights", href: "/insights" },
 ];
 
+const OFFICES = [
+  {
+    city: "Lahore, Pakistan",
+    address: "2nd floor, 3, DHA Block P Tip Block Rahbar, Lahore, Pakistan",
+  },
+  {
+    city: "Dubai, United Arab Emirates",
+    address: "Leaders Building - Office No. 1 - 409 Sheikh Zayed Rd - Al Qouz First - Al Quoz - Dubai - United Arab Emirates",
+  },
+];
+
 const SOCIALS = [
   {
     label: "Facebook",
@@ -63,6 +74,15 @@ const SOCIALS = [
     ),
   },
 ];
+
+function PinIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FC6607" strokeWidth="2">
+      <path d="M12 2a7 7 0 0 0-7 7c0 5.25 6.14 11.6 6.4 11.86a.85.85 0 0 0 1.2 0C12.86 20.6 19 14.25 19 9a7 7 0 0 0-7-7z" />
+      <circle cx="12" cy="9" r="2.5" />
+    </svg>
+  );
+}
 
 function ArrowIcon() {
   return (
@@ -130,6 +150,23 @@ export default function Footer() {
               </span>
               <ArrowIcon />
             </a>
+          ))}
+        </div>
+      </div>
+
+      {/* Office locations */}
+      <div className="relative border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
+          {OFFICES.map((office) => (
+            <div key={office.city} className="flex items-start gap-3">
+              <span className="w-8 h-8 rounded-full border border-[#FC6607]/40 flex items-center justify-center shrink-0 mt-0.5">
+                <PinIcon />
+              </span>
+              <div>
+                <div className="font-semibold text-sm text-white">{office.city}</div>
+                <div className="text-sm text-white/50 mt-1">{office.address}</div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
