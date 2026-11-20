@@ -41,11 +41,12 @@ export type FormSubmission = {
   source: string; // which form/section this came from, e.g. "Homepage — Let's Connect"
   fields: Record<string, string>;
   attachments?: FormAttachment[];
+  to?: string; // overrides the default recipient — set server-side only (see app/api/contact/route.ts), never from raw client input
 };
 
-export async function sendFormSubmission({ source, fields, attachments }: FormSubmission) {
+export async function sendFormSubmission({ source, fields, attachments, to: toOverride }: FormSubmission) {
   const transporter = getTransporter();
-  const to = process.env.CONTACT_TO_EMAIL || process.env.SMTP_USER!;
+  const to = toOverride || process.env.CONTACT_TO_EMAIL || process.env.SMTP_USER!;
   const from = process.env.SMTP_USER!;
 
   const rows = Object.entries(fields)

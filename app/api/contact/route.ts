@@ -2,13 +2,22 @@ import { NextRequest, NextResponse } from "next/server";
 import { sendFormSubmission, type FormAttachment } from "@/lib/mailer";
 
 // Shared endpoint for every form on the site (homepage "Let's Connect",
-// the /contact page form, and the Quick Quote modal). Each form sends a
-// `source` label plus its own field set — this route just validates the
-// basics and emails the submission via lib/mailer.ts.
+// the /contact page form, the Quick Quote modal, and the /careers
+// application form). Each form sends a `source` label plus its own field
+// set — this route just validates the basics and emails the submission
+// via lib/mailer.ts.
 //
 // The /contact page form can also attach files. Those come in as
 // multipart/form-data instead of JSON — Vercel's serverless functions cap
 // request bodies at ~4.5MB, so limits here are deliberately conservative.
+//
+// `formType` picks the recipient from a small server-side allowlist below
+// — never pass a client-supplied email address straight to the mailer,
+// since that would turn this endpoint into an open relay.
+
+const RECIPIENT_BY_FORM_TYPE: Record<string, string> = {
+  careers: "hr@penaxis.com",
+};
 
 const MAX_FILE_BYTES = 3 * 1024 * 1024; // 3MB per file
 const MAX_TOTAL_BYTES = 4 * 1024 * 1024; // 4MB combined, staying under Vercel's ~4.5MB body cap
@@ -28,10 +37,12 @@ export async function POST(req: NextRequest) {
     let source = "Unknown form";
     let fields: Record<string, string> = {};
     let attachments: FormAttachment[] = [];
+    let formType = "general";
 
     if (contentType.includes("multipart/form-data")) {
       const formData = await req.formData();
       source = String(formData.get("source") || "Unknown form");
+      formType = String(formData.get("formType") || "general");
 
       const rawFields = formData.get("fields");
       if (typeof rawFields === "string") {
@@ -79,6 +90,7 @@ export async function POST(req: NextRequest) {
       const body = await req.json();
       source = body.source || "Unknown form";
       fields = body.fields || {};
+      formType = body.formType || "general";
     }
 
     if (!fields || typeof fields !== "object") {
@@ -107,6 +119,7 @@ export async function POST(req: NextRequest) {
       source,
       fields,
       attachments: attachments.length > 0 ? attachments : undefined,
+      to: RECIPIENT_BY_FORM_TYPE[formType],
     });
 
     return NextResponse.json({ ok: true });
