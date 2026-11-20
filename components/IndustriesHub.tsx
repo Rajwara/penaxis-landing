@@ -264,7 +264,7 @@ export default function IndustriesHub() {
             13 industries and counting. If yours isn't on the list yet,
             that's usually just because we haven't met you.
           </p>
-          <a href="/contact" className="ih-cta-btn">
+          <a href="/contact-us" className="ih-cta-btn">
             Start a project
           </a>
         </div>

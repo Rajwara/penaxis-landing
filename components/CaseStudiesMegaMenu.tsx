@@ -159,7 +159,7 @@ export default function CaseStudiesMegaMenu() {
             <p className="text-xs text-ink/50 mt-0.5">We're always adding new work - tell us what you're building.</p>
           </div>
           <a
-            href="/contact"
+            href="/contact-us"
             className="btn-grad shrink-0 text-sm px-5 py-2.5"
           >
             Talk to us

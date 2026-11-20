@@ -43,7 +43,7 @@ export default function ServiceHighlights({
               shipping next and why it matters.
             </p>
           </div>
-          <a href="/contact" className="svh-arrow" aria-label="Start a project">
+          <a href="/contact-us" className="svh-arrow" aria-label="Start a project">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2">
               <path d="M7 17L17 7M17 7H8M17 7v9" strokeLinecap="round" strokeLinejoin="round" />
             </svg>

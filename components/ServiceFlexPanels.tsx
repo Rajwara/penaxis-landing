@@ -32,7 +32,7 @@ export default function ServiceFlexPanels() {
             From AI-powered MVPs to fractional sales support - everything you
             need under one team.
           </p>
-          <a href="/contact" className="fp-cta">
+          <a href="/contact-us" className="fp-cta">
             <span>Start a Project</span>
             <span className="fp-cta-icon">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2">
