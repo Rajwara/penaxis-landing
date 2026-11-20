@@ -49,12 +49,13 @@ const SERVICE_TAGLINES: Record<string, string> = {
   "sales-growth": "Pipeline, without the hire.",
 };
 
-// Same 3 feat / 3 img / 6 glass ring the reference uses — first feat card
-// keeps the reference's "feat-sky" image accent too.
+// Same 3 feat / 9 img ring positions the reference uses (the reference's
+// 6 "glass" slots were empty decorative cards — filled here with real
+// site photos instead of leaving them blank). First feat card keeps the
+// reference's "feat-sky" image accent too.
 type RingCard =
   | { type: "feat"; a: number; row: 0 | 1; rz: number; w: number; h: number; slug: string; sky?: string }
-  | { type: "img"; a: number; row: 0 | 1; rz: number; w: number; h: number; src: string }
-  | { type: "glass"; a: number; row: 0 | 1; w: number; h: number };
+  | { type: "img"; a: number; row: 0 | 1; rz: number; w: number; h: number; src: string };
 
 const RING_CARDS: RingCard[] = [
   { type: "feat", a: -22, row: 0, rz: -9, w: 186, h: 72, slug: "ai-mvp", sky: `${IMG}/card-sky.jpg` },
@@ -63,12 +64,12 @@ const RING_CARDS: RingCard[] = [
   { type: "img", a: 55, row: 1, rz: 4, w: 96, h: 104, src: `${IMG}/card-moon.jpg` },
   { type: "img", a: -56, row: 1, rz: -4, w: 100, h: 136, src: `${IMG}/card-mountain.jpg` },
   { type: "img", a: -95, row: 0, rz: -3, w: 96, h: 120, src: `${IMG}/card-abstract.jpg` },
-  { type: "glass", a: 100, row: 0, w: 70, h: 96 },
-  { type: "glass", a: 150, row: 0, w: 80, h: 60 },
-  { type: "glass", a: 205, row: 0, w: 70, h: 70 },
-  { type: "glass", a: 125, row: 1, w: 76, h: 110 },
-  { type: "glass", a: 180, row: 1, w: 90, h: 80 },
-  { type: "glass", a: 240, row: 1, w: 68, h: 100 },
+  { type: "img", a: 100, row: 0, rz: 0, w: 70, h: 96, src: "/images/services/ai-mvp-highlight.webp" },
+  { type: "img", a: 150, row: 0, rz: 0, w: 80, h: 60, src: "/images/services/digital-transformation-highlight.webp" },
+  { type: "img", a: 205, row: 0, rz: 0, w: 70, h: 70, src: "/images/services/sales-growth-highlight.webp" },
+  { type: "img", a: 125, row: 1, rz: 0, w: 76, h: 110, src: "/images/services/web-crm-software-highlight.webp" },
+  { type: "img", a: 180, row: 1, rz: 0, w: 90, h: 80, src: "/images/hero/team-celebration.webp" },
+  { type: "img", a: 240, row: 1, rz: 0, w: 68, h: 100, src: "/images/hero/trusted-partner-office.webp" },
 ];
 
 const TRUST_AVATARS = [`${IMG}/avatar-1.jpg`, `${IMG}/avatar-2.jpg`, `${IMG}/avatar-3.jpg`, `${IMG}/avatar-4.jpg`];
@@ -115,7 +116,7 @@ export default function ServicesHero() {
     hero.addEventListener("pointerleave", handlePointerLeave);
 
     const CX = 320;
-    const ROW_Y = [104, 196];
+    const ROW_Y = [68, 148];
     const RX = 262;
     const TILT = -22;
     const BASE_SPEED = 9;
@@ -357,34 +358,20 @@ export default function ServicesHero() {
                   </div>
                 );
               }
-              if (card.type === "img") {
-                return (
-                  <div
-                    key={i}
-                    className="sph-rc sph-rc--img"
-                    data-a={card.a}
-                    data-row={card.row}
-                    data-rz={card.rz}
-                    style={{ "--sph-w": `${card.w}px`, "--sph-h": `${card.h}px` } as React.CSSProperties}
-                  >
-                    <div className="sph-rc-f">
-                      <div className="sph-rc-img-wrap">
-                        <img src={card.src} alt="" />
-                      </div>
-                    </div>
-                    <div className="sph-rc-b" />
-                  </div>
-                );
-              }
               return (
                 <div
                   key={i}
-                  className="sph-rc sph-rc--glass"
+                  className="sph-rc sph-rc--img"
                   data-a={card.a}
                   data-row={card.row}
+                  data-rz={card.rz}
                   style={{ "--sph-w": `${card.w}px`, "--sph-h": `${card.h}px` } as React.CSSProperties}
                 >
-                  <div className="sph-rc-f" />
+                  <div className="sph-rc-f">
+                    <div className="sph-rc-img-wrap">
+                      <img src={card.src} alt="" />
+                    </div>
+                  </div>
                   <div className="sph-rc-b" />
                 </div>
               );
