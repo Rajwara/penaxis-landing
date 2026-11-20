@@ -7506,21 +7506,25 @@ button:focus-visible {
 @keyframes sph-twinkle { 50% { transform: scale(0.7) rotate(90deg); opacity: 0.6; } }
 
 .sph-stage-wrap { position: absolute; left: 242px; top: 360px; width: 640px; height: 420px; z-index: 2; }
-.sph-stage { position: absolute; inset: 0; animation: sph-stage-in 1.4s 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.sph-stage { position: absolute; inset: 0; perspective: 2000px; perspective-origin: 320px 130px; cursor: grab; touch-action: pan-y; animation: sph-stage-in 1.4s 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.sph-stage.is-drag { cursor: grabbing; }
 @keyframes sph-stage-in { from { opacity: 0; transform: translateY(40px); } }
 
-.sph-person { position: absolute; left: 108px; bottom: 0; width: 424px; height: 283px; z-index: 3; pointer-events: none; }
+.sph-person { position: absolute; left: -19px; bottom: 0; width: 640px; height: 427px; z-index: 3; pointer-events: none; }
 .sph-person img { width: 100%; height: 100%; object-fit: contain; object-position: bottom center; }
 
-/* Static icon+label tags layered on the portrait — fixed positions,
-   no spinning ring, so nothing overlaps or gets clipped. */
-.sph-mtag { position: absolute; z-index: 4; border-radius: 13px; background: linear-gradient(150deg, rgba(255, 255, 255, 0.95), rgba(246, 244, 251, 0.85)); border: 1px solid rgba(255, 255, 255, 0.95); box-shadow: inset 0 1px 0 #fff, 0 14px 28px -10px rgba(46, 31, 66, 0.3), 0 2px 6px rgba(33, 33, 33, 0.07); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); translate: calc(var(--sph-mx, 0) * var(--sph-px, 8px)) calc(var(--sph-my, 0) * var(--sph-px, 8px)); transition: translate 0.9s ease-out; animation: sph-pop 1s var(--sph-d, 0.9s) cubic-bezier(0.2, 0.9, 0.25, 1.2) both, sph-bob 6s calc(var(--sph-d, 0.9s) + 1s) ease-in-out infinite; }
-.sph-mtag--1 { left: 20px; top: 122px; width: 186px; rotate: -4deg; --sph-px: 10px; --sph-d: 0.85s; }
-.sph-mtag--2 { left: 50px; top: 266px; width: 178px; rotate: 3deg; --sph-px: -9px; --sph-d: 1s; }
-.sph-mtag--3 { left: 436px; top: 172px; width: 170px; rotate: 6deg; --sph-px: 9px; --sph-d: 1.15s; }
+.sph-rc { position: absolute; left: 0; top: 0; width: var(--sph-w); height: var(--sph-h); transform-style: preserve-3d; will-change: transform, opacity; user-select: none; }
+.sph-rc-f, .sph-rc-b { position: absolute; inset: 0; border-radius: 13px; backface-visibility: hidden; -webkit-backface-visibility: hidden; overflow: hidden; }
+.sph-rc-f { background: linear-gradient(150deg, rgba(255, 255, 255, 0.95), rgba(246, 244, 251, 0.82)); border: 1px solid rgba(255, 255, 255, 0.95); box-shadow: inset 0 1px 0 #fff, 0 14px 28px -10px rgba(46, 31, 66, 0.3), 0 2px 6px rgba(33, 33, 33, 0.07); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.sph-rc-b { transform: rotateY(180deg); background: linear-gradient(150deg, rgba(235, 231, 245, 0.85), rgba(210, 203, 230, 0.7)); border: 1px solid rgba(255, 255, 255, 0.7); }
+.sph-rc--glass .sph-rc-f { background: linear-gradient(150deg, rgba(255, 255, 255, 0.72), rgba(225, 219, 240, 0.45)); }
+.sph-rc--img .sph-rc-f { padding: 5px; background: linear-gradient(150deg, rgba(255, 255, 255, 0.88), rgba(232, 228, 243, 0.72)); }
+.sph-rc--img .sph-rc-img-wrap { width: 100%; height: 100%; border-radius: 9px; overflow: hidden; }
+.sph-rc--img img { width: 100%; height: 100%; object-fit: cover; }
 
 .sph-feat { position: relative; display: flex; gap: 10px; padding: 14px 13px; height: 100%; z-index: 2; }
-.sph-mtag-in.sph-feat { height: auto; }
+.sph-feat-sky { position: absolute; right: 0; top: 0; width: 62%; height: 100%; z-index: 1; -webkit-mask-image: linear-gradient(90deg, transparent, #000 70%); mask-image: linear-gradient(90deg, transparent, #000 70%); opacity: 0.75; }
+.sph-feat-sky img { width: 100%; height: 100%; object-fit: cover; }
 .sph-feat-icon { width: 30px; height: 30px; border-radius: 9px; flex: none; display: grid; place-items: center; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 4px 10px rgba(33, 33, 33, 0.1); background: #734fa0; color: #fff; }
 .sph-feat h4 { font-family: var(--font-display); font-weight: 700; font-size: 14px; line-height: 1; letter-spacing: -0.01em; color: #212121; margin-top: 2px; }
 .sph-feat p { white-space: nowrap; font-size: 9px; line-height: 1.3; color: rgba(33, 33, 33, 0.5); margin-top: 6px; }

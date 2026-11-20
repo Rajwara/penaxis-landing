@@ -9,15 +9,17 @@ const IMG = "/images/services-hero";
 // that scales to fit any screen, a rotating text badge, two floating info
 // cards with subtle parallax, bottom-corner trust/tag notes, and a 3D
 // perspective ring of cards (drag to spin, momentum, slows on hover)
-// orbiting a center portrait. Per the client's own instruction, this is a
-// recolor only — same section, same cards, same reference images
-// (portrait, avatars, mood photos, all shipped in public/images/services-hero),
-// just Penaxis's palette and font stack instead of the reference's warm
-// neutral tones and serif/sans pairing. The reference's own in-hero nav
-// pill and app-store CTA were dropped (the site's real Navbar already
-// floats above every page) and copy was rewritten for Penaxis's actual
-// services instead of the reference's "Mindly" product.
-
+// orbiting a center portrait. This is a recolor only — same section,
+// same cards, same reference images (portrait, avatars, mood photos,
+// all shipped in public/images/services-hero), just Penaxis's palette
+// and font stack instead of the reference's warm neutral tones and
+// serif/sans pairing. The reference's own in-hero nav pill and
+// app-store CTA were dropped (the site's real Navbar already floats
+// above every page) and copy was rewritten for Penaxis's actual
+// services. The reference's 6 "glass" ring slots are left as plain
+// frosted cards (no image/text), exactly as in the source — they're
+// quiet depth/motion accents around the 3 real feature cards and 3
+// mood photos, not more content tiles.
 const SERVICE_ICONS: Record<string, JSX.Element> = {
   "ai-mvp": (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -49,13 +51,26 @@ const SERVICE_TAGLINES: Record<string, string> = {
   "sales-growth": "Pipeline, without the hire.",
 };
 
-// Small static icon+label tags layered on the portrait (matching the
-// reference's "Focus / Ideas / Plan" stickers) — fixed positions, no
-// spinning carousel, so nothing overlaps or gets clipped.
-const MINI_TAGS: { slug: string; cls: string }[] = [
-  { slug: "ai-mvp", cls: "sph-mtag--1" },
-  { slug: "digital-transformation", cls: "sph-mtag--2" },
-  { slug: "sales-growth", cls: "sph-mtag--3" },
+// Same 3 feat / 3 mood-photo / 6 glass ring positions the reference uses.
+// First feat card keeps the reference's "feat-sky" image accent too.
+type RingCard =
+  | { type: "feat"; a: number; row: 0 | 1; rz: number; w: number; h: number; slug: string; sky?: string }
+  | { type: "img"; a: number; row: 0 | 1; rz: number; w: number; h: number; src: string }
+  | { type: "glass"; a: number; row: 0 | 1; rz?: number; w: number; h: number };
+
+const RING_CARDS: RingCard[] = [
+  { type: "feat", a: -22, row: 0, rz: -9, w: 186, h: 72, slug: "ai-mvp", sky: `${IMG}/card-sky.jpg` },
+  { type: "feat", a: 2, row: 1, rz: -6, w: 146, h: 64, slug: "digital-transformation" },
+  { type: "feat", a: 52, row: 0, rz: 7, w: 138, h: 74, slug: "sales-growth" },
+  { type: "img", a: 55, row: 1, rz: 4, w: 96, h: 104, src: `${IMG}/card-moon.jpg` },
+  { type: "img", a: -56, row: 1, rz: -4, w: 100, h: 136, src: `${IMG}/card-mountain.jpg` },
+  { type: "img", a: -95, row: 0, rz: -3, w: 96, h: 120, src: `${IMG}/card-abstract.jpg` },
+  { type: "glass", a: 100, row: 0, w: 70, h: 96 },
+  { type: "glass", a: 150, row: 0, w: 80, h: 60 },
+  { type: "glass", a: 205, row: 0, w: 70, h: 70 },
+  { type: "glass", a: 125, row: 1, w: 76, h: 110 },
+  { type: "glass", a: 180, row: 1, w: 90, h: 80 },
+  { type: "glass", a: 240, row: 1, w: 68, h: 100 },
 ];
 
 const TRUST_AVATARS = [`${IMG}/avatar-1.jpg`, `${IMG}/avatar-2.jpg`, `${IMG}/avatar-3.jpg`, `${IMG}/avatar-4.jpg`];
@@ -64,11 +79,15 @@ const RIGHT_CARD_AVATARS = [`${IMG}/avatar-1.jpg`, `${IMG}/avatar-2.jpg`, `${IMG
 export default function ServicesHero() {
   const heroRef = useRef<HTMLDivElement>(null);
   const stageWrapRef = useRef<HTMLDivElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const hero = heroRef.current;
+    const stage = stageRef.current;
     const stageWrap = stageWrapRef.current;
-    if (!hero || !stageWrap) return;
+    if (!hero || !stage || !stageWrap) return;
+
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     function fit() {
       const W = hero!.clientWidth;
@@ -97,10 +116,105 @@ export default function ServicesHero() {
     hero.addEventListener("pointermove", handlePointerMove);
     hero.addEventListener("pointerleave", handlePointerLeave);
 
+    const CX = 320;
+    const ROW_Y = [104, 196];
+    const RX = 262;
+    const TILT = -22;
+    const BASE_SPEED = 9;
+
+    const cardEls = Array.from(stage.querySelectorAll<HTMLElement>(".sph-rc"));
+    const cards = cardEls.map((el) => ({
+      el,
+      a: Number(el.dataset.a),
+      row: Number(el.dataset.row),
+      rz: Number(el.dataset.rz || 0),
+      w: el.offsetWidth,
+      h: el.offsetHeight,
+    }));
+
+    let offset = 0;
+    let speed = reduce ? 0 : BASE_SPEED;
+    let target = speed;
+    let last = performance.now();
+    let dragging = false;
+    let lastX = 0;
+    let dragVel = 0;
+    let raf = 0;
+
+    function render() {
+      for (const c of cards) {
+        const deg = c.a + offset;
+        const t = (deg * Math.PI) / 180;
+        const sin = Math.sin(t);
+        const cos = Math.cos(t);
+        const x = CX + RX * sin - c.w / 2;
+        const y = ROW_Y[c.row] + TILT * cos + 10 * sin - c.h / 2;
+        const z = RX * cos;
+        const depth = (cos + 1) / 2;
+        c.el.style.transform = `translate3d(${x}px, ${y}px, ${z}px) rotateY(${deg}deg) rotateZ(${c.rz * depth}deg)`;
+        c.el.style.zIndex = String(cos > 0 ? 5 + Math.round(cos * 10) : 1);
+        c.el.style.opacity = (0.35 + 0.65 * depth).toFixed(3);
+        c.el.style.filter = cos < -0.2 ? `blur(${(-cos * 1.4).toFixed(2)}px)` : "none";
+      }
+    }
+
+    function tick(now: number) {
+      const dt = Math.min(0.05, (now - last) / 1000);
+      last = now;
+      if (!dragging) {
+        speed += (target - speed) * Math.min(1, dt * 2.5);
+        offset += speed * dt;
+      }
+      render();
+      raf = requestAnimationFrame(tick);
+    }
+    render();
+    raf = requestAnimationFrame(tick);
+
+    const handleEnter = () => {
+      if (!reduce) target = BASE_SPEED * 0.35;
+    };
+    const handleLeave = () => {
+      if (!reduce) target = BASE_SPEED;
+    };
+    const handleDown = (e: PointerEvent) => {
+      dragging = true;
+      lastX = e.clientX;
+      dragVel = 0;
+      stage!.classList.add("is-drag");
+      stage!.setPointerCapture(e.pointerId);
+    };
+    const handleMove = (e: PointerEvent) => {
+      if (!dragging) return;
+      const dx = e.clientX - lastX;
+      lastX = e.clientX;
+      offset += dx * 0.35;
+      dragVel = dx * 0.35 * 60;
+    };
+    const handleUp = () => {
+      if (!dragging) return;
+      dragging = false;
+      stage!.classList.remove("is-drag");
+      speed = Math.max(-220, Math.min(220, dragVel));
+    };
+    stage.addEventListener("pointerenter", handleEnter);
+    stage.addEventListener("pointerleave", handleLeave);
+    stage.addEventListener("pointerdown", handleDown);
+    stage.addEventListener("pointermove", handleMove);
+    stage.addEventListener("pointerup", handleUp);
+    stage.addEventListener("pointercancel", handleUp);
+
     return () => {
+      cancelAnimationFrame(raf);
       window.removeEventListener("resize", fit);
       hero.removeEventListener("pointermove", handlePointerMove);
       hero.removeEventListener("pointerleave", handlePointerLeave);
+      stage.removeEventListener("pointerenter", handleEnter);
+      stage.removeEventListener("pointerleave", handleLeave);
+      stage.removeEventListener("pointerdown", handleDown);
+      stage.removeEventListener("pointermove", handleMove);
+      stage.removeEventListener("pointerup", handleUp);
+      stage.removeEventListener("pointercancel", handleUp);
     };
   }, []);
 
@@ -208,24 +322,73 @@ export default function ServicesHero() {
         </div>
 
         <div className="sph-stage-wrap" ref={stageWrapRef}>
-          <div className="sph-stage">
+          <div className="sph-stage" ref={stageRef}>
             <div className="sph-person">
               <img src={`${IMG}/portrait.webp`} alt="" />
             </div>
 
-            {MINI_TAGS.map((tag) => {
-              const s = services.find((svc) => svc.slug === tag.slug)!;
-              return (
-                <div key={tag.slug} className={`sph-mtag ${tag.cls}`}>
-                  <div className="sph-feat sph-mtag-in">
-                    <span className="sph-feat-icon">
-                      <span style={{ width: 14, height: 14 }}>{SERVICE_ICONS[tag.slug]}</span>
-                    </span>
-                    <div>
-                      <h4>{s.title.length > 22 ? s.title.split(" ").slice(0, 2).join(" ") : s.title}</h4>
-                      <p>{SERVICE_TAGLINES[tag.slug]}</p>
+            {RING_CARDS.map((card, i) => {
+              if (card.type === "feat") {
+                const s = services.find((svc) => svc.slug === card.slug)!;
+                return (
+                  <div
+                    key={i}
+                    className="sph-rc"
+                    data-a={card.a}
+                    data-row={card.row}
+                    data-rz={card.rz}
+                    style={{ "--sph-w": `${card.w}px`, "--sph-h": `${card.h}px` } as React.CSSProperties}
+                  >
+                    <div className="sph-rc-f">
+                      {card.sky && (
+                        <div className="sph-feat-sky">
+                          <img src={card.sky} alt="" />
+                        </div>
+                      )}
+                      <div className="sph-feat">
+                        <span className="sph-feat-icon">
+                          <span style={{ width: 14, height: 14 }}>{SERVICE_ICONS[card.slug]}</span>
+                        </span>
+                        <div>
+                          <h4>{s.title.length > 22 ? s.title.split(" ").slice(0, 2).join(" ") : s.title}</h4>
+                          <p>{SERVICE_TAGLINES[card.slug]}</p>
+                        </div>
+                      </div>
                     </div>
+                    <div className="sph-rc-b" />
                   </div>
+                );
+              }
+              if (card.type === "img") {
+                return (
+                  <div
+                    key={i}
+                    className="sph-rc sph-rc--img"
+                    data-a={card.a}
+                    data-row={card.row}
+                    data-rz={card.rz}
+                    style={{ "--sph-w": `${card.w}px`, "--sph-h": `${card.h}px` } as React.CSSProperties}
+                  >
+                    <div className="sph-rc-f">
+                      <div className="sph-rc-img-wrap">
+                        <img src={card.src} alt="" />
+                      </div>
+                    </div>
+                    <div className="sph-rc-b" />
+                  </div>
+                );
+              }
+              return (
+                <div
+                  key={i}
+                  className="sph-rc sph-rc--glass"
+                  data-a={card.a}
+                  data-row={card.row}
+                  data-rz={card.rz || 0}
+                  style={{ "--sph-w": `${card.w}px`, "--sph-h": `${card.h}px` } as React.CSSProperties}
+                >
+                  <div className="sph-rc-f" />
+                  <div className="sph-rc-b" />
                 </div>
               );
             })}
