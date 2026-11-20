@@ -12,9 +12,9 @@ import { stats } from "@/lib/data";
 // of the reference's specific unverified numbers (300% ROI, 4.9/5 rating).
 
 const FEATURED_STATS = [
-  { ...stats[1], icon: "wave" }, // 50+ websites/platforms/CRMs
-  { ...stats[3], icon: "check" }, // 100% on schedule
-  { ...stats[4], icon: "star" }, // 80% retained/renewed
+  { ...stats[4], icon: "wave" }, // 50+ websites/platforms/CRMs
+  { ...stats[3], icon: "check" }, // 100% delivered on time
+  { ...stats[2], icon: "star" }, // 12+ industries served
 ];
 
 const ICONS: Record<string, JSX.Element> = {
