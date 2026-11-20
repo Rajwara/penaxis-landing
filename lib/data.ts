@@ -957,6 +957,7 @@ export const caseStudies = [
   },
   {
     slug: "recruitment-talent-platform",
+    gridImage: "/images/case-studies/grid/recruitment-talent-platform-grid.webp",
     bannerImages: [
       "/images/case-studies/banner/recruitment-banner-1.webp",
       "/images/case-studies/banner/recruitment-banner-2.webp",
@@ -992,6 +993,7 @@ export const caseStudies = [
   },
   {
     slug: "luxury-furniture-ecommerce",
+    gridImage: "/images/case-studies/grid/luxury-furniture-ecommerce-grid.webp",
     bannerImages: [
       "/images/case-studies/banner/furniture-banner-1.webp",
       "/images/case-studies/banner/furniture-banner-2.webp",
