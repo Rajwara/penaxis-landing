@@ -13,7 +13,7 @@ import Reveal from "./Reveal";
 const FAQS = [
   {
     q: "What's the typical timeline from idea to v1?",
-    a: "Most MVPs launch in about 3 weeks. We scope tight, ship something real fast, and iterate from there based on what we learn.",
+    a: "Most MVPs launch in about 5 business days. We scope tight, ship something real fast, and iterate from there based on what we learn.",
   },
   {
     q: "What do we need to start?",
