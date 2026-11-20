@@ -7,8 +7,8 @@ import Reveal from "./Reveal";
 // orbit circles, social row). Structure and animation mechanics kept as-is;
 // recolored entirely to the Penaxis palette (violet / ember / volt / ink) and
 // switched to the site's existing display/body fonts. Repurposed to show the
-// 3 office locations (Pakistan, Dubai, Georgia) instead of the original
-// generic shape-variant placeholder content.
+// office locations (Pakistan, Dubai) instead of the original generic
+// shape-variant placeholder content.
 
 const CARDS = [
   {
@@ -29,16 +29,6 @@ const CARDS = [
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5.25 6.14 11.6 6.4 11.86a.85.85 0 0 0 1.2 0C12.86 20.6 19 14.25 19 9a7 7 0 0 0-7-7zm0 9.75A2.75 2.75 0 1 1 12 6.25a2.75 2.75 0 0 1 0 5.5z" />
-      </svg>
-    ),
-  },
-  {
-    theme: "volt",
-    title: "Georgia Office",
-    text: "We are based in Georgia.",
-    icon: (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path fill="#111" d="M12 2a7 7 0 0 0-7 7c0 5.25 6.14 11.6 6.4 11.86a.85.85 0 0 0 1.2 0C12.86 20.6 19 14.25 19 9a7 7 0 0 0-7-7zm0 9.75A2.75 2.75 0 1 1 12 6.25a2.75 2.75 0 0 1 0 5.5z" />
       </svg>
     ),
   },
@@ -70,7 +60,7 @@ export default function ShapeGrid() {
             Where we work from
           </h2>
           <p className="mt-3 text-ink/60">
-            Three countries, one team.
+            Two countries, one team.
           </p>
         </Reveal>
 
