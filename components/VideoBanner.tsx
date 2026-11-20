@@ -93,7 +93,7 @@ export default function VideoBanner() {
       />
       <div className="vb-overlay" aria-hidden="true" />
 
-      <h1 className="vb-heading">AI, Software &amp; Growth Partner for Ambitious Businesses</h1>
+      <h1 className="sr-only">AI, Software &amp; Growth Partner for Ambitious Businesses</h1>
 
       <button
         type="button"
