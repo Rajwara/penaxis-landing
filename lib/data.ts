@@ -12,12 +12,8 @@ export function slugify(str: string) {
 
 // Left navigation capsule — primary destinations
 export const navLeft = [
-  // No href — Services no longer has its own overview page, this is
-  // purely the mega menu trigger. Individual /services/[slug] pages
-  // (linked from within the mega menu / mobile accordion) still exist.
-  { label: "Services", href: null },
+  { label: "Services", href: "/services" },
   { label: "Industries", href: "/industries" },
-  // No dedicated case-studies page yet — placeholder destination until one exists
   { label: "Case Studies", href: "/case-studies" },
 ];
 

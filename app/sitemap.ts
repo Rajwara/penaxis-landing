@@ -8,6 +8,7 @@ const BASE_URL = "https://www.penaxis.com";
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${BASE_URL}/`, changeFrequency: "monthly", priority: 1 },
+    { url: `${BASE_URL}/services`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/case-studies`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE_URL}/careers`, changeFrequency: "weekly", priority: 0.6 },
     { url: `${BASE_URL}/contact`, changeFrequency: "yearly", priority: 0.6 },

@@ -148,11 +148,12 @@ export default function Navbar() {
                     setHoverIdx(i);
                     if (item.label === "Industries") openMenu("industries");
                     else if (item.label === "Case Studies") openMenu("caseStudies");
+                    else if (item.label === "Services") openMenu("services");
                     else scheduleCloseMenu();
                   }}
                   onMouseLeave={() => {
                     setHoverIdx(null);
-                    if (item.label === "Industries" || item.label === "Case Studies") {
+                    if (item.label === "Industries" || item.label === "Case Studies" || item.label === "Services") {
                       scheduleCloseMenu();
                     }
                   }}
