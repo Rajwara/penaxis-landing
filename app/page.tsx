@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import VideoBanner from "@/components/VideoBanner";
-import HorizontalGallery from "@/components/HorizontalGallery";
 import ServiceFlexPanels from "@/components/ServiceFlexPanels";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import GameChangers from "@/components/GameChangers";
@@ -15,7 +14,6 @@ export default function Home() {
       <Navbar />
       <main>
         <VideoBanner />
-        <HorizontalGallery />
         <ServiceFlexPanels />
         <WhyChooseUs />
         <GameChangers />
