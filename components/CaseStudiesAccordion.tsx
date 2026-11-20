@@ -58,7 +58,7 @@ export default function CaseStudiesAccordion() {
                   <div className="csa-row-body" aria-hidden={!isOpen}>
                     <div className="csa-row-body-inner">
                       <p>{study.blurb}</p>
-                      <a href="/case-studies" className="csa-readall btn-grad">
+                      <a href={`/case-studies/${study.slug}`} className="csa-readall btn-grad">
                         Read All
                       </a>
                     </div>
