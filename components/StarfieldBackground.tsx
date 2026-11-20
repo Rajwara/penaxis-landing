@@ -67,6 +67,7 @@ export default function StarfieldBackground() {
     const handleResize = () => {
       const w = mount.clientWidth;
       const h = mount.clientHeight;
+      if (w === 0 || h === 0) return;
       windowHalfX = w / 2;
       windowHalfY = h / 2;
       camera.aspect = w / h;
@@ -74,6 +75,14 @@ export default function StarfieldBackground() {
       renderer.setSize(w, h);
     };
     window.addEventListener("resize", handleResize);
+
+    // The section this sits behind can change height without the window
+    // resizing (e.g. an accordion item expanding) — a plain window
+    // "resize" listener misses that, leaving the canvas's old fixed size
+    // shorter than its now-taller container. Watch the mount element
+    // itself so the renderer always matches its actual box.
+    const resizeObserver = new ResizeObserver(handleResize);
+    resizeObserver.observe(mount);
 
     let raf = 0;
     function animate() {
@@ -92,6 +101,7 @@ export default function StarfieldBackground() {
       cancelAnimationFrame(raf);
       window.removeEventListener("pointermove", handlePointerMove);
       window.removeEventListener("resize", handleResize);
+      resizeObserver.disconnect();
       renderer.dispose();
       starGeo.dispose();
       starMat.dispose();
