@@ -639,7 +639,7 @@ export const caseStudies = [
       "/images/case-studies/banner/hotel-booking-banner-3.webp",
     ],
     title: "One Intelligent Dashboard for Hotel Bookings, Revenue and Occupancy",
-    tags: ["Software, IT & SaaS"],
+    tags: ["Software, IT & SaaS", "Real Estate & Property"],
     blurb:
       "A unified hotel-management platform consolidating six booking channels, revenue tracking, and AI-powered occupancy forecasting into one dashboard.",
     status: "delivered",
@@ -697,7 +697,7 @@ export const caseStudies = [
       "/images/case-studies/banner/plate-agent-banner-3.webp",
     ],
     title: "The Plate Agent - AI-Powered Private Registration Marketplace & Valuation Engine",
-    tags: ["Automotive & Auto Care"],
+    tags: ["Automotive & Auto Care", "Fintech & Financial Services"],
     blurb:
       "A premium UK plate marketplace pairing searchable inventory with an AI-assisted valuation engine that turns vague buyer requests into qualified leads.",
     status: "delivered",
