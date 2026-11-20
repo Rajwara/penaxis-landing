@@ -78,7 +78,7 @@ export default function Services() {
               {active.pillars.map((p, i) => (
                 <div
                   key={p.title}
-                  className="rounded-xl bg-haze/60 p-5 card-hover border border-transparent"
+                  className="rounded-xl bg-white p-5 card-hover border border-ink/10"
                 >
                   <span className="font-mono text-xs text-violet-500">
                     {`0${i + 1}`}

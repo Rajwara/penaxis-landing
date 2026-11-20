@@ -127,7 +127,7 @@ export default function ContactFormSection() {
   };
 
   return (
-    <section className="relative bg-haze/50 py-20 px-6">
+    <section className="relative bg-paper py-20 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Info cards row */}
         <div className="grid sm:grid-cols-3 gap-6 mb-20">

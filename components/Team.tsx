@@ -17,7 +17,7 @@ const palette = ["bg-violet-600", "bg-ember-500", "bg-violet-900"];
 
 export default function Team() {
   return (
-    <section id="team" className="relative py-28 md:py-36 bg-haze/40">
+    <section id="team" className="relative py-28 md:py-36 bg-paper">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid lg:grid-cols-[1fr_1.4fr] gap-16 mb-14 items-end">
           <div>

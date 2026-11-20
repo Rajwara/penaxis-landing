@@ -33,7 +33,7 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 px-6 bg-haze/50">
+    <section className="py-24 px-6 bg-paper">
       <Reveal as="div" y={30} scale={0.96} className="text-center mb-16">
         <span className="inline-flex items-center gap-2 rounded-full bg-white shadow-sm px-4 py-1.5 text-xs font-semibold text-ember-500">
           <span className="w-1.5 h-1.5 rounded-full bg-ember-500" />

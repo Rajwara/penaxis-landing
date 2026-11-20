@@ -5,7 +5,7 @@ import { industries } from "@/lib/data";
 
 export default function Industries() {
   return (
-    <section id="industries" className="relative py-28 md:py-36 bg-haze/40">
+    <section id="industries" className="relative py-28 md:py-36 bg-paper">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl mb-14">
           <Reveal as="p" className="eyebrow text-ember-500 mb-4">
