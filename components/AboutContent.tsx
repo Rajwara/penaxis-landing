@@ -9,15 +9,17 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-// Only show team members we actually have a photo for
-const picturedTeam = team.filter((m) => m.image);
+// Only show team members we actually have a photo for. Alishba Arshad and
+// Maleeha Farooq are removed from this page specifically, per request.
+const HIDDEN_ON_THIS_PAGE = ["Alishba Arshad", "Maleeha Farooq"];
+const picturedTeam = team.filter((m) => m.image && !HIDDEN_ON_THIS_PAGE.includes(m.name));
 
 // Fixed (non-random) shuffle order for the hero row so photos don't cycle in data order.
 // Using a fixed permutation (rather than Math.random) avoids SSR/client hydration mismatches.
 // Left-to-right sequence per request: Fizza, Akram, Sopio, Shahzad (Ali), Adeel, Saad
 // (Sultan), Laiba, Adnan. Only 8 entries: HERO_CARDS below has 8 slots, so a 9th offset
 // here is never actually rendered.
-const HERO_SHUFFLE_OFFSETS = [5, 2, 3, 1, 0, 12, 7, 11];
+const HERO_SHUFFLE_OFFSETS = [4, 2, 3, 1, 0, 10, 6, 9];
 const shuffledHeroTeam = picturedTeam.length
   ? HERO_SHUFFLE_OFFSETS.map((i) => picturedTeam[i % picturedTeam.length])
   : [];
