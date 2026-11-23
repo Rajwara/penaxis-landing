@@ -471,7 +471,7 @@ export const team = [
   { name: "Musahb Ali", role: "Data Strategy Specialist", image: "/images/team/musahb-ali.webp", bio: "Turns raw data into clear, actionable strategy." },
   { name: "Asad Saleem Farooq", role: "Regional Growth Partner - North America", image: "/images/team/asad-saleem-farooq.webp", bio: "Grows Penaxis's presence and partnerships across North America." },
   { name: "Fraz Bin Arif", role: "Regional Growth Partner - Western Europe" },
-  { name: "Ahmad Raza", role: "Regional Growth Partner - GCC" },
+  { name: "Ahmad Raza", role: "CMS and Web Solutions Expert", image: "/images/team/ahmad-raza.webp", bio: "Builds and maintains CMS-powered websites and web solutions for clients." },
   { name: "Hamza Shabbir", role: "Business Development Representative", image: "/images/team/hamza-shabbir.webp", bio: "Opens conversations that turn into new business." },
   { name: "Muhammad Yousaf", role: "Project Manager" },
   { name: "Muhammad Saad Salman", role: "CMS Developer", image: "/images/team/muhammad-saad-salman.webp", bio: "Builds and maintains the CMS-powered sites and platforms our clients run on." },
