@@ -1,31 +1,16 @@
 "use client";
 
+import { pressLogos } from "@/lib/data";
+
 // Intro/video/press section only — the pinned horizontal-scroll photo
 // + panel gallery that used to follow this has been removed entirely,
 // so ServicesShowcase now sits directly after this section instead.
 
-const PRESS_LOGOS = [
-  { src: "/images/press/meerab-properties.webp", alt: "Meerab Properties" },
-  { src: "/images/press/meerab.webp", alt: "Meerab" },
-  { src: "/images/press/devmindz.png", alt: "DevMindz" },
-  { src: "/images/press/bidmore.webp", alt: "BidMore" },
-  { src: "/images/press/seka.webp", alt: "Seka" },
-  { src: "/images/press/qovex-studio.webp", alt: "Qovex Studio" },
-  { src: "/images/press/the-plate-agent.webp", alt: "The Plate Agent" },
-  { src: "/images/press/orbital.webp", alt: "Orbital Installation Technologies" },
-  { src: "/images/press/oktabytes.webp", alt: "OktaBytes" },
-  { src: "/images/press/nas-enterprises.webp", alt: "NAS Enterprises" },
-  { src: "/images/press/hyatt-regency.webp", alt: "Hyatt Regency" },
-  { src: "/images/press/ahmed-dairy-farm.webp", alt: "Ahmed Dairy Farm" },
-  { src: "/images/press/aleafiate-health-clinics.webp", alt: "Aleafiate Health Clinics" },
-  { src: "/images/press/pharmacrop.webp", alt: "PharmaCrop" },
-];
-
 export default function HorizontalGallery() {
   // Tripled (not just duplicated) for a smoother, less repetitive-looking
-  // loop. Add more real, confirmed logos to PRESS_LOGOS above whenever
-  // available — the marquee handles any number of items the same way.
-  const track = [...PRESS_LOGOS, ...PRESS_LOGOS, ...PRESS_LOGOS];
+  // loop. Add more real, confirmed logos to lib/data.ts's pressLogos
+  // whenever available — the marquee handles any number of items the same way.
+  const track = [...pressLogos, ...pressLogos, ...pressLogos];
 
   return (
     <section className="hg-intro">
