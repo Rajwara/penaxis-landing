@@ -2441,10 +2441,13 @@ button:focus-visible {
   border-radius: 2rem;
 }
 
+.fl-section { width: 100%; padding: 3.5rem 6vw; background: #fff; }
+
 .hg-intro-press {
   margin-top: 3.5rem;
   width: 100%;
 }
+.fl-section .hg-intro-press { margin-top: 0; max-width: 90rem; margin-inline: auto; }
 .hg-intro-press-label {
   font-family: var(--font-mono);
   font-size: 0.7rem;

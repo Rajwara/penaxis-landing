@@ -1247,6 +1247,25 @@ export const insights = [
   },
 ];
 
+// Real, confirmed client/partner logos shown in the "Featured in" marquee
+// (components/HorizontalGallery.tsx and components/FeaturedLogos.tsx).
+export const pressLogos = [
+  { src: "/images/press/meerab-properties.webp", alt: "Meerab Properties" },
+  { src: "/images/press/meerab.webp", alt: "Meerab" },
+  { src: "/images/press/devmindz.png", alt: "DevMindz" },
+  { src: "/images/press/bidmore.webp", alt: "BidMore" },
+  { src: "/images/press/seka.webp", alt: "Seka" },
+  { src: "/images/press/qovex-studio.webp", alt: "Qovex Studio" },
+  { src: "/images/press/the-plate-agent.webp", alt: "The Plate Agent" },
+  { src: "/images/press/orbital.webp", alt: "Orbital Installation Technologies" },
+  { src: "/images/press/oktabytes.webp", alt: "OktaBytes" },
+  { src: "/images/press/nas-enterprises.webp", alt: "NAS Enterprises" },
+  { src: "/images/press/hyatt-regency.webp", alt: "Hyatt Regency" },
+  { src: "/images/press/ahmed-dairy-farm.webp", alt: "Ahmed Dairy Farm" },
+  { src: "/images/press/aleafiate-health-clinics.webp", alt: "Aleafiate Health Clinics" },
+  { src: "/images/press/pharmacrop.webp", alt: "PharmaCrop" },
+];
+
 export const offices = [
   {
     country: "Pakistan",

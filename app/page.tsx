@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import VideoBanner from "@/components/VideoBanner";
+import FeaturedLogos from "@/components/FeaturedLogos";
 import ServiceFlexPanels from "@/components/ServiceFlexPanels";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import CaseStudiesAccordion from "@/components/CaseStudiesAccordion";
@@ -13,6 +14,7 @@ export default function Home() {
       <Navbar />
       <main>
         <VideoBanner />
+        <FeaturedLogos />
         <WhyChooseUs />
         <ServiceFlexPanels />
         <CaseStudiesAccordion />
