@@ -212,7 +212,7 @@ export const industries = [
   {
     title: "Software, IT & SaaS",
     copy: "Custom software, SaaS platforms and IT solutions for enterprises and startups.",
-    image: "/images/case-studies/grid/bidlogics-tender-intelligence-grid.webp",
+    image: "/images/industries/software-it-and-saas.webp",
     solutions: [
       "Custom SaaS platforms built around how your product actually works, not a generic template",
       "API integrations and internal tools that connect the systems your team already relies on",
@@ -222,7 +222,7 @@ export const industries = [
   {
     title: "Education & EdTech",
     copy: "E-learning platforms, student portals, and digital learning solutions.",
-    image: "/images/case-studies/grid/ai-receptionist-visitor-kiosk-grid.webp",
+    image: "/images/industries/education-and-edtech.webp",
     solutions: [
       "Student and learning management portals that stay simple enough for every grade level to use",
       "Virtual classroom and course delivery tools built around how your instructors actually teach",
@@ -232,7 +232,7 @@ export const industries = [
   {
     title: "Automotive & Auto Care",
     copy: "Platforms for dealerships, auto care, repair shops, and fleet management.",
-    image: "/images/case-studies/grid/ai-automotive-search-oktabytes-grid.webp",
+    image: "/images/industries/automotive-and-auto-care.webp",
     solutions: [
       "AI-powered vehicle search and listing platforms that help buyers find the right match faster",
       "Booking and workshop management systems for repair shops, dealerships, and fleet operators",
@@ -242,7 +242,7 @@ export const industries = [
   {
     title: "Home Services & Maintenance",
     copy: "Platforms for on-demand home services, bookings, and field management.",
-    image: "/images/case-studies/grid/dry-cleaning-delivery-platform-grid.webp",
+    image: "/images/industries/home-services-and-maintenance.webp",
     solutions: [
       "On-demand booking platforms that let customers schedule service in a couple of taps",
       "Field-team dispatch and scheduling tools that keep technicians routed efficiently",
@@ -252,7 +252,7 @@ export const industries = [
   {
     title: "Logistics & Transportation",
     copy: "Solutions for fleet tracking, freight management, and transport companies.",
-    image: "/images/case-studies/grid/drivelo-logistics-platform-grid.webp",
+    image: "/images/industries/logistics-and-transportation.webp",
     solutions: [
       "Fleet tracking and dispatch platforms built for real-time visibility across every vehicle",
       "Freight and shipment management systems that cut manual coordination between teams",
@@ -262,7 +262,7 @@ export const industries = [
   {
     title: "Consulting, Staffing & Immigration",
     copy: "Solutions for consulting firms, staffing agencies, and immigration services.",
-    image: "/images/case-studies/banner/recruitment-banner-1.webp",
+    image: "/images/industries/consulting-staffing-and-immigration.webp",
     solutions: [
       "Applicant tracking and recruitment CRMs with AI-assisted candidate matching",
       "Case and document management systems built for immigration and consulting workflows",
@@ -272,7 +272,7 @@ export const industries = [
   {
     title: "E-Commerce & Retail",
     copy: "Scalable platforms for online stores, marketplaces, and omnichannel retail.",
-    image: "/images/case-studies/banner/furniture-banner-1.webp",
+    image: "/images/industries/e-commerce-and-retail.webp",
     solutions: [
       "Custom storefronts and headless commerce builds that scale past what templates allow",
       "Immersive product experiences - configurators, AR previews - that help buyers decide faster",
@@ -282,7 +282,7 @@ export const industries = [
   {
     title: "Sports & Fitness",
     copy: "Apps and platforms for gyms, fitness, training, and sports communities.",
-    image: "/images/case-studies/grid/seka-gravel-cycling-platform-grid.webp",
+    image: "/images/industries/sports-and-fitness.webp",
     solutions: [
       "Training, route, and community platforms built for athletes and the clubs around them",
       "Membership, booking, and class-scheduling systems for gyms and studios",
@@ -292,7 +292,7 @@ export const industries = [
   {
     title: "Food Delivery & Grocery",
     copy: "Apps and platforms for food delivery, grocery and quick commerce.",
-    image: "/images/hero/team-celebration.webp",
+    image: "/images/industries/food-delivery-and-grocery.webp",
     solutions: [
       "Ordering and delivery platforms built for real-world logistics, not just a checkout flow",
       "Quick-commerce inventory systems that keep availability accurate as stock moves fast",
@@ -302,7 +302,7 @@ export const industries = [
   {
     title: "Real Estate & Property",
     copy: "Digital solutions for property marketplaces, brokers, and property management.",
-    image: "/images/hero/trusted-partner-office.webp",
+    image: "/images/industries/real-estate-and-property.webp",
     solutions: [
       "Property marketplaces and listing platforms built around how buyers actually search",
       "Broker and agency CRMs that keep leads, listings, and deals in one place",
@@ -312,7 +312,7 @@ export const industries = [
   {
     title: "Fintech & Financial Services",
     copy: "Secure solutions for banking, payments, lending, and wealth management.",
-    image: "/images/hero/momentum-team.webp",
+    image: "/images/industries/fintech-and-financial-services.webp",
     solutions: [
       "Secure, compliant platforms for payments, lending, and digital banking workflows",
       "Dashboards that turn transaction and account data into something a team can act on",
@@ -322,7 +322,7 @@ export const industries = [
   {
     title: "Healthcare & Wellness",
     copy: "Clinics, practices, gyms, wellness centers, and healthcare service providers.",
-    image: "/images/case-studies/grid/patient-care-management-platform-grid.webp",
+    image: "/images/industries/healthcare-and-wellness.webp",
     solutions: [
       "Patient care and clinic management platforms built around real clinical workflows",
       "Telehealth and intake systems that cut administrative load for staff",
@@ -332,7 +332,7 @@ export const industries = [
   {
     title: "Pet Care & Veterinary",
     copy: "Digital tools for veterinary clinics and pet care businesses.",
-    image: "/images/hero/team-group.webp",
+    image: "/images/industries/pet-care-and-veterinary.webp",
     solutions: [
       "Appointment and patient-record systems built for veterinary clinics and pet care businesses",
       "Client communication tools - reminders, records, follow-ups - that cut no-shows",
