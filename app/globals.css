@@ -2441,7 +2441,7 @@ button:focus-visible {
   border-radius: 2rem;
 }
 
-.fl-section { width: 100%; padding: 3.5rem 6vw; background: #fff; }
+.fl-section { width: 100%; padding: 1.5rem 6vw; background: #fff; text-align: center; }
 
 .hg-intro-press {
   margin-top: 3.5rem;
