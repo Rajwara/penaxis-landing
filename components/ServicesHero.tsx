@@ -60,8 +60,8 @@ type RingCard =
 
 const RING_CARDS: RingCard[] = [
   { type: "feat", a: -22, row: 0, rz: -9, w: 186, h: 72, slug: "ai-mvp", sky: `${IMG}/card-sky.jpg` },
-  { type: "feat", a: 2, row: 1, rz: -6, w: 146, h: 64, slug: "digital-transformation" },
-  { type: "feat", a: 52, row: 0, rz: 7, w: 138, h: 74, slug: "sales-growth" },
+  { type: "feat", a: 2, row: 1, rz: -6, w: 220, h: 70, slug: "digital-transformation" },
+  { type: "feat", a: 52, row: 0, rz: 7, w: 190, h: 78, slug: "sales-growth" },
   { type: "img", a: 55, row: 1, rz: 4, w: 96, h: 104, src: `${IMG}/card-moon.jpg` },
   { type: "img", a: -56, row: 1, rz: -4, w: 100, h: 136, src: `${IMG}/card-mountain.jpg` },
   { type: "img", a: -95, row: 0, rz: -3, w: 96, h: 120, src: `${IMG}/card-abstract.jpg` },
