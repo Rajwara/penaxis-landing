@@ -26,7 +26,7 @@ export default function AboutV2Banner() {
 
         <Reveal delay={0.1} className="av2-image-wrap">
           <div className="av2-image">
-            <img src="/images/who-we-are/banner-meeting.webp" alt="The Penaxis team in a meeting" />
+            <img src="/images/who-we-are/banner-meeting.webp" alt="Digital growth and strategy" />
           </div>
         </Reveal>
 

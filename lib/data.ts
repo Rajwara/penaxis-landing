@@ -69,11 +69,11 @@ export const missionVision = [
 ];
 
 export const momentum = [
-  { period: "Q2 2025", value: 6 },
-  { period: "Q3 2025", value: 13 },
+  { period: "Q2 2025", value: 6, image: "/images/who-we-are/momentum-q2-2025.webp" },
+  { period: "Q3 2025", value: 13, image: "/images/who-we-are/momentum-q3-2025.webp" },
   { period: "Q4 2025", value: 17 },
-  { period: "Q1 2026", value: 22 },
-  { period: "Q2 2026", value: 28 },
+  { period: "Q1 2026", value: 22, image: "/images/who-we-are/momentum-q1-2026.webp" },
+  { period: "Q2 2026", value: 28, image: "/images/who-we-are/momentum-q2-2026.webp" },
 ];
 
 export const regions = [

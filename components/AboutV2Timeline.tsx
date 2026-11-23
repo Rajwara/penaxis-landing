@@ -12,6 +12,15 @@ import { momentum } from "@/lib/data";
 // founding dates or fake corporate milestones like acquisitions. Photo is
 // real (a Penaxis team meeting).
 
+// Not every quarter has its own photo yet (Q4 2025) — fall back to the
+// nearest earlier quarter that does, so the background never breaks.
+function photoFor(index: number) {
+  for (let i = index; i >= 0; i--) {
+    if (momentum[i].image) return momentum[i].image!;
+  }
+  return momentum.find((m) => m.image)!.image!;
+}
+
 export default function AboutV2Timeline() {
   const [active, setActive] = useState(momentum.length - 1);
   const current = momentum[active];
@@ -20,7 +29,11 @@ export default function AboutV2Timeline() {
     <section className="av2-timeline">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="av2-timeline-frame">
-          <img src="/images/who-we-are/timeline-bg.webp" alt="The Penaxis team at work" className="av2-timeline-bg" />
+          <img
+            src={photoFor(active)}
+            alt={`The Penaxis team, ${current.period}`}
+            className="av2-timeline-bg"
+          />
 
           <div className="av2-timeline-card">
             <span className="av2-timeline-pill">{current.period}</span>
