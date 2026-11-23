@@ -13,8 +13,8 @@ export default function Home() {
       <Navbar />
       <main>
         <VideoBanner />
-        <ServiceFlexPanels />
         <WhyChooseUs />
+        <ServiceFlexPanels />
         <CaseStudiesAccordion />
         <InsightsSection />
 
