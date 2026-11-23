@@ -22,7 +22,7 @@ export default function IndustryDetail({
   return (
     <>
       <section className="indd-banner">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <span className="indd-eyebrow">Industries</span>
             <h1 className="indd-title">{industry.title}</h1>
@@ -36,8 +36,21 @@ export default function IndustryDetail({
         </div>
       </section>
 
+      <section className="indd-challenge">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="indd-challenge-grid">
+            <Reveal>
+              <h2 className="indd-solutions-heading">The challenge</h2>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <p className="indd-challenge-copy">{industry.challenge}</p>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       <section className="indd-solutions">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-7xl px-6">
           <Reveal>
             <h2 className="indd-solutions-heading">What we build</h2>
           </Reveal>
@@ -56,9 +69,27 @@ export default function IndustryDetail({
         </div>
       </section>
 
+      <section className="indd-outcomes">
+        <div className="mx-auto max-w-7xl px-6">
+          <Reveal>
+            <h2 className="indd-solutions-heading">What this looks like in practice</h2>
+          </Reveal>
+          <div className="indd-outcomes-list">
+            {industry.outcomes.map((point, i) => (
+              <Reveal key={point} y={16} delay={0.05 + i * 0.06}>
+                <div className="indd-outcome-row">
+                  <span className="indd-outcome-num">{String(i + 1).padStart(2, "0")}</span>
+                  <p>{point}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {relatedCaseStudies.length > 0 && (
         <section className="indd-related">
-          <div className="mx-auto max-w-5xl px-6">
+          <div className="mx-auto max-w-7xl px-6">
             <Reveal>
               <h2 className="indd-solutions-heading">Related work</h2>
             </Reveal>

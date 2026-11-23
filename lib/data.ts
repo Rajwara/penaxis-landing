@@ -212,6 +212,13 @@ export const industries = [
   {
     title: "Software, IT & SaaS",
     copy: "Custom software, SaaS platforms and IT solutions for enterprises and startups.",
+    challenge:
+      "Most SaaS products live or die on how fast they can ship without breaking what already works. Early-stage teams often carry technical debt from a rushed MVP, while growing platforms struggle to add enterprise features - SSO, audit logs, granular permissions - without a rewrite. Integrating with the dozen other tools a B2B buyer already uses adds another layer of complexity most roadmaps underestimate.",
+    outcomes: [
+      "A product architecture that can absorb new features without a rewrite",
+      "Integrations that connect cleanly with the tools your buyers already use",
+      "AI features scoped to solve a real workflow problem, not bolted on for a pitch deck",
+    ],
     image: "/images/industries/software-it-and-saas.webp",
     solutions: [
       "Custom SaaS platforms built around how your product actually works, not a generic template",
@@ -222,6 +229,13 @@ export const industries = [
   {
     title: "Education & EdTech",
     copy: "E-learning platforms, student portals, and digital learning solutions.",
+    challenge:
+      "EdTech has to work for very different users at once - students who expect something as simple as a consumer app, instructors who need real control over content and grading, and administrators who need enrollment and compliance data to be accurate. Tools built for one of these groups usually frustrate the other two.",
+    outcomes: [
+      "Interfaces simple enough for every grade level and tech comfort level",
+      "Instructor tools that don't require a training session to use",
+      "Enrollment and attendance data admins can actually trust",
+    ],
     image: "/images/industries/education-and-edtech.webp",
     solutions: [
       "Student and learning management portals that stay simple enough for every grade level to use",
@@ -232,6 +246,13 @@ export const industries = [
   {
     title: "Automotive & Auto Care",
     copy: "Platforms for dealerships, auto care, repair shops, and fleet management.",
+    challenge:
+      "Buyers expect to search and compare vehicles the way they shop for anything else online, while the businesses behind them are often still running bookings, inventory, and service bays on a mix of spreadsheets and disconnected software. The gap between a modern buying experience and the operations behind it is where most automotive platforms fall short.",
+    outcomes: [
+      "Search and discovery that matches how buyers actually decide",
+      "Booking and workshop systems that cut down double-entry between tools",
+      "Inventory visibility that keeps service bays and showrooms in sync",
+    ],
     image: "/images/industries/automotive-and-auto-care.webp",
     solutions: [
       "AI-powered vehicle search and listing platforms that help buyers find the right match faster",
@@ -242,6 +263,13 @@ export const industries = [
   {
     title: "Home Services & Maintenance",
     copy: "Platforms for on-demand home services, bookings, and field management.",
+    challenge:
+      "On-demand home service businesses win or lose on response time and trust - a customer wants to book in a couple of taps and know roughly when someone will show up. Behind the scenes, that means dispatch, routing, and real-time technician status all have to work together, which is where most off-the-shelf booking tools stop short.",
+    outcomes: [
+      "Booking flows short enough that customers actually finish them",
+      "Dispatch and routing that keeps technicians' schedules realistic",
+      "Status updates that cut down on \"where's my technician\" calls",
+    ],
     image: "/images/industries/home-services-and-maintenance.webp",
     solutions: [
       "On-demand booking platforms that let customers schedule service in a couple of taps",
@@ -252,6 +280,13 @@ export const industries = [
   {
     title: "Logistics & Transportation",
     copy: "Solutions for fleet tracking, freight management, and transport companies.",
+    challenge:
+      "Fleet and freight operations depend on visibility - knowing where every vehicle and shipment is right now, not in yesterday's report. Many operators are still piecing that picture together from GPS units, paper manifests, and phone calls between dispatch and drivers, which makes it hard to catch delays before a customer does.",
+    outcomes: [
+      "Real-time fleet visibility dispatch can actually act on",
+      "Shipment tracking that replaces manual status-chasing",
+      "Route and driver tools that bring down fuel and idle time",
+    ],
     image: "/images/industries/logistics-and-transportation.webp",
     solutions: [
       "Fleet tracking and dispatch platforms built for real-time visibility across every vehicle",
@@ -262,6 +297,13 @@ export const industries = [
   {
     title: "Consulting, Staffing & Immigration",
     copy: "Solutions for consulting firms, staffing agencies, and immigration services.",
+    challenge:
+      "Recruiters, consultants, and immigration teams all run on the same raw material - candidate and case data - but it usually arrives as scattered resumes, email threads, and spreadsheets. Without a system that can search and structure that information, good candidates and case history get lost, and teams end up redoing work that's already been done once.",
+    outcomes: [
+      "A searchable, reusable pipeline instead of scattered resumes and threads",
+      "Case and document tracking built for compliance-heavy workflows",
+      "Pipelines every stakeholder can see without a status-update meeting",
+    ],
     image: "/images/industries/consulting-staffing-and-immigration.webp",
     solutions: [
       "Applicant tracking and recruitment CRMs with AI-assisted candidate matching",
@@ -272,6 +314,13 @@ export const industries = [
   {
     title: "E-Commerce & Retail",
     copy: "Scalable platforms for online stores, marketplaces, and omnichannel retail.",
+    challenge:
+      "Template storefronts get a store live fast, but they flatten every brand into the same layout and checkout flow. As a retailer grows, that sameness becomes a ceiling - on how products are presented, how inventory syncs across channels, and how much of the buying decision can happen before checkout.",
+    outcomes: [
+      "A storefront that looks and feels like the brand, not a template",
+      "Product experiences that help buyers decide faster",
+      "Inventory and orders that stay in sync across every channel",
+    ],
     image: "/images/industries/e-commerce-and-retail.webp",
     solutions: [
       "Custom storefronts and headless commerce builds that scale past what templates allow",
@@ -282,6 +331,13 @@ export const industries = [
   {
     title: "Sports & Fitness",
     copy: "Apps and platforms for gyms, fitness, training, and sports communities.",
+    challenge:
+      "Gyms, studios, and sports communities often manage memberships, class schedules, and performance data across tools that don't talk to each other, which makes it hard to see what's actually keeping members engaged versus what's quietly driving them to cancel.",
+    outcomes: [
+      "Membership and scheduling in one place instead of three tools",
+      "Community and training features built for how athletes actually train",
+      "Performance data members and coaches can actually use",
+    ],
     image: "/images/industries/sports-and-fitness.webp",
     solutions: [
       "Training, route, and community platforms built for athletes and the clubs around them",
@@ -292,6 +348,13 @@ export const industries = [
   {
     title: "Food Delivery & Grocery",
     copy: "Apps and platforms for food delivery, grocery and quick commerce.",
+    challenge:
+      "Delivery and quick-commerce businesses compete on speed and accuracy, but both depend on real-time inventory and realistic delivery windows - two things that are hard to guarantee when stock levels and driver availability are changing by the minute.",
+    outcomes: [
+      "Ordering flows built around real-world delivery logistics",
+      "Inventory accuracy that holds up even as stock moves fast",
+      "Delivery windows that are realistic, not just optimistic",
+    ],
     image: "/images/industries/food-delivery-and-grocery.webp",
     solutions: [
       "Ordering and delivery platforms built for real-world logistics, not just a checkout flow",
@@ -302,6 +365,13 @@ export const industries = [
   {
     title: "Real Estate & Property",
     copy: "Digital solutions for property marketplaces, brokers, and property management.",
+    challenge:
+      "Property platforms have to serve very different audiences at once - buyers browsing listings, brokers managing deals, and property managers handling maintenance requests - and most generic CRMs or listing tools only do one of those three well.",
+    outcomes: [
+      "Listing and search experiences built around how buyers actually browse",
+      "Broker CRMs that keep leads, listings, and deals in one view",
+      "Maintenance and tenant communication that doesn't rely on phone calls",
+    ],
     image: "/images/industries/real-estate-and-property.webp",
     solutions: [
       "Property marketplaces and listing platforms built around how buyers actually search",
@@ -312,6 +382,13 @@ export const industries = [
   {
     title: "Fintech & Financial Services",
     copy: "Secure solutions for banking, payments, lending, and wealth management.",
+    challenge:
+      "Financial products carry a different bar than most software - every workflow has to hold up under compliance requirements, and every integration touches money, which raises the cost of getting it wrong. That combination is why fintech builds tend to need more rigor than a typical product, not just more features.",
+    outcomes: [
+      "Payment and lending workflows built to your actual compliance requirements",
+      "Dashboards that turn transaction data into decisions, not just reports",
+      "Banking and payment integrations built with security as a first requirement, not an afterthought",
+    ],
     image: "/images/industries/fintech-and-financial-services.webp",
     solutions: [
       "Secure, compliant platforms for payments, lending, and digital banking workflows",
@@ -322,6 +399,13 @@ export const industries = [
   {
     title: "Healthcare & Wellness",
     copy: "Clinics, practices, gyms, wellness centers, and healthcare service providers.",
+    challenge:
+      "Clinics and wellness providers need software that fits around real clinical and administrative workflows, not the other way around, while still protecting patient data to the standard healthcare requires. Generic scheduling or CRM tools rarely hold up to both requirements at once.",
+    outcomes: [
+      "Clinic and patient-care tools built around real clinical workflows",
+      "Telehealth and intake flows that cut administrative load, not add to it",
+      "Patient data handled to the standard healthcare actually requires",
+    ],
     image: "/images/industries/healthcare-and-wellness.webp",
     solutions: [
       "Patient care and clinic management platforms built around real clinical workflows",
@@ -332,6 +416,13 @@ export const industries = [
   {
     title: "Pet Care & Veterinary",
     copy: "Digital tools for veterinary clinics and pet care businesses.",
+    challenge:
+      "Veterinary clinics and pet care businesses run on relationships as much as appointments - owners expect reminders, clear records, and easy booking, while staff need patient history on hand during every visit. Generic scheduling tools rarely capture either side of that well.",
+    outcomes: [
+      "Patient records and appointment history in one place for staff",
+      "Reminders and follow-ups that cut down on no-shows",
+      "Booking flows simple enough for pet owners to use without a call",
+    ],
     image: "/images/industries/pet-care-and-veterinary.webp",
     solutions: [
       "Appointment and patient-record systems built for veterinary clinics and pet care businesses",
