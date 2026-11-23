@@ -1068,7 +1068,7 @@ export const insights = [
     title: "Bespoke Software vs. Off-the-Shelf Tools: How to Choose",
     excerpt:
       "Off-the-shelf tools get you moving fast, but they can start working against you the moment your process doesn't fit their defaults. Here's a practical way to decide which path makes sense.",
-    image: "/images/services/digital-transformation-about.webp",
+    image: "/images/insights/bespoke-vs-off-the-shelf-software.webp",
     date: "2026-11-11",
     readTime: "7 min read",
     body: [
@@ -1087,7 +1087,7 @@ export const insights = [
     title: "What We've Learned Shipping 50+ Products: Lessons From Our Engineering Team",
     excerpt:
       "Patterns repeat across client work more than you'd expect. Here are the habits that consistently separate projects that ship on time from the ones that drift.",
-    image: "/images/panels/service-panel-team-3.webp",
+    image: "/images/insights/lessons-from-shipping-50-plus-products.webp",
     date: "2026-11-04",
     readTime: "6 min read",
     body: [
@@ -1105,7 +1105,7 @@ export const insights = [
     title: "Turning Case Studies Into Pipeline: A Practical Guide",
     excerpt:
       "A case study that only lives on your website isn't doing its job. Here's how to structure, publish, and reuse your proof of work so it actually generates conversations.",
-    image: "/images/services/sales-growth-about.webp",
+    image: "/images/insights/case-studies-into-pipeline-content-that-sells.webp",
     date: "2026-10-28",
     readTime: "5 min read",
     body: [
@@ -1123,7 +1123,7 @@ export const insights = [
     title: "How Software Teams Stay Up to Date Without Chasing Every Trend",
     excerpt:
       "New frameworks and AI tools show up every month. Here's the filter we use internally to decide what's actually worth adopting, and what's just noise.",
-    image: "/images/hero/momentum-team.webp",
+    image: "/images/insights/how-engineering-teams-stay-current.webp",
     date: "2026-10-21",
     readTime: "6 min read",
     body: [
@@ -1141,7 +1141,7 @@ export const insights = [
     title: "CRM Migration Checklist: Moving Off Spreadsheets Without Losing Data",
     excerpt:
       "Spreadsheet CRMs break down quietly, long before anyone notices. This is the checklist we run with clients before, during, and after a migration.",
-    image: "/images/services/web-crm-software-about.webp",
+    image: "/images/insights/crm-migration-checklist.webp",
     date: "2026-10-14",
     readTime: "7 min read",
     body: [
