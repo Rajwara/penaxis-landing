@@ -7187,6 +7187,13 @@ button:focus-visible {
 }
 .indd-hero img { width: 100%; height: 100%; object-fit: cover; }
 
+.indd-challenge { padding: 1rem 0 4rem; background: #fff; }
+.indd-challenge-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; border-left: 3px solid #734fa0; padding-left: 1.75rem; }
+@media (min-width: 768px) {
+  .indd-challenge-grid { grid-template-columns: 1fr 2fr; gap: 3rem; align-items: start; }
+}
+.indd-challenge-copy { font-size: 1.05rem; line-height: 1.7; color: rgba(33, 33, 33, 0.65); max-width: 42rem; }
+
 .indd-solutions { padding: 1rem 0 5rem; background: #fff; }
 .indd-solutions-heading {
   font-family: var(--font-display);
@@ -7225,6 +7232,12 @@ button:focus-visible {
   line-height: 1.55;
   color: rgba(33, 33, 33, 0.72);
 }
+
+.indd-outcomes { padding: 1rem 0 5rem; background: #f6f4fb; }
+.indd-outcomes-list { display: flex; flex-direction: column; gap: 0; border-top: 1px solid rgba(33, 33, 33, 0.08); }
+.indd-outcome-row { display: flex; align-items: baseline; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid rgba(33, 33, 33, 0.08); }
+.indd-outcome-num { font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: #734fa0; flex: none; }
+.indd-outcome-row p { font-size: 1.05rem; line-height: 1.5; color: #212121; }
 
 .indd-related { padding: 1rem 0 5rem; background: #fff; }
 .indd-related-grid {
