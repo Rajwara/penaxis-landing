@@ -20,7 +20,7 @@ export default function AboutV2Timeline() {
     <section className="av2-timeline">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="av2-timeline-frame">
-          <img src="/images/hero/momentum-team.webp" alt="The Penaxis team at work" className="av2-timeline-bg" />
+          <img src="/images/who-we-are/timeline-bg.webp" alt="The Penaxis team at work" className="av2-timeline-bg" />
 
           <div className="av2-timeline-card">
             <span className="av2-timeline-pill">{current.period}</span>

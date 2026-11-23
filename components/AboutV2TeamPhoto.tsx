@@ -9,7 +9,7 @@ export default function AboutV2TeamPhoto() {
         <p className="av2-photo-eyebrow">Who We Are</p>
         <h2 className="av2-photo-heading">We turn ambitious ideas into products, systems and growth.</h2>
         <Reveal className="av2-photo-frame">
-          <img src="/images/Web-Main-img-2.png" alt="The Penaxis team" />
+          <img src="/images/who-we-are/team-photo.png" alt="The Penaxis team" />
         </Reveal>
       </div>
     </section>
