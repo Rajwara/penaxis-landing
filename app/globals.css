@@ -2224,8 +2224,9 @@ button:focus-visible {
   background-color: #fc6607;
   color: #212121;
   clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
+  visibility: hidden;
   transform-origin: center;
-  transition: all cubic-bezier(0.1, 0.5, 0.5, 1) 0.4s;
+  transition: clip-path cubic-bezier(0.1, 0.5, 0.5, 1) 0.4s, visibility 0s linear 0.4s;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2234,6 +2235,11 @@ button:focus-visible {
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
+/* The zero-area clip-path above fully hides the span's background, but on
+   some Chromium builds the glyphs inside still paint through despite a
+   correctly-computed degenerate clip region (opacity:0 doesn't fix it
+   either — same stale-paint bug). visibility:hidden is the real hide;
+   clip-path only drives the wipe-reveal animation once visible. */
 /* Real hover only — gated so touch devices (no true hover capability)
    never trigger this via a tap. Without this gate, some mobile browsers
    simulate a stuck :hover state after a tap-scroll, revealing every
@@ -2241,12 +2247,16 @@ button:focus-visible {
 @media (hover: hover) and (pointer: fine) {
   .ct-text:hover > .ct-text-span {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    visibility: visible;
+    transition: clip-path cubic-bezier(0.1, 0.5, 0.5, 1) 0.4s, visibility 0s linear;
   }
 }
 /* Click/tap toggle — works on every device, and is the only way this
    reveals on touch. */
 .ct-text.ct-active > .ct-text-span {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  visibility: visible;
+  transition: clip-path cubic-bezier(0.1, 0.5, 0.5, 1) 0.4s, visibility 0s linear;
 }
 .ct-text-span a {
   text-decoration: none;
@@ -7626,4 +7636,22 @@ button:focus-visible {
 }
 @media (prefers-reduced-motion: reduce) {
   .svcl-marquee-track { animation: none; }
+}
+
+/* The global Quick Quote tab (.qq-tab) and Store Locator pin (.sl-tab) are
+   fixed to the left edge on every page. At narrow widths a few text blocks
+   run close enough to that edge for the widgets to overlap and clip their
+   leading letters. Give those specific blocks enough left clearance to
+   pass behind both widgets' footprint instead of narrowing the widgets
+   (which are deliberately placed/sized the same way across the site). */
+@media (max-width: 1024px) {
+  .csv2-banner-copy,
+  .insh-intro,
+  .insh-filters,
+  .insd-p {
+    padding-left: 3.5rem;
+  }
+  .insh-grid > div:first-child .insh-card-body {
+    padding-left: 3.5rem;
+  }
 }
